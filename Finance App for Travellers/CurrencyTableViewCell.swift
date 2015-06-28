@@ -12,12 +12,20 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
 
     @IBOutlet weak var flag: UIImageView!
     @IBOutlet weak var currencyCode: UILabel!
+    @IBOutlet weak var valueInput: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func configure(#text: String?, placeholder: String) {
+        valueInput.text = text
+        valueInput.placeholder = placeholder
+        
+        valueInput.accessibilityValue = text
+        valueInput.accessibilityLabel = placeholder
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {

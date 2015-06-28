@@ -549,6 +549,7 @@
                                 <connections>
                                     <outlet property="currencyCode" destination="nBv-mD-HcQ" id="iOv-sn-Ept"/>
                                     <outlet property="flag" destination="XNz-lt-pEl" id="2M3-6k-fx7"/>
+                                    <outlet property="valueInput" destination="RFZ-iF-Jil" id="xPy-nA-VZA"/>
                                     <segue destination="qVK-zR-Vdx" kind="unwind" unwindAction="selectedCurrency:" id="U6v-9M-cB2"/>
                                 </connections>
                             </tableViewCell>
