@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */; };
+		9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */; };
+		9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8F1B37E0FC00C409C1 /* Currency.swift */; };
+		9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */; };
 		9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91911B3444E500DE580F /* AppDelegate.swift */; };
 		9A9C91951B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91931B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld */; };
 		9A9C91971B3444E500DE580F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91961B3444E500DE580F /* ViewController.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewController.swift; sourceTree = "<group>"; };
+		9A801E8F1B37E0FC00C409C1 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAddTableViewCell.swift; sourceTree = "<group>"; };
 		9A9C918C1B3444E500DE580F /* Finance App for Travellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finance App for Travellers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91901B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91911B3444E500DE580F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +90,10 @@
 				9A9C91911B3444E500DE580F /* AppDelegate.swift */,
 				9A9C91961B3444E500DE580F /* ViewController.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
+				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
+				9A801E8F1B37E0FC00C409C1 /* Currency.swift */,
+				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
+				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
 				9A9C919D1B3444E500DE580F /* LaunchScreen.xib */,
 				9A9C91931B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld */,
@@ -164,6 +176,7 @@
 				TargetAttributes = {
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 3V868FP58Z;
 					};
 					9A9C91A31B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -215,8 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
+				9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */,
+				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* ViewController.swift in Sources */,
 				9A9C91951B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld in Sources */,
+				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,9 +361,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -354,9 +375,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -413,6 +438,7 @@
 				9A9C91B01B3444E500DE580F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A9C91B11B3444E500DE580F /* Build configuration list for PBXNativeTarget "Finance App for TravellersTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +447,7 @@
 				9A9C91B31B3444E500DE580F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
