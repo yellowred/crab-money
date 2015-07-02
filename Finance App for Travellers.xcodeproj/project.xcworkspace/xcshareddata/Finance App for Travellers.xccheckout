@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>33660B0B-085C-4354-99C1-612810879836</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Finance App for Travellers</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B2C99A5BF378D50A4C307670051856C08D568D13</key>
+		<string>https://github.com/yellowred/FAfT.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Finance App for Travellers.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B2C99A5BF378D50A4C307670051856C08D568D13</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yellowred/FAfT.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B2C99A5BF378D50A4C307670051856C08D568D13</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B2C99A5BF378D50A4C307670051856C08D568D13</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Finance%20App%20for%20Travellers</string>
+		</dict>
+	</array>
+</dict>
+</plist>
