@@ -8,18 +8,28 @@
 
 import UIKit
 
-class CurrenciesTableViewController: UITableViewController
+class CurrenciesTableViewController: UITableViewController, UITableViewDataSource
 {
 
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
-    
+
+    lazy var model: CurrencyModel = {return CurrencyModel()}()
     var currencies = [Currency]()
+    var countries = [Country]()
+    
     var selectedCurrency: Currency?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadHandsOnCurrencies()
-
+        model.createFakeData()
+        for currency: Currency in model.getCurrenciesList()
+        {
+            currencies.append(currency)
+        }
+        for country: Country in model.getCountriesList()
+        {
+            countries.append(country)
+        }
         /*
         tableView.estimatedRowHeight = 89
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -39,14 +49,6 @@ class CurrenciesTableViewController: UITableViewController
         tableView.reloadData()
     }
     
-    func loadHandsOnCurrencies() {
-        currencies = [
-            Currency(code: "RUB", country: "RU", rate: 25, flag: UIImage(named: "flag_ru"))!,
-            Currency(code: "USD", country: "RU", rate: 100, flag: UIImage(named: "flag_us"))!,
-            Currency(code: "AUD", country: "RU", rate: 85, flag: UIImage(named: "flag_au"))!
-        ]
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,8 +75,8 @@ class CurrenciesTableViewController: UITableViewController
             let cellIdentifier = "CurrencyCell"
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
             let currency = currencies[indexPath.row]
-            (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.capitalizedString
-            (cell as! CurrencyTableViewCell).flag.image = currency.flag
+            (cell as! CurrencyTableViewCell).currencyCode.text = currency.getCode().capitalizedString
+            (cell as! CurrencyTableViewCell).flag.image = currency.getCountry().getFlag()
         } else {
             let cellIdentifier = "CurrencyAddCell"
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyAddTableViewCell

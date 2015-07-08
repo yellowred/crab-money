@@ -18,6 +18,9 @@
 		9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919B1B3444E500DE580F /* Images.xcassets */; };
 		9A9C919F1B3444E500DE580F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919D1B3444E500DE580F /* LaunchScreen.xib */; };
 		9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */; };
+		9AF9E1281B4B6F810076BE69 /* Currency.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* Currency.xcdatamodeld */; };
+		9AF9E12A1B4B84B60076BE69 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1291B4B84B60076BE69 /* Country.swift */; };
+		9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		9A9C91A41B3444E500DE580F /* Finance App for TravellersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finance App for TravellersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91A91B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance_App_for_TravellersTests.swift; sourceTree = "<group>"; };
+		9AF9E1271B4B6F810076BE69 /* Currency.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Currency.xcdatamodel; sourceTree = "<group>"; };
+		9AF9E1291B4B84B60076BE69 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +98,15 @@
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
 				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
 				9A801E8F1B37E0FC00C409C1 /* Currency.swift */,
+				9AF9E1291B4B84B60076BE69 /* Country.swift */,
 				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
 				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
+				9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
 				9A9C919D1B3444E500DE580F /* LaunchScreen.xib */,
 				9A9C91931B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
+				9AF9E1261B4B6F810076BE69 /* Currency.xcdatamodeld */,
 			);
 			path = "Finance App for Travellers";
 			sourceTree = "<group>";
@@ -228,6 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */,
+				9AF9E1281B4B6F810076BE69 /* Currency.xcdatamodeld in Sources */,
+				9AF9E12A1B4B84B60076BE69 /* Country.swift in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
 				9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
@@ -459,6 +471,16 @@
 			);
 			currentVersion = 9A9C91941B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodel */;
 			path = Finance_App_for_Travellers.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		9AF9E1261B4B6F810076BE69 /* Currency.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9AF9E1271B4B6F810076BE69 /* Currency.xcdatamodel */,
+			);
+			currentVersion = 9AF9E1271B4B6F810076BE69 /* Currency.xcdatamodel */;
+			path = Currency.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

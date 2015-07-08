@@ -7,28 +7,22 @@
 //
 
 import UIKit
-class Currency
+import CoreData
+
+class Currency: NSManagedObject
 {
+    @NSManaged var country: Country
     
-    // MARK: Properties
-    
-    var code: String
-    var country: String
-    var rate: Float
-    var flag: UIImage?
-    
-    init?(code:String, country:String, rate: Float, flag: UIImage?)
+    func getCode() -> String
     {
-        self.code = code
-        self.country = country
-        self.rate = rate
-        self.flag = flag
-        if code.isEmpty
-        {
-            return nil
-        }
+        return self.valueForKey("code") as! String
     }
     
+    
+    func getCountry() -> Country
+    {
+        return self.valueForKey("country") as! Country
+    }
 }
 
 
