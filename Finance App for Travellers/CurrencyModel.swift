@@ -61,7 +61,7 @@ class CurrencyModel
     func createCurrency(code: String, value: Float, country: Country) -> Currency
     {
         let newCurrency = Currency(entity: createEntity("Currency"),
-            insertIntoManagedObjectContext:getManagedContext())
+            insertIntoManagedObjectContext:getManagedContext()) as Currency
         
         newCurrency.setValue(code, forKey: "code")
         newCurrency.setValue(value, forKey: "value")
@@ -73,7 +73,9 @@ class CurrencyModel
     
     func createCountry(code: String, name: String) -> (Country)
     {
-        let newCountry = Country(entity: createEntity("Country"), insertIntoManagedObjectContext:getManagedContext())
+        let newCountry = NSEntityDescription.insertNewObjectForEntityForName( NSStringFromClass(Country.classForCoder()), inManagedObjectContext: getManagedContext()) as! Country
+        
+        //let newCountry = Country(entity: createEntity("Country"), insertIntoManagedObjectContext:getManagedContext()) as Country
         
         newCountry.setValue(code, forKey: "code")
         newCountry.setValue(name, forKey: "name")

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */; };
 		9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */; };
-		9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8F1B37E0FC00C409C1 /* Currency.swift */; };
 		9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */; };
 		9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91911B3444E500DE580F /* AppDelegate.swift */; };
 		9A9C91971B3444E500DE580F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91961B3444E500DE580F /* ViewController.swift */; };
@@ -18,8 +17,9 @@
 		9A9C919F1B3444E500DE580F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919D1B3444E500DE580F /* LaunchScreen.xib */; };
 		9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */; };
 		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
-		9AF9E12A1B4B84B60076BE69 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1291B4B84B60076BE69 /* Country.swift */; };
 		9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */; };
+		9AFE27CC1B4D19D500E49154 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE27CB1B4D19D500E49154 /* Country.swift */; };
+		9AFE27CE1B4D19D600E49154 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE27CD1B4D19D600E49154 /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 /* Begin PBXFileReference section */
 		9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewController.swift; sourceTree = "<group>"; };
-		9A801E8F1B37E0FC00C409C1 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAddTableViewCell.swift; sourceTree = "<group>"; };
 		9A9C918C1B3444E500DE580F /* Finance App for Travellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finance App for Travellers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91901B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,8 +47,9 @@
 		9A9C91A91B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance_App_for_TravellersTests.swift; sourceTree = "<group>"; };
 		9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		9AF9E1291B4B84B60076BE69 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
+		9AFE27CB1B4D19D500E49154 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		9AFE27CD1B4D19D600E49154 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; usesTabs = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +95,9 @@
 				9A9C91961B3444E500DE580F /* ViewController.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
 				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
-				9A801E8F1B37E0FC00C409C1 /* Currency.swift */,
-				9AF9E1291B4B84B60076BE69 /* Country.swift */,
 				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
+				9AFE27CD1B4D19D600E49154 /* Currency.swift */,
+				9AFE27CB1B4D19D500E49154 /* Country.swift */,
 				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
 				9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
@@ -236,12 +236,12 @@
 			files = (
 				9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */,
 				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
-				9AF9E12A1B4B84B60076BE69 /* Country.swift in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
-				9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
+				9AFE27CE1B4D19D600E49154 /* Currency.swift in Sources */,
 				9A9C91971B3444E500DE580F /* ViewController.swift in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
+				9AFE27CC1B4D19D500E49154 /* Country.swift in Sources */,
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
