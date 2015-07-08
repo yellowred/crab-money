@@ -12,13 +12,12 @@
 		9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8F1B37E0FC00C409C1 /* Currency.swift */; };
 		9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */; };
 		9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91911B3444E500DE580F /* AppDelegate.swift */; };
-		9A9C91951B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91931B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld */; };
 		9A9C91971B3444E500DE580F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91961B3444E500DE580F /* ViewController.swift */; };
 		9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C91981B3444E500DE580F /* Main.storyboard */; };
 		9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919B1B3444E500DE580F /* Images.xcassets */; };
 		9A9C919F1B3444E500DE580F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919D1B3444E500DE580F /* LaunchScreen.xib */; };
 		9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */; };
-		9AF9E1281B4B6F810076BE69 /* Currency.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* Currency.xcdatamodeld */; };
+		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
 		9AF9E12A1B4B84B60076BE69 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1291B4B84B60076BE69 /* Country.swift */; };
 		9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		9A9C918C1B3444E500DE580F /* Finance App for Travellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finance App for Travellers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91901B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91911B3444E500DE580F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A9C91941B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finance_App_for_Travellers.xcdatamodel; sourceTree = "<group>"; };
 		9A9C91961B3444E500DE580F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A9C91991B3444E500DE580F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A9C919B1B3444E500DE580F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -49,7 +47,7 @@
 		9A9C91A41B3444E500DE580F /* Finance App for TravellersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finance App for TravellersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91A91B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance_App_for_TravellersTests.swift; sourceTree = "<group>"; };
-		9AF9E1271B4B6F810076BE69 /* Currency.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Currency.xcdatamodel; sourceTree = "<group>"; };
+		9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9AF9E1291B4B84B60076BE69 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,9 +102,8 @@
 				9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
 				9A9C919D1B3444E500DE580F /* LaunchScreen.xib */,
-				9A9C91931B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
-				9AF9E1261B4B6F810076BE69 /* Currency.xcdatamodeld */,
+				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
 			);
 			path = "Finance App for Travellers";
 			sourceTree = "<group>";
@@ -238,13 +235,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */,
-				9AF9E1281B4B6F810076BE69 /* Currency.xcdatamodeld in Sources */,
+				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
 				9AF9E12A1B4B84B60076BE69 /* Country.swift in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
 				9A801E901B37E0FC00C409C1 /* Currency.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* ViewController.swift in Sources */,
-				9A9C91951B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 			);
@@ -464,23 +460,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9A9C91931B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodeld */ = {
+		9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9A9C91941B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodel */,
+				9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 9A9C91941B3444E500DE580F /* Finance_App_for_Travellers.xcdatamodel */;
-			path = Finance_App_for_Travellers.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		9AF9E1261B4B6F810076BE69 /* Currency.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9AF9E1271B4B6F810076BE69 /* Currency.xcdatamodel */,
-			);
-			currentVersion = 9AF9E1271B4B6F810076BE69 /* Currency.xcdatamodel */;
-			path = Currency.xcdatamodeld;
+			currentVersion = 9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

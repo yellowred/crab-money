@@ -13,11 +13,6 @@ class CurrencyModel
 {
     func createFakeData()
     {
-        let persistenStoreCoordinator: NSPersistentStoreCoordinator = getManagedContext().persistentStoreCoordinator!
-        let managedObjectModel: NSManagedObjectModel = persistenStoreCoordinator.managedObjectModel
-        
-        println("All loaded entities are: \(managedObjectModel.entitiesByName)");
-        
         clearStorage()
         
         let russia: Country = createCountry("RU", name: "Россия");
@@ -126,5 +121,12 @@ class CurrencyModel
         }
         return fetchedResults!
     }
-    
+ 
+    func showAllEntities()
+    {
+        let persistenStoreCoordinator: NSPersistentStoreCoordinator = getManagedContext().persistentStoreCoordinator!
+        let managedObjectModel: NSManagedObjectModel = persistenStoreCoordinator.managedObjectModel
+        
+        println("All loaded entities are: \(managedObjectModel.entitiesByName)");
+    }
 }
