@@ -12,9 +12,29 @@ class ViewController: UIViewController {
 
     var currentCurrrency: Currency?
     
+    @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        /*
+        var alert: UIAlertView = UIAlertView(title: "Title", message: "Please wait...", delegate: nil, cancelButtonTitle: "Cancel");
+        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
+        
+        alert.setValue(loadingIndicator, forKey: "accessoryView")
+        loadingIndicator.startAnimating()
+        
+        alert.show();
+        alert.dismissWithClickedButtonIndex(0, animated: true)
+        */
+        
+        networkingIndicator.startAnimating()
+        Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
+		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
     }
 
     override func didReceiveMemoryWarning() {

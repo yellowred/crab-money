@@ -21,7 +21,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.createFakeData()
+        //model.createFakeData()
         for currency: Currency in model.getCurrenciesList()
         {
             currencies.append(currency)
@@ -75,7 +75,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             let cellIdentifier = "CurrencyCell"
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
             let currency = currencies[indexPath.row]
-            (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.capitalizedString
+            (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.uppercaseString
             (cell as! CurrencyTableViewCell).flag.image = currency.country.getFlag()
         } else {
             let cellIdentifier = "CurrencyAddCell"

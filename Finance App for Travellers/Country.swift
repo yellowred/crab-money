@@ -13,16 +13,24 @@ import CoreData
 
     @NSManaged var code: String
     @NSManaged var name: String
+    @NSManaged var flag: NSData?
     @NSManaged var currency: Currency
 
     
-    lazy var flag: UIImage? = {
-        return UIImage(named: "flag_\(self.code)")
+    lazy var flagImage: UIImage? = {
+        if self.flag == nil
+        {
+            return nil
+        }
+        else
+        {
+            return UIImage(data: self.flag!)
+        }
     }()
     
     
     func getFlag() -> UIImage?
     {
-        return self.flag
+        return self.flagImage
     }
 }

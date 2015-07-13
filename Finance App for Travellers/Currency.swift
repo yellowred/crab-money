@@ -13,9 +13,8 @@ import CoreData
 
     @NSManaged var code: String
     @NSManaged var mdate: NSDate
-    @NSManaged var name: String
-    @NSManaged var nominal: NSNumber
-    @NSManaged var value: NSDecimalNumber
+    @NSManaged var name: String?
+    @NSManaged var rate: Float
     @NSManaged var country: Country
 
 }
