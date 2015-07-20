@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         */
         
         networkingIndicator.startAnimating()
-        Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
-		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
+       // Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
+		Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
     }
 
     override func didReceiveMemoryWarning() {

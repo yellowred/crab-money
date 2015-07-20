@@ -39,6 +39,7 @@ class CountriesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
+		println("Countries count \(countries.count)")
         return countries.count
     }
 
@@ -48,6 +49,8 @@ class CountriesTableViewController: UITableViewController {
 
         cell.textLabel?.text = countries[indexPath.row].valueForKey("name") as? String
 		cell.imageView?.image = countries[indexPath.row].getFlag()
+		
+		countries[indexPath.row].dumpProperties()
         return cell
     }
 

@@ -269,7 +269,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qgH-Ub-BBh">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="unicorn.png" id="1jg-We-iWB">
@@ -298,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" rowHeight="90" id="W70-jU-UgL" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyManagableCell" rowHeight="90" id="W70-jU-UgL" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W70-jU-UgL" id="NJm-Sf-X6v">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -313,11 +313,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="roundedRect" placeholder="1000" textAlignment="right" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="RFZ-iF-Jil">
-                                            <rect key="frame" x="427" y="30" width="155" height="30"/>
+                                            <rect key="frame" x="427" y="20" width="155" height="50"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
                                             </accessibility>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="8R2-A5-2kh"/>
                                                 <constraint firstAttribute="width" constant="155" id="y5l-NZ-Iab"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
@@ -359,6 +360,32 @@
                                     <segue destination="qVK-zR-Vdx" kind="unwind" unwindAction="selectedCurrency:" id="U6v-9M-cB2"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyAddCell" rowHeight="90" id="y56-mB-Oaf" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y56-mB-Oaf" id="dKX-6I-pbZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-xb-2Bf">
+                                            <rect key="frame" x="250" y="20" width="100" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="9Ag-1x-CZs"/>
+                                                <constraint firstAttribute="height" constant="50" id="h1C-Ib-cNd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="34"/>
+                                            <state key="normal" title="Add">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="fiR-IO-r0b" kind="show" identifier="AddCurrencyToHandsOnCurrencies" id="1Q5-xo-Y9g"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="LFk-xb-2Bf" secondAttribute="centerY" id="5Hn-4r-TCe"/>
+                                        <constraint firstAttribute="centerX" secondItem="LFk-xb-2Bf" secondAttribute="centerX" id="nVp-AW-BMp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -374,6 +401,72 @@
                 <exit id="qVK-zR-Vdx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2770" y="399"/>
+        </scene>
+        <!--All Currencies Table View Controller-->
+        <scene sceneID="IAl-WG-ebc">
+            <objects>
+                <tableViewController id="fiR-IO-r0b" customClass="AllCurrenciesTableViewController" customModule="Finance_App_for_Travellers" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vgf-EB-sY4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCurrencyCell" rowHeight="90" id="KhC-Wb-fxz" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KhC-Wb-fxz" id="mPd-mQ-xfb">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="RUB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk8-1M-o2i">
+                                            <rect key="frame" x="88" y="20" width="100" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="pBv-te-wi1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
+                                            <color key="textColor" red="0.42937184340000001" green="0.42937184340000001" blue="0.42937184340000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="flag_ru" translatesAutoresizingMaskIntoConstraints="NO" id="OEC-tx-cYk">
+                                            <rect key="frame" x="18" y="20" width="60" height="50"/>
+                                            <color key="backgroundColor" red="0.42937184340000001" green="0.42937184340000001" blue="0.42937184340000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="HMt-w2-5kL"/>
+                                                <constraint firstAttribute="height" constant="50" id="UEh-uX-bE9"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OEC-tx-cYk" firstAttribute="top" secondItem="mPd-mQ-xfb" secondAttribute="topMargin" constant="14" id="AL7-XX-EPt"/>
+                                        <constraint firstItem="OEC-tx-cYk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPd-mQ-xfb" secondAttribute="leadingMargin" constant="10" id="Hoc-Hl-pI6"/>
+                                        <constraint firstAttribute="centerX" secondItem="OEC-tx-cYk" secondAttribute="centerX" id="Pqm-UY-vCO"/>
+                                        <constraint firstItem="Mk8-1M-o2i" firstAttribute="top" secondItem="OEC-tx-cYk" secondAttribute="top" id="X3F-ZG-Cg5"/>
+                                        <constraint firstItem="OEC-tx-cYk" firstAttribute="bottom" secondItem="Mk8-1M-o2i" secondAttribute="bottom" id="XbD-rk-WpU"/>
+                                        <constraint firstAttribute="centerY" secondItem="OEC-tx-cYk" secondAttribute="centerY" id="cFA-h8-4nt"/>
+                                        <constraint firstItem="Mk8-1M-o2i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OEC-tx-cYk" secondAttribute="trailing" constant="10" id="gQl-fn-N3o"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="OEC-tx-cYk" secondAttribute="bottom" constant="13" id="gYf-Xe-fqB"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="gYf-Xe-fqB"/>
+                                            <exclude reference="Pqm-UY-vCO"/>
+                                            <exclude reference="AL7-XX-EPt"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currencyCode" destination="Mk8-1M-o2i" id="46u-fd-M9X"/>
+                                    <outlet property="flag" destination="OEC-tx-cYk" id="iQK-Nh-qwQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fiR-IO-r0b" id="Qkq-9n-IN1"/>
+                            <outlet property="delegate" destination="fiR-IO-r0b" id="lTM-pj-HNZ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="43K-pZ-vYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3416" y="399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mro-E4-fMr">

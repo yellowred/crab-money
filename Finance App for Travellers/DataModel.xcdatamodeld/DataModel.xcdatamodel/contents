@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Country" representedClassName="Country" syncable="YES">
-        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" attributeType="String" syncable="YES"/>
         <attribute name="flag" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="country" inverseEntity="Currency" syncable="YES"/>
     </entity>
     <entity name="Currency" representedClassName="Currency" syncable="YES">
         <attribute name="code" attributeType="String" syncable="YES"/>
-        <attribute name="mdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flag" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
-        <attribute name="rate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="currency" inverseEntity="Country" syncable="YES"/>
+        <attribute name="rate" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="country" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Country" inverseName="currency" inverseEntity="Country" syncable="YES"/>
+    </entity>
+    <entity name="HandsOnCurrency" representedClassName="" syncable="YES">
+        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" syncable="YES"/>
     </entity>
     <elements>
         <element name="Country" positionX="-54" positionY="36" width="128" height="105"/>
         <element name="Currency" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="HandsOnCurrency" positionX="-63" positionY="45" width="128" height="60"/>
     </elements>
 </model>

@@ -15,21 +15,12 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 
     lazy var model: CurrencyModel = {return CurrencyModel()}()
     var currencies = [Currency]()
-    var countries = [Country]()
-    
+	
     var selectedCurrency: Currency?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //model.createFakeData()
-        for currency: Currency in model.getCurrenciesList()
-        {
-            currencies.append(currency)
-        }
-        for country: Country in model.getCountriesList()
-        {
-            countries.append(country)
-        }
+		currencies = model.getHandsOnCurrenciesList()
         /*
         tableView.estimatedRowHeight = 89
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -72,11 +63,12 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
         var cell: UITableViewCell
         
         if indexPath.row < currencies.count {
-            let cellIdentifier = "CurrencyCell"
+            let cellIdentifier = "CurrencyManagableCell"
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
             let currency = currencies[indexPath.row]
             (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.uppercaseString
-            (cell as! CurrencyTableViewCell).flag.image = currency.country.getFlag()
+			(cell as! CurrencyTableViewCell).flag.image = currency.getFlag()
+			
         } else {
             let cellIdentifier = "CurrencyAddCell"
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyAddTableViewCell
@@ -143,4 +135,12 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     }
     */
 
+	
+	@IBAction func saveCurrencyToHandsOnCollection(segue:UIStoryboardSegue) {
+		if let allCurrenciesTableViewController = segue.sourceViewController as? AllCurrenciesTableViewController,
+			let selectedCurrency:Currency = allCurrenciesTableViewController.selectedCurrency
+		{
+				//add currency to hands on currencies
+		}
+	}
 }

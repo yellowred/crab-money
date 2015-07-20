@@ -14,7 +14,7 @@ class Networking
 {
 	private let api1:String = "http://api.fixer.io/latest?base=USD"
 	private let api2:String = "https://openexchangerates.org/api/api/latest.json?app_id=fc667c4ed0af4675835f20c90b8a4276"
-	private let api3:String = "http://tutu.kubrakov.devel.local/test.php"
+	private let currencyDownloadEndpoint:String = "http://sandbox.kubrakov.devel.local/currency.php"
 	
 
     func downloadAllData()
@@ -30,7 +30,7 @@ class Networking
 	{
 		let model = CurrencyModel();
 		model.clearStorage()
-		Alamofire.request(.GET, api3).responseJSON() {
+		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
 			(_, _, data, error) in
 
 			if error != nil
@@ -56,7 +56,8 @@ class Networking
 				var country = model.createCountry(
 					countryData.valueForKey("code") as! String,
 					name: countryData.valueForKey("name_eng") as! String,
-					flag: flagPngData
+					flag: flagPngData,
+					currency: model.getCurrencyByCode(countryData.valueForKey("currency") as! String)!
 				)
 			}
 			model.saveStorage()
@@ -68,16 +69,10 @@ class Networking
 	func downloadCurrenciesDatabase(finishCallback: () -> Void)
 	{
 		let model = CurrencyModel();
-
-		for currency: Currency in model.getCurrenciesList()
-		{
-			currency.delete(self)
-		}
-		model.saveStorage()
+		model.clearCurrencies()
 		
-		
-		Alamofire.request(.GET, api3).responseJSON() {
-			(_, _, data, error) in
+		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
+			(_, response, data, error) in
 			
 			if error != nil
 			{
@@ -86,18 +81,41 @@ class Networking
 			
 			
 			println(data);
+			var flagPngData:NSData? = nil
+			var currencyIndex = 0;
 			for currencyData:NSDictionary in data as! [NSDictionary]
 			{
+				if currencyData.valueForKey("flag") != nil
+				{
+					
+					flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: nil)
+				}
+				else
+				{
+					flagPngData = nil
+				}
 				var currency = model.createCurrency(
 					currencyData.valueForKey("code") as! String,
-					rate: currencyData.valueForKey("rate") as? Float,
-					country: model.getCountryByCode(currencyData.valueForKey("country") as! String)
+					rate: currencyData.valueForKey("rate") as! Float,
+					flag: flagPngData,
+					name: currencyData.valueForKey("name") as? String
+//					country: model.getCountryByCode(currencyData.valueForKey("country") as! String)
 				)
+				if currency != nil
+				{
+					currency?.dumpProperties()
+					currencyIndex++
+				}
+				else
+				{
+					println("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
+				}
+				
 			}
+			println("Saved: \(currencyIndex)")
 			model.saveStorage()
 			finishCallback()
 		}
-		
 	}
 	
 }
