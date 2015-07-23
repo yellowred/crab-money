@@ -19,20 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AoL-Yo-ciG">
-                                <rect key="frame" x="130" y="120" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="F9D-R1-9SP"/>
-                                    <constraint firstAttribute="height" constant="80" id="opR-Pe-lFR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
-                                <state key="normal" title="1">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="42" y="-4" width="100" height="100"/>
-                                </variation>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bcl-Hb-vI7">
                                 <rect key="frame" x="130" y="210" width="80" height="80"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
@@ -123,8 +109,8 @@
                                     <rect key="frame" x="150" y="284" width="100" height="100"/>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="wzW-kr-rPo">
-                                <rect key="frame" x="150" y="28" width="300" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="wzW-kr-rPo">
+                                <rect key="frame" x="150" y="65" width="300" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="EdN-bX-n2G"/>
                                     <constraint firstAttribute="width" constant="300" id="yHT-cz-Xi7"/>
@@ -135,7 +121,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="obF-Gz-u71" kind="show" id="4je-e9-YoO"/>
+                                    <segue destination="obF-Gz-u71" kind="show" identifier="" id="4je-e9-YoO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-2H-AkF">
@@ -181,6 +167,21 @@
                                 <rect key="frame" x="290" y="570" width="20" height="20"/>
                                 <color key="color" red="0.048754139826939769" green="0.46164896339135264" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AoL-Yo-ciG">
+                                <rect key="frame" x="130" y="120" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="F9D-R1-9SP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="eGw-fy-4wF"/>
+                                    <constraint firstAttribute="height" constant="80" id="opR-Pe-lFR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="42" y="-4" width="100" height="100"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -210,6 +211,7 @@
                             <constraint firstItem="WgM-wL-HCj" firstAttribute="centerX" secondItem="wzW-kr-rPo" secondAttribute="centerX" id="PIx-3d-NsG"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="h7U-Y2-VQc" secondAttribute="width" id="VJE-CH-YVY"/>
                             <constraint firstItem="fW4-OZ-E8T" firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" id="Wnl-xz-Fxp"/>
+                            <constraint firstItem="wzW-kr-rPo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="1" id="XDj-Nt-RJL"/>
                             <constraint firstItem="pXz-cm-EJf" firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" id="XJz-DY-Vks"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="top" secondItem="AoL-Yo-ciG" secondAttribute="bottom" constant="10" id="XOW-jg-Uh8"/>
                             <constraint firstItem="kKJ-JY-Shy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WgM-wL-HCj" secondAttribute="bottom" constant="10" id="aM0-5A-iib"/>
@@ -240,6 +242,11 @@
                             <constraint firstItem="fW4-OZ-E8T" firstAttribute="centerX" secondItem="h7U-Y2-VQc" secondAttribute="centerX" id="yyb-EH-bqv"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="top" secondItem="Sk4-Mf-AcN" secondAttribute="top" id="zlp-Q3-QV7"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kT2-b2-gRF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Y9u-wn-l1q">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Ar3-ge-jIV"/>
@@ -357,10 +364,10 @@
                                     <outlet property="currencyCode" destination="nBv-mD-HcQ" id="iOv-sn-Ept"/>
                                     <outlet property="flag" destination="XNz-lt-pEl" id="2M3-6k-fx7"/>
                                     <outlet property="valueInput" destination="RFZ-iF-Jil" id="xPy-nA-VZA"/>
-                                    <segue destination="qVK-zR-Vdx" kind="unwind" unwindAction="selectedCurrency:" id="U6v-9M-cB2"/>
+                                    <segue destination="qVK-zR-Vdx" kind="unwind" identifier="SelectCurrencyToOperate" unwindAction="selectedCurrency:" id="U6v-9M-cB2"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyAddCell" rowHeight="90" id="y56-mB-Oaf" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyAddCell" rowHeight="90" id="y56-mB-Oaf" customClass="CurrencyAddTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y56-mB-Oaf" id="dKX-6I-pbZ">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -376,7 +383,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="fiR-IO-r0b" kind="show" identifier="AddCurrencyToHandsOnCurrencies" id="1Q5-xo-Y9g"/>
+                                                <segue destination="fiR-IO-r0b" kind="show" identifier="" id="1Q5-xo-Y9g"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -446,15 +453,16 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="gYf-Xe-fqB"/>
-                                            <exclude reference="Pqm-UY-vCO"/>
                                             <exclude reference="AL7-XX-EPt"/>
+                                            <exclude reference="Pqm-UY-vCO"/>
+                                            <exclude reference="gYf-Xe-fqB"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="currencyCode" destination="Mk8-1M-o2i" id="46u-fd-M9X"/>
                                     <outlet property="flag" destination="OEC-tx-cYk" id="iQK-Nh-qwQ"/>
+                                    <segue destination="SGk-bk-MXZ" kind="unwind" identifier="AddCurrencyToHandsOnCurrencies" unwindAction="saveCurrencyToHandsOnCollection:" id="iMY-dV-IBV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -465,6 +473,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43K-pZ-vYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SGk-bk-MXZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3416" y="399"/>
         </scene>

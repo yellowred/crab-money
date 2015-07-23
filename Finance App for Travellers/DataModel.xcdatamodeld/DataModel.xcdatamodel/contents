@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category" syncable="YES">
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="transaction" inverseEntity="Category" syncable="YES"/>
+    </entity>
     <entity name="Country" representedClassName="Country" syncable="YES">
         <attribute name="code" attributeType="String" syncable="YES"/>
         <attribute name="flag" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -12,13 +17,23 @@
         <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="rate" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="country" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Country" inverseName="currency" inverseEntity="Country" syncable="YES"/>
+        <relationship name="handsOnCurrency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HandsOnCurrency" inverseName="currency" inverseEntity="HandsOnCurrency" syncable="YES"/>
     </entity>
-    <entity name="HandsOnCurrency" representedClassName="" syncable="YES">
-        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" syncable="YES"/>
+    <entity name="HandsOnCurrency" representedClassName="NSManagedObject" syncable="YES">
+        <relationship name="currency" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="handsOnCurrency" inverseEntity="Currency" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Category" syncable="YES"/>
+        <relationship name="currency" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Currency" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Category" positionX="-45" positionY="63" width="128" height="90"/>
         <element name="Country" positionX="-54" positionY="36" width="128" height="105"/>
-        <element name="Currency" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Currency" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="HandsOnCurrency" positionX="-63" positionY="45" width="128" height="60"/>
+        <element name="Transaction" positionX="-54" positionY="54" width="128" height="120"/>
     </elements>
 </model>

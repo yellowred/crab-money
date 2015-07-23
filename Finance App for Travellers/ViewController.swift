@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+		navigationController?.setNavigationBarHidden(true, animated: false)
         /*
         var alert: UIAlertView = UIAlertView(title: "Title", message: "Please wait...", delegate: nil, cancelButtonTitle: "Cancel");
         var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
@@ -32,9 +32,9 @@ class ViewController: UIViewController {
         alert.dismissWithClickedButtonIndex(0, animated: true)
         */
         
-        networkingIndicator.startAnimating()
-       // Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
-		Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
+        //networkingIndicator.startAnimating()
+		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
+		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +43,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
+		navigationController?.setNavigationBarHidden(true, animated: true)
         if let currenciesTableViewController = segue.sourceViewController as? CurrenciesTableViewController,
             selectedCurrency = currenciesTableViewController.selectedCurrency {
-                currentCurrrency = selectedCurrency
+
+				currentCurrrency = selectedCurrency
         }
     }
 
+	
+	override func viewDidAppear(animated: Bool)
+	{
+		navigationController?.setNavigationBarHidden(true, animated: true)
+		super.viewDidAppear(animated)
+	}
+	
+	override func viewDidDisappear(animated: Bool)
+	{
+		navigationController?.setNavigationBarHidden(false, animated: true)
+		super.viewDidDisappear(animated)
+	}
+	
 }
 

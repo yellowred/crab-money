@@ -11,6 +11,7 @@ import UIKit
 class AllCurrenciesTableViewController: UITableViewController {
 
 	var allCurrencies = [Currency]()
+	var selectedCurrency: Currency?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,7 +21,7 @@ class AllCurrenciesTableViewController: UITableViewController {
 		
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		allCurrencies = CurrencyModel().getCurrenciesList()
+		allCurrencies = CurrencyModel().getCurrenciesNotHandsOn()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -53,6 +54,11 @@ class AllCurrenciesTableViewController: UITableViewController {
 		return cell
 	}
 	
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+	{
+		selectedCurrency = allCurrencies[indexPath.row]
+	}
+
 	/*
 	// Override to support conditional editing of the table view.
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -88,19 +94,23 @@ class AllCurrenciesTableViewController: UITableViewController {
 	}
 	*/
 	
-	/*
+
 	// MARK: - Navigation
 	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	// Get the new view controller using [segue destinationViewController].
-	// Pass the selected object to the new view controller.
-	}
-	*/
-	
-	override func unwindFromSegue()
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
 	{
-		//AddCurrencyToHandsOnCurrencies
+		if segue.identifier == "AddCurrencyToHandsOnCurrencies"
+		{
+			if let cell = sender as? UITableViewCell
+			{
+				let indexPath = tableView.indexPathForCell(cell)
+				if let index = indexPath?.row
+				{
+					selectedCurrency = allCurrencies[index]
+				}
+			}
+		}
 	}
+
 
 }

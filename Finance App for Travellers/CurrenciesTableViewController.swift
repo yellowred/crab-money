@@ -21,6 +21,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
 		currencies = model.getHandsOnCurrenciesList()
+		tableView.allowsMultipleSelectionDuringEditing = false;
         /*
         tableView.estimatedRowHeight = 89
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -32,10 +33,12 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
         */
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool)
+	{
         tableView.reloadData()
     }
-    
+
+	
     func onContentSizeChange(notification: NSNotification) {
         tableView.reloadData()
     }
@@ -54,8 +57,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return currencies.count + 1;
-          return currencies.count;
+		return currencies.count + 1;
     }
 
     
@@ -96,25 +98,26 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
         }
     }
     
-    /*
+
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
+
+
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
+        if editingStyle == .Delete
+		{
+			model.deleteHandsOnCurrencyByCurrency(currencies.removeAtIndex(indexPath.row))
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+        }
+		else if editingStyle == .Insert
+		{
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
 
     /*
@@ -136,11 +139,22 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     */
 
 	
-	@IBAction func saveCurrencyToHandsOnCollection(segue:UIStoryboardSegue) {
-		if let allCurrenciesTableViewController = segue.sourceViewController as? AllCurrenciesTableViewController,
-			let selectedCurrency:Currency = allCurrenciesTableViewController.selectedCurrency
+	@IBAction func saveCurrencyToHandsOnCollection(segue:UIStoryboardSegue)
+	{
+		if let allCurrenciesTableViewController = segue.sourceViewController as? AllCurrenciesTableViewController
 		{
-				//add currency to hands on currencies
+			println("Selected currency: \(allCurrenciesTableViewController.selectedCurrency)")
+			
+			if let currencyToAdd:Currency = allCurrenciesTableViewController.selectedCurrency
+			{
+				currencies.append(currencyToAdd)
+				model.addCurrencyToHandsOnList(currencyToAdd)
+				model.saveStorage()
+
+				//update the tableView
+				let indexPath = NSIndexPath(forRow: currencies.count-1, inSection: 0)
+				tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+			}
 		}
 	}
 }

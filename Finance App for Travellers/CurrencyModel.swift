@@ -109,8 +109,15 @@ class CurrencyModel
         
         return newCountry
     }
-    
-    
+	
+	
+	func addCurrencyToHandsOnList(currency:Currency)
+	{
+		let entity:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("HandsOnCurrency", inManagedObjectContext: getManagedContext()) as! NSManagedObject
+		entity.setValue(currency, forKey: "currency")
+	}
+	
+	
     func clearStorage()
     {
         for currency: Currency in getCurrenciesList()
@@ -171,6 +178,21 @@ class CurrencyModel
         return fetchedResults!
     }
 	
+	func getCurrenciesNotHandsOn() -> [Currency]
+	{
+		let fetchRequest = NSFetchRequest(entityName:"Currency")
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "code", ascending: true)]
+		fetchRequest.predicate = NSPredicate(format: "handsOnCurrency == nil || handsOnCurrency.@count =0")
+
+		var error: NSError?
+		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Currency]
+		if (error != nil)
+		{
+			println("Could not fetch \(error), \(error!.userInfo)")
+		}
+		return fetchedResults!
+
+	}
  
 	func getCountryByCode(code:String) -> Country?
 	{
@@ -226,25 +248,35 @@ class CurrencyModel
 	
 	func getHandsOnCurrenciesList() -> [Currency]
 	{
+		var handsOnCurrencies = [Currency]()
+		
 		let fetchRequest = NSFetchRequest(entityName:"HandsOnCurrency")
 		var error: NSError?
-		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Currency]
+		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
 		if (error != nil)
 		{
 			println("Could not fetch \(error), \(error!.userInfo)")
 		}
 		else
 		{
-			var handsOnCurrencies = [Currency]()
-			for handsOnCurrency:NSManagedObject in fetchedResults
+			if (fetchedResults != nil)
 			{
-				var currency: Currency? = handsOnCurrency.currency
-				if (currency != nil)
+				for handsOnCurrency:NSManagedObject in fetchedResults!
 				{
-					handsOnCurrencies.append(currency)
+					var currency: Currency? = handsOnCurrency.valueForKey("currency") as? Currency
+					if (currency != nil)
+					{
+						handsOnCurrencies.append(currency!)
+					}
 				}
 			}
 		}
-		return fetchedResults!
+		return handsOnCurrencies
+	}
+
+	func deleteHandsOnCurrencyByCurrency(currency:Currency)
+	{
+		getManagedContext().deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
+		getManagedContext().save(nil)
 	}
 }
