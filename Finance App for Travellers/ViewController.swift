@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
 
+    @IBOutlet weak var currentCurrencyFlag: UIImageView!
+    @IBOutlet weak var currentCurrencyLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
@@ -140,10 +144,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
-        if let currenciesTableViewController = segue.sourceViewController as? CurrenciesTableViewController,
-            selectedCurrency = currenciesTableViewController.selectedCurrency
-		{
-			currentCurrrency = selectedCurrency
+		let currenciesTVC = segue.sourceViewController as? CurrenciesTableViewController
+        if  (currenciesTVC != nil) {
+			currentCurrrency = currenciesTVC!.selectedCurrency
+            currentCurrencyFlag.image = currentCurrrency?.getFlag()
+            currentCurrencyLabel.text = currentCurrrency?.code.uppercaseString
+			println("Current currency: \(currentCurrrency)")
         }
     }
 
@@ -164,7 +170,7 @@ class ViewController: UIViewController {
 		println("Segue: \(segue.identifier)")
 		if segue.identifier == "showCurrencySelect"
 		{
-			if let currenciesTVC = segue.destinationViewController as? CurrenciesTableViewController
+			if let currenciesTVC = segue.destinationViewController.topViewController as? CurrenciesTableViewController
 			{
 				currenciesTVC.providedAmount = amount
 				println("Amount: \(amount)")

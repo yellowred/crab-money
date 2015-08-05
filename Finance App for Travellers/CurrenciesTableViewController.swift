@@ -87,11 +87,11 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        selectedCurrency = currencies[indexPath.row]
+		selectedCurrency = currencies[indexPath.row]
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueCurrencies" {
+        if segue.identifier == "SelectCurrencyToOperate" {
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPathForCell(cell)
                 if let index = indexPath?.row {
@@ -100,7 +100,8 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             }
         }
     }
-    
+	
+	
 
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
