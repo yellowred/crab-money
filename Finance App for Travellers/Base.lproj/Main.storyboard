@@ -3,7 +3,6 @@
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -21,11 +20,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bcl-Hb-vI7">
-                                <rect key="frame" x="130" y="232" width="80" height="66"/>
+                                <rect key="frame" x="130" y="205" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="4">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="130" y="232" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="42" y="104" width="100" height="82"/>
                                 </variation>
@@ -34,11 +36,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-Mf-AcN">
-                                <rect key="frame" x="390" y="232" width="80" height="66"/>
+                                <rect key="frame" x="390" y="205" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="6">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="390" y="232" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="258" y="104" width="100" height="82"/>
                                 </variation>
@@ -47,11 +52,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wyJ-LW-Vh8">
-                                <rect key="frame" x="130" y="308" width="80" height="67"/>
+                                <rect key="frame" x="130" y="290" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="7">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="130" y="308" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="42" y="194" width="100" height="82"/>
                                 </variation>
@@ -60,11 +68,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="y0b-Mu-HwN">
-                                <rect key="frame" x="260" y="308" width="80" height="67"/>
+                                <rect key="frame" x="260" y="290" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="8">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="260" y="308" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="150" y="194" width="100" height="82"/>
                                 </variation>
@@ -73,11 +84,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-cm-EJf">
-                                <rect key="frame" x="390" y="308" width="80" height="67"/>
+                                <rect key="frame" x="390" y="290" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="9">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="390" y="308" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="258" y="194" width="100" height="82"/>
                                 </variation>
@@ -86,11 +100,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qyH-DW-wbN">
-                                <rect key="frame" x="130" y="385" width="80" height="67"/>
+                                <rect key="frame" x="130" y="375" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title=".">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="130" y="385" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="42" y="284" width="100" height="100"/>
                                 </variation>
@@ -99,11 +116,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-BI-fL9">
-                                <rect key="frame" x="260" y="385" width="80" height="67"/>
+                                <rect key="frame" x="260" y="375" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="0">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="260" y="385" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="150" y="284" width="100" height="100"/>
                                 </variation>
@@ -112,11 +132,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="duV-gL-POk">
-                                <rect key="frame" x="260" y="232" width="80" height="66"/>
+                                <rect key="frame" x="260" y="205" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="5">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="260" y="232" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="150" y="-4" width="100" height="100"/>
                                 </variation>
@@ -125,11 +148,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="WgM-wL-HCj">
-                                <rect key="frame" x="260" y="493" width="80" height="67"/>
+                                <rect key="frame" x="260" y="485" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="OK">
                                     <color key="titleColor" red="1" green="0.0" blue="0.050213125069721976" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="260" y="671" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="150" y="284" width="100" height="100"/>
                                 </variation>
@@ -137,27 +163,15 @@
                                     <action selector="tapSaveTransaction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6oq-a4-XbX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="wzW-kr-rPo">
-                                <rect key="frame" x="150" y="65" width="300" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="EdN-bX-n2G"/>
-                                    <constraint firstAttribute="width" constant="300" id="yHT-cz-Xi7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="64"/>
-                                <state key="normal" title="Amount">
-                                    <color key="titleColor" red="0.47423020404032568" green="0.52562736742424221" blue="0.51991817464587753" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ZSM-wV-hDo" kind="show" identifier="" id="4je-e9-YoO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-2H-AkF">
-                                <rect key="frame" x="260" y="155" width="80" height="67"/>
+                                <rect key="frame" x="260" y="120" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="2">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="260" y="155" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="150" y="-4" width="100" height="100"/>
                                 </variation>
@@ -166,11 +180,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="h7U-Y2-VQc">
-                                <rect key="frame" x="390" y="155" width="80" height="67"/>
+                                <rect key="frame" x="390" y="120" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="3">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="390" y="155" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="258" y="-4" width="100" height="100"/>
                                 </variation>
@@ -179,11 +196,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fW4-OZ-E8T">
-                                <rect key="frame" x="390" y="388" width="80" height="67"/>
+                                <rect key="frame" x="390" y="378" width="80" height="75"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="35"/>
                                 <state key="normal" title="⌫">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="390" y="388" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="258" y="284" width="100" height="100"/>
                                 </variation>
@@ -208,7 +228,7 @@
                                 </variation>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AoL-Yo-ciG">
-                                <rect key="frame" x="130" y="155" width="80" height="67"/>
+                                <rect key="frame" x="130" y="120" width="80" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="F9D-R1-9SP"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="eGw-fy-4wF"/>
@@ -224,6 +244,9 @@
                                         <exclude reference="opR-Pe-lFR"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="130" y="155" width="80" height="89"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="42" y="-4" width="100" height="100"/>
                                 </variation>
@@ -232,7 +255,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlV-oz-1kd">
-                                <rect key="frame" x="81" y="81" width="48" height="49"/>
+                                <rect key="frame" x="130" y="45" width="50" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_ru" translatesAutoresizingMaskIntoConstraints="NO" id="0LJ-hm-uUF">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="29"/>
@@ -250,29 +273,38 @@
                                             <constraint firstAttribute="height" constant="20" id="KVe-1k-EWg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="afX-4a-z82"/>
+                                    <constraint firstAttribute="width" constant="50" id="Ed1-dv-BIL"/>
                                     <constraint firstItem="GpO-jy-7vO" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="leading" id="hg0-E6-lSx"/>
                                     <constraint firstItem="0LJ-hm-uUF" firstAttribute="top" secondItem="OlV-oz-1kd" secondAttribute="top" id="jmh-12-bag"/>
                                     <constraint firstItem="0LJ-hm-uUF" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="leading" id="koC-X4-6BD"/>
+                                    <constraint firstAttribute="height" constant="50" id="seZ-xB-kDj"/>
                                     <constraint firstItem="GpO-jy-7vO" firstAttribute="top" secondItem="OlV-oz-1kd" secondAttribute="top" constant="29" id="wGC-kO-ggl"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="gjA-ks-KyC" appends="YES" id="7zf-Yr-vke"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-nR-Wyb">
+                                <rect key="frame" x="200" y="30" width="200" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="6Sk-Sx-fTg"/>
+                                    <constraint firstAttribute="height" constant="80" id="nRa-fk-pWR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.23763020833333337" green="0.23763020833333337" blue="0.23763020833333337" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wzW-kr-rPo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="45" id="07Z-4B-MUG"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="height" secondItem="duV-gL-POk" secondAttribute="height" id="1NH-yN-aNH"/>
-                            <constraint firstItem="wzW-kr-rPo" firstAttribute="centerX" secondItem="y0b-Mu-HwN" secondAttribute="centerX" id="3Ir-VA-JA1"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="height" secondItem="h7U-Y2-VQc" secondAttribute="height" id="3fR-ou-jgx"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="Sk4-Mf-AcN" secondAttribute="width" id="5Uf-Ka-MZV"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="top" secondItem="Ibc-2H-AkF" secondAttribute="top" id="5uz-by-7ib"/>
@@ -286,74 +318,65 @@
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="height" secondItem="k8O-BI-fL9" secondAttribute="height" id="CHE-2N-vd9"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="height" secondItem="y0b-Mu-HwN" secondAttribute="height" id="DPg-i5-PyF"/>
                             <constraint firstItem="h7U-Y2-VQc" firstAttribute="centerX" secondItem="Sk4-Mf-AcN" secondAttribute="centerX" id="DgC-E3-e9d"/>
+                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="centerX" secondItem="Ibc-2H-AkF" secondAttribute="centerX" id="EbK-d6-Zvt"/>
+                            <constraint firstItem="WgM-wL-HCj" firstAttribute="centerX" secondItem="GjU-nR-Wyb" secondAttribute="centerX" id="F0B-OS-gv4"/>
                             <constraint firstItem="qyH-DW-wbN" firstAttribute="width" secondItem="AoL-Yo-ciG" secondAttribute="width" id="GY6-qN-bC3"/>
                             <constraint firstItem="wyJ-LW-Vh8" firstAttribute="top" secondItem="bcl-Hb-vI7" secondAttribute="bottom" constant="10" id="HGQ-2N-xpH"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" id="HfC-mX-q0C"/>
+                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="centerX" secondItem="k8O-BI-fL9" secondAttribute="centerX" id="IYO-h5-cob"/>
+                            <constraint firstItem="duV-gL-POk" firstAttribute="centerX" secondItem="GjU-nR-Wyb" secondAttribute="centerX" id="JvH-aS-yIW"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="height" secondItem="Sk4-Mf-AcN" secondAttribute="height" id="KBD-SQ-d6E"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="height" secondItem="Ibc-2H-AkF" secondAttribute="height" id="LH8-Rb-Aci"/>
-                            <constraint firstItem="wzW-kr-rPo" firstAttribute="centerX" secondItem="duV-gL-POk" secondAttribute="centerX" id="Nor-Nv-0ZI"/>
+                            <constraint firstItem="OlV-oz-1kd" firstAttribute="leading" secondItem="AoL-Yo-ciG" secondAttribute="leading" id="MRM-Vv-Oi0"/>
                             <constraint firstItem="h7U-Y2-VQc" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerXWithinMargins" multiplier="1.1" constant="100" id="OKk-H0-OYl"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WgM-wL-HCj" secondAttribute="bottom" constant="40" id="OR6-0I-lH9"/>
-                            <constraint firstItem="WgM-wL-HCj" firstAttribute="centerX" secondItem="wzW-kr-rPo" secondAttribute="centerX" id="PIx-3d-NsG"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="h7U-Y2-VQc" secondAttribute="width" id="VJE-CH-YVY"/>
+                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="Vca-Rf-dV2"/>
                             <constraint firstItem="fW4-OZ-E8T" firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" id="Wnl-xz-Fxp"/>
                             <constraint firstItem="pXz-cm-EJf" firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" id="XJz-DY-Vks"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="top" secondItem="AoL-Yo-ciG" secondAttribute="bottom" constant="10" id="XOW-jg-Uh8"/>
-                            <constraint firstAttribute="width" secondItem="AoL-Yo-ciG" secondAttribute="height" multiplier="15:2" id="aKn-GP-akK"/>
                             <constraint firstItem="kKJ-JY-Shy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WgM-wL-HCj" secondAttribute="bottom" constant="10" id="aM0-5A-iib"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="duV-gL-POk" secondAttribute="width" id="atI-Qt-FVY"/>
+                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="centerX" secondItem="y0b-Mu-HwN" secondAttribute="centerX" id="bJM-J0-hKn"/>
                             <constraint firstItem="pXz-cm-EJf" firstAttribute="centerX" secondItem="h7U-Y2-VQc" secondAttribute="centerX" id="c8B-Qh-AtR"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="Ibc-2H-AkF" secondAttribute="width" id="cbg-7y-u8G"/>
-                            <constraint firstItem="OlV-oz-1kd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="61" id="dNG-Up-1du"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="width" secondItem="AoL-Yo-ciG" secondAttribute="width" id="e0q-Du-WAl"/>
-                            <constraint firstItem="AoL-Yo-ciG" firstAttribute="top" secondItem="wzW-kr-rPo" secondAttribute="bottom" constant="10" id="e8B-aY-aoQ"/>
-                            <constraint firstItem="wzW-kr-rPo" firstAttribute="centerX" secondItem="k8O-BI-fL9" secondAttribute="centerX" id="gHf-oh-qOI"/>
+                            <constraint firstItem="AoL-Yo-ciG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="fND-tP-cCS"/>
                             <constraint firstItem="wyJ-LW-Vh8" firstAttribute="top" secondItem="y0b-Mu-HwN" secondAttribute="top" id="gdZ-Dw-iGl"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="y0b-Mu-HwN" secondAttribute="width" id="gei-fa-9aX"/>
                             <constraint firstItem="qyH-DW-wbN" firstAttribute="centerX" secondItem="AoL-Yo-ciG" secondAttribute="centerX" id="hs5-6e-XKY"/>
-                            <constraint firstItem="OlV-oz-1kd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="jc6-La-aJb"/>
-                            <constraint firstItem="wzW-kr-rPo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" constant="8" id="kT2-b2-gRF"/>
+                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OlV-oz-1kd" secondAttribute="trailing" constant="10" id="ibw-vo-rB7"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="top" secondItem="duV-gL-POk" secondAttribute="top" id="l89-4n-M1R"/>
-                            <constraint firstItem="Ibc-2H-AkF" firstAttribute="centerX" secondItem="wzW-kr-rPo" secondAttribute="centerX" id="lE9-to-W24"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="centerX" secondItem="AoL-Yo-ciG" secondAttribute="centerX" id="m3C-ay-1B0"/>
                             <constraint firstItem="pXz-cm-EJf" firstAttribute="top" secondItem="wyJ-LW-Vh8" secondAttribute="top" id="mFx-Ql-oxz"/>
-                            <constraint firstItem="OlV-oz-1kd" firstAttribute="height" secondItem="wzW-kr-rPo" secondAttribute="height" constant="-31" id="pZr-Mt-Kpl"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="centerX" secondItem="wyJ-LW-Vh8" secondAttribute="centerX" id="qWR-b0-fAT"/>
                             <constraint firstItem="qyH-DW-wbN" firstAttribute="top" secondItem="k8O-BI-fL9" secondAttribute="top" id="sc3-9m-2N9"/>
                             <constraint firstItem="fW4-OZ-E8T" firstAttribute="top" secondItem="qyH-DW-wbN" secondAttribute="top" constant="3" id="tR7-G5-DWc"/>
                             <constraint firstItem="fW4-OZ-E8T" firstAttribute="width" secondItem="AoL-Yo-ciG" secondAttribute="width" id="u8K-hW-0Bt"/>
+                            <constraint firstAttribute="centerX" secondItem="GjU-nR-Wyb" secondAttribute="centerX" id="vd5-DP-ls8"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="top" secondItem="h7U-Y2-VQc" secondAttribute="top" id="vwh-QT-Jf3"/>
                             <constraint firstItem="pXz-cm-EJf" firstAttribute="width" secondItem="AoL-Yo-ciG" secondAttribute="width" id="wXp-8b-JJG"/>
                             <constraint firstItem="WgM-wL-HCj" firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" id="wcU-fT-fBW"/>
-                            <constraint firstAttribute="centerX" secondItem="wzW-kr-rPo" secondAttribute="centerX" id="wxn-IX-gRV"/>
                             <constraint firstItem="AoL-Yo-ciG" firstAttribute="width" secondItem="wyJ-LW-Vh8" secondAttribute="width" id="xZW-DB-qYY"/>
                             <constraint firstItem="WgM-wL-HCj" firstAttribute="width" secondItem="AoL-Yo-ciG" secondAttribute="width" id="ybD-Zf-3fv"/>
-                            <constraint firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" multiplier="9" id="yva-Eh-L3I"/>
+                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="centerY" secondItem="OlV-oz-1kd" secondAttribute="centerY" id="ynp-C5-k3y"/>
+                            <constraint firstAttribute="height" secondItem="AoL-Yo-ciG" secondAttribute="height" multiplier="8" id="yva-Eh-L3I"/>
                             <constraint firstItem="fW4-OZ-E8T" firstAttribute="centerX" secondItem="h7U-Y2-VQc" secondAttribute="centerX" id="yyb-EH-bqv"/>
-                            <constraint firstItem="wzW-kr-rPo" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="trailing" constant="21" id="zSr-SO-b40"/>
                             <constraint firstItem="bcl-Hb-vI7" firstAttribute="top" secondItem="Sk4-Mf-AcN" secondAttribute="top" id="zlp-Q3-QV7"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kT2-b2-gRF"/>
-                                <exclude reference="aKn-GP-akK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Y9u-wn-l1q">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Ar3-ge-jIV"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="amountDisplayButton" destination="wzW-kr-rPo" id="3xd-hq-bgh"/>
+                        <outlet property="amountDisplayLabel" destination="GjU-nR-Wyb" id="POz-O3-45j"/>
                         <outlet property="networkingIndicator" destination="kKJ-JY-Shy" id="sUm-bG-VZ7"/>
-                        <outlet property="number1" destination="AoL-Yo-ciG" id="eCI-jU-71O"/>
-                        <outlet property="number2" destination="Ibc-2H-AkF" id="LFX-qv-9Vc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="gjA-ks-KyC">
                     <connections>
-                        <segue destination="ZSM-wV-hDo" kind="show" id="r6C-4h-k1u"/>
+                        <segue destination="obF-Gz-u71" kind="show" identifier="showCurrencySelect" id="OIo-7Z-mIC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -612,6 +635,6 @@
         <image name="unicorn.png" width="200" height="205"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r6C-4h-k1u"/>
+        <segue reference="j6B-9O-e6u"/>
     </inferredMetricsTieBreakers>
 </document>

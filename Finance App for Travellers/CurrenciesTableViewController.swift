@@ -17,6 +17,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     var currencies = [Currency]()
 	
     var selectedCurrency: Currency?
+	var providedAmount: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,8 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             object: nil)
         */
     }
-    
+	
+	
     override func viewDidAppear(animated: Bool)
 	{
         tableView.reloadData()
@@ -70,7 +72,8 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             let currency = currencies[indexPath.row]
             (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.uppercaseString
 			(cell as! CurrencyTableViewCell).flag.image = currency.getFlag()
-			
+			println("Provided amount: \(providedAmount)")
+			(cell as! CurrencyTableViewCell).valueInput.text = providedAmount
         } else {
             let cellIdentifier = "CurrencyAddCell"
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyAddTableViewCell

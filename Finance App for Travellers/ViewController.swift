@@ -14,15 +14,12 @@ class ViewController: UIViewController {
 	var amount:String = ""
     
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
-	@IBOutlet weak var amountDisplayButton: UIButton!
-	@IBOutlet weak var number1: UIButton!
-	@IBOutlet weak var number2: UIButton!
-	
+	@IBOutlet weak var amountDisplayLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
 		navigationController?.navigationBar.barStyle = .Black
-		
 		
 
         /*
@@ -133,8 +130,8 @@ class ViewController: UIViewController {
 	
 	func reloadAmountDisplay()
 	{
-		amountDisplayButton.titleLabel?.adjustsFontSizeToFitWidth = true
-		amountDisplayButton.titleLabel?.text = amount
+		//amountDisplayLabel.adjustsFontSizeToFitWidth = true
+		amountDisplayLabel.text = amount
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -144,9 +141,9 @@ class ViewController: UIViewController {
 
     @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
         if let currenciesTableViewController = segue.sourceViewController as? CurrenciesTableViewController,
-            selectedCurrency = currenciesTableViewController.selectedCurrency {
-
-				currentCurrrency = selectedCurrency
+            selectedCurrency = currenciesTableViewController.selectedCurrency
+		{
+			currentCurrrency = selectedCurrency
         }
     }
 
@@ -161,5 +158,18 @@ class ViewController: UIViewController {
 		super.viewDidDisappear(animated)
 	}
 	
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+	{
+		println("Segue: \(segue.identifier)")
+		if segue.identifier == "showCurrencySelect"
+		{
+			if let currenciesTVC = segue.destinationViewController as? CurrenciesTableViewController
+			{
+				currenciesTVC.providedAmount = amount
+				println("Amount: \(amount)")
+			}
+		}
+	}
 }
 
