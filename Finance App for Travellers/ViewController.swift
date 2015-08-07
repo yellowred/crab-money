@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-		navigationController?.navigationBar.barStyle = .Black
 		
 
         /*
@@ -44,6 +42,7 @@ class ViewController: UIViewController {
         //networkingIndicator.startAnimating()
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
+		CurrencyModel().preloadData()
     }
 
 	@IBAction func tapNumber1(sender: UIButton)
@@ -146,9 +145,10 @@ class ViewController: UIViewController {
     @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
 		let currenciesTVC = segue.sourceViewController as? CurrenciesTableViewController
         if  (currenciesTVC != nil) {
-			currentCurrrency = currenciesTVC!.selectedCurrency
-            currentCurrencyFlag.image = currentCurrrency?.getFlag()
-            currentCurrencyLabel.text = currentCurrrency?.code.uppercaseString
+			if let currentCurrrency = currenciesTVC!.selectedCurrency {
+				currentCurrencyFlag.image = currentCurrrency.getFlag()
+				currentCurrencyLabel.text = currentCurrrency.code.uppercaseString
+			}
 			println("Current currency: \(currentCurrrency)")
         }
     }

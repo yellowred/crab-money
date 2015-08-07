@@ -279,4 +279,58 @@ class CurrencyModel
 		getManagedContext().deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
 		getManagedContext().save(nil)
 	}
+
+	
+	func preloadData () {
+		clearCurrencies()
+
+		var error:NSError?
+		// Retrieve data from the source file
+		if let contentsOfURL = NSBundle.mainBundle().URLForResource("currencies", withExtension: "json") {
+				var parseError: NSError?
+				let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
+					options: NSJSONReadingOptions.AllowFragments,
+					error:&parseError)
+				if let currencies = parsedObject as? [NSDictionary] {
+					populateCurrenciesWithData(currencies)
+				}
+		}
+	}
+		
+	func populateCurrenciesWithData(data: [NSDictionary]) {
+		println(data);
+		var flagPngData:NSData? = nil
+		var currencyIndex = 0;
+		for currencyData:NSDictionary in data
+		{
+			if currencyData.valueForKey("flag") != nil
+			{
+				
+				flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: nil)
+			}
+			else
+			{
+				flagPngData = nil
+			}
+			var currency = createCurrency(
+				currencyData.valueForKey("code") as! String,
+				rate: currencyData.valueForKey("rate") as! Float,
+				flag: flagPngData,
+				name: currencyData.valueForKey("name") as? String
+				//					country: model.getCountryByCode(currencyData.valueForKey("country") as! String)
+			)
+			if currency != nil
+			{
+				currency?.dumpProperties()
+				currencyIndex++
+			}
+			else
+			{
+				println("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
+			}
+			
+		}
+		println("Populated: \(currencyIndex)")
+		saveStorage()
+	}
 }

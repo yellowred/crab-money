@@ -20,7 +20,7 @@
         <relationship name="handsOnCurrency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HandsOnCurrency" inverseName="currency" inverseEntity="HandsOnCurrency" syncable="YES"/>
     </entity>
     <entity name="HandsOnCurrency" representedClassName="NSManagedObject" syncable="YES">
-        <relationship name="currency" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="handsOnCurrency" inverseEntity="Currency" syncable="YES"/>
+        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="handsOnCurrency" inverseEntity="Currency" syncable="YES"/>
     </entity>
     <entity name="Transaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>

@@ -534,7 +534,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="R29-mF-N3M">
-                        <barButtonItem key="leftBarButtonItem" image="menu_filled-50" id="oPI-ZT-EBR">
+                        <barButtonItem key="leftBarButtonItem" title="Numpad" id="oPI-ZT-EBR">
                             <connections>
                                 <segue destination="qVK-zR-Vdx" kind="unwind" unwindAction="selectedCurrency:" id="CTI-Q8-nQA"/>
                             </connections>
@@ -659,7 +659,6 @@
     </scenes>
     <resources>
         <image name="flag_ru" width="275" height="183"/>
-        <image name="menu_filled-50" width="50" height="50"/>
         <image name="unicorn.png" width="200" height="205"/>
     </resources>
 </document>

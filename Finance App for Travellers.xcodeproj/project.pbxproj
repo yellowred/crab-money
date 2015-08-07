@@ -20,6 +20,8 @@
 		9AB80D2C1B4E39E3007D1B92 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB80D251B4E39B1007D1B92 /* Alamofire.framework */; };
 		9AB80D2D1B4E39E3007D1B92 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB80D251B4E39B1007D1B92 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
+		9AE403C71B74669500143932 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C61B74669500143932 /* Media.xcassets */; };
+		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
 		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
 		9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */; };
 		9AFB00801B576B0F0062C6AE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
@@ -103,6 +105,8 @@
 		9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		9ACC025A1B5130D500F93A4C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		9AE403C61B74669500143932 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		9AE403C81B74671A00143932 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = currencies.json; path = ../../currencies.json; sourceTree = "<group>"; };
 		9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		9AFB007F1B576B0F0062C6AE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -162,10 +166,10 @@
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
 				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
 				9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */,
+				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
-				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
 			);
 			path = "Finance App for Travellers";
 			sourceTree = "<group>";
@@ -174,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				9A9C91901B3444E500DE580F /* Info.plist */,
+				9AE403C61B74669500143932 /* Media.xcassets */,
+				9AE403C81B74671A00143932 /* currencies.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -327,6 +333,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
+				9AE403C71B74669500143932 /* Media.xcassets in Resources */,
+				9AE403C91B74671A00143932 /* currencies.json in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
