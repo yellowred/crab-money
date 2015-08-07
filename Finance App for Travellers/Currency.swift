@@ -13,7 +13,7 @@ import CoreData
 
     @NSManaged var code: String
     @NSManaged var name: String?
-    @NSManaged var rate: NSNumber
+    @NSManaged var rate: NSDecimalNumber
     @NSManaged var flag: NSData?
     @NSManaged var country: NSSet?
 	

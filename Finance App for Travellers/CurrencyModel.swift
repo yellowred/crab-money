@@ -333,4 +333,19 @@ class CurrencyModel
 		println("Populated: \(currencyIndex)")
 		saveStorage()
 	}
+	
+	func getCurrentCurrency() -> Currency? {
+		let defaults = NSUserDefaults.standardUserDefaults()
+		let currentCurrencyCode:String? = defaults.stringForKey("currentCurrencyCode")
+		return getCurrencyByCode(currentCurrencyCode ?? "AUD")
+	}
+	
+	
+	func convertAmount(amount: NSDecimalNumber, fromCurrency:Currency, toCurrency: Currency) -> NSDecimalNumber
+	{
+		println("Converting from \(fromCurrency.code)[\(fromCurrency.rate)] to \(toCurrency.code)[\(toCurrency.rate)]")
+		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(fromCurrency.rate)
+		return usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate)
+	}
+	
 }

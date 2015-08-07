@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Finance App for Travellers/ViewController.swift"
-            timestampString = "460613560.833104"
+            timestampString = "460616068.268043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "selectedCurrency(_:)"
             landmarkType = "5">
          </BreakpointContent>

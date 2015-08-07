@@ -73,6 +73,15 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.uppercaseString
 			(cell as! CurrencyTableViewCell).flag.image = currency.getFlag()
 			println("Provided amount: \(providedAmount)")
+			if providedAmount.isEmpty || selectedCurrency == nil {
+				providedAmount = "0"
+			}
+			else
+			{
+				let decimalAmount = NSDecimalNumber(string: providedAmount)
+				providedAmount = model.convertAmount(decimalAmount,	fromCurrency: selectedCurrency!, toCurrency: currency).stringValue
+			}
+			
 			(cell as! CurrencyTableViewCell).valueInput.text = providedAmount
         } else {
             let cellIdentifier = "CurrencyAddCell"
