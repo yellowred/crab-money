@@ -274,6 +274,16 @@ class CurrencyModel
 		return handsOnCurrencies
 	}
 
+	
+	func getHandsOnCurrenciesStructure() -> [HandsOnCurrency] {
+		var handson: [HandsOnCurrency] = []
+		for currency in getHandsOnCurrenciesList() {
+			handson.append(HandsOnCurrency(currency: currency, amount:nil, textField: nil))
+		}
+		return handson
+	}
+	
+	
 	func deleteHandsOnCurrencyByCurrency(currency:Currency)
 	{
 		getManagedContext().deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
@@ -282,18 +292,21 @@ class CurrencyModel
 
 	
 	func preloadData () {
-		clearCurrencies()
-
-		var error:NSError?
-		// Retrieve data from the source file
-		if let contentsOfURL = NSBundle.mainBundle().URLForResource("currencies", withExtension: "json") {
+		if !isEventHappen("prepopulateCurrencies") {
+			clearCurrencies()
+			
+			var error:NSError?
+			// Retrieve data from the source file
+			if let contentsOfURL = NSBundle.mainBundle().URLForResource("currencies", withExtension: "json") {
 				var parseError: NSError?
 				let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
 					options: NSJSONReadingOptions.AllowFragments,
 					error:&parseError)
 				if let currencies = parsedObject as? [NSDictionary] {
 					populateCurrenciesWithData(currencies)
+					setEventHappen("prepopulateCurrencies")
 				}
+			}
 		}
 	}
 		
@@ -341,11 +354,28 @@ class CurrencyModel
 	}
 	
 	
+	func isEventHappen(name: String) -> Bool {
+		let defaults = NSUserDefaults.standardUserDefaults()
+		if let eventHappen = defaults.boolForKey("event_" + name) as Bool? {
+			if eventHappen {
+				return true
+			}
+		}
+		return false
+	}
+	
+	
+	func setEventHappen(name:String) {
+		let defaults = NSUserDefaults.standardUserDefaults()
+		defaults.setBool(true, forKey: "event_" + name)
+	}
+	
+	
 	func convertAmount(amount: NSDecimalNumber, fromCurrency:Currency, toCurrency: Currency) -> NSDecimalNumber
 	{
 		println("Converting from \(fromCurrency.code)[\(fromCurrency.rate)] to \(toCurrency.code)[\(toCurrency.rate)]")
 		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(fromCurrency.rate)
-		return usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate)
+		return usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate).decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
 	}
 	
 }

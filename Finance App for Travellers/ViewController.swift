@@ -43,7 +43,8 @@ class ViewController: UIViewController {
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
 		CurrencyModel().preloadData()
-		setCurrentCurrencyBlock(CurrencyModel().getCurrentCurrency()!)
+		currentCurrrency = CurrencyModel().getCurrentCurrency()!
+		setCurrentCurrencyBlock(currentCurrrency!)
     }
 
 	@IBAction func tapNumber1(sender: UIButton)
@@ -148,6 +149,8 @@ class ViewController: UIViewController {
         if  (currenciesTVC != nil) {
 			if let currentCurrrency = currenciesTVC!.selectedCurrency {
 				setCurrentCurrencyBlock(currentCurrrency)
+				amount = currenciesTVC!.providedAmount
+				reloadAmountDisplay()
 			}
 			println("Current currency: \(currentCurrrency)")
         }
@@ -173,7 +176,7 @@ class ViewController: UIViewController {
 			if let currenciesTVC = segue.destinationViewController.topViewController as? CurrenciesTableViewController
 			{
 				currenciesTVC.providedAmount = amount
-				println("Amount: \(amount)")
+				currenciesTVC.selectedCurrency = currentCurrrency
 			}
 		}
 	}

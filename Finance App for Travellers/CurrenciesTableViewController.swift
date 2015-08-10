@@ -8,21 +8,29 @@
 
 import UIKit
 
+
 class CurrenciesTableViewController: UITableViewController, UITableViewDataSource
 {
 
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
 
     lazy var model: CurrencyModel = {return CurrencyModel()}()
-    var currencies = [Currency]()
+    var currenciesStructure = [HandsOnCurrency]()
 	
     var selectedCurrency: Currency?
 	var providedAmount: String = ""
-    
+	
+	let kCurrencyManagableCell:String = "CurrencyManagableCell"
+	let kCurrencyAddCell:String = "CurrencyAddCell"
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-		currencies = model.getHandsOnCurrenciesList()
+		currenciesStructure = model.getHandsOnCurrenciesStructure()
 		tableView.allowsMultipleSelectionDuringEditing = false;
+		//tableView.editing = true
+		if providedAmount.isEmpty || selectedCurrency == nil {
+			providedAmount = "0"
+		}
         /*
         tableView.estimatedRowHeight = 89
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -59,44 +67,60 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return currencies.count + 1;
+		return currenciesStructure.count + 1;
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-        if indexPath.row < currencies.count {
-            let cellIdentifier = "CurrencyManagableCell"
-            cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
-            let currency = currencies[indexPath.row]
+        if indexPath.row < currenciesStructure.count {
+            cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
+            let currency = currenciesStructure[indexPath.row].currency
             (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.uppercaseString
 			(cell as! CurrencyTableViewCell).flag.image = currency.getFlag()
 			println("Provided amount: \(providedAmount)")
-			if providedAmount.isEmpty || selectedCurrency == nil {
-				providedAmount = "0"
-			}
-			else
-			{
-				let decimalAmount = NSDecimalNumber(string: providedAmount)
-				providedAmount = model.convertAmount(decimalAmount,	fromCurrency: selectedCurrency!, toCurrency: currency).stringValue
-			}
+
+			var decimalAmount = NSDecimalNumber(string: providedAmount)
+			decimalAmount = model.convertAmount(decimalAmount,	fromCurrency: selectedCurrency!, toCurrency: currency)
 			
-			(cell as! CurrencyTableViewCell).valueInput.text = providedAmount
+			(cell as! CurrencyTableViewCell).valueInput.text = decimalAmount.stringValue
+			((cell as! CurrencyTableViewCell).valueInput as! AmountTextField).correspondingCurrency = currency
+			
+			//setup structure
+			currenciesStructure[indexPath.row].textField = (cell as! CurrencyTableViewCell).valueInput
+			currenciesStructure[indexPath.row].amount = decimalAmount
         } else {
-            let cellIdentifier = "CurrencyAddCell"
+            let cellIdentifier = kCurrencyAddCell
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyAddTableViewCell
         }
         return cell
     }
     
+	@IBAction func amountChanged(sender: UITextField) {
+		if let amountTextField = sender as? AmountTextField
+		{
+			selectedCurrency = amountTextField.correspondingCurrency
+			providedAmount = amountTextField.text
+				
+			for handson in currenciesStructure {
+				var decimalAmount = NSDecimalNumber(string: providedAmount)
+				decimalAmount = model.convertAmount(decimalAmount,	fromCurrency: selectedCurrency!, toCurrency: handson.currency)
+
+				handson.amount = decimalAmount
+				handson.textField!.text = decimalAmount.stringValue
+			}
+		}
+		
+	}
+	
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 90
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-		selectedCurrency = currencies[indexPath.row]
+		selectedCurrency = currenciesStructure[indexPath.row].currency
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -104,7 +128,8 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPathForCell(cell)
                 if let index = indexPath?.row {
-                    selectedCurrency = currencies[index]
+                    selectedCurrency = currenciesStructure[index].currency
+					providedAmount = currenciesStructure[index].amount!.stringValue
                 }
             }
         }
@@ -123,7 +148,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete
 		{
-			model.deleteHandsOnCurrencyByCurrency(currencies.removeAtIndex(indexPath.row))
+			model.deleteHandsOnCurrencyByCurrency(currenciesStructure.removeAtIndex(indexPath.row).currency)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
 		else if editingStyle == .Insert
@@ -131,15 +156,24 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+	
+	
+	override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+		let movedObject = currenciesStructure[sourceIndexPath.row]
+		currenciesStructure.removeAtIndex(sourceIndexPath.row)
+		currenciesStructure.insert(movedObject, atIndex: destinationIndexPath.row)
+		// To check for correctness enable: self.tableView.reloadData()
+	}
 
 
-    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the item to be re-orderable.
-        return true
+		if indexPath.row < currenciesStructure.count {
+			return true
+		}
+		return false
     }
-    */
 
     /*
     // MARK: - Navigation
@@ -160,12 +194,12 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 			
 			if let currencyToAdd:Currency = allCurrenciesTableViewController.selectedCurrency
 			{
-				currencies.append(currencyToAdd)
+				currenciesStructure.append(HandsOnCurrency(currency: currencyToAdd, amount:nil, textField: nil))
 				model.addCurrencyToHandsOnList(currencyToAdd)
 				model.saveStorage()
 
 				//update the tableView
-				let indexPath = NSIndexPath(forRow: currencies.count-1, inSection: 0)
+				let indexPath = NSIndexPath(forRow: currenciesStructure.count-1, inSection: 0)
 				tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 			}
 		}
