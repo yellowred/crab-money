@@ -17,6 +17,7 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		valueInput.adjustsFontSizeToFitWidth = true
     }
 
     func configure(#text: String?, placeholder: String) {
@@ -26,9 +27,5 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
         valueInput.accessibilityValue = text
         valueInput.accessibilityLabel = placeholder
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
+
 }

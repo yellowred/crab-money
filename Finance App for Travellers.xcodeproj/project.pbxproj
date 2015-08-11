@@ -24,6 +24,7 @@
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
 		9AE403C71B74669500143932 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C61B74669500143932 /* Media.xcassets */; };
 		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
+		9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
 		9AF9E12C1B4B92DD0076BE69 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */; };
 		9AFB00801B576B0F0062C6AE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
@@ -111,6 +112,7 @@
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		9AE403C61B74669500143932 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		9AE403C81B74671A00143932 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = currencies.json; path = ../../currencies.json; sourceTree = "<group>"; };
+		9AEA34F91B79C4ED009C65FE /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		9AFB007F1B576B0F0062C6AE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -162,18 +164,15 @@
 				9A9C91911B3444E500DE580F /* AppDelegate.swift */,
 				9A9C91961B3444E500DE580F /* ViewController.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
-				9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */,
 				9A41FF221B75A32900E529D1 /* AmountTextField.swift */,
 				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
 				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
-				9AFB00811B576B100062C6AE /* Currency.swift */,
-				9AFB007F1B576B0F0062C6AE /* Country.swift */,
 				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
 				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
-				9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */,
 				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
+				9AEA34FE1B79C55E009C65FE /* Model */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
 			);
@@ -216,6 +215,18 @@
 				9AB80D2B1B4E39B1007D1B92 /* Alamofire OSX Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9AEA34FE1B79C55E009C65FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */,
+				9AFB00811B576B100062C6AE /* Currency.swift */,
+				9AFB007F1B576B0F0062C6AE /* Country.swift */,
+				9AEA34F91B79C4ED009C65FE /* Money.swift */,
+				9AF9E12B1B4B92DD0076BE69 /* CurrencyModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +376,7 @@
 				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
 				9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */,
+				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
 				9AFB00801B576B0F0062C6AE /* Country.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
 				9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */,

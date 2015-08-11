@@ -10,16 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var currentCurrrency: Currency?
-	var amount:String = ""
+	var amount:Money
     
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
 
     @IBOutlet weak var currentCurrencyFlag: UIImageView!
     @IBOutlet weak var currentCurrencyLabel: UILabel!
-    
-    
+	
+	
+	required init(coder aDecoder: NSCoder) {
+	    self.amount = Money(amount: 0, currency: CurrencyModel().getCurrentCurrency()!)
+	}
+
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -43,88 +47,87 @@ class ViewController: UIViewController {
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
 		CurrencyModel().preloadData()
-		currentCurrrency = CurrencyModel().getCurrentCurrency()!
-		setCurrentCurrencyBlock(currentCurrrency!)
+		updateCurrentCurrencyBlock()
     }
 
 	@IBAction func tapNumber1(sender: UIButton)
 	{
-		amount = amount + "1"
+		amount.appendSymbol("1")
 		reloadAmountDisplay()
 	}
 
 	
 	@IBAction func tapNumber2(sender: UIButton) {
-		amount = amount + "2"
+		amount.appendSymbol("2")
 		reloadAmountDisplay()
 	}
 	
 	
 	@IBAction func tapNumber3(sender: UIButton) {
-		amount = amount + "3"
+		amount.appendSymbol("3")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber4(sender: UIButton) {
-		amount = amount + "4"
+		amount.appendSymbol("4")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber5(sender: UIButton) {
-		amount = amount + "5"
+		amount.appendSymbol("5")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber6(sender: UIButton) {
-		amount = amount + "6"
+		amount.appendSymbol("6")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber7(sender: UIButton) {
-		amount = amount + "7"
+		amount.appendSymbol("7")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber8(sender: UIButton) {
-		amount = amount + "8"
+		amount.appendSymbol("8")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber9(sender: UIButton) {
-		amount = amount + "9"
+		amount.appendSymbol("9")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumberDiv(sender: UIButton) {
-		amount = amount + "."
+		amount.appendSymbol(".")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumber0(sender: UIButton) {
-		amount = amount + "0"
+		amount.appendSymbol("0")
 		reloadAmountDisplay()
 
 	}
 	
 	
 	@IBAction func tapNumberDel(sender: UIButton) {
-		amount = amount.substringToIndex(amount.endIndex.predecessor())
+		amount.appendSymbol("1")
 		reloadAmountDisplay()
 
 	}
@@ -136,7 +139,7 @@ class ViewController: UIViewController {
 	func reloadAmountDisplay()
 	{
 		//amountDisplayLabel.adjustsFontSizeToFitWidth = true
-		amountDisplayLabel.text = amount
+		amountDisplayLabel.text = amount.amount.stringValue
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -148,11 +151,10 @@ class ViewController: UIViewController {
 		let currenciesTVC = segue.sourceViewController as? CurrenciesTableViewController
         if  (currenciesTVC != nil) {
 			if let currentCurrrency = currenciesTVC!.selectedCurrency {
-				setCurrentCurrencyBlock(currentCurrrency)
-				amount = currenciesTVC!.providedAmount
+				amount = Money(amount: currenciesTVC!.providedAmount, currency: currentCurrrency)
+				updateCurrentCurrencyBlock()
 				reloadAmountDisplay()
 			}
-			println("Current currency: \(currentCurrrency)")
         }
     }
 
@@ -176,14 +178,13 @@ class ViewController: UIViewController {
 			if let currenciesTVC = segue.destinationViewController.topViewController as? CurrenciesTableViewController
 			{
 				currenciesTVC.providedAmount = amount
-				currenciesTVC.selectedCurrency = currentCurrrency
 			}
 		}
 	}
 	
-	func setCurrentCurrencyBlock(currentCurrrency: Currency) {
-		currentCurrencyFlag.image = currentCurrrency.getFlag()
-		currentCurrencyLabel.text = currentCurrrency.code.uppercaseString
+	func updateCurrentCurrencyBlock() {
+		currentCurrencyFlag.image = amount.currency.getFlag()
+		currentCurrencyLabel.text = amount.currency.code.uppercaseString
 	}
 	
 }

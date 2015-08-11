@@ -353,7 +353,6 @@ class CurrencyModel
 		return getCurrencyByCode(currentCurrencyCode ?? "AUD")
 	}
 	
-	
 	func isEventHappen(name: String) -> Bool {
 		let defaults = NSUserDefaults.standardUserDefaults()
 		if let eventHappen = defaults.boolForKey("event_" + name) as Bool? {

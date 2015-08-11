@@ -17,8 +17,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     lazy var model: CurrencyModel = {return CurrencyModel()}()
     var currenciesStructure = [HandsOnCurrency]()
 	
-    var selectedCurrency: Currency?
-	var providedAmount: String = ""
+	var providedAmount: Money
 	
 	let kCurrencyManagableCell:String = "CurrencyManagableCell"
 	let kCurrencyAddCell:String = "CurrencyAddCell"
