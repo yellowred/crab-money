@@ -10,15 +10,19 @@ import UIKit
 
 class HandsOnCurrency {
 
-	let currency: Currency
-	var amount: NSDecimalNumber?
+	var amount: Money
 	var textField: UITextField?
 	
 	
-	init(currency: Currency, amount: NSDecimalNumber?, textField: UITextField?) {
-		self.currency = currency
+	init(amount: Money, textField: UITextField?) {
 		self.amount = amount
 		self.textField = textField
 	}
-    
+	
+	
+	func setAmount(amount: NSDecimalNumber) {
+		self.amount.setAmount(amount)
+		textField?.text = self.amount.amount.stringValue
+	}
+	
 }

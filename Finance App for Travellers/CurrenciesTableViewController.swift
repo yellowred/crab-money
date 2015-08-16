@@ -15,21 +15,17 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
 
     lazy var model: CurrencyModel = {return CurrencyModel()}()
-    var currenciesStructure = [HandsOnCurrency]()
-	
-	var providedAmount: Money
+	var currenciesStructure = [HandsOnCurrency]()
+	var providedAmount: Money = {return Money(amount: 0, currency: CurrencyModel().getCurrentCurrency()!)}()
 	
 	let kCurrencyManagableCell:String = "CurrencyManagableCell"
 	let kCurrencyAddCell:String = "CurrencyAddCell"
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		currenciesStructure = model.getHandsOnCurrenciesStructure()
+		currenciesStructure = model.getHandsOnCurrenciesStructure(providedAmount)
 		tableView.allowsMultipleSelectionDuringEditing = false;
 		//tableView.editing = true
-		if providedAmount.isEmpty || selectedCurrency == nil {
-			providedAmount = "0"
-		}
         /*
         tableView.estimatedRowHeight = 89
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -75,20 +71,17 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
         
         if indexPath.row < currenciesStructure.count {
             cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
-            let currency = currenciesStructure[indexPath.row].currency
-            (cell as! CurrencyTableViewCell).currencyCode.text = currency.code.uppercaseString
-			(cell as! CurrencyTableViewCell).flag.image = currency.getFlag()
-			println("Provided amount: \(providedAmount)")
-
-			var decimalAmount = NSDecimalNumber(string: providedAmount)
-			decimalAmount = model.convertAmount(decimalAmount,	fromCurrency: selectedCurrency!, toCurrency: currency)
 			
-			(cell as! CurrencyTableViewCell).valueInput.text = decimalAmount.stringValue
-			((cell as! CurrencyTableViewCell).valueInput as! AmountTextField).correspondingCurrency = currency
+			let handsOnCurrency = currenciesStructure[indexPath.row]
+			println("Added handsOnCurrency: \(handsOnCurrency)")
+			
+            (cell as! CurrencyTableViewCell).currencyCode.text = handsOnCurrency.amount.currency.code.uppercaseString
+			(cell as! CurrencyTableViewCell).flag.image = handsOnCurrency.amount.currency.getFlag()
+			(cell as! CurrencyTableViewCell).valueInput.text = handsOnCurrency.amount.amount.stringValue
+			((cell as! CurrencyTableViewCell).valueInput as! AmountTextField).correspondingCurrency = handsOnCurrency
 			
 			//setup structure
-			currenciesStructure[indexPath.row].textField = (cell as! CurrencyTableViewCell).valueInput
-			currenciesStructure[indexPath.row].amount = decimalAmount
+			handsOnCurrency.textField = (cell as! CurrencyTableViewCell).valueInput
         } else {
             let cellIdentifier = kCurrencyAddCell
             cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyAddTableViewCell
@@ -99,15 +92,14 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 	@IBAction func amountChanged(sender: UITextField) {
 		if let amountTextField = sender as? AmountTextField
 		{
-			selectedCurrency = amountTextField.correspondingCurrency
-			providedAmount = amountTextField.text
-				
-			for handson in currenciesStructure {
-				var decimalAmount = NSDecimalNumber(string: providedAmount)
-				decimalAmount = model.convertAmount(decimalAmount,	fromCurrency: selectedCurrency!, toCurrency: handson.currency)
+			if let handsOnCurrency:HandsOnCurrency = amountTextField.correspondingCurrency {
+				providedAmount = handsOnCurrency.amount
 
-				handson.amount = decimalAmount
-				handson.textField!.text = decimalAmount.stringValue
+				for handson in currenciesStructure {
+					if handsOnCurrency.amount.currency != handson.amount.currency {
+						handson.setAmount(handsOnCurrency.amount.toCurrency(handson.amount.currency).amount)
+					}
+				}
 			}
 		}
 		
@@ -119,7 +111,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-		selectedCurrency = currenciesStructure[indexPath.row].currency
+//		selectedCurrency = currenciesStructure[indexPath.row].currency
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -127,8 +119,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPathForCell(cell)
                 if let index = indexPath?.row {
-                    selectedCurrency = currenciesStructure[index].currency
-					providedAmount = currenciesStructure[index].amount!.stringValue
+					providedAmount = currenciesStructure[index].amount
                 }
             }
         }
@@ -147,7 +138,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete
 		{
-			model.deleteHandsOnCurrencyByCurrency(currenciesStructure.removeAtIndex(indexPath.row).currency)
+			model.deleteHandsOnCurrencyByCurrency(currenciesStructure.removeAtIndex(indexPath.row).amount.currency)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
 		else if editingStyle == .Insert
@@ -193,7 +184,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 			
 			if let currencyToAdd:Currency = allCurrenciesTableViewController.selectedCurrency
 			{
-				currenciesStructure.append(HandsOnCurrency(currency: currencyToAdd, amount:nil, textField: nil))
+				currenciesStructure.append(HandsOnCurrency(amount:providedAmount.toCurrency(currencyToAdd), textField: nil))
 				model.addCurrencyToHandsOnList(currencyToAdd)
 				model.saveStorage()
 

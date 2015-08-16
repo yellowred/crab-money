@@ -275,10 +275,16 @@ class CurrencyModel
 	}
 
 	
-	func getHandsOnCurrenciesStructure() -> [HandsOnCurrency] {
+	func getHandsOnCurrenciesStructure(amount: Money) -> [HandsOnCurrency] {
 		var handson: [HandsOnCurrency] = []
+		var handsOnAmount: Money?
 		for currency in getHandsOnCurrenciesList() {
-			handson.append(HandsOnCurrency(currency: currency, amount:nil, textField: nil))
+			if amount.currency != currency {
+				handsOnAmount = amount.toCurrency(currency)
+			} else {
+				handsOnAmount = amount
+			}
+			handson.append(HandsOnCurrency(amount: handsOnAmount!, textField: nil))
 		}
 		return handson
 	}
@@ -368,13 +374,6 @@ class CurrencyModel
 		let defaults = NSUserDefaults.standardUserDefaults()
 		defaults.setBool(true, forKey: "event_" + name)
 	}
-	
-	
-	func convertAmount(amount: NSDecimalNumber, fromCurrency:Currency, toCurrency: Currency) -> NSDecimalNumber
-	{
-		println("Converting from \(fromCurrency.code)[\(fromCurrency.rate)] to \(toCurrency.code)[\(toCurrency.rate)]")
-		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(fromCurrency.rate)
-		return usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate).decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
-	}
+
 	
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-	var amount:Money
+	var amount:Money = {return Money(amount: 0, currency: CurrencyModel().getCurrentCurrency()!)}()
     
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
@@ -18,11 +18,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentCurrencyFlag: UIImageView!
     @IBOutlet weak var currentCurrencyLabel: UILabel!
 	
-	
-	required init(coder aDecoder: NSCoder) {
-	    self.amount = Money(amount: 0, currency: CurrencyModel().getCurrentCurrency()!)
-	}
-
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,11 +145,9 @@ class ViewController: UIViewController {
     @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
 		let currenciesTVC = segue.sourceViewController as? CurrenciesTableViewController
         if  (currenciesTVC != nil) {
-			if let currentCurrrency = currenciesTVC!.selectedCurrency {
-				amount = Money(amount: currenciesTVC!.providedAmount, currency: currentCurrrency)
-				updateCurrentCurrencyBlock()
-				reloadAmountDisplay()
-			}
+			amount = currenciesTVC!.providedAmount
+			updateCurrentCurrencyBlock()
+			reloadAmountDisplay()
         }
     }
 

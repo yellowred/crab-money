@@ -18,6 +18,6 @@ class AmountTextField: UITextField {
     }
     */
 	
-	var correspondingCurrency: Currency?
+	var correspondingCurrency: HandsOnCurrency?
 
 }
