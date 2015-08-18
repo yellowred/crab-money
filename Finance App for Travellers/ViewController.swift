@@ -8,9 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
-	var amount:Money = {return Money(amount: 0, currency: CurrencyModel().getCurrentCurrency()!)}()
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
+
+	let kShowTransactionSegue = "showTransactionsView"
+	// create the transition manager object
+	var transitionManager = MenuTransitionManager()
+	
+	var amount:Money?
+	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
     
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
@@ -41,100 +47,93 @@ class ViewController: UIViewController {
         //networkingIndicator.startAnimating()
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
-		CurrencyModel().preloadData()
+		
+		app.model.preloadData()
+		if let currency = app.model.getCurrentCurrency() {
+			amount = Money(amount: 0, currency: currency)
+		}
 		updateCurrentCurrencyBlock()
+		
+		// now we'll have a handy reference to this view controller
+		// from within our transition manager object
+		self.transitionManager.sourceViewController = self
     }
 
+	
 	@IBAction func tapNumber1(sender: UIButton)
 	{
-		amount.appendSymbol("1")
-		reloadAmountDisplay()
+		#if DEBUG
+			println(__FUNCTION__)
+		#endif
+		numpadPressed("1")
 	}
 
 	
 	@IBAction func tapNumber2(sender: UIButton) {
-		amount.appendSymbol("2")
-		reloadAmountDisplay()
+		numpadPressed("2")
 	}
 	
 	
 	@IBAction func tapNumber3(sender: UIButton) {
-		amount.appendSymbol("3")
-		reloadAmountDisplay()
-
+		numpadPressed("3")
 	}
 	
 	
 	@IBAction func tapNumber4(sender: UIButton) {
-		amount.appendSymbol("4")
-		reloadAmountDisplay()
-
+		numpadPressed("4")
 	}
 	
 	
 	@IBAction func tapNumber5(sender: UIButton) {
-		amount.appendSymbol("5")
-		reloadAmountDisplay()
-
+		numpadPressed("5")
 	}
 	
 	
 	@IBAction func tapNumber6(sender: UIButton) {
-		amount.appendSymbol("6")
-		reloadAmountDisplay()
-
+		numpadPressed("6")
 	}
 	
 	
 	@IBAction func tapNumber7(sender: UIButton) {
-		amount.appendSymbol("7")
-		reloadAmountDisplay()
-
+		numpadPressed("7")
 	}
 	
 	
 	@IBAction func tapNumber8(sender: UIButton) {
-		amount.appendSymbol("8")
-		reloadAmountDisplay()
-
+		numpadPressed("8")
 	}
 	
 	
 	@IBAction func tapNumber9(sender: UIButton) {
-		amount.appendSymbol("9")
-		reloadAmountDisplay()
-
+		numpadPressed("9")
 	}
 	
 	
 	@IBAction func tapNumberDiv(sender: UIButton) {
-		amount.appendSymbol(".")
-		reloadAmountDisplay()
-
+		numpadPressed(".")
 	}
 	
 	
 	@IBAction func tapNumber0(sender: UIButton) {
-		amount.appendSymbol("0")
-		reloadAmountDisplay()
-
+		numpadPressed("0")
 	}
 	
 	
 	@IBAction func tapNumberDel(sender: UIButton) {
-		amount.appendSymbol("1")
-		reloadAmountDisplay()
-
+		numpadPressed("<")
 	}
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
+		app.model.createTransaction(amount!)
+		app.model.saveStorage()
+		amount?.setAmount(0)
+		reloadAmountDisplay()
 	}
-	
 	
 	func reloadAmountDisplay()
 	{
 		//amountDisplayLabel.adjustsFontSizeToFitWidth = true
-		amountDisplayLabel.text = amount.amount.stringValue
+		amountDisplayLabel.text = amount!.amount.stringValue
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -170,14 +169,33 @@ class ViewController: UIViewController {
 		{
 			if let currenciesTVC = segue.destinationViewController.topViewController as? CurrenciesTableViewController
 			{
-				currenciesTVC.providedAmount = amount
+				currenciesTVC.providedAmount = amount!
 			}
 		}
 	}
 	
+	@IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
+		// bug? exit segue doesn't dismiss so we do it manually...
+		self.dismissViewControllerAnimated(true, completion: nil)
+		
+	}
+	
 	func updateCurrentCurrencyBlock() {
-		currentCurrencyFlag.image = amount.currency.getFlag()
-		currentCurrencyLabel.text = amount.currency.code.uppercaseString
+		if amount != nil {
+			currentCurrencyFlag.image = amount!.currency.getFlag()
+			currentCurrencyLabel.text = amount!.currency.code.uppercaseString
+		}
+	}
+	
+	func numpadPressed(symbol: String) {
+		if amount != nil {
+			if symbol == "<" {
+				amount!.backspace()
+			} else {
+				amount!.appendSymbol(symbol)
+			}
+			reloadAmountDisplay()
+		}
 	}
 	
 }

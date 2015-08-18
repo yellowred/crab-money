@@ -17,7 +17,6 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-		valueInput.adjustsFontSizeToFitWidth = true
     }
 
     func configure(#text: String?, placeholder: String) {

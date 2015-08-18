@@ -15,8 +15,13 @@ class Networking
 	private let api1:String = "http://api.fixer.io/latest?base=USD"
 	private let api2:String = "https://openexchangerates.org/api/api/latest.json?app_id=fc667c4ed0af4675835f20c90b8a4276"
 	private let currencyDownloadEndpoint:String = "http://sandbox.kubrakov.devel.local/currency.php"
-	
 
+	private var model: Model
+	
+	init(model: Model) {
+		self.model = model
+	}
+	
     func downloadAllData()
     {
 		Alamofire.request(.GET, api1).responseJSON() {
@@ -28,7 +33,6 @@ class Networking
 	
 	func downloadCountriesDatabase(finishCallback: () -> Void)
 	{
-		let model = CurrencyModel();
 		model.clearStorage()
 		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
 			(_, _, data, error) in
@@ -53,14 +57,14 @@ class Networking
 					flagPngData = nil
 				}
 				
-				var country = model.createCountry(
+				var country = self.model.createCountry(
 					countryData.valueForKey("code") as! String,
 					name: countryData.valueForKey("name_eng") as! String,
 					flag: flagPngData,
-					currency: model.getCurrencyByCode(countryData.valueForKey("currency") as! String)!
+					currency: self.model.getCurrencyByCode(countryData.valueForKey("currency") as! String)!
 				)
 			}
-			model.saveStorage()
+			self.model.saveStorage()
 			finishCallback()
 		}
 		
@@ -68,7 +72,6 @@ class Networking
 	
 	func downloadCurrenciesDatabase(finishCallback: () -> Void)
 	{
-		let model = CurrencyModel();
 		model.clearCurrencies()
 		
 		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
@@ -94,7 +97,7 @@ class Networking
 				{
 					flagPngData = nil
 				}
-				var currency = model.createCurrency(
+				var currency = self.model.createCurrency(
 					currencyData.valueForKey("code") as! String,
 					rate: currencyData.valueForKey("rate") as! Float,
 					flag: flagPngData,
@@ -113,7 +116,7 @@ class Networking
 				
 			}
 			println("Saved: \(currencyIndex)")
-			model.saveStorage()
+			self.model.saveStorage()
 			finishCallback()
 		}
 	}

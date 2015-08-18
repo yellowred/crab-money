@@ -94,7 +94,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return managedObjectContext
 		}()
 	
-
+	
+	lazy var model: Model = {
+		if self.managedObjectContext == nil {
+			NSLog("Can not initialize model: context is nil.")
+			abort()
+		} else {
+			return Model(context: self.managedObjectContext!, model: self.managedObjectModel)
+		}
+	}()
+	
+	lazy var network: Networking = {
+		return Networking(model: self.model)
+	}()
 
 }
 

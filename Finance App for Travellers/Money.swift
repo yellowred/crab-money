@@ -24,7 +24,7 @@ class Money {
 	
 	
 	func appendSymbol(symbol:String) {
-		if NSPredicate(format: "", "[0-9.]").evaluateWithObject(symbol) {
+		if NSPredicate(format: "SELF MATCHES %@", "[0-9.]").evaluateWithObject(symbol) {
 			if symbol != "." {
 				if pointExists {
 					if (fractionalPart.length < 3) {
@@ -42,6 +42,7 @@ class Money {
 		}
 	}
 	
+	
 	func recalcAmount() {
 		if pointExists {
 			amount = NSDecimalNumber(string: NSArray(array: [integralPart, fractionalPart]).componentsJoinedByString(decimalPoint))
@@ -53,13 +54,14 @@ class Money {
 	func backspace() {
 		if pointExists {
 			if fractionalPart.length > 0 {
-				fractionalPart.substringToIndex(fractionalPart.length.predecessor())
+				fractionalPart = NSString(string: fractionalPart.substringToIndex(fractionalPart.length.predecessor()))
 			} else if fractionalPart.length == 0 {
 				pointExists = false
 			}
 		} else {
-			integralPart.substringToIndex(fractionalPart.length.predecessor())
+			integralPart = NSString(string: integralPart.substringToIndex(integralPart.length.predecessor()))
 		}
+		recalcAmount()
 	}
 	
 	

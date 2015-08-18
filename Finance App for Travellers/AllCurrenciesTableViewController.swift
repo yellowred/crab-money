@@ -10,6 +10,7 @@ import UIKit
 
 class AllCurrenciesTableViewController: UITableViewController {
 
+	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	var allCurrencies = [Currency]()
 	var selectedCurrency: Currency?
 	
@@ -21,7 +22,7 @@ class AllCurrenciesTableViewController: UITableViewController {
 		
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		allCurrencies = CurrencyModel().getCurrenciesNotHandsOn()
+		allCurrencies = app.model.getCurrenciesNotHandsOn()
 	}
 	
 	override func didReceiveMemoryWarning() {

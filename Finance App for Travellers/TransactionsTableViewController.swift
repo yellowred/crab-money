@@ -1,27 +1,27 @@
 //
-//  CountriesTableViewController.swift
+//  TableViewController.swift
 //  Finance App for Travellers
 //
-//  Created by Oleg Kubrakov on 11/07/15.
+//  Created by Oleg Kubrakov on 18/08/15.
 //  Copyright (c) 2015 Oleg Kubrakov. All rights reserved.
 //
 
 import UIKit
 
-class CountriesTableViewController: UITableViewController {
+class TransactionsTableViewController: UITableViewController {
 
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
-    var countries = [Country]()
-	
+	var transactions = [Transaction]()
+	private let kTransactionCellIdentifier = "TransactionCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		countries = app.model.getCountriesList()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		transactions = app.model.getTransactionsList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,20 +40,23 @@ class CountriesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-		println("Countries count \(countries.count)")
-        return countries.count
+        return transactions.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("countryCell", forIndexPath: indexPath) as! UITableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier(kTransactionCellIdentifier, forIndexPath: indexPath) as! TransactionTableViewCell
+		let dateFormatter = NSDateFormatter()
+		cell.flag.image = transactions[indexPath.row].currency.getFlag()
+		cell.currencyCode.text = transactions[indexPath.row].currency.code
+		cell.amount.text = transactions[indexPath.row].amount.stringValue
+		cell.date.text = dateFormatter.stringFromDate(transactions[indexPath.row].date)
+		return cell
+	}
 
-        cell.textLabel?.text = countries[indexPath.row].valueForKey("name") as? String
-		cell.imageView?.image = countries[indexPath.row].getFlag()
-		
-		countries[indexPath.row].dumpProperties()
-        return cell
-    }
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return 90
+	}
 
     /*
     // Override to support conditional editing of the table view.

@@ -20,19 +20,23 @@ extension NSManagedObject
 }
 
 
-class CurrencyModel
+class Model
 {
-	func getManagedContext() -> NSManagedObjectContext
-	{
-		let appDelegate     = UIApplication.sharedApplication().delegate as! AppDelegate
-		return appDelegate.managedObjectContext!
+	
+	private var context: NSManagedObjectContext
+	private var model: NSManagedObjectModel
+	
+
+	init(context: NSManagedObjectContext, model: NSManagedObjectModel) {
+		self.context = context
+		self.model = model
 	}
 	
 	
 	func saveStorage()
 	{
 		var error: NSError? = nil
-		if getManagedContext().hasChanges && !getManagedContext().save(&error)
+		if context.hasChanges && !context.save(&error)
 		{
 			// Replace this implementation with code to handle the error appropriately.
 			// abort() causes the application to generate a crash log and terminate.
@@ -74,14 +78,14 @@ class CurrencyModel
    
     func createEntity(name: String) -> NSEntityDescription
     {
-        return NSEntityDescription.entityForName("Currency", inManagedObjectContext: getManagedContext())!
+        return NSEntityDescription.entityForName("Currency", inManagedObjectContext: context)!
     }
   
     
 	func createCurrency(code: String, rate: Float, flag: NSData?, name: String?) -> Currency?
     {
         let newCurrency = Currency(entity: createEntity("Currency"),
-            insertIntoManagedObjectContext:getManagedContext()) as Currency
+            insertIntoManagedObjectContext:context) as Currency
         
         newCurrency.setValue(code, forKey: "code")
         newCurrency.setValue(rate, forKey: "rate")
@@ -93,9 +97,9 @@ class CurrencyModel
     
 	func createCountry(code: String, name: String, flag: NSData?, currency: Currency) -> (Country)
     {
-        let newCountry = NSEntityDescription.insertNewObjectForEntityForName( NSStringFromClass(Country.classForCoder()), inManagedObjectContext: getManagedContext()) as! Country
+        let newCountry = NSEntityDescription.insertNewObjectForEntityForName( NSStringFromClass(Country.classForCoder()), inManagedObjectContext: context) as! Country
         
-        //let newCountry = Country(entity: createEntity("Country"), insertIntoManagedObjectContext:getManagedContext()) as Country
+        //let newCountry = Country(entity: createEntity("Country"), insertIntoManagedObjectContext:context) as Country
         
         newCountry.setValue(code, forKey: "code")
         newCountry.setValue(name, forKey: "name")
@@ -113,7 +117,7 @@ class CurrencyModel
 	
 	func addCurrencyToHandsOnList(currency:Currency)
 	{
-		let entity:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("HandsOnCurrency", inManagedObjectContext: getManagedContext()) as! NSManagedObject
+		let entity:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("HandsOnCurrency", inManagedObjectContext: context) as! NSManagedObject
 		entity.setValue(currency, forKey: "currency")
 	}
 	
@@ -122,14 +126,14 @@ class CurrencyModel
     {
         for currency: Currency in getCurrenciesList()
         {
-            getManagedContext().deleteObject(currency)
+            context.deleteObject(currency)
         }
         for country: Country in getCountriesList()
         {
-            getManagedContext().deleteObject(country)
+            context.deleteObject(country)
         }
         
-        getManagedContext().save(nil)
+        context.save(nil)
     }
 	
 	
@@ -137,9 +141,9 @@ class CurrencyModel
 	{
 		for country: Country in getCountriesList()
 		{
-			getManagedContext().deleteObject(country)
+			context.deleteObject(country)
 		}
-		getManagedContext().save(nil)
+		context.save(nil)
 	}
 	
 	
@@ -147,9 +151,9 @@ class CurrencyModel
 	{
 		for currency: Currency in getCurrenciesList()
 		{
-			getManagedContext().deleteObject(currency)
+			context.deleteObject(currency)
 		}
-		getManagedContext().save(nil)
+		context.save(nil)
 	}
 	
 	
@@ -157,7 +161,7 @@ class CurrencyModel
     {
         let fetchRequest = NSFetchRequest(entityName:NSStringFromClass(Country.classForCoder()))
         var error: NSError?
-        let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Country]
+        let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Country]
         if (error != nil)
         {
             println("Could not fetch \(error), \(error!.userInfo)")
@@ -170,7 +174,7 @@ class CurrencyModel
     {
         let fetchRequest = NSFetchRequest(entityName:"Currency")
         var error: NSError?
-        let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Currency]
+        let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Currency]
         if (error != nil)
         {
             println("Could not fetch \(error), \(error!.userInfo)")
@@ -185,7 +189,7 @@ class CurrencyModel
 		fetchRequest.predicate = NSPredicate(format: "handsOnCurrency == nil || handsOnCurrency.@count =0")
 
 		var error: NSError?
-		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Currency]
+		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Currency]
 		if (error != nil)
 		{
 			println("Could not fetch \(error), \(error!.userInfo)")
@@ -201,7 +205,7 @@ class CurrencyModel
 		fetchRequest.predicate = pred
 	
 		var error: NSError?
-		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Country]
+		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Country]
 		if (error != nil)
 		{
 			println("Could not fetch \(error), \(error!.userInfo)")
@@ -224,7 +228,7 @@ class CurrencyModel
 		fetchRequest.predicate = pred
 		
 		var error: NSError?
-		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [Currency]
+		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Currency]
 		if (error != nil)
 		{
 			println("Could not fetch \(error), \(error!.userInfo)")
@@ -252,7 +256,7 @@ class CurrencyModel
 		
 		let fetchRequest = NSFetchRequest(entityName:"HandsOnCurrency")
 		var error: NSError?
-		let fetchedResults = getManagedContext().executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
 		if (error != nil)
 		{
 			println("Could not fetch \(error), \(error!.userInfo)")
@@ -292,8 +296,8 @@ class CurrencyModel
 	
 	func deleteHandsOnCurrencyByCurrency(currency:Currency)
 	{
-		getManagedContext().deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
-		getManagedContext().save(nil)
+		context.deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
+		context.save(nil)
 	}
 
 	
@@ -374,6 +378,34 @@ class CurrencyModel
 		let defaults = NSUserDefaults.standardUserDefaults()
 		defaults.setBool(true, forKey: "event_" + name)
 	}
-
 	
+	
+	func createTransaction(amount: Money) -> (Transaction)
+	{
+		let newTransaction = NSEntityDescription.insertNewObjectForEntityForName(
+			NSStringFromClass(Transaction.classForCoder()),
+			inManagedObjectContext: context
+		) as! Transaction
+		
+		newTransaction.setValue(amount.amount, forKey: "amount")
+		newTransaction.setValue(amount.currency, forKey: "currency")
+		newTransaction.setValue(NSDate(), forKey: "date")
+		
+		println("createTransaction \(amount.amount)")
+		
+		return newTransaction
+	}
+	
+	
+	func getTransactionsList() -> [Transaction]
+	{
+		let fetchRequest = NSFetchRequest(entityName:"Transaction")
+		var error: NSError?
+		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Transaction]
+		if (error != nil)
+		{
+			println("Could not fetch \(error), \(error!.userInfo)")
+		}
+		return fetchedResults!
+	}
 }

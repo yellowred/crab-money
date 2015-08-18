@@ -22,8 +22,8 @@
     <entity name="HandsOnCurrency" representedClassName="NSManagedObject" syncable="YES">
         <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="handsOnCurrency" inverseEntity="Currency" syncable="YES"/>
     </entity>
-    <entity name="Transaction" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Category" syncable="YES"/>
