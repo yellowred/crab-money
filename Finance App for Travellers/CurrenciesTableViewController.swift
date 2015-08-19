@@ -93,6 +93,9 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 	@IBAction func amountChanged(sender: UITextField) {
 		if let amountTextField = sender as? AmountTextField
 		{
+			if amountTextField.text.isEmpty {
+				amountTextField.text = "0"
+			}
 			if let handsOnCurrency:HandsOnCurrency = amountTextField.correspondingCurrency {
 				handsOnCurrency.setAmount(NSDecimalNumber(string: amountTextField.text))
 				providedAmount = handsOnCurrency.amount

@@ -68,6 +68,7 @@ class Money {
 	func toCurrency(toCurrency: Currency) -> Money
 	{
 		//println("Converting from \(fromCurrency.code)[\(fromCurrency.rate)] to \(toCurrency.code)[\(toCurrency.rate)]")
+		println("Amount: \(amount). Currency: \(currency)")
 		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(currency.rate)
 		return Money(amount: usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate).decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)), currency: toCurrency)
 	}
