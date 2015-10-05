@@ -26,6 +26,7 @@
 		9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA2E9C01B82240E00367068 /* Transaction.swift */; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
+		9ACD9D1D1BC29F6F0012316E /* NumpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD9D1C1BC29F6F0012316E /* NumpadViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
 		9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		9AECCC8A1B8CC69D009F9560 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC7C1B8CC69D009F9560 /* Alamofire.swift */; };
@@ -99,6 +100,7 @@
 		9AA2E9C01B82240E00367068 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9ACC025A1B5130D500F93A4C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		9ACD9D1C1BC29F6F0012316E /* NumpadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumpadViewController.swift; path = ../NumpadViewController.swift; sourceTree = "<group>"; };
 		9AE403C81B74671A00143932 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = currencies.json; path = ../../currencies.json; sourceTree = "<group>"; };
 		9AEA34F91B79C4ED009C65FE /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		9AECCC7B1B8CC69D009F9560 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alamofire.h; path = Alamofire/Source/Alamofire.h; sourceTree = SOURCE_ROOT; };
@@ -186,6 +188,7 @@
 		9A9C918E1B3444E500DE580F /* Finance App for Travellers */ = {
 			isa = PBXGroup;
 			children = (
+				9ACD9D1C1BC29F6F0012316E /* NumpadViewController.swift */,
 				9A9C91911B3444E500DE580F /* AppDelegate.swift */,
 				9A9C91961B3444E500DE580F /* ViewController.swift */,
 				9AFE7CA41B82DDFA00B7159B /* MenuTransitionManager.swift */,
@@ -398,6 +401,7 @@
 				9AECCC8E1B8CC69D009F9560 /* Manager.swift in Sources */,
 				9AECCC961B8CC69D009F9560 /* Upload.swift in Sources */,
 				9AECCC971B8CC69D009F9560 /* Validation.swift in Sources */,
+				9ACD9D1D1BC29F6F0012316E /* NumpadViewController.swift in Sources */,
 				9AECCC951B8CC69D009F9560 /* Stream.swift in Sources */,
 				9AECCC8C1B8CC69D009F9560 /* Error.swift in Sources */,
 				9AECCC901B8CC69D009F9560 /* ParameterEncoding.swift in Sources */,

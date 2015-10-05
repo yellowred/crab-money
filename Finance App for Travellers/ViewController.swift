@@ -59,6 +59,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 		self.transitionManager.sourceViewController = self
     }
 
+	func createButton () {
+		let button = UIButton();
+		button.setTitle("Add", forState: .Normal)
+		button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+		button.frame = CGRectMake(15, -50, 200, 100)
+		self.view.addSubview(button)
+	}
 	
 	@IBAction func tapNumber1(sender: UIButton)
 	{
