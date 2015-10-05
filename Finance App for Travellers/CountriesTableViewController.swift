@@ -40,13 +40,13 @@ class CountriesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-		println("Countries count \(countries.count)")
+		print("Countries count \(countries.count)")
         return countries.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("countryCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("countryCell", forIndexPath: indexPath) 
 
         cell.textLabel?.text = countries[indexPath.row].valueForKey("name") as? String
 		cell.imageView?.image = countries[indexPath.row].getFlag()

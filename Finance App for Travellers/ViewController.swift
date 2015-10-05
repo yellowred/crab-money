@@ -164,10 +164,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
 	{
-		println("Segue: \(segue.identifier)")
+		print("Segue: \(segue.identifier)")
 		if segue.identifier == "showCurrencySelect"
 		{
-			if let currenciesTVC = segue.destinationViewController.topViewController as? CurrenciesTableViewController
+			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? CurrenciesTableViewController
 			{
 				currenciesTVC.providedAmount = amount!
 			}

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 //@see http://www.raywenderlich.com/85080/beginning-alamofire-tutorial
 class Networking
@@ -21,36 +20,22 @@ class Networking
 	init(model: Model) {
 		self.model = model
 	}
-	
-    func downloadAllData()
-    {
-		Alamofire.request(.GET, api1).responseJSON() {
-			(_, _, data, _) in
-			let currenciesData = (data!.valueForKey("rates") as! [NSDictionary])
-		}
-    }
+
 	
 	
 	func downloadCountriesDatabase(finishCallback: () -> Void)
 	{
 		model.clearStorage()
-		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
-			(_, _, data, error) in
+		request(.GET, currencyDownloadEndpoint).responseJSON() {
+			(_, _, data) in
 
-			if error != nil
-			{
-				println(error)
-			}
-			
-			
-			println(data);
+			print(data);
 			var flagPngData:NSData? = nil
 			for countryData:NSDictionary in data as! [NSDictionary]
 			{
 				if countryData.valueForKey("flag") != nil
 				{
-					
-					flagPngData = NSData(base64EncodedString: countryData.valueForKey("flag") as! String, options: nil)
+					flagPngData = NSData(base64EncodedString: countryData.valueForKey("flag") as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
 				}
 				else
 				{
@@ -74,16 +59,12 @@ class Networking
 	{
 		model.clearCurrencies()
 		
-		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
-			(_, response, data, error) in
-			
-			if error != nil
-			{
-				println(error)
-			}
+		request(.GET, currencyDownloadEndpoint).responseJSON() {
+			(_, response, data) in
 			
 			
-			println(data);
+			
+			print(data);
 			var flagPngData:NSData? = nil
 			var currencyIndex = 0;
 			for currencyData:NSDictionary in data as! [NSDictionary]
@@ -91,7 +72,7 @@ class Networking
 				if currencyData.valueForKey("flag") != nil
 				{
 					
-					flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: nil)
+					flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
 				}
 				else
 				{
@@ -111,11 +92,11 @@ class Networking
 				}
 				else
 				{
-					println("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
+					print("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
 				}
 				
 			}
-			println("Saved: \(currencyIndex)")
+			print("Saved: \(currencyIndex)")
 			self.model.saveStorage()
 			finishCallback()
 		}

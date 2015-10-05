@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HandsOnCurrency {
+class HandsOnCurrency: NSObject {
 
 	var amount: Money
 	var textField: UITextField?

@@ -19,7 +19,7 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
         // Initialization code
     }
 
-    func configure(#text: String?, placeholder: String) {
+    func configure(text text: String?, placeholder: String) {
         valueInput.text = text
         valueInput.placeholder = placeholder
         

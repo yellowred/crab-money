@@ -68,7 +68,7 @@ class Money {
 	func toCurrency(toCurrency: Currency) -> Money
 	{
 		//println("Converting from \(fromCurrency.code)[\(fromCurrency.rate)] to \(toCurrency.code)[\(toCurrency.rate)]")
-		println("Amount: \(amount). Currency: \(currency)")
+		print("Amount: \(amount). Currency: \(currency)")
 		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(currency.rate)
 		return Money(amount: usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate).decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)), currency: toCurrency)
 	}
@@ -82,10 +82,10 @@ class Money {
 	
 	func recalcParts() {
 		let amountParts = NSString(string: amount.stringValue).componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "."))
-		self.integralPart = amountParts[0] as! NSString
+		self.integralPart = amountParts[0] as NSString
 		if amountParts.count > 1 {
 			pointExists = true
-			self.fractionalPart = amountParts[1] as! NSString
+			self.fractionalPart = amountParts[1] as NSString
 		} else {
 			self.pointExists = false
 			self.fractionalPart = ""

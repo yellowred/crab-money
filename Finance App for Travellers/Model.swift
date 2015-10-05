@@ -13,8 +13,8 @@ extension NSManagedObject
 {
 	
 	func dumpProperties() {
-		for (key, _) in entity.propertiesByName as! [String : AnyObject] {
-			println("\"\(key)\": \(valueForKey(key))")
+		for (key, _) in entity.propertiesByName {
+			print("\"\(key)\": \(valueForKey(key))")
 		}
 	}
 }
@@ -36,13 +36,18 @@ class Model
 	func saveStorage()
 	{
 		var error: NSError? = nil
-		if context.hasChanges && !context.save(&error)
+		if context.hasChanges
 		{
-			// Replace this implementation with code to handle the error appropriately.
-			// abort() causes the application to generate a crash log and terminate.
-			// You should not use this function in a shipping application, although it may be useful during development.
-			NSLog("Unresolved error \(error), \(error!.userInfo)")
-			abort()
+			do {
+				try context.save()
+			} catch let error1 as NSError {
+				error = error1
+				// Replace this implementation with code to handle the error appropriately.
+				// abort() causes the application to generate a crash log and terminate.
+				// You should not use this function in a shipping application, although it may be useful during development.
+				NSLog("Unresolved error \(error), \(error!.userInfo)")
+				abort()
+			}
 		}
 	}
 	
@@ -109,7 +114,7 @@ class Model
             newCountry.setValue(flag!, forKey: "flag")
         }
 
-		println("Country", newCountry.valueForKey("code"), newCountry.valueForKey("flag"))
+		print("Country", newCountry.valueForKey("code"), newCountry.valueForKey("flag"))
         
         return newCountry
     }
@@ -117,7 +122,7 @@ class Model
 	
 	func addCurrencyToHandsOnList(currency:Currency)
 	{
-		let entity:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("HandsOnCurrency", inManagedObjectContext: context) as! NSManagedObject
+		let entity:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("HandsOnCurrency", inManagedObjectContext: context) 
 		entity.setValue(currency, forKey: "currency")
 	}
 	
@@ -133,7 +138,10 @@ class Model
             context.deleteObject(country)
         }
         
-        context.save(nil)
+        do {
+			try context.save()
+		} catch _ {
+		}
     }
 	
 	
@@ -143,44 +151,61 @@ class Model
 		{
 			context.deleteObject(country)
 		}
-		context.save(nil)
+		do {
+			try context.save()
+		} catch _ {
+		}
 	}
 	
 	
-	func clearCurrencies()
+	func clearCurrencies() -> Bool
 	{
-		for currency: Currency in getCurrenciesList()
-		{
-			context.deleteObject(currency)
+		//Persist deletion
+		var success:Bool
+		do {
+			for currency: Currency in getCurrenciesList()
+			{
+				context.deleteObject(currency)
+			}
+			
+			//Persist deletion to datastore
+			try context.save()
+			success = true
+		} catch let deleteError as NSError {
+			print("clearCurrencies error: \(deleteError.localizedDescription)")
+			success = false
 		}
-		context.save(nil)
+		return success
+	}
+	
+	
+	func getObjectsList(objectClass: AnyClass) -> [AnyObject] {
+		// Create request on Event entity
+		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(objectClass))
+		
+		//Execute Fetch request
+		var fetchedResults = Array<AnyObject>()
+		do {
+			fetchedResults = try context.executeFetchRequest(fetchRequest)
+		} catch let fetchError as NSError {
+			print("getObjectsList error: \(fetchError.localizedDescription)")
+		}
+		
+		return fetchedResults
 	}
 	
 	
     func getCountriesList() -> [Country]
     {
-        let fetchRequest = NSFetchRequest(entityName:NSStringFromClass(Country.classForCoder()))
-        var error: NSError?
-        let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Country]
-        if (error != nil)
-        {
-            println("Could not fetch \(error), \(error!.userInfo)")
-        }
-        return fetchedResults!
+		return getObjectsList(Country.classForCoder()) as! [Country]
     }
     
     
     func getCurrenciesList() -> [Currency]
     {
-        let fetchRequest = NSFetchRequest(entityName:"Currency")
-        var error: NSError?
-        let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Currency]
-        if (error != nil)
-        {
-            println("Could not fetch \(error), \(error!.userInfo)")
-        }
-        return fetchedResults!
+        return getObjectsList(Currency.classForCoder()) as! [Currency]
     }
+	
 	
 	func getCurrenciesNotHandsOn() -> [Currency]
 	{
@@ -188,31 +213,30 @@ class Model
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "code", ascending: true)]
 		fetchRequest.predicate = NSPredicate(format: "handsOnCurrency == nil || handsOnCurrency.@count =0")
 
-		var error: NSError?
-		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Currency]
-		if (error != nil)
-		{
-			println("Could not fetch \(error), \(error!.userInfo)")
+		var fetchedResults = Array<Currency>()
+		do {
+			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+		} catch let fetchError as NSError {
+			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
-		return fetchedResults!
-
+		return fetchedResults
 	}
  
 	func getCountryByCode(code:String) -> Country?
 	{
-		var fetchRequest = NSFetchRequest(entityName:"Country")
+		let fetchRequest = NSFetchRequest(entityName:"Country")
 		let pred = NSPredicate(format: "(code = %@)", code)
 		fetchRequest.predicate = pred
 	
-		var error: NSError?
-		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Country]
-		if (error != nil)
-		{
-			println("Could not fetch \(error), \(error!.userInfo)")
+		var fetchedResults = Array<Country>()
+		do {
+			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Country]
+		} catch let fetchError as NSError {
+			print("getCountryByCode error: \(fetchError.localizedDescription)")
 		}
-		if fetchedResults != nil && fetchedResults!.count > 0
+		if fetchedResults.count > 0
 		{
-			return fetchedResults!.first
+			return fetchedResults.first
 		}
 		else
 		{
@@ -223,19 +247,19 @@ class Model
  
 	func getCurrencyByCode(code:String) -> Currency?
 	{
-		var fetchRequest = NSFetchRequest(entityName:"Currency")
+		let fetchRequest = NSFetchRequest(entityName:"Currency")
 		let pred = NSPredicate(format: "(code = %@)", code)
 		fetchRequest.predicate = pred
 		
-		var error: NSError?
-		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Currency]
-		if (error != nil)
-		{
-			println("Could not fetch \(error), \(error!.userInfo)")
+		var fetchedResults = Array<Currency>()
+		do {
+			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+		} catch let fetchError as NSError {
+			print("getCountryByCode error: \(fetchError.localizedDescription)")
 		}
-		if fetchedResults != nil && fetchedResults!.count > 0
+		if fetchedResults.count > 0
 		{
-			return fetchedResults!.first
+			return fetchedResults.first
 		}
 		else
 		{
@@ -247,35 +271,13 @@ class Model
     func showAllEntities()
     {
 		let appDelegate     = UIApplication.sharedApplication().delegate as! AppDelegate
-        println("All loaded entities are: \(appDelegate.managedObjectModel.entitiesByName)");
+        print("All loaded entities are: \(appDelegate.managedObjectModel.entitiesByName)");
     }
+	
 	
 	func getHandsOnCurrenciesList() -> [Currency]
 	{
-		var handsOnCurrencies = [Currency]()
-		
-		let fetchRequest = NSFetchRequest(entityName:"HandsOnCurrency")
-		var error: NSError?
-		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-		if (error != nil)
-		{
-			println("Could not fetch \(error), \(error!.userInfo)")
-		}
-		else
-		{
-			if (fetchedResults != nil)
-			{
-				for handsOnCurrency:NSManagedObject in fetchedResults!
-				{
-					var currency: Currency? = handsOnCurrency.valueForKey("currency") as? Currency
-					if (currency != nil)
-					{
-						handsOnCurrencies.append(currency!)
-					}
-				}
-			}
-		}
-		return handsOnCurrencies
+		return getObjectsList(HandsOnCurrency) as! [Currency]
 	}
 
 	
@@ -297,7 +299,10 @@ class Model
 	func deleteHandsOnCurrencyByCurrency(currency:Currency)
 	{
 		context.deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
-		context.save(nil)
+		do {
+			try context.save()
+		} catch _ {
+		}
 	}
 
 	
@@ -305,13 +310,17 @@ class Model
 		if !isEventHappen("prepopulateCurrencies") {
 			clearCurrencies()
 			
-			var error:NSError?
 			// Retrieve data from the source file
 			if let contentsOfURL = NSBundle.mainBundle().URLForResource("currencies", withExtension: "json") {
-				var parseError: NSError?
-				let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
-					options: NSJSONReadingOptions.AllowFragments,
-					error:&parseError)
+				let parsedObject: AnyObject?
+				do {
+					parsedObject = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
+										options: NSJSONReadingOptions.AllowFragments)
+				} catch let error as NSError {
+					parsedObject = nil
+					debugPrint(error)
+					abort()
+				}
 				if let currencies = parsedObject as? [NSDictionary] {
 					populateCurrenciesWithData(currencies)
 					setEventHappen("prepopulateCurrencies")
@@ -321,7 +330,7 @@ class Model
 	}
 		
 	func populateCurrenciesWithData(data: [NSDictionary]) {
-		println(data);
+		print(data);
 		var flagPngData:NSData? = nil
 		var currencyIndex = 0;
 		for currencyData:NSDictionary in data
@@ -329,13 +338,13 @@ class Model
 			if currencyData.valueForKey("flag") != nil
 			{
 				
-				flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: nil)
+				flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: [])
 			}
 			else
 			{
 				flagPngData = nil
 			}
-			var currency = createCurrency(
+			let currency = createCurrency(
 				currencyData.valueForKey("code") as! String,
 				rate: currencyData.valueForKey("rate") as! Float,
 				flag: flagPngData,
@@ -349,11 +358,11 @@ class Model
 			}
 			else
 			{
-				println("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
+				print("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
 			}
 			
 		}
-		println("Populated: \(currencyIndex)")
+		print("Populated: \(currencyIndex)")
 		saveStorage()
 	}
 	
@@ -391,7 +400,7 @@ class Model
 		newTransaction.setValue(amount.currency, forKey: "currency")
 		newTransaction.setValue(NSDate(), forKey: "date")
 		
-		println("createTransaction \(amount.amount)")
+		print("createTransaction \(amount.amount)")
 		
 		return newTransaction
 	}
@@ -399,13 +408,27 @@ class Model
 	
 	func getTransactionsList() -> [Transaction]
 	{
-		let fetchRequest = NSFetchRequest(entityName:"Transaction")
-		var error: NSError?
-		let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as? [Transaction]
-		if (error != nil)
-		{
-			println("Could not fetch \(error), \(error!.userInfo)")
-		}
-		return fetchedResults!
+		return getObjectsList(Transaction.classForCoder()) as! [Transaction]
+	}
+	
+	
+	func createCategory(name: String, logo: NSData) -> (Category)
+	{
+		let newCategory = NSEntityDescription.insertNewObjectForEntityForName(
+			NSStringFromClass(Category.classForCoder()),
+			inManagedObjectContext: context
+			) as! Category
+		
+		newCategory.setValue(name, forKey: "name")
+		newCategory.setValue(logo, forKey: "logo")
+		
+		print("createCategory \(name)")
+		return newCategory
+	}
+	
+	
+	func getCategoriesList() -> [Category]
+	{
+		return getObjectsList(Category.classForCoder()) as! [Category]
 	}
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
 		9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B11921B4E2D9400BC8BB1 /* Networking.swift */; };
+		9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1461B85859A0087ECDD /* CategoriesCollectionViewController.swift */; };
+		9A27C1491B8586220087ECDD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1481B8586220087ECDD /* Category.swift */; };
+		9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C14A1B8592270087ECDD /* CategoryCollectionViewCell.swift */; };
+		9A27C1501B8592810087ECDD /* AddCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C14F1B8592810087ECDD /* AddCategoryCollectionViewCell.swift */; };
 		9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41FF221B75A32900E529D1 /* AmountTextField.swift */; };
 		9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
 		9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */; };
@@ -19,13 +23,25 @@
 		9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C91981B3444E500DE580F /* Main.storyboard */; };
 		9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919B1B3444E500DE580F /* Images.xcassets */; };
 		9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */; };
+		9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA2E9C01B82240E00367068 /* Transaction.swift */; };
-		9AB80D2C1B4E39E3007D1B92 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB80D251B4E39B1007D1B92 /* Alamofire.framework */; };
-		9AB80D2D1B4E39E3007D1B92 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB80D251B4E39B1007D1B92 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
-		9AE403C71B74669500143932 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C61B74669500143932 /* Media.xcassets */; };
 		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
 		9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
+		9AECCC8A1B8CC69D009F9560 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC7C1B8CC69D009F9560 /* Alamofire.swift */; };
+		9AECCC8B1B8CC69D009F9560 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC7D1B8CC69D009F9560 /* Download.swift */; };
+		9AECCC8C1B8CC69D009F9560 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC7E1B8CC69D009F9560 /* Error.swift */; };
+		9AECCC8D1B8CC69D009F9560 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AECCC7F1B8CC69D009F9560 /* Info.plist */; };
+		9AECCC8E1B8CC69D009F9560 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC801B8CC69D009F9560 /* Manager.swift */; };
+		9AECCC8F1B8CC69D009F9560 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC811B8CC69D009F9560 /* MultipartFormData.swift */; };
+		9AECCC901B8CC69D009F9560 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC821B8CC69D009F9560 /* ParameterEncoding.swift */; };
+		9AECCC911B8CC69D009F9560 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC831B8CC69D009F9560 /* Request.swift */; };
+		9AECCC921B8CC69D009F9560 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC841B8CC69D009F9560 /* ResponseSerialization.swift */; };
+		9AECCC931B8CC69D009F9560 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC851B8CC69D009F9560 /* Result.swift */; };
+		9AECCC941B8CC69D009F9560 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC861B8CC69D009F9560 /* ServerTrustPolicy.swift */; };
+		9AECCC951B8CC69D009F9560 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC871B8CC69D009F9560 /* Stream.swift */; };
+		9AECCC961B8CC69D009F9560 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC881B8CC69D009F9560 /* Upload.swift */; };
+		9AECCC971B8CC69D009F9560 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AECCC891B8CC69D009F9560 /* Validation.swift */; };
 		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
 		9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* Model.swift */; };
 		9AFB00801B576B0F0062C6AE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
@@ -43,41 +59,6 @@
 			remoteGlobalIDString = 9A9C918B1B3444E500DE580F;
 			remoteInfo = "Finance App for Travellers";
 		};
-		9AB80D241B4E39B1007D1B92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		9AB80D261B4E39B1007D1B92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire OSX";
-		};
-		9AB80D281B4E39B1007D1B92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		9AB80D2A1B4E39B1007D1B92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire OSX Tests";
-		};
-		9AB80D2E1B4E39E3007D1B92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,7 +68,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9AB80D2D1B4E39E3007D1B92 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +77,10 @@
 /* Begin PBXFileReference section */
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
 		9A0B11921B4E2D9400BC8BB1 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; usesTabs = 1; };
+		9A27C1461B85859A0087ECDD /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
+		9A27C1481B8586220087ECDD /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9A27C14A1B8592270087ECDD /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		9A27C14F1B8592810087ECDD /* AddCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCategoryCollectionViewCell.swift; path = ../AddCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A41FF221B75A32900E529D1 /* AmountTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandsOnCurrency.swift; sourceTree = "<group>"; };
 		9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,13 +95,27 @@
 		9A9C91A41B3444E500DE580F /* Finance App for TravellersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Finance App for TravellersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91A91B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance_App_for_TravellersTests.swift; sourceTree = "<group>"; };
+		9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9AA2E9C01B82240E00367068 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		9ACC025A1B5130D500F93A4C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
-		9AE403C61B74669500143932 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		9AE403C81B74671A00143932 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = currencies.json; path = ../../currencies.json; sourceTree = "<group>"; };
 		9AEA34F91B79C4ED009C65FE /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		9AECCC7B1B8CC69D009F9560 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alamofire.h; path = Alamofire/Source/Alamofire.h; sourceTree = SOURCE_ROOT; };
+		9AECCC7C1B8CC69D009F9560 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Alamofire/Source/Alamofire.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC7D1B8CC69D009F9560 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Alamofire/Source/Download.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC7E1B8CC69D009F9560 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Alamofire/Source/Error.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC7F1B8CC69D009F9560 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Alamofire/Source/Info.plist; sourceTree = SOURCE_ROOT; };
+		9AECCC801B8CC69D009F9560 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Alamofire/Source/Manager.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC811B8CC69D009F9560 /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Alamofire/Source/MultipartFormData.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC821B8CC69D009F9560 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Alamofire/Source/ParameterEncoding.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC831B8CC69D009F9560 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Alamofire/Source/Request.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC841B8CC69D009F9560 /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Alamofire/Source/ResponseSerialization.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC851B8CC69D009F9560 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Alamofire/Source/Result.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC861B8CC69D009F9560 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Alamofire/Source/ServerTrustPolicy.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC871B8CC69D009F9560 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Alamofire/Source/Stream.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC881B8CC69D009F9560 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Alamofire/Source/Upload.swift; sourceTree = SOURCE_ROOT; };
+		9AECCC891B8CC69D009F9560 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Alamofire/Source/Validation.swift; sourceTree = SOURCE_ROOT; };
 		9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9AF9E12B1B4B92DD0076BE69 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9AFB007F1B576B0F0062C6AE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB80D2C1B4E39E3007D1B92 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,10 +143,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A27C14E1B8592570087ECDD /* CurrencyTable */ = {
+			isa = PBXGroup;
+			children = (
+				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
+				9A41FF221B75A32900E529D1 /* AmountTextField.swift */,
+				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
+				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
+			);
+			name = CurrencyTable;
+			sourceTree = "<group>";
+		};
+		9A27C1511B85928D0087ECDD /* CategorySelect */ = {
+			isa = PBXGroup;
+			children = (
+				9A27C1461B85859A0087ECDD /* CategoriesCollectionViewController.swift */,
+				9A27C14F1B8592810087ECDD /* AddCategoryCollectionViewCell.swift */,
+				9A27C14A1B8592270087ECDD /* CategoryCollectionViewCell.swift */,
+			);
+			name = CategorySelect;
+			sourceTree = "<group>";
+		};
 		9A9C91831B3444E500DE580F = {
 			isa = PBXGroup;
 			children = (
-				9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */,
 				9A9C918E1B3444E500DE580F /* Finance App for Travellers */,
 				9A9C91A71B3444E500DE580F /* Finance App for TravellersTests */,
 				9A9C918D1B3444E500DE580F /* Products */,
@@ -173,19 +190,19 @@
 				9A9C91961B3444E500DE580F /* ViewController.swift */,
 				9AFE7CA41B82DDFA00B7159B /* MenuTransitionManager.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
+				9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */,
 				9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */,
-				9A41FF221B75A32900E529D1 /* AmountTextField.swift */,
-				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
-				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
-				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
 				9AFE7CA91B82DF2B00B7159B /* TransactionsTableViewController.swift */,
 				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
 				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
+				9A27C1511B85928D0087ECDD /* CategorySelect */,
+				9A27C14E1B8592570087ECDD /* CurrencyTable */,
 				9AEA34FE1B79C55E009C65FE /* Model */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
+				9AD380511B8B51680062FBCD /* Alamofire */,
 			);
 			path = "Finance App for Travellers";
 			sourceTree = "<group>";
@@ -194,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				9A9C91901B3444E500DE580F /* Info.plist */,
-				9AE403C61B74669500143932 /* Media.xcassets */,
 				9AE403C81B74671A00143932 /* currencies.json */,
 			);
 			name = "Supporting Files";
@@ -217,20 +233,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9AB80D1E1B4E39B1007D1B92 /* Products */ = {
+		9AD380511B8B51680062FBCD /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				9AB80D251B4E39B1007D1B92 /* Alamofire.framework */,
-				9AB80D271B4E39B1007D1B92 /* Alamofire.framework */,
-				9AB80D291B4E39B1007D1B92 /* Alamofire iOS Tests.xctest */,
-				9AB80D2B1B4E39B1007D1B92 /* Alamofire OSX Tests.xctest */,
+				9AECCC7B1B8CC69D009F9560 /* Alamofire.h */,
+				9AECCC7C1B8CC69D009F9560 /* Alamofire.swift */,
+				9AECCC7D1B8CC69D009F9560 /* Download.swift */,
+				9AECCC7E1B8CC69D009F9560 /* Error.swift */,
+				9AECCC7F1B8CC69D009F9560 /* Info.plist */,
+				9AECCC801B8CC69D009F9560 /* Manager.swift */,
+				9AECCC811B8CC69D009F9560 /* MultipartFormData.swift */,
+				9AECCC821B8CC69D009F9560 /* ParameterEncoding.swift */,
+				9AECCC831B8CC69D009F9560 /* Request.swift */,
+				9AECCC841B8CC69D009F9560 /* ResponseSerialization.swift */,
+				9AECCC851B8CC69D009F9560 /* Result.swift */,
+				9AECCC861B8CC69D009F9560 /* ServerTrustPolicy.swift */,
+				9AECCC871B8CC69D009F9560 /* Stream.swift */,
+				9AECCC881B8CC69D009F9560 /* Upload.swift */,
+				9AECCC891B8CC69D009F9560 /* Validation.swift */,
 			);
-			name = Products;
+			name = Alamofire;
 			sourceTree = "<group>";
 		};
 		9AEA34FE1B79C55E009C65FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A27C1481B8586220087ECDD /* Category.swift */,
 				9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */,
 				9AFB00811B576B100062C6AE /* Currency.swift */,
 				9AFB007F1B576B0F0062C6AE /* Country.swift */,
@@ -256,7 +284,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9AB80D2F1B4E39E3007D1B92 /* PBXTargetDependency */,
 			);
 			name = "Finance App for Travellers";
 			productName = "Finance App for Travellers";
@@ -287,7 +314,9 @@
 		9A9C91841B3444E500DE580F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Oleg Kubrakov";
 				TargetAttributes = {
 					9A9C918B1B3444E500DE580F = {
@@ -311,12 +340,6 @@
 			mainGroup = 9A9C91831B3444E500DE580F;
 			productRefGroup = 9A9C918D1B3444E500DE580F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 9AB80D1E1B4E39B1007D1B92 /* Products */;
-					ProjectRef = 9AB80D1D1B4E39B1007D1B92 /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				9A9C918B1B3444E500DE580F /* Finance App for Travellers */,
@@ -325,45 +348,15 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		9AB80D251B4E39B1007D1B92 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 9AB80D241B4E39B1007D1B92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9AB80D271B4E39B1007D1B92 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 9AB80D261B4E39B1007D1B92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9AB80D291B4E39B1007D1B92 /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = 9AB80D281B4E39B1007D1B92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9AB80D2B1B4E39B1007D1B92 /* Alamofire OSX Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire OSX Tests.xctest";
-			remoteRef = 9AB80D2A1B4E39B1007D1B92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		9A9C918A1B3444E500DE580F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
-				9AE403C71B74669500143932 /* Media.xcassets in Resources */,
 				9AE403C91B74671A00143932 /* currencies.json in Resources */,
+				9AECCC8D1B8CC69D009F9560 /* Info.plist in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,23 +377,40 @@
 			files = (
 				9AFE7CA51B82DDFA00B7159B /* MenuTransitionManager.swift in Sources */,
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
+				9AECCC8F1B8CC69D009F9560 /* MultipartFormData.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
 				9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */,
 				9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */,
+				9AECCC941B8CC69D009F9560 /* ServerTrustPolicy.swift in Sources */,
+				9AECCC931B8CC69D009F9560 /* Result.swift in Sources */,
 				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
+				9AECCC911B8CC69D009F9560 /* Request.swift in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
+				9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */,
 				9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */,
 				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
 				9AFE7CAC1B82E78C00B7159B /* TransactionTableViewCell.swift in Sources */,
+				9A27C1501B8592810087ECDD /* AddCategoryCollectionViewCell.swift in Sources */,
 				9AFB00801B576B0F0062C6AE /* Country.swift in Sources */,
+				9AECCC8B1B8CC69D009F9560 /* Download.swift in Sources */,
+				9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */,
+				9AECCC8E1B8CC69D009F9560 /* Manager.swift in Sources */,
+				9AECCC961B8CC69D009F9560 /* Upload.swift in Sources */,
+				9AECCC971B8CC69D009F9560 /* Validation.swift in Sources */,
+				9AECCC951B8CC69D009F9560 /* Stream.swift in Sources */,
+				9AECCC8C1B8CC69D009F9560 /* Error.swift in Sources */,
+				9AECCC901B8CC69D009F9560 /* ParameterEncoding.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
 				9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */,
+				9AECCC921B8CC69D009F9560 /* ResponseSerialization.swift in Sources */,
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
+				9AECCC8A1B8CC69D009F9560 /* Alamofire.swift in Sources */,
 				9A9C91971B3444E500DE580F /* ViewController.swift in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 				9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */,
+				9A27C1491B8586220087ECDD /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,11 +429,6 @@
 			isa = PBXTargetDependency;
 			target = 9A9C918B1B3444E500DE580F /* Finance App for Travellers */;
 			targetProxy = 9A9C91A51B3444E500DE580F /* PBXContainerItemProxy */;
-		};
-		9AB80D2F1B4E39E3007D1B92 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = 9AB80D2E1B4E39E3007D1B92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -461,6 +466,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -476,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -514,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -525,13 +531,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -539,13 +548,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -563,6 +575,7 @@
 				);
 				INFOPLIST_FILE = "Finance App for TravellersTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finance App for Travellers.app/Finance App for Travellers";
 			};
@@ -578,6 +591,7 @@
 				);
 				INFOPLIST_FILE = "Finance App for TravellersTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Finance App for Travellers.app/Finance App for Travellers";
 			};

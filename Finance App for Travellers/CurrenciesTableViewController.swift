@@ -9,7 +9,7 @@
 import UIKit
 
 
-class CurrenciesTableViewController: UITableViewController, UITableViewDataSource
+class CurrenciesTableViewController: UITableViewController
 {
 
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
@@ -74,7 +74,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
             cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
 			
 			let handsOnCurrency = currenciesStructure[indexPath.row]
-			println("Added handsOnCurrency: \(handsOnCurrency)")
+			print("Added handsOnCurrency: \(handsOnCurrency)")
 			
             (cell as! CurrencyTableViewCell).currencyCode.text = handsOnCurrency.amount.currency.code.uppercaseString
 			(cell as! CurrencyTableViewCell).flag.image = handsOnCurrency.amount.currency.getFlag()
@@ -93,7 +93,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 	@IBAction func amountChanged(sender: UITextField) {
 		if let amountTextField = sender as? AmountTextField
 		{
-			if amountTextField.text.isEmpty {
+			if amountTextField.text!.isEmpty {
 				amountTextField.text = "0"
 			}
 			if let handsOnCurrency:HandsOnCurrency = amountTextField.correspondingCurrency {
@@ -185,7 +185,7 @@ class CurrenciesTableViewController: UITableViewController, UITableViewDataSourc
 	{
 		if let allCurrenciesTableViewController = segue.sourceViewController as? AllCurrenciesTableViewController
 		{
-			println("Selected currency: \(allCurrenciesTableViewController.selectedCurrency)")
+			print("Selected currency: \(allCurrenciesTableViewController.selectedCurrency)")
 			
 			if let currencyToAdd:Currency = allCurrenciesTableViewController.selectedCurrency
 			{

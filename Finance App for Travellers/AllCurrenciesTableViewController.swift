@@ -41,7 +41,7 @@ class AllCurrenciesTableViewController: UITableViewController {
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		// #warning Incomplete method implementation.
 		// Return the number of rows in the section.
-		println("allCurrencies count \(allCurrencies.count)")
+		print("allCurrencies count \(allCurrencies.count)")
 		return allCurrencies.count
 	}
 	

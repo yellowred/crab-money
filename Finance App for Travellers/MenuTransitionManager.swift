@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuTransitionManager: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning {
+class MenuTransitionManager: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
 	
 	private var presenting = false
 	private var interactive = false
@@ -112,7 +112,7 @@ class MenuTransitionManager: UIPercentDrivenInteractiveTransition, UIViewControl
 	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
 		
 		// get reference to our fromView, toView and the container view that we should perform the transition in
-		let container = transitionContext.containerView()
+		let container = transitionContext.containerView()!
 		
 		// create a tuple of our screens
 		let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
@@ -139,7 +139,7 @@ class MenuTransitionManager: UIPercentDrivenInteractiveTransition, UIViewControl
 		let duration = self.transitionDuration(transitionContext)
 		
 		// perform the animation!
-		UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
+		UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: {
 			
 			if (self.presenting){
 				self.offStageTransController(transViewController) // onstage items: slide in
@@ -200,7 +200,7 @@ class MenuTransitionManager: UIPercentDrivenInteractiveTransition, UIViewControl
 	}
 	
 	// return how many seconds the transiton animation will take
-	func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+	func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
 		return 0.5
 	}
 	
