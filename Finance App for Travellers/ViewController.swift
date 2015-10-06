@@ -17,12 +17,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	var amount:Money?
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
-    
+	private var sound: Sound = {return Sound()}()
+	
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
 
     @IBOutlet weak var currentCurrencyFlag: UIImageView!
     @IBOutlet weak var currentCurrencyLabel: UILabel!
+	@IBOutlet weak var numpad: UIView!
 	
 	
     override func viewDidLoad() {
@@ -53,87 +55,86 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 			amount = Money(amount: 0, currency: currency)
 		}
 		updateCurrentCurrencyBlock()
+        reloadAmountDisplay()
 		
 		// now we'll have a handy reference to this view controller
 		// from within our transition manager object
 		self.transitionManager.sourceViewController = self
+		//createNumpad()
+		
     }
-
-	func createButton () {
-		let button = UIButton();
-		button.setTitle("Add", forState: .Normal)
-		button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-		button.frame = CGRectMake(15, -50, 200, 100)
-		self.view.addSubview(button)
-	}
 	
-	@IBAction func tapNumber1(sender: UIButton)
+	
+	func createNumpad() {
+		var button = createButton("111")
+		//button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
+		var widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0)
+		var heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Height, multiplier: 0.3, constant: 0)
+		var pos1 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal,
+			toItem: numpad, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
+		var pos2 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal,
+			toItem: numpad, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+		
+		numpad.addSubview(button)
+		//constraint should apply to higher element in tree
+		numpad.addConstraint(widthConstraint)
+		numpad.addConstraint(heightConstraint)
+		numpad.addConstraint(pos1)
+		numpad.addConstraint(pos2)
+		
+		
+		button = createButton("22")
+		//button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
+		widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0)
+		heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Height, multiplier: 0.3, constant: 0)
+		pos1 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal,
+			toItem: numpad, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
+		pos2 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal,
+			toItem: numpad, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+		
+		numpad.addSubview(button)
+		//constraint should apply to higher element in tree
+		numpad.addConstraint(widthConstraint)
+		numpad.addConstraint(heightConstraint)
+		numpad.addConstraint(pos1)
+		numpad.addConstraint(pos2)
+	}
+
+	func createButton (title: String) -> UIButton {
+		let button = UIButton(type: UIButtonType.System);
+		button.setTitle(title, forState: .Normal)
+		button.frame = CGRectMake(0, 0, 160, 80)
+		button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+		button.titleLabel!.textAlignment = .Center
+		button.titleLabel!.numberOfLines = 1
+		button.titleLabel!.font = UIFont.systemFontOfSize(48)
+		return button
+	}
+    
+	
+	@IBAction func tapNumber(sender: UIButton)
 	{
 		#if DEBUG
 			println(__FUNCTION__)
 		#endif
-		numpadPressed("1")
-	}
-
-	
-	@IBAction func tapNumber2(sender: UIButton) {
-		numpadPressed("2")
-	}
-	
-	
-	@IBAction func tapNumber3(sender: UIButton) {
-		numpadPressed("3")
-	}
-	
-	
-	@IBAction func tapNumber4(sender: UIButton) {
-		numpadPressed("4")
+        if sender.tag >= 1 && sender.tag <= 10 {
+            amount!.appendSymbol(sender.tag < 10 ? String(sender.tag) : "0")
+        } else if sender.tag == 11 {
+            amount!.appendSymbol(".")
+        }
+        else if sender.tag == 12 {
+            amount!.backspace()
+        }
+		sound.playTap()
+        reloadAmountDisplay()
 	}
 	
-	
-	@IBAction func tapNumber5(sender: UIButton) {
-		numpadPressed("5")
-	}
-	
-	
-	@IBAction func tapNumber6(sender: UIButton) {
-		numpadPressed("6")
-	}
-	
-	
-	@IBAction func tapNumber7(sender: UIButton) {
-		numpadPressed("7")
-	}
-	
-	
-	@IBAction func tapNumber8(sender: UIButton) {
-		numpadPressed("8")
-	}
-	
-	
-	@IBAction func tapNumber9(sender: UIButton) {
-		numpadPressed("9")
-	}
-	
-	
-	@IBAction func tapNumberDiv(sender: UIButton) {
-		numpadPressed(".")
-	}
-	
-	
-	@IBAction func tapNumber0(sender: UIButton) {
-		numpadPressed("0")
-	}
-	
-	
-	@IBAction func tapNumberDel(sender: UIButton) {
-		numpadPressed("<")
-	}
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
-		app.model.createTransaction(amount!)
+		app.model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
 		app.model.saveStorage()
 		amount?.setAmount(0)
+		sound.playTap()
 		reloadAmountDisplay()
 	}
 	
@@ -191,17 +192,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 		if amount != nil {
 			currentCurrencyFlag.image = amount!.currency.getFlag()
 			currentCurrencyLabel.text = amount!.currency.code.uppercaseString
-		}
-	}
-	
-	func numpadPressed(symbol: String) {
-		if amount != nil {
-			if symbol == "<" {
-				amount!.backspace()
-			} else {
-				amount!.appendSymbol(symbol)
-			}
-			reloadAmountDisplay()
 		}
 	}
 	

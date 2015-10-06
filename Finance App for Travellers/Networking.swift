@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 //@see http://www.raywenderlich.com/85080/beginning-alamofire-tutorial
 class Networking
@@ -26,9 +27,10 @@ class Networking
 	func downloadCountriesDatabase(finishCallback: () -> Void)
 	{
 		model.clearStorage()
-		request(.GET, currencyDownloadEndpoint).responseJSON() {
-			(_, _, data) in
+		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
+			response in
 
+			let data = response.data
 			print(data);
 			var flagPngData:NSData? = nil
 			for countryData:NSDictionary in data as! [NSDictionary]
@@ -59,9 +61,10 @@ class Networking
 	{
 		model.clearCurrencies()
 		
-		request(.GET, currencyDownloadEndpoint).responseJSON() {
-			(_, response, data) in
+		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
+			response in
 			
+			let data = response.data
 			
 			
 			print(data);

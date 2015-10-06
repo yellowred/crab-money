@@ -389,14 +389,14 @@ class Model
 	}
 	
 	
-	func createTransaction(amount: Money) -> (Transaction)
+	func createTransaction(amount: Money, isExpense: Bool) -> (Transaction)
 	{
 		let newTransaction = NSEntityDescription.insertNewObjectForEntityForName(
 			NSStringFromClass(Transaction.classForCoder()),
 			inManagedObjectContext: context
 		) as! Transaction
 		
-		newTransaction.setValue(amount.amount, forKey: "amount")
+		newTransaction.setValue(amount.amount.decimalNumberByMultiplyingBy(isExpense ? -1 : 1), forKey: "amount")
 		newTransaction.setValue(amount.currency, forKey: "currency")
 		newTransaction.setValue(NSDate(), forKey: "date")
 		
