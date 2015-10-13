@@ -9,21 +9,37 @@
 import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
-
-	@IBOutlet weak var flag: UIImageView!
-	@IBOutlet weak var currencyCode: UILabel!
-	@IBOutlet weak var amount: UILabel!
-	@IBOutlet weak var date: UILabel!
+	
+	@IBOutlet weak var trnLabel: UILabel!
+	@IBOutlet weak var trnAmount: UILabel!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+	
+	func setTransaction(transaction: Transaction) {
+		var attributedString:NSMutableAttributedString
+		if let string = NSNumberFormatter().formatterMoney(transaction.currency).stringFromNumber(transaction.amount) {
+			
+			let amountString = NSString(string: string)
+			let firstAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(20)]
+			let secondAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(32)]
+			
+			
+			attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
+			
+			let dollarsValue = NSNumberFormatter().formatterDollars().stringFromNumber(transaction.amount.abs())
+			let range = amountString.rangeOfString(dollarsValue!)
+			
+			attributedString.addAttributes(secondAttributes, range: range)
+//			/attributedString.addAttributes(secondAttributes, range: amountString.rangeOfCharacterFromSet(NSCharacterSet(charactersInString: "-")))
+			print(amountString, dollarsValue!)
+		} else {
+			attributedString = NSMutableAttributedString(string: "")
+		}
+		
+		trnAmount.attributedText = attributedString
+	}
 }

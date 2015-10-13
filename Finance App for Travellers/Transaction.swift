@@ -15,5 +15,19 @@ import CoreData
     @NSManaged var text: String
     @NSManaged var category: NSManagedObject
     @NSManaged var currency: Currency
+	
+	
+	override func setValue(value: AnyObject?, forKey key: String) {
+		if key == "amount" {
+			setAmountWithMoney(value as! NSDecimalNumber)
+		} else {
+			super.setValue(value, forKey: key)
+		}
+	}
+	
+	
+	func setAmountWithMoney(value: NSDecimalNumber) {
+		self.amount = value.formatToMoney()
+	}
 
 }

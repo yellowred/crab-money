@@ -92,4 +92,18 @@ class Money {
 		}
 		
 	}
+	
+	/*
+static NSNumberFormatter* fmt2f = nil;
+if(!fmt2f){
+fmt2f = [[NSNumberFormatter alloc] init];
+[fmt2f setNumberStyle:NSNumberFormatterDecimalStyle];
+[fmt2f setMinimumFractionDigits:2]; // |
+[fmt2f setMaximumFractionDigits:2]; // | - exactly two digits for "money" value
+}
+NSString str2f = [fmt2f stringFromNumber:amount];
+NSRange r = [str2f rangeOfString:fmt2f.decimalSeparator];
+return cents ? [str2f substringFromIndex:r.location + 1] : [str2f substringToIndex:r.location];
+*/
+	
 }

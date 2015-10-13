@@ -8,12 +8,21 @@
 
 import UIKit
 
+//http://www.raywenderlich.com/76436/use-uiscrollview-scroll-zoom-content-swift
 class TransactionsTableViewController: UITableViewController {
 
+	let kSummaryPageCount = 3
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	var transactions = [Transaction]()
 	private let kTransactionCellIdentifier = "TransactionCell"
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageScroll: UIPageControl!
+    var pageViews: [UIView?] = []
+	@IBOutlet weak var graphView: GraphView!
+	@IBOutlet var graphViewContainer: UIView!
+	
+	var isGraphViewShowing = false
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,12 +31,51 @@ class TransactionsTableViewController: UITableViewController {
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		transactions = app.model.getTransactionsList()
+
+		//Summary scroll view init
+		pageScroll.currentPage = 0
+		pageScroll.numberOfPages = kSummaryPageCount
+		
+		for i in 0..<kSummaryPageCount {
+			pageViews.append(loadPage(i))
+		}
+		
+		// Set up the content size of the scroll view
+		let pagesScrollViewSize = self.view.frame.size
+		scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(kSummaryPageCount), pagesScrollViewSize.height)
+		print("ContentSize:", pagesScrollViewSize.width * CGFloat(kSummaryPageCount))
+		
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+
+    // MARK: - Summary Scroll View
+    func loadPage(page: Int) -> UIView {
+		var frame = scrollView.bounds
+		frame.origin.x = self.view.frame.size.width * CGFloat(page)
+		frame.origin.y = 0.0
+		print("frame.origin.x", frame.origin.x);
+            
+		let newPageView: UIView = NSBundle.mainBundle().loadNibNamed("TransactionsSummaryView", owner: self, options: nil)[0] as! UIView
+		newPageView.contentMode = .ScaleAspectFit
+		newPageView.frame = frame
+		scrollView.addSubview(newPageView)
+/*
+		let leftConstraint = NSLayoutConstraint(item: newPageView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal,
+			toItem: self.view, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0)
+		let rightConstraint = NSLayoutConstraint(item: newPageView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal,
+			toItem: self.view, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0)
+		newPageView.addConstraint(leftConstraint)
+		newPageView.addConstraint(rightConstraint)
+*/
+		
+		return newPageView
+    }
+	
 
     // MARK: - Table view data source
 
@@ -46,11 +94,12 @@ class TransactionsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier(kTransactionCellIdentifier, forIndexPath: indexPath) as! TransactionTableViewCell
-		let dateFormatter = NSDateFormatter()
+		cell.setTransaction(transactions[indexPath.row])
+		/*
 		cell.flag.image = transactions[indexPath.row].currency.getFlag()
 		cell.currencyCode.text = transactions[indexPath.row].currency.code
 		cell.amount.text = transactions[indexPath.row].amount.stringValue
-		cell.date.text = dateFormatter.stringFromDate(transactions[indexPath.row].date)
+		cell.date.text = dateFormatter.stringFromDate(transactions[indexPath.row].date)*/
 		return cell
 	}
 

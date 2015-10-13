@@ -25,6 +25,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var currentCurrencyFlag: UIImageView!
     @IBOutlet weak var currentCurrencyLabel: UILabel!
 	@IBOutlet weak var numpad: UIView!
+    @IBOutlet weak var amountView: UIView!
+    @IBOutlet weak var currencyView: UIView!
+    @IBOutlet weak var currencyFlag: UIImageView!
 	
 	
     override func viewDidLoad() {
@@ -61,7 +64,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 		// from within our transition manager object
 		self.transitionManager.sourceViewController = self
 		//createNumpad()
-		
+		amountView.layer.cornerRadius = 5
+        currencyFlag.layer.cornerRadius = 20
+        currencyFlag.layer.masksToBounds = true
     }
 	
 	
