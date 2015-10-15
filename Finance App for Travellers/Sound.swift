@@ -7,24 +7,29 @@
 //
 
 import Foundation
-import AudioToolbox
+import AVFoundation
 
 class Sound {
-	let soundFileTapObject: SystemSoundID = 0
-	
+	var tapSound:NSURL?
+	var tapPlayer:AVAudioPlayer?
+
 	init() {
-		// Create the URL for the source audio file. The URLForResource:withExtension: method is
-		//    new in iOS 4.0.
-		// NSBundle.mainBundle().pathForResource("Tock", ofType: "aiff")
-		if let tapSound = NSBundle.mainBundle().pathForResource("tap", ofType: "aif") {
-			let fileURL = NSURL(fileURLWithPath: tapSound)
-			AudioServicesCreateSystemSoundID(fileURL, &soundFileTapObject)
+		tapSound = NSBundle.mainBundle().URLForResource("tap-mellow", withExtension: "aif")
+		do {
+			try self.tapPlayer = AVAudioPlayer(contentsOfURL: tapSound!)
+		} catch let error as NSError {
+			print("init Sound error: \(error.localizedDescription)")
+			self.tapPlayer = nil
+		}
+		if self.tapPlayer != nil {
+			self.tapPlayer!.prepareToPlay()
 		}
 	}
-	
-	
+
 	func playTap()
 	{
-		AudioServicesPlaySystemSound(soundFileTapObject)
+		if tapPlayer != nil {
+			tapPlayer!.play()
+		}
 	}
 }

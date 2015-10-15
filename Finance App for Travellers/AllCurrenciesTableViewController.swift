@@ -22,7 +22,7 @@ class AllCurrenciesTableViewController: UITableViewController {
 		
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		allCurrencies = app.model.getCurrenciesNotHandsOn()
+		allCurrencies = app.model.getCurrenciesNotInConverter()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -49,9 +49,7 @@ class AllCurrenciesTableViewController: UITableViewController {
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cellIdentifier = "AllCurrencyCell"
 		let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
-		let currency = allCurrencies[indexPath.row]
-		cell.currencyCode.text = currency.code.uppercaseString
-		cell.flag.image = currency.getFlag()
+		cell.setCurrency(allCurrencies[indexPath.row])
 		return cell
 	}
 	
@@ -59,7 +57,10 @@ class AllCurrenciesTableViewController: UITableViewController {
 	{
 		selectedCurrency = allCurrencies[indexPath.row]
 	}
-
+	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return 90
+	}
 	/*
 	// Override to support conditional editing of the table view.
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

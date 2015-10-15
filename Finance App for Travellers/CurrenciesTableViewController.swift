@@ -71,16 +71,9 @@ class CurrenciesTableViewController: UITableViewController
         var cell: UITableViewCell
         
         if indexPath.row < currenciesStructure.count {
-            cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
-			
 			let handsOnCurrency = currenciesStructure[indexPath.row]
-			print("Added handsOnCurrency: \(handsOnCurrency)")
-			
-            (cell as! CurrencyTableViewCell).currencyCode.text = handsOnCurrency.amount.currency.code.uppercaseString
-			(cell as! CurrencyTableViewCell).flag.image = handsOnCurrency.amount.currency.getFlag()
-			(cell as! CurrencyTableViewCell).valueInput.text = handsOnCurrency.amount.amount.stringValue
-			((cell as! CurrencyTableViewCell).valueInput as! AmountTextField).correspondingCurrency = handsOnCurrency
-			
+			cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
+			(cell as! CurrencyTableViewCell).setHandsOnCurrency(handsOnCurrency)
 			//setup structure
 			handsOnCurrency.textField = (cell as! CurrencyTableViewCell).valueInput
         } else {
@@ -190,7 +183,7 @@ class CurrenciesTableViewController: UITableViewController
 			if let currencyToAdd:Currency = allCurrenciesTableViewController.selectedCurrency
 			{
 				currenciesStructure.append(HandsOnCurrency(amount:providedAmount!.toCurrency(currencyToAdd), textField: nil))
-				app.model.addCurrencyToHandsOnList(currencyToAdd)
+				currencyToAdd.addToConverter()
 				app.model.saveStorage()
 
 				//update the tableView

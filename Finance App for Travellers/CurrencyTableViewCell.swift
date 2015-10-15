@@ -10,9 +10,9 @@ import UIKit
 
 class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
 
-    @IBOutlet weak var flag: UIImageView!
-    @IBOutlet weak var currencyCode: UILabel!
     @IBOutlet weak var valueInput: UITextField!
+	@IBOutlet weak var flag: UIImageView!
+	@IBOutlet weak var code: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +27,17 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
         valueInput.accessibilityLabel = placeholder
     }
 
+	
+	func setHandsOnCurrency(handsOnCurrency: HandsOnCurrency) {
+		self.code.text = handsOnCurrency.amount.currency.code.uppercaseString
+		self.flag.image = handsOnCurrency.amount.currency.getFlag()
+		self.valueInput.text = handsOnCurrency.amount.amount.stringValue
+		(self.valueInput as! AmountTextField).correspondingCurrency = handsOnCurrency
+	}
+
+	
+	func setCurrency(currency: Currency) {
+		self.code.text = currency.code.uppercaseString
+		self.flag.image = currency.getFlag()
+	}
 }

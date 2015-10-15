@@ -32,6 +32,7 @@
 		9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926861BC3AC5C009D16B3 /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
 		9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
 		9AB4438D1BCA1D9E0005146B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4438C1BCA1D9E0005146B /* GraphView.swift */; settings = {ASSET_TAGS = (); }; };
+		9AC460BD1BCFE27B00EEE4A7 /* tap-mellow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9AC460B81BCFAF1500EEE4A7 /* tap-mellow.aif */; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
 		9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */; settings = {ASSET_TAGS = (); }; };
 		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
@@ -141,6 +142,7 @@
 		9AA926861BC3AC5C009D16B3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		9AB4438C1BCA1D9E0005146B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9AC460B81BCFAF1500EEE4A7 /* tap-mellow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-mellow.aif"; sourceTree = "<group>"; };
 		9ACC025A1B5130D500F93A4C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionsSummaryView.xib; sourceTree = "<group>"; };
@@ -253,9 +255,9 @@
 				9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */,
 				9AD3082D1BC4D70800962DE1 /* TransactionsTable */,
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
-				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
 				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
+				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
 				9A27C1511B85928D0087ECDD /* CategorySelect */,
 				9A27C14E1B8592570087ECDD /* CurrencyTable */,
 				9AEA34FE1B79C55E009C65FE /* Model */,
@@ -268,6 +270,7 @@
 		9A9C918F1B3444E500DE580F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9AC460B81BCFAF1500EEE4A7 /* tap-mellow.aif */,
 				9A9C91901B3444E500DE580F /* Info.plist */,
 				9AE403C81B74671A00143932 /* currencies.json */,
 			);
@@ -446,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC460BD1BCFE27B00EEE4A7 /* tap-mellow.aif in Resources */,
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
 				9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
@@ -647,7 +651,7 @@
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.Finance-App-for-Travellers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -669,7 +673,7 @@
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.Finance-App-for-Travellers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -16,6 +16,7 @@ import CoreData
     @NSManaged var rate: NSDecimalNumber
     @NSManaged var flag: NSData?
     @NSManaged var country: NSSet?
+    @NSManaged var in_converter: NSNumber
 	
 	lazy var flagImage: UIImage? = {
 		if self.flag == nil
@@ -32,5 +33,9 @@ import CoreData
 	func getFlag() -> UIImage?
 	{
 		return self.flagImage
+	}
+	
+	func addToConverter() {
+		self.in_converter = 1
 	}
 }

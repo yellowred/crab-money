@@ -12,6 +12,7 @@ import CoreData
 
     @NSManaged var amount: NSDecimalNumber
     @NSManaged var date: NSDate
+    @NSManaged var rate: NSDecimalNumber
     @NSManaged var text: String
     @NSManaged var category: NSManagedObject
     @NSManaged var currency: Currency
@@ -28,6 +29,7 @@ import CoreData
 	
 	func setAmountWithMoney(value: NSDecimalNumber) {
 		self.amount = value.formatToMoney()
+		print(value, self.amount)
 	}
 
 }
