@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Finance App for Travellers
+
+  Created by Oleg Kubrakov on 16/10/15.
+  Copyright © 2015 Oleg Kubrakov. All rights reserved.
+*/
+"expenses" = "Expenses";
+"earnings" = "Earnings";
+"budget" = "Budget";

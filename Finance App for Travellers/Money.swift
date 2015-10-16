@@ -93,6 +93,9 @@ class Money {
 		
 	}
 	
+	func stringValue() -> String {
+		return NSNumberFormatter().formatterMoney(currency).stringFromNumber(amount)!
+	}
 	/*
 static NSNumberFormatter* fmt2f = nil;
 if(!fmt2f){

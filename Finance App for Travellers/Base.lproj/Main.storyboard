@@ -33,26 +33,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="5jg-Oi-FPN">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="5jg-Oi-FPN" userLabel="SummaryParentView">
                             <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2M-5Z-Y0p">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="262"/>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="525-Dq-feP">
+                                    <rect key="frame" x="0.0" y="263" width="600" height="37"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="37" id="5Ke-Cq-dZP"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="5Ke-Cq-dZP"/>
+                                        </mask>
+                                    </variation>
+                                </pageControl>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-oW-UZC">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="263"/>
                                     <connections>
-                                        <outlet property="delegate" destination="b2d-7q-Sqc" id="oBH-53-sYg"/>
+                                        <outlet property="delegate" destination="b2d-7q-Sqc" id="lGD-nb-IKa"/>
                                     </connections>
                                 </scrollView>
-                                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="525-Dq-feP">
-                                    <rect key="frame" x="0.0" y="263" width="600" height="37"/>
-                                </pageControl>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="N2M-5Z-Y0p" firstAttribute="width" secondItem="5jg-Oi-FPN" secondAttribute="width" id="IyU-Hg-6cw"/>
+                                <constraint firstItem="525-Dq-feP" firstAttribute="leading" secondItem="5jg-Oi-FPN" secondAttribute="leading" id="5pl-lv-TcH"/>
+                                <constraint firstItem="0d7-oW-UZC" firstAttribute="width" secondItem="5jg-Oi-FPN" secondAttribute="width" id="McY-Wl-nYP"/>
+                                <constraint firstItem="0d7-oW-UZC" firstAttribute="top" secondItem="5jg-Oi-FPN" secondAttribute="top" id="Np8-QC-yYz"/>
+                                <constraint firstItem="0d7-oW-UZC" firstAttribute="leading" secondItem="5jg-Oi-FPN" secondAttribute="leading" id="PfZ-Vf-md1"/>
                                 <constraint firstAttribute="bottom" secondItem="525-Dq-feP" secondAttribute="bottom" id="b8i-8w-hd9"/>
                                 <constraint firstItem="525-Dq-feP" firstAttribute="width" secondItem="5jg-Oi-FPN" secondAttribute="width" id="hUb-zA-YwY"/>
-                                <constraint firstItem="525-Dq-feP" firstAttribute="top" secondItem="N2M-5Z-Y0p" secondAttribute="bottom" id="oJL-ZR-9jI"/>
+                                <constraint firstItem="525-Dq-feP" firstAttribute="top" secondItem="0d7-oW-UZC" secondAttribute="bottom" id="th1-kF-MFD"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -120,7 +131,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="pageScroll" destination="525-Dq-feP" id="ora-CK-xAj"/>
-                        <outlet property="scrollView" destination="N2M-5Z-Y0p" id="odq-QJ-l7U"/>
+                        <outlet property="scrollView" destination="0d7-oW-UZC" id="Pvt-3b-rEp"/>
+                        <outlet property="summaryParentView" destination="5jg-Oi-FPN" id="ER1-wr-KaX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvE-W5-7tP" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,6 +21,7 @@ class TransactionsTableViewController: UITableViewController {
 	@IBOutlet weak var graphView: GraphView!
 	@IBOutlet var graphViewContainer: UIView!
 	
+	@IBOutlet weak var summaryParentView: UIView!
 	var isGraphViewShowing = false
 	
     override func viewDidLoad() {
@@ -35,15 +36,8 @@ class TransactionsTableViewController: UITableViewController {
 		//Summary scroll view init
 		pageScroll.currentPage = 0
 		pageScroll.numberOfPages = kSummaryPageCount
-		
-		for i in 0..<kSummaryPageCount {
-			pageViews.append(loadPage(i))
-		}
-		
-		// Set up the content size of the scroll view
-		let pagesScrollViewSize = self.view.frame.size
-		scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(kSummaryPageCount), pagesScrollViewSize.height)
-		print("ContentSize:", pagesScrollViewSize.width * CGFloat(kSummaryPageCount))
+		loadSummaryViews()
+
 		
     }
 
@@ -54,27 +48,51 @@ class TransactionsTableViewController: UITableViewController {
 	
 
     // MARK: - Summary Scroll View
-    func loadPage(page: Int) -> UIView {
-		var frame = scrollView.bounds
-		frame.origin.x = self.view.frame.size.width * CGFloat(page)
-		frame.origin.y = 0.0
-		print("frame.origin.x", frame.origin.x);
-            
-		let newPageView: UIView = NSBundle.mainBundle().loadNibNamed("TransactionsSummaryView", owner: self, options: nil)[0] as! UIView
-		newPageView.contentMode = .ScaleAspectFit
-		newPageView.frame = frame
-		scrollView.addSubview(newPageView)
-/*
-		let leftConstraint = NSLayoutConstraint(item: newPageView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal,
-			toItem: self.view, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0)
-		let rightConstraint = NSLayoutConstraint(item: newPageView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal,
-			toItem: self.view, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0)
-		newPageView.addConstraint(leftConstraint)
-		newPageView.addConstraint(rightConstraint)
-*/
-		
-		return newPageView
+    func loadSummaryViews() {
+		for summaryType in ["expenses", "earnings", "budget"] {
+			scrollView.addSubview(createSummaryView(summaryType))
+		}
+		scrollView.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(kSummaryPageCount), summaryParentView.frame.size.height - pageScroll.frame.height)
     }
+	
+	func createSummaryView(type: String) -> SummaryView {
+		let newPageView: SummaryView = NSBundle.mainBundle().loadNibNamed("TransactionsSummaryView", owner: self, options: nil)[0] as! SummaryView
+		newPageView.contentMode = .ScaleAspectFit
+		var pageIndex = 0
+		
+		if (type == "expenses") {
+			let amountSummary = Money(amount: 15456, currency: app.model.getCurrentCurrency())
+			newPageView.initExpenses(amountSummary, forDate: NSDate())
+			
+		} else if type == "earnings" {
+			pageIndex = 1
+			let amountSummary = Money(amount: 542000, currency: app.model.getCurrentCurrency())
+			newPageView.initEarnings(amountSummary, forDate: NSDate())
+			
+		} else {
+			pageIndex = 2
+			let amountSummary = Money(amount: 40000, currency: app.model.getCurrentCurrency())
+			newPageView.initBudget(amountSummary, forDate: NSDate())
+			
+		}
+		
+		var frame = scrollView.bounds
+		frame.origin.x = self.view.frame.size.width * CGFloat(pageIndex)
+		frame.origin.y = 0.0
+		newPageView.frame = frame
+
+		return newPageView
+	}
+	
+	override func scrollViewDidScroll(scrollView: UIScrollView) {
+		// First, determine which page is currently visible
+		let pageWidth = scrollView.frame.size.width
+		let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+		
+		// Update the page control
+		pageScroll.currentPage = page
+		print(page)
+	}
 	
 
     // MARK: - Table view data source

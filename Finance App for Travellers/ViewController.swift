@@ -54,9 +54,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
 		
 		app.model.preloadData()
-		if let currency = app.model.getCurrentCurrency() {
-			amount = Money(amount: 0, currency: currency)
-		}
+		amount = Money(amount: 0, currency: app.model.getCurrentCurrency())
 		updateCurrentCurrencyBlock()
         reloadAmountDisplay()
 		

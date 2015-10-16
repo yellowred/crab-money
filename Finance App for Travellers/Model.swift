@@ -377,10 +377,10 @@ class Model
 	}
 
 	
-	func getCurrentCurrency() -> Currency? {
+	func getCurrentCurrency() -> Currency {
 		let defaults = NSUserDefaults.standardUserDefaults()
 		let currentCurrencyCode:String? = defaults.stringForKey("currentCurrencyCode")
-		return getCurrencyByCode(currentCurrencyCode ?? "AUD")
+		return getCurrencyByCode(currentCurrencyCode ?? "AUD")!
 	}
 	
 	func isEventHappen(name: String) -> Bool {
