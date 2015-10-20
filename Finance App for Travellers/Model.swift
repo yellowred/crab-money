@@ -422,8 +422,43 @@ class Model
 	{
 		return getObjectsList(Transaction.classForCoder()) as! [Transaction]
 	}
-	
 
+	
+	func getTransactionsListForMonth(dateInMonth: NSDate) -> [Transaction]
+	{
+		let calendar = NSCalendar.currentCalendar()
+		calendar.timeZone = NSTimeZone.systemTimeZone()
+		var startDate: NSDate?
+		var duration: NSTimeInterval = 0
+		calendar.rangeOfUnit(NSCalendarUnit.Month, startDate: &startDate, interval: &duration, forDate: dateInMonth)
+		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
+		guard startDate != nil else {
+			return []
+		}
+		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startDate!, (startDate?.dateByAddingTimeInterval(duration))!)
+		
+		//Execute Fetch request
+		var fetchedResults = Array<AnyObject>()
+		do {
+			fetchedResults = try context.executeFetchRequest(fetchRequest)
+		} catch let fetchError as NSError {
+			print("getObjectsList error: \(fetchError.localizedDescription)")
+		}
+		
+		return fetchedResults as! [Transaction]
+	}
+	
+	
+	func deleteTransaction(transaction:Transaction)
+	{
+		context.deleteObject(transaction)
+		do {
+			try context.save()
+		} catch _ {
+		}
+	}
+
+	
 	// MARK: - category
 	func createCategory(name: String, logo: NSData) -> (Category)
 	{

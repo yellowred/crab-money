@@ -31,14 +31,12 @@ class TransactionsTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		transactions = app.model.getTransactionsList()
+		transactions = app.model.getTransactionsListForMonth(NSDate())
 
 		//Summary scroll view init
 		pageScroll.currentPage = 0
 		pageScroll.numberOfPages = kSummaryPageCount
 		loadSummaryViews()
-
-		
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,26 +56,9 @@ class TransactionsTableViewController: UITableViewController {
 	func createSummaryView(type: String) -> SummaryView {
 		let newPageView: SummaryView = NSBundle.mainBundle().loadNibNamed("TransactionsSummaryView", owner: self, options: nil)[0] as! SummaryView
 		newPageView.contentMode = .ScaleAspectFit
-		var pageIndex = 0
-		
-		if (type == "expenses") {
-			let amountSummary = Money(amount: 15456, currency: app.model.getCurrentCurrency())
-			newPageView.initExpenses(amountSummary, forDate: NSDate())
-			
-		} else if type == "earnings" {
-			pageIndex = 1
-			let amountSummary = Money(amount: 542000, currency: app.model.getCurrentCurrency())
-			newPageView.initEarnings(amountSummary, forDate: NSDate())
-			
-		} else {
-			pageIndex = 2
-			let amountSummary = Money(amount: 40000, currency: app.model.getCurrentCurrency())
-			newPageView.initBudget(amountSummary, forDate: NSDate())
-			
-		}
-		
+		newPageView.initBlock(type, forDate: NSDate(), transactions: transactions, currency: app.model.getCurrentCurrency())
 		var frame = scrollView.bounds
-		frame.origin.x = self.view.frame.size.width * CGFloat(pageIndex)
+		frame.origin.x = self.view.frame.size.width * CGFloat(scrollView.subviews.count - 1)
 		frame.origin.y = 0.0
 		newPageView.frame = frame
 
@@ -91,21 +72,16 @@ class TransactionsTableViewController: UITableViewController {
 		
 		// Update the page control
 		pageScroll.currentPage = page
-		print(page)
 	}
 	
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return transactions.count
     }
 
@@ -113,11 +89,6 @@ class TransactionsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier(kTransactionCellIdentifier, forIndexPath: indexPath) as! TransactionTableViewCell
 		cell.setTransaction(transactions[indexPath.row])
-		/*
-		cell.flag.image = transactions[indexPath.row].currency.getFlag()
-		cell.currencyCode.text = transactions[indexPath.row].currency.code
-		cell.amount.text = transactions[indexPath.row].amount.stringValue
-		cell.date.text = dateFormatter.stringFromDate(transactions[indexPath.row].date)*/
 		return cell
 	}
 
@@ -133,17 +104,12 @@ class TransactionsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
+			app.model.deleteTransaction(transactions.removeAtIndex(indexPath.row))
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.

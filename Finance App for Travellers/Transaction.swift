@@ -31,5 +31,9 @@ import CoreData
 		self.amount = value.formatToMoney()
 		print(value, self.amount)
 	}
+	
+	func getMoney() -> Money {
+		return Money(amount: self.amount, currency: self.currency)
+	}
 
 }

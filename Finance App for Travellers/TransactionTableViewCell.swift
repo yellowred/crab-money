@@ -21,24 +21,22 @@ class TransactionTableViewCell: UITableViewCell {
 	
 	func setTransaction(transaction: Transaction) {
 		var attributedString:NSMutableAttributedString
-		if let string = NSNumberFormatter().formatterMoney(transaction.currency).stringFromNumber(transaction.amount) {
-			
-			let amountString = NSString(string: string)
-			let firstAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(20)]
-			let secondAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(32)]
-			
-			
-			attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
-			
-			let dollarsValue = NSNumberFormatter().formatterDollars().stringFromNumber(transaction.amount.abs())
-			let range = amountString.rangeOfString(dollarsValue!)
-			
-			attributedString.addAttributes(secondAttributes, range: range)
-//			/attributedString.addAttributes(secondAttributes, range: amountString.rangeOfCharacterFromSet(NSCharacterSet(charactersInString: "-")))
-			print(amountString, dollarsValue!)
-		} else {
-			attributedString = NSMutableAttributedString(string: "")
+		guard let string = NSNumberFormatter().formatterMoney(transaction.currency).stringFromNumber(transaction.amount) else {
+			trnAmount.attributedText = NSMutableAttributedString(string: "")
+			return
 		}
+		let amountString = NSString(string: string)
+		let firstAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(20)]
+		let secondAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(32)]
+		
+		attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
+			
+		let dollarsValue = NSNumberFormatter().formatterDollars().stringFromNumber(transaction.amount.abs())
+		let range = amountString.rangeOfString(dollarsValue!)
+			
+		attributedString.addAttributes(secondAttributes, range: range)
+//			/attributedString.addAttributes(secondAttributes, range: amountString.rangeOfCharacterFromSet(NSCharacterSet(charactersInString: "-")))
+		print(amountString, dollarsValue!)
 		
 		trnAmount.attributedText = attributedString
 	}

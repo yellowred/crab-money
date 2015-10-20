@@ -10,16 +10,7 @@ import UIKit
 
 @IBDesignable class GraphView: UIView {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-	
-	//Weekly sample data
-	var graphPoints:[Int] = [4, 2, 6, 4, 5, 8, 3]
+	var graphPoints = [Double]()
 	
 	@IBInspectable var startColor: UIColor = UIColor.redColor()
 	@IBInspectable var endColor: UIColor = UIColor.greenColor()
@@ -61,51 +52,56 @@ import UIKit
 		)
 		
 		
-		//calculate the x point
-		
-		let margin:CGFloat = 20.0
-		var columnXPoint = { (column:Int) -> CGFloat in
-			//Calculate gap between points
-			let spacer = (width - margin*2 - 4) /
-				CGFloat((self.graphPoints.count - 1))
-			var x:CGFloat = CGFloat(column) * spacer
-			x += margin + 2
-			return x
-		}
-		
 		// calculate the y point
 		
 		let topBorder:CGFloat = 60
 		let bottomBorder:CGFloat = 50
+		let margin:CGFloat = 20.0
 		let graphHeight = height - topBorder - bottomBorder
-		let maxValue = graphPoints.maxElement()
-		var columnYPoint = { (graphPoint:Int) -> CGFloat in
-			var y:CGFloat = CGFloat(graphPoint) /
-				CGFloat(maxValue!) * graphHeight
-			y = graphHeight + topBorder - y // Flip the graph
-			return y
+		
+		//calculate the x point
+		if self.graphPoints.count > 0 {
+
+			var columnXPoint = { (column:Int) -> CGFloat in
+				//Calculate gap between points
+				let spacer = (width - margin*2 - 4) /
+					CGFloat((self.graphPoints.count - 1))
+				var x:CGFloat = CGFloat(column) * spacer
+				x += margin + 2
+				return x
+			}
+			
+
+			print("Graph points:", graphPoints)
+			let maxValue = graphPoints.maxElement()
+			var columnYPoint = { (graphPoint:Double) -> CGFloat in
+				var y:CGFloat = CGFloat(graphPoint) /
+					CGFloat(maxValue!) * graphHeight
+				y = graphHeight + topBorder - y // Flip the graph
+				return y
+			}
+			
+			// draw the line graph
+			
+			UIColor.whiteColor().setFill()
+			UIColor.whiteColor().setStroke()
+			
+			//set up the points line
+			var graphPath = UIBezierPath()
+			//go to start of line
+			graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
+				y:columnYPoint(graphPoints[0])))
+			
+			//add points for each item in the graphPoints array
+			//at the correct (x, y) for the point
+			for i in 1..<graphPoints.count {
+				let nextPoint = CGPoint(x:columnXPoint(i),
+					y:columnYPoint(graphPoints[i]))
+				graphPath.addLineToPoint(nextPoint)
+			}
+			
+			graphPath.stroke()
 		}
-		
-		// draw the line graph
-		
-		UIColor.whiteColor().setFill()
-		UIColor.whiteColor().setStroke()
-		
-		//set up the points line
-		var graphPath = UIBezierPath()
-		//go to start of line
-		graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-			y:columnYPoint(graphPoints[0])))
-		
-		//add points for each item in the graphPoints array
-		//at the correct (x, y) for the point
-		for i in 1..<graphPoints.count {
-			let nextPoint = CGPoint(x:columnXPoint(i),
-				y:columnYPoint(graphPoints[i]))
-			graphPath.addLineToPoint(nextPoint)
-		}
-		
-		graphPath.stroke()
 		
 		//Draw horizontal graph lines on the top of everything
 		var linePath = UIBezierPath()
