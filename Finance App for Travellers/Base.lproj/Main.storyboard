@@ -604,7 +604,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyManagableCell" rowHeight="90" id="W70-jU-UgL" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W70-jU-UgL" id="NJm-Sf-X6v">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -693,7 +693,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyAddCell" rowHeight="90" id="y56-mB-Oaf" customClass="CurrencyAddTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="176" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="112" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y56-mB-Oaf" id="dKX-6I-pbZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -753,8 +753,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCurrencyCell" rowHeight="90" id="KhC-Wb-fxz" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="600" height="90"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCurrencyCell" rowHeight="90" id="KhC-Wb-fxz" customClass="AllCurrenciesTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KhC-Wb-fxz" id="mPd-mQ-xfb">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -763,7 +763,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgd-4O-68B" userLabel="CurrencyView">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <subviews>
-                                                <view autoresizesSubviews="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nba-X5-61p" userLabel="Currency">
+                                                <view autoresizesSubviews="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nba-X5-61p" userLabel="Currency">
                                                     <rect key="frame" x="25" y="15" width="40" height="60"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_ru" translatesAutoresizingMaskIntoConstraints="NO" id="YIt-TP-yah">
@@ -806,15 +806,28 @@
                                                 <constraint firstAttribute="width" constant="90" id="wyW-f6-bOF"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30c-lm-KYf">
+                                            <rect key="frame" x="110" y="28" width="300" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="qEr-Pf-Sma"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qgd-4O-68B" firstAttribute="leading" secondItem="mPd-mQ-xfb" secondAttribute="leading" id="3Oa-sh-Ptc"/>
+                                        <constraint firstItem="30c-lm-KYf" firstAttribute="leading" secondItem="qgd-4O-68B" secondAttribute="trailing" constant="20" id="AIK-k5-cgM"/>
+                                        <constraint firstItem="30c-lm-KYf" firstAttribute="width" secondItem="mPd-mQ-xfb" secondAttribute="width" multiplier="0.5" id="NTM-f7-tdg"/>
+                                        <constraint firstItem="30c-lm-KYf" firstAttribute="centerY" secondItem="mPd-mQ-xfb" secondAttribute="centerY" id="cNF-Nk-iJ0"/>
                                         <constraint firstItem="qgd-4O-68B" firstAttribute="top" secondItem="mPd-mQ-xfb" secondAttribute="top" id="gDO-LL-0X4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="code" destination="Ks6-qW-w7S" id="FPm-0j-Rhz"/>
-                                    <outlet property="flag" destination="YIt-TP-yah" id="JDc-dJ-LKH"/>
+                                    <outlet property="code" destination="Ks6-qW-w7S" id="wXL-Jq-F7h"/>
+                                    <outlet property="flag" destination="YIt-TP-yah" id="7OJ-jj-8CH"/>
+                                    <outlet property="name" destination="30c-lm-KYf" id="wxW-b7-7Kd"/>
                                     <segue destination="SGk-bk-MXZ" kind="unwind" identifier="AddCurrencyToHandsOnCurrencies" unwindAction="saveCurrencyToHandsOnCollection:" id="iMY-dV-IBV"/>
                                 </connections>
                             </tableViewCell>

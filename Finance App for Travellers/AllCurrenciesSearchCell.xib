@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCurrenciesSearchCell" rowHeight="90" id="VPf-j3-m9i" customClass="AllCurrenciesTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPf-j3-m9i" id="GiG-4U-lXt">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KO2-MB-kpW" userLabel="CurrencyView">
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                        <subviews>
+                            <view autoresizesSubviews="NO" alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhy-XI-R8B" userLabel="Currency">
+                                <rect key="frame" x="25" y="15" width="40" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_ru" translatesAutoresizingMaskIntoConstraints="NO" id="eTN-0g-tu3">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="NEX-68-iQV"/>
+                                            <constraint firstAttribute="height" constant="40" id="hdK-Wf-Jzm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-vS-ZTH">
+                                        <rect key="frame" x="0.0" y="40" width="40" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="58X-ZZ-bDs"/>
+                                            <constraint firstAttribute="width" constant="40" id="5JM-lb-Jhk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <accessibility key="accessibilityConfiguration" label="Currency"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="ffC-vS-ZTH" firstAttribute="top" secondItem="eTN-0g-tu3" secondAttribute="bottom" id="5HJ-hW-2WI"/>
+                                    <constraint firstItem="ffC-vS-ZTH" firstAttribute="leading" secondItem="qhy-XI-R8B" secondAttribute="leading" id="F1N-j7-FCL"/>
+                                    <constraint firstItem="eTN-0g-tu3" firstAttribute="leading" secondItem="qhy-XI-R8B" secondAttribute="leading" id="F48-RZ-kqQ"/>
+                                    <constraint firstAttribute="height" constant="60" id="Pee-ld-WzS"/>
+                                    <constraint firstAttribute="width" constant="40" id="oy9-us-82O"/>
+                                    <constraint firstItem="eTN-0g-tu3" firstAttribute="top" secondItem="qhy-XI-R8B" secondAttribute="top" id="sp1-0N-GeW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94732481059999996" green="0.94732481059999996" blue="0.94732481059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qhy-XI-R8B" firstAttribute="centerX" secondItem="KO2-MB-kpW" secondAttribute="centerX" id="478-JJ-6yA"/>
+                            <constraint firstAttribute="width" constant="90" id="Gkj-Bp-aLc"/>
+                            <constraint firstItem="qhy-XI-R8B" firstAttribute="centerY" secondItem="KO2-MB-kpW" secondAttribute="centerY" id="cIo-Up-4x6"/>
+                            <constraint firstAttribute="height" constant="90" id="rXM-u3-vbR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIq-lO-EBt">
+                        <rect key="frame" x="110" y="28" width="192" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="mJr-qS-4E2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bIq-lO-EBt" firstAttribute="centerY" secondItem="GiG-4U-lXt" secondAttribute="centerY" id="KTH-eA-zlY"/>
+                    <constraint firstItem="KO2-MB-kpW" firstAttribute="top" secondItem="GiG-4U-lXt" secondAttribute="top" id="Pbd-1I-CRc"/>
+                    <constraint firstItem="bIq-lO-EBt" firstAttribute="width" secondItem="GiG-4U-lXt" secondAttribute="width" multiplier="0.6" id="hGu-9c-El6"/>
+                    <constraint firstItem="KO2-MB-kpW" firstAttribute="leading" secondItem="GiG-4U-lXt" secondAttribute="leading" id="tlm-ga-i8e"/>
+                    <constraint firstItem="bIq-lO-EBt" firstAttribute="leading" secondItem="KO2-MB-kpW" secondAttribute="trailing" constant="20" id="xnH-4i-cni"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="code" destination="ffC-vS-ZTH" id="KRI-ot-30m"/>
+                <outlet property="flag" destination="eTN-0g-tu3" id="D7m-x3-84a"/>
+                <outlet property="name" destination="bIq-lO-EBt" id="mRE-OD-c8O"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="flag_ru" width="275" height="183"/>
+    </resources>
+</document>

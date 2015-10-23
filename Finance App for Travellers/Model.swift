@@ -53,31 +53,6 @@ class Model
 	
 	
     // MARK: - Populating
-    
-    func createFakeData()
-    {
-        clearStorage()
-        
-        /*
-        let russia: Country = createCountry("RU", name: "Россия");
-        let usa: Country = createCountry("US", name: "США");
-        let australia: Country = createCountry("AU", name: "Австралия");*/
-        
-        /*
-        createCurrency("RUB", value: 25, country: russia)
-        createCurrency("USD", value: 100, country: usa)
-        createCurrency("AUD", value: 85, country: australia)*/
-
-        saveStorage()
-        
-        //
-        //        currencies = [
-        //            Currency(code: "RUB", country: "RU", rate: 25, flag: UIImage(named: "flag_ru"))!,
-        //            Currency(code: "USD", country: "RU", rate: 100, flag: UIImage(named: "flag_us"))!,
-        //            Currency(code: "AUD", country: "RU", rate: 85, flag: UIImage(named: "flag_au"))!
-        //        ]
-    }
-	
 	func preloadData () {
 		if !isEventHappen("prepopulateCurrencies") {
 			clearCurrencies()
@@ -242,29 +217,6 @@ class Model
 		}
 	}
 	
- 
-	func getCurrencyByCode(code:String) -> Currency?
-	{
-		let fetchRequest = NSFetchRequest(entityName:"Currency")
-		let pred = NSPredicate(format: "(code = %@)", code)
-		fetchRequest.predicate = pred
-		
-		var fetchedResults = Array<Currency>()
-		do {
-			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
-		} catch let fetchError as NSError {
-			print("getCountryByCode error: \(fetchError.localizedDescription)")
-		}
-		if fetchedResults.count > 0
-		{
-			return fetchedResults.first
-		}
-		else
-		{
-			return nil
-		}
-	}
-	
 	
     func showAllEntities()
     {
@@ -336,6 +288,30 @@ class Model
 	}
 	
 	
+ 
+	func getCurrencyByCode(code:String) -> Currency?
+	{
+		let fetchRequest = NSFetchRequest(entityName:"Currency")
+		let pred = NSPredicate(format: "(code = %@)", code)
+		fetchRequest.predicate = pred
+		
+		var fetchedResults = Array<Currency>()
+		do {
+			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+		} catch let fetchError as NSError {
+			print("getCountryByCode error: \(fetchError.localizedDescription)")
+		}
+		if fetchedResults.count > 0
+		{
+			return fetchedResults.first
+		}
+		else
+		{
+			return nil
+		}
+	}
+	
+	
 	func getCurrenciesInConverter() -> [Currency]
 	{
 		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
@@ -367,9 +343,9 @@ class Model
 	}
 	
 	
-	func deleteHandsOnCurrencyByCurrency(currency:Currency)
+	func deleteCurrencyFromConverter(currency:Currency)
 	{
-		context.deleteObject(currency.valueForKey("handsOnCurrency") as! NSManagedObject)
+		currency.setValue(0, forKey: "in_converter")
 		do {
 			try context.save()
 		} catch _ {

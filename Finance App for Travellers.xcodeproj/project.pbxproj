@@ -14,6 +14,9 @@
 		9A27C1491B8586220087ECDD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1481B8586220087ECDD /* Category.swift */; };
 		9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C14A1B8592270087ECDD /* CategoryCollectionViewCell.swift */; };
 		9A27C1501B8592810087ECDD /* AddCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C14F1B8592810087ECDD /* AddCategoryCollectionViewCell.swift */; };
+		9A36FCDB1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36FCDA1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */; settings = {ASSET_TAGS = (); }; };
+		9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */; settings = {ASSET_TAGS = (); }; };
 		9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41FF221B75A32900E529D1 /* AmountTextField.swift */; };
 		9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
 		9A6A30291BC2D08D0094D403 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6A30201BC2D06F0094D403 /* Alamofire.framework */; };
@@ -124,6 +127,9 @@
 		9A27C1481B8586220087ECDD /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9A27C14A1B8592270087ECDD /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A27C14F1B8592810087ECDD /* AddCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCategoryCollectionViewCell.swift; path = ../AddCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		9A36FCDA1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewCell.swift; sourceTree = "<group>"; };
+		9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableController.swift; sourceTree = "<group>"; };
+		9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCurrenciesSearchCell.xib; sourceTree = "<group>"; };
 		9A41FF221B75A32900E529D1 /* AmountTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandsOnCurrency.swift; sourceTree = "<group>"; };
 		9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -207,6 +213,17 @@
 			name = CategorySelect;
 			sourceTree = "<group>";
 		};
+		9A36FCE01BD91AA600BD81C0 /* AllCurrencies */ = {
+			isa = PBXGroup;
+			children = (
+				9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */,
+				9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */,
+				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
+				9A36FCDA1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift */,
+			);
+			name = AllCurrencies;
+			sourceTree = "<group>";
+		};
 		9A6A30181BC2D06F0094D403 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +282,7 @@
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
 				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
-				9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */,
+				9A36FCE01BD91AA600BD81C0 /* AllCurrencies */,
 				9A27C1511B85928D0087ECDD /* CategorySelect */,
 				9A27C14E1B8592570087ECDD /* CurrencyTable */,
 				9AEA34FE1B79C55E009C65FE /* Model */,
@@ -466,6 +483,7 @@
 				9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
 				9AE403C91B74671A00143932 /* currencies.json in Resources */,
+				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +520,7 @@
 			files = (
 				9AB4438D1BCA1D9E0005146B /* GraphView.swift in Sources */,
 				9AC460BF1BD0AB5B00EEE4A7 /* SummaryView.swift in Sources */,
+				9A36FCDB1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift in Sources */,
 				9AFE7CA51B82DDFA00B7159B /* MenuTransitionManager.swift in Sources */,
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
@@ -515,6 +534,7 @@
 				9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */,
 				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
 				9AFE7CAC1B82E78C00B7159B /* TransactionTableViewCell.swift in Sources */,
+				9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */,
 				9A27C1501B8592810087ECDD /* AddCategoryCollectionViewCell.swift in Sources */,
 				9AFB00801B576B0F0062C6AE /* Country.swift in Sources */,
 				9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */,
@@ -615,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -653,7 +673,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

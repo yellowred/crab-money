@@ -136,7 +136,7 @@ class CurrenciesTableViewController: UITableViewController
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete
 		{
-			app.model.deleteHandsOnCurrencyByCurrency(currenciesStructure.removeAtIndex(indexPath.row).amount.currency)
+			app.model.deleteCurrencyFromConverter(currenciesStructure.removeAtIndex(indexPath.row).amount.currency)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
 		else if editingStyle == .Insert

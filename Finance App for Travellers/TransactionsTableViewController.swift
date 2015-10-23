@@ -13,7 +13,11 @@ class TransactionsTableViewController: UITableViewController {
 
 	let kSummaryPageCount = 3
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
-	var transactions = [Transaction]()
+
+	var transactions = Array<Transaction>()
+	var transactionStructure = Dictionary<String, Array<Transaction>>()
+	var sortedSectionTitles = Array<String>()
+	
 	private let kTransactionCellIdentifier = "TransactionCell"
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageScroll: UIPageControl!
@@ -31,20 +35,41 @@ class TransactionsTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
 		transactions = app.model.getTransactionsListForMonth(NSDate())
+		getTransactionsStructure()
 
 		//Summary scroll view init
 		pageScroll.currentPage = 0
 		pageScroll.numberOfPages = kSummaryPageCount
 		loadSummaryViews()
-    }
-
+		
+	}
+	
+	
+	func getTransactionsStructure() {
+		let df = NSDateFormatter()
+		df.dateFormat = "MM/dd/yyyy"
+		var date: String
+		for elem in transactions {
+			date = df.stringFromDate(elem.date)
+			if transactionStructure.indexForKey(date) == nil {
+				transactionStructure[date] = [elem]
+			}
+			else {
+				transactionStructure[date]!.append(elem)
+			}
+		}
+		sortedSectionTitles = transactionStructure.keys.elements.sort()
+	}
+	
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 	
-
+	
     // MARK: - Summary Scroll View
     func loadSummaryViews() {
 		for summaryType in ["expenses", "earnings", "budget"] {
@@ -78,17 +103,17 @@ class TransactionsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return transactionStructure.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+        return transactionStructure[sortedSectionTitles[section]]!.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier(kTransactionCellIdentifier, forIndexPath: indexPath) as! TransactionTableViewCell
-		cell.setTransaction(transactions[indexPath.row])
+		cell.setTransaction(transactionStructure[sortedSectionTitles[indexPath.section]]![indexPath.row])
 		return cell
 	}
 
@@ -96,6 +121,10 @@ class TransactionsTableViewController: UITableViewController {
 		return 90
 	}
 
+	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return sortedSectionTitles[section]
+	}
+	
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

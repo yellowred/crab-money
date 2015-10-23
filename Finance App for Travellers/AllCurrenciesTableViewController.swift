@@ -8,11 +8,18 @@
 
 import UIKit
 
-class AllCurrenciesTableViewController: UITableViewController {
+class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
 
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	var allCurrencies = [Currency]()
 	var selectedCurrency: Currency?
+	
+	/// Search controller to help us with filtering.
+	var searchController: UISearchController!
+	
+	/// Secondary search results table view.
+	var resultsTableController: ResultsTableController!
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,12 +30,62 @@ class AllCurrenciesTableViewController: UITableViewController {
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		allCurrencies = app.model.getCurrenciesNotInConverter()
+		
+		resultsTableController = ResultsTableController()
+		
+		// We want to be the delegate for our filtered table so didSelectRowAtIndexPath(_:) is called for both tables.
+		resultsTableController.tableView.delegate = self
+		
+		searchController = UISearchController(searchResultsController: resultsTableController)
+		searchController.searchResultsUpdater = self
+		searchController.searchBar.sizeToFit()
+		tableView.tableHeaderView = searchController.searchBar
+		
+		searchController.delegate = self
+		searchController.dimsBackgroundDuringPresentation = false // default is YES
+		searchController.searchBar.delegate = self    // so we can monitor text changes + others
+		/*
+		Search is now just presenting a view controller. As such, normal view controller
+		presentation semantics apply. Namely that presentation will walk up the view controller
+		hierarchy until it finds the root view controller or one that defines a presentation context.
+		*/
+		definesPresentationContext = true
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	
+	
+	// MARK: UISearchBarDelegate
+	
+	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		searchBar.resignFirstResponder()
+	}
+	
+	// MARK: UISearchControllerDelegate
+	
+	func presentSearchController(searchController: UISearchController) {
+		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+	}
+	
+	func willPresentSearchController(searchController: UISearchController) {
+		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+	}
+	
+	func didPresentSearchController(searchController: UISearchController) {
+		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+	}
+	
+	func willDismissSearchController(searchController: UISearchController) {
+		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+	}
+	
+	func didDismissSearchController(searchController: UISearchController) {
+		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+	}
+	
 	
 	// MARK: - Table view data source
 	
@@ -39,23 +96,27 @@ class AllCurrenciesTableViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		// #warning Incomplete method implementation.
-		// Return the number of rows in the section.
-		print("allCurrencies count \(allCurrencies.count)")
 		return allCurrencies.count
 	}
 	
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cellIdentifier = "AllCurrencyCell"
-		let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AllCurrenciesTableViewCell
 		cell.setCurrency(allCurrencies[indexPath.row])
 		return cell
 	}
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
 	{
-		selectedCurrency = allCurrencies[indexPath.row]
+		// Check to see which table view cell was selected.
+		if tableView === self.tableView {
+			selectedCurrency = allCurrencies[indexPath.row]
+		}
+		else {
+			selectedCurrency = resultsTableController.filteredCurrencies[indexPath.row]
+			self.performSegueWithIdentifier("AddCurrencyToHandsOnCurrencies", sender: nil)
+		}
 	}
 	
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -96,7 +157,48 @@ class AllCurrenciesTableViewController: UITableViewController {
 	}
 	*/
 	
+	
+	// MARK: - Search Bar
+	func updateSearchResultsForSearchController(searchController: UISearchController)
+	{
+		guard let searchText = searchController.searchBar.text else {
+			return
+		}
+		print(searchText)
+		let searchPredicate = NSPredicate(format: "(code CONTAINS[c] %@) OR (name CONTAINS[c] %@) OR (code = %@)", searchText, searchText, searchText)
+		let array = NSArray(array: allCurrencies).filteredArrayUsingPredicate(searchPredicate)
+		
+		// Hand over the filtered results to our search results table.
+		let resultsController = searchController.searchResultsController as! ResultsTableController
+		resultsController.filteredCurrencies = array as! [Currency]
+		resultsController.tableView.reloadData()
 
+	}
+	
+	/*
+	func filterContentForSearchText(searchText: String) {
+		// Filter the array using the filter method
+		self.filteredCurrencies = self.allCurrencies.filter({(currency: Currency) -> Bool in
+			let nameMatch = currency.name!.rangeOfString(searchText)
+			let codeMatch = currency.code.rangeOfString(searchText)
+			return (nameMatch != nil) && (codeMatch != nil)
+		})
+	}
+	
+	func searchController(controller: UISearchController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+		guard searchString != nil else {
+			return true
+		}
+		self.filterContentForSearchText(searchString!)
+		return true
+	}
+ 
+	func searchController(controller: UISearchController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+		self.filterContentForSearchText(self.searchController!.searchBar.text!)
+		return true
+	}
+	*/
+	
 	// MARK: - Navigation
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
