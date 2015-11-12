@@ -14,7 +14,7 @@ import CoreData
     @NSManaged var date: NSDate
     @NSManaged var rate: NSDecimalNumber
     @NSManaged var text: String
-    @NSManaged var category: NSManagedObject
+    @NSManaged var category: Category?
     @NSManaged var currency: Currency
 	
 	

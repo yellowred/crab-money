@@ -15,8 +15,9 @@ class CategoriesCollectionViewController: UICollectionViewController {
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	var categories = [Category]()
 	private let kCategoryCellIdentifier = "CategoryCell"
-	private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-
+	private let kReturnCategory = "ReturnCategory"
+	var category:Category?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,15 +38,17 @@ class CategoriesCollectionViewController: UICollectionViewController {
     }
 
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+		if segue.identifier == kReturnCategory {
+			if let categoryCell = sender as? CategoryCollectionViewCell {
+				category = categoryCell.category
+			}
+		}
     }
-    */
+
 
     // MARK: UICollectionViewDataSource
 
@@ -64,10 +67,16 @@ class CategoriesCollectionViewController: UICollectionViewController {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
 		cell.backgroundColor = UIColor.blackColor()
 		cell.categoryTitle.text = categories[indexPath.row].name
-		cell.layer.cornerRadius = 75
+		cell.category = categories[indexPath.row]
+		cell.layer.cornerRadius = (collectionView.bounds.width - 30 * 4) / 4
 		print(cell.categoryTitle.text)
         return cell
     }
+	
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+		let cellWidth = (collectionView.bounds.width - 30 * 4) / 2
+		return CGSize(width: cellWidth, height: cellWidth)
+	}
 
     // MARK: UICollectionViewDelegate
 

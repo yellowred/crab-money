@@ -12,10 +12,14 @@ import UIKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	let kShowTransactionSegue = "showTransactionsView"
+	let kCategorySelectSegue = "CategorySelectSegue"
+	
 	// create the transition manager object
 	var transitionManager = MenuTransitionManager()
 	
 	var amount:Money?
+	var notCompletedTransaction: Transaction?
+	
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	private var sound: Sound = {return Sound()}()
 	
@@ -134,11 +138,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
-		app.model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
-		app.model.saveStorage()
-		amount?.setAmount(0)
-		sound.playTap()
-		reloadAmountDisplay()
+		notCompletedTransaction = app.model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
+		performSegueWithIdentifier(kCategorySelectSegue, sender: nil)
 	}
 	
 	func reloadAmountDisplay()
@@ -160,6 +161,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 			reloadAmountDisplay()
         }
     }
+	
+	@IBAction func selectedCategory(segue:UIStoryboardSegue) {
+		if let categoryTVC = segue.sourceViewController as? CategoriesCollectionViewController {
+			guard notCompletedTransaction != nil && categoryTVC.category != nil else {
+				return
+			}
+			notCompletedTransaction!.category = categoryTVC.category!
+			app.model.saveStorage()
+			sound.playTap()
+			amount?.setAmount(0)
+			reloadAmountDisplay()
+		}
+	}
 
 	
 	override func viewDidAppear(animated: Bool)
@@ -176,10 +190,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
 	{
 		print("Segue: \(segue.identifier)")
-		if segue.identifier == "showCurrencySelect"
-		{
-			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? CurrenciesTableViewController
-			{
+		if segue.identifier == "showCurrencySelect"	{
+			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? CurrenciesTableViewController	{
 				currenciesTVC.providedAmount = amount!
 			}
 		}
@@ -197,6 +209,5 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 			currentCurrencyLabel.text = amount!.currency.code.uppercaseString
 		}
 	}
-	
 }
 

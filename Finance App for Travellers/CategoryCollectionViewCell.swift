@@ -11,4 +11,5 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
 
 	@IBOutlet var categoryTitle: UILabel!
+	var category: Category?
 }

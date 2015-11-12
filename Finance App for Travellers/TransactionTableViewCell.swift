@@ -39,5 +39,8 @@ class TransactionTableViewCell: UITableViewCell {
 		print(amountString, dollarsValue!)
 		
 		trnAmount.attributedText = attributedString
+		if let category = transaction.category {
+			trnLabel.text = category.name
+		}
 	}
 }
