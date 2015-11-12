@@ -111,11 +111,16 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	{
 		// Check to see which table view cell was selected.
 		if tableView === self.tableView {
-			selectedCurrency = allCurrencies[indexPath.row]
 		}
 		else {
 			selectedCurrency = resultsTableController.filteredCurrencies[indexPath.row]
-			self.performSegueWithIdentifier("AddCurrencyToHandsOnCurrencies", sender: nil)
+			//self.navigationController?.popViewControllerAnimated(true)
+			//self.navigationController?.unwindForSegue(<#T##unwindSegue: UIStoryboardSegue##UIStoryboardSegue#>, towardsViewController: <#T##UIViewController#>)
+			searchController.dismissViewControllerAnimated(true, completion: {
+				() in
+				(self.tableView.delegate as! AllCurrenciesTableViewController).performSegueWithIdentifier("addCurrencyToConverter", sender: nil)
+			})
+			
 		}
 	}
 	
@@ -203,7 +208,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
 	{
-		if segue.identifier == "AddCurrencyToHandsOnCurrencies"
+		if segue.identifier == "addCurrencyToConverter"
 		{
 			if let cell = sender as? UITableViewCell
 			{

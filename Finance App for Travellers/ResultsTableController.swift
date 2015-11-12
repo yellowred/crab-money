@@ -36,4 +36,5 @@ class ResultsTableController: UITableViewController {
 		cell.setCurrency(filteredCurrencies[indexPath.row])
 		return cell
 	}
+	
 }

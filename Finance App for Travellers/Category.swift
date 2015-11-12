@@ -11,7 +11,7 @@ import CoreData
 
 @objc(Category) class Category: NSManagedObject {
 
-    @NSManaged var logo: NSData
+    @NSManaged var logo: NSData?
     @NSManaged var name: String
     @NSManaged var transaction: NSSet
 

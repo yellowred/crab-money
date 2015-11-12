@@ -8,14 +8,13 @@
 
 import UIKit
 
-let reuseIdentifier = "Cell"
+let reuseIdentifier = "CategoryCell"
 
 class CategoriesCollectionViewController: UICollectionViewController {
 
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	var categories = [Category]()
 	private let kCategoryCellIdentifier = "CategoryCell"
-	private let kCategoryAddCellIdentifier = "CategoryAddCell"
 	private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
     override func viewDidLoad() {
@@ -25,8 +24,10 @@ class CategoriesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+		//self.collectionView!.registerClass(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: kCategoryCellIdentifier)
+		
 		categories = app.model.getCategoriesList()
+		debugPrint(categories)
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +35,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     /*
     // MARK: - Navigation
@@ -54,14 +56,16 @@ class CategoriesCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count + 1
+		print(categories.count)
+        return categories.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath) 
-    
-        // Configure the cell
-    
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
+		cell.backgroundColor = UIColor.blackColor()
+		cell.categoryTitle.text = categories[indexPath.row].name
+		cell.layer.cornerRadius = 75
+		print(cell.categoryTitle.text)
         return cell
     }
 
@@ -96,5 +100,17 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
     }
     */
-
+	@IBAction func createNewCategory(segue:UIStoryboardSegue) {
+		if let createNewCategoryController = segue.sourceViewController as? CategoryAddViewController
+		{
+			print("New category: \(createNewCategoryController.categoryName)")
+			
+			if createNewCategoryController.categoryName != "" {
+				let newCategory = app.model.createCategory(createNewCategoryController.categoryName, logo: nil)
+				app.model.saveStorage()
+				categories.append(newCategory)
+				//				collectionView?.reloadData()
+			}
+		}
+	}
 }

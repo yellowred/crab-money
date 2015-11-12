@@ -73,11 +73,25 @@ class Model
 					setEventHappen("prepopulateCurrencies")
 				}
 			}
+			
+			if let contentsOfURL = NSBundle.mainBundle().URLForResource("categories", withExtension: "json") {
+				let parsedObject: AnyObject?
+				do {
+					parsedObject = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
+						options: NSJSONReadingOptions.AllowFragments)
+				} catch let error as NSError {
+					parsedObject = nil
+					debugPrint(error)
+				}
+				if let categories = parsedObject as? [String] {
+					populateCategoriesWithData(categories)
+				}
+			}
 		}
 	}
 	
 	func populateCurrenciesWithData(data: [NSDictionary]) {
-		print(data);
+		debugPrint(data);
 		var flagPngData:NSData? = nil
 		var currencyIndex = 0;
 		for currencyData:NSDictionary in data
@@ -112,6 +126,17 @@ class Model
 		print("Populated: \(currencyIndex)")
 		saveStorage()
 	}
+	
+	
+	func populateCategoriesWithData(data: [String]) {
+		debugPrint(data)
+		for category:String in data
+		{
+			let categoryObject = createCategory(category, logo: nil)
+		}
+		saveStorage()
+	}
+	
 	
     // MARK: - Model Manipulations
    
@@ -436,7 +461,7 @@ class Model
 
 	
 	// MARK: - category
-	func createCategory(name: String, logo: NSData) -> (Category)
+	func createCategory(name: String, logo: NSData?) -> (Category)
 	{
 		let newCategory = NSEntityDescription.insertNewObjectForEntityForName(
 			NSStringFromClass(Category.classForCoder()),
@@ -444,8 +469,9 @@ class Model
 			) as! Category
 		
 		newCategory.setValue(name, forKey: "name")
-		newCategory.setValue(logo, forKey: "logo")
-		
+		if let _ = logo {
+			newCategory.setValue(logo, forKey: "logo")
+		}
 		print("createCategory \(name)")
 		return newCategory
 	}

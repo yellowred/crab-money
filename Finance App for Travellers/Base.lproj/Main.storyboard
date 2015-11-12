@@ -21,7 +21,6 @@
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -281,6 +280,13 @@
                                         </variation>
                                         <connections>
                                             <action selector="tapSaveTransaction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="drh-bz-W29"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8r-kR-1gh">
+                                        <rect key="frame" x="20" y="202" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="Ua3-WG-fdl" kind="presentation" identifier="CategorySelectSegue" id="fh7-hK-7bg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -543,7 +549,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2131" y="471"/>
+            <point key="canvasLocation" x="2131" y="449"/>
         </scene>
         <!--Countries Table View Controller-->
         <scene sceneID="eDE-5o-VCO">
@@ -592,7 +598,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMc-c0-q4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bSb-0H-Tys" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2896" y="1069"/>
+            <point key="canvasLocation" x="1152" y="1870"/>
         </scene>
         <!--Currencies Table View Controller-->
         <scene sceneID="EEM-bZ-nNF">
@@ -604,7 +610,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyManagableCell" rowHeight="90" id="W70-jU-UgL" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="86" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W70-jU-UgL" id="NJm-Sf-X6v">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -693,7 +699,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyAddCell" rowHeight="90" id="y56-mB-Oaf" customClass="CurrencyAddTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="112" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="176" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y56-mB-Oaf" id="dKX-6I-pbZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -731,7 +737,7 @@
                     <navigationItem key="navigationItem" id="R29-mF-N3M">
                         <barButtonItem key="leftBarButtonItem" title="Numpad" id="oPI-ZT-EBR">
                             <connections>
-                                <segue destination="qVK-zR-Vdx" kind="unwind" unwindAction="selectedCurrency:" id="CTI-Q8-nQA"/>
+                                <segue destination="qVK-zR-Vdx" kind="unwind" identifier="selectCurrencySegue" unwindAction="selectedCurrency:" id="CTI-Q8-nQA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -754,7 +760,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllCurrencyCell" rowHeight="90" id="KhC-Wb-fxz" customClass="AllCurrenciesTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="86" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KhC-Wb-fxz" id="mPd-mQ-xfb">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -812,7 +818,7 @@
                                                 <constraint firstAttribute="height" constant="33" id="qEr-Pf-Sma"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -828,7 +834,7 @@
                                     <outlet property="code" destination="Ks6-qW-w7S" id="wXL-Jq-F7h"/>
                                     <outlet property="flag" destination="YIt-TP-yah" id="7OJ-jj-8CH"/>
                                     <outlet property="name" destination="30c-lm-KYf" id="wxW-b7-7Kd"/>
-                                    <segue destination="SGk-bk-MXZ" kind="unwind" identifier="AddCurrencyToHandsOnCurrencies" unwindAction="saveCurrencyToHandsOnCollection:" id="iMY-dV-IBV"/>
+                                    <segue destination="VbU-uc-DjM" kind="unwind" identifier="addCurrencyToConverter" unwindAction="saveCurrencyToHandsOnCollection:" id="poW-lZ-8BI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -839,7 +845,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43K-pZ-vYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="SGk-bk-MXZ" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="VbU-uc-DjM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4290" y="399"/>
         </scene>
@@ -880,16 +886,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xk-af-IDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="1069"/>
+            <point key="canvasLocation" x="514" y="1870"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Categories-->
         <scene sceneID="Wnz-Sl-Fqo">
             <objects>
-                <collectionViewController id="4Dx-na-3aS" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" id="Eve-lC-CPd">
+                <collectionViewController id="4Dx-na-3aS" customClass="CategoriesCollectionViewController" customModule="Finance_App_for_Travellers" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="prototypes" id="Eve-lC-CPd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.75862136994949492" green="0.75862136994949492" blue="0.75862136994949492" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="30" id="GKY-Oh-Xh9">
                             <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -898,45 +904,45 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="DOn-HA-HDz" customClass="CategoryCollectionViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="64" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stuff" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgu-am-kg5">
-                                            <rect key="frame" x="8" y="159" width="184" height="33"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Money Bag-100" translatesAutoresizingMaskIntoConstraints="NO" id="onm-nJ-rn8">
-                                            <rect key="frame" x="28" y="24" width="144" height="113"/>
-                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWw-Fk-dhD">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="150" verticalHuggingPriority="150" text="Very long category name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgu-am-kg5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="Zgu-am-kg5" firstAttribute="centerX" secondItem="HWw-Fk-dhD" secondAttribute="centerX" id="2ls-HQ-bQw"/>
+                                                <constraint firstItem="Zgu-am-kg5" firstAttribute="width" secondItem="HWw-Fk-dhD" secondAttribute="width" id="5dk-ej-w02"/>
+                                                <constraint firstItem="Zgu-am-kg5" firstAttribute="centerY" secondItem="HWw-Fk-dhD" secondAttribute="centerY" id="JhB-hY-28R"/>
+                                                <constraint firstItem="Zgu-am-kg5" firstAttribute="height" secondItem="HWw-Fk-dhD" secondAttribute="height" id="ehd-oI-YHF"/>
+                                                <constraint firstItem="Zgu-am-kg5" firstAttribute="centerX" secondItem="HWw-Fk-dhD" secondAttribute="centerX" id="lUc-Ph-a3l"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="HWw-Fk-dhD" firstAttribute="centerY" secondItem="DOn-HA-HDz" secondAttribute="centerY" id="GfF-0G-9Vi"/>
+                                    <constraint firstItem="HWw-Fk-dhD" firstAttribute="height" secondItem="DOn-HA-HDz" secondAttribute="height" id="iuu-Q7-EEK"/>
+                                    <constraint firstItem="HWw-Fk-dhD" firstAttribute="centerX" secondItem="DOn-HA-HDz" secondAttribute="centerX" id="sjv-Dv-BxR"/>
+                                    <constraint firstItem="HWw-Fk-dhD" firstAttribute="width" secondItem="DOn-HA-HDz" secondAttribute="width" id="zCX-WS-GQl"/>
+                                </constraints>
+                                <size key="customSize" width="150" height="150"/>
                                 <connections>
-                                    <outlet property="image" destination="onm-nJ-rn8" id="vE0-A3-8Ca"/>
-                                    <outlet property="name" destination="Zgu-am-kg5" id="v5q-N9-Ck7"/>
+                                    <outlet property="categoryTitle" destination="Zgu-am-kg5" id="uZ3-7J-fIB"/>
                                 </connections>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryAddCell" id="W6s-iy-Ccj" customClass="AddCategoryCollectionViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
-                                <rect key="frame" x="400" y="0.0" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZO-YQ-8Vb">
-                                            <rect key="frame" x="70" y="65" width="60" height="60"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -944,10 +950,69 @@
                             <outlet property="delegate" destination="4Dx-na-3aS" id="h3m-Ms-8ek"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Categories" id="Cv2-G7-HeO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rZn-z1-Nxf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J9f-B9-IUg">
+                            <connections>
+                                <segue destination="5Wi-2G-7B4" kind="show" identifier="showAddCategory" id="JhZ-CP-HUd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz8-j0-wP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="1729"/>
+            <point key="canvasLocation" x="2943" y="1279"/>
+        </scene>
+        <!--Add category-->
+        <scene sceneID="E3r-Qy-CIF">
+            <objects>
+                <viewController id="5Wi-2G-7B4" customClass="CategoryAddViewController" customModule="Finance_App_for_Travellers" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kcr-vo-jfj"/>
+                        <viewControllerLayoutGuide type="bottom" id="z3k-6s-mPH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oiI-FI-eIw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yWD-if-XbZ">
+                                <rect key="frame" x="60" y="127" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ah-j1-KfZ">
+                                <rect key="frame" x="60" y="84" width="480" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Ah-j1-KfZ" firstAttribute="width" secondItem="oiI-FI-eIw" secondAttribute="width" multiplier="0.8" id="6QI-09-Dr5"/>
+                            <constraint firstItem="yWD-if-XbZ" firstAttribute="centerX" secondItem="oiI-FI-eIw" secondAttribute="centerX" id="KYQ-Ii-12C"/>
+                            <constraint firstItem="yWD-if-XbZ" firstAttribute="top" secondItem="3Ah-j1-KfZ" secondAttribute="bottom" constant="10" id="X8a-XS-hmE"/>
+                            <constraint firstItem="3Ah-j1-KfZ" firstAttribute="top" secondItem="Kcr-vo-jfj" secondAttribute="bottom" constant="20" id="lvu-ng-iXJ"/>
+                            <constraint firstItem="3Ah-j1-KfZ" firstAttribute="centerX" secondItem="oiI-FI-eIw" secondAttribute="centerX" id="nvR-7Q-vMM"/>
+                            <constraint firstItem="yWD-if-XbZ" firstAttribute="width" secondItem="oiI-FI-eIw" secondAttribute="width" multiplier="0.8" id="z4k-7k-aOU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add category" id="wm6-Wp-EK9">
+                        <barButtonItem key="backBarButtonItem" title="All categories" id="GNh-A3-S0j"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ic1-7Q-EaH">
+                            <connections>
+                                <segue destination="zRU-aO-JHS" kind="unwind" identifier="saveCategory" unwindAction="createNewCategory:" id="2YE-ny-gUR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="category" destination="yWD-if-XbZ" id="yqJ-QA-bqv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDU-t9-4GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zRU-aO-JHS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3693" y="1279"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="msD-Kn-HA8">
@@ -967,12 +1032,29 @@
             </objects>
             <point key="canvasLocation" x="2183" y="-320"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hev-hr-Ww0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ua3-WG-fdl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kz0-3I-pZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4Dx-na-3aS" kind="relationship" relationship="rootViewController" id="3ZN-gb-QBh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Jh-ap-yjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2131" y="1279"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Expense" width="10" height="2"/>
         <image name="Income" width="10" height="10"/>
         <image name="Menu Button" width="25" height="23"/>
-        <image name="Money Bag-100" width="100" height="100"/>
         <image name="Settings" width="25" height="25"/>
         <image name="flag_ru" width="275" height="183"/>
         <image name="unicorn.png" width="200" height="205"/>
