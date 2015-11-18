@@ -67,6 +67,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 		self.transitionManager.sourceViewController = self
 		//createNumpad()
 		amountView.layer.cornerRadius = 5
+		amountView.layer.borderColor = UIColor.darkGrayColor().CGColor
+		amountView.layer.borderWidth = 1.0
+		
         currencyFlag.layer.cornerRadius = 20
         currencyFlag.layer.masksToBounds = true
     }
@@ -138,6 +141,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
+		if notCompletedTransaction != nil {
+			app.model.deleteTransaction(notCompletedTransaction!)
+		}
 		notCompletedTransaction = app.model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
 		performSegueWithIdentifier(kCategorySelectSegue, sender: nil)
 	}
@@ -145,7 +151,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 	func reloadAmountDisplay()
 	{
 		//amountDisplayLabel.adjustsFontSizeToFitWidth = true
-		amountDisplayLabel.text = amount!.amount.stringValue
+		amountDisplayLabel.text = amount!.valueForAmount()
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -159,6 +165,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 			amount = currenciesTVC!.providedAmount
 			updateCurrentCurrencyBlock()
 			reloadAmountDisplay()
+			app.model.setCurrentCurrency(amount!.currency)
         }
     }
 	
@@ -169,6 +176,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 			}
 			notCompletedTransaction!.category = categoryTVC.category!
 			app.model.saveStorage()
+			notCompletedTransaction = nil
 			sound.playTap()
 			amount?.setAmount(0)
 			reloadAmountDisplay()

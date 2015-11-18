@@ -27,11 +27,11 @@ class Money {
 		if NSPredicate(format: "SELF MATCHES %@", "[0-9.]").evaluateWithObject(symbol) {
 			if symbol != "." {
 				if pointExists {
-					if (fractionalPart.length < 3) {
+					if (fractionalPart.length < 2) {
 						fractionalPart = fractionalPart.stringByAppendingString(symbol)
 					}
 				} else {
-					if integralPart.length < 11 {
+					if integralPart.length < 10 {
 						integralPart = integralPart.stringByAppendingString(symbol)
 					}
 				}
@@ -58,7 +58,7 @@ class Money {
 			} else if fractionalPart.length == 0 {
 				pointExists = false
 			}
-		} else {
+		} else if (integralPart.length > 0) {
 			integralPart = NSString(string: integralPart.substringToIndex(integralPart.length.predecessor()))
 		}
 		recalcAmount()
@@ -96,17 +96,13 @@ class Money {
 	func stringValue() -> String {
 		return NSNumberFormatter().formatterMoney(currency).stringFromNumber(amount)!
 	}
-	/*
-static NSNumberFormatter* fmt2f = nil;
-if(!fmt2f){
-fmt2f = [[NSNumberFormatter alloc] init];
-[fmt2f setNumberStyle:NSNumberFormatterDecimalStyle];
-[fmt2f setMinimumFractionDigits:2]; // |
-[fmt2f setMaximumFractionDigits:2]; // | - exactly two digits for "money" value
-}
-NSString str2f = [fmt2f stringFromNumber:amount];
-NSRange r = [str2f rangeOfString:fmt2f.decimalSeparator];
-return cents ? [str2f substringFromIndex:r.location + 1] : [str2f substringToIndex:r.location];
-*/
+	
+	
+	func valueForAmount() -> String {
+		let numberFormatter = NSNumberFormatter().formatterSimpleMoney()
+		numberFormatter.minimumFractionDigits = pointExists ? 1 : 0
+		
+		return numberFormatter.stringFromNumber(amount)!
+	}
 	
 }

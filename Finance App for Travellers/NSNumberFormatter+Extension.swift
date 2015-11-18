@@ -31,7 +31,7 @@ extension NSNumberFormatter {
 		return self
 	}
 	
-	func formatterDollars()-> NSNumberFormatter {
+	func formatterDollars() -> NSNumberFormatter {
 		self.numberStyle = NSNumberFormatterStyle.DecimalStyle
 		self.roundingMode = NSNumberFormatterRoundingMode.RoundFloor
 		self.maximumFractionDigits = 0

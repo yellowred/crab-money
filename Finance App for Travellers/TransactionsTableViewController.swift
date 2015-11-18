@@ -135,8 +135,9 @@ class TransactionsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+			transactionStructure[sortedSectionTitles[indexPath.section]]?.removeAtIndex(indexPath.row)
 			app.model.deleteTransaction(transactions.removeAtIndex(indexPath.row))
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
 

@@ -383,6 +383,12 @@ class Model
 		let currentCurrencyCode:String? = defaults.stringForKey("currentCurrencyCode")
 		return getCurrencyByCode(currentCurrencyCode ?? "AUD")!
 	}
+
+	
+	func setCurrentCurrency(currency:Currency) {
+		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "currentCurrencyCode")
+	}
+	
 	
 	func isEventHappen(name: String) -> Bool {
 		let defaults = NSUserDefaults.standardUserDefaults()
@@ -480,5 +486,15 @@ class Model
 	func getCategoriesList() -> [Category]
 	{
 		return getObjectsList(Category.classForCoder()) as! [Category]
+	}
+	
+	
+	func deleteCategory(category: Category)
+	{
+		context.deleteObject(category)
+		do {
+			try context.save()
+		} catch _ {
+		}
 	}
 }
