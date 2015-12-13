@@ -9,13 +9,10 @@
 import UIKit
 
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
+class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	let kShowTransactionSegue = "showTransactionsView"
 	let kCategorySelectSegue = "CategorySelectSegue"
-	
-	// create the transition manager object
-	var transitionManager = MenuTransitionManager()
 	
 	var amount:Money?
 	var notCompletedTransaction: Transaction?
@@ -57,14 +54,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
 		
-		app.model.preloadData()
 		amount = Money(amount: 0, currency: app.model.getCurrentCurrency())
 		updateCurrentCurrencyBlock()
         reloadAmountDisplay()
 		
-		// now we'll have a handy reference to this view controller
-		// from within our transition manager object
-		self.transitionManager.sourceViewController = self
 		//createNumpad()
 		amountView.layer.cornerRadius = 5
 		amountView.layer.borderColor = UIColor.darkGrayColor().CGColor

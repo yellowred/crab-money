@@ -89,6 +89,7 @@ class Model
 			}
 		}
 	}
+
 	
 	func populateCurrenciesWithData(data: [NSDictionary]) {
 		debugPrint(data);
@@ -431,18 +432,10 @@ class Model
 	}
 
 	
-	func getTransactionsListForMonth(dateInMonth: NSDate) -> [Transaction]
+	func getTransactionsListForPeriod(period: Period) -> [Transaction]
 	{
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
-		var startDate: NSDate?
-		var duration: NSTimeInterval = 0
-		calendar.rangeOfUnit(NSCalendarUnit.Month, startDate: &startDate, interval: &duration, forDate: dateInMonth)
 		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
-		guard startDate != nil else {
-			return []
-		}
-		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startDate!, (startDate?.dateByAddingTimeInterval(duration))!)
+		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", period.startDate, period.endDate)
 		
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
@@ -465,6 +458,25 @@ class Model
 		}
 	}
 
+	
+	func getIinitialTransaction() -> Transaction? {
+		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+		fetchRequest.fetchLimit = 1
+		//Execute Fetch request
+		var fetchedResults = Array<AnyObject>()
+		do {
+			fetchedResults = try context.executeFetchRequest(fetchRequest)
+		} catch let fetchError as NSError {
+			print("getObjectsList error: \(fetchError.localizedDescription)")
+		}
+		print(fetchedResults.first)
+		return fetchedResults.first as? Transaction
+	}
+	
+	
+	// MARK: - period
+	
 	
 	// MARK: - category
 	func createCategory(name: String, logo: NSData?) -> (Category)

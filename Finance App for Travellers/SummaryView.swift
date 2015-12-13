@@ -17,9 +17,6 @@ class SummaryView: UIView {
         // Drawing code
     }
     */
-	@IBOutlet weak var amount: UILabel!
-	@IBOutlet weak var month: UILabel!
-	@IBOutlet weak var summaryType: UILabel!
 	@IBOutlet weak var graph: GraphView!
 
 	
@@ -32,7 +29,7 @@ class SummaryView: UIView {
 			return false
 		}
 		initCommonData(forDate, transactions: expenses, currency: currency)
-		summaryType.text = "expenses".localized
+		//summaryType.text = "expenses".localized
 	}
 	
 	
@@ -45,7 +42,7 @@ class SummaryView: UIView {
 			return false
 		}
 		initCommonData(forDate, transactions: earnings, currency: currency)
-		summaryType.text = "earnings".localized
+		//summaryType.text = "earnings".localized
 	}
 	
 	
@@ -58,7 +55,7 @@ class SummaryView: UIView {
 			return false
 		}
 		initCommonData(forDate, transactions: expenses, currency: currency)
-		summaryType.text = "budget".localized
+		//summaryType.text = "budget".localized
 	}
 	
 	
@@ -67,10 +64,10 @@ class SummaryView: UIView {
 		let total = NSDecimalNumber(double: normalizedTransactionValues.reduce(0, combine: + ))
 		graph.graphPoints = normalizedTransactionValues.map {fabs($0)}
 
-		amount.text = NSNumberFormatter().formatterMoney(currency).stringFromNumber(total)
+		//amount.text = NSNumberFormatter().formatterMoney(currency).stringFromNumber(total)
 		let formatter = NSDateFormatter()
 		formatter.dateFormat = "MMMM"
-		month.text = formatter.stringFromDate(forDate)
+		//month.text = formatter.stringFromDate(forDate)
 	}
 
 	

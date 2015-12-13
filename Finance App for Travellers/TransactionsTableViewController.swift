@@ -8,18 +8,19 @@
 
 import UIKit
 
-//http://www.raywenderlich.com/76436/use-uiscrollview-scroll-zoom-content-swift
 class TransactionsTableViewController: UITableViewController {
-
-	let kSummaryPageCount = 3
-	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 
 	var transactions = Array<Transaction>()
 	var transactionStructure = Dictionary<String, Array<Transaction>>()
 	var sortedSectionTitles = Array<String>()
 	
 	private let kTransactionCellIdentifier = "TransactionCell"
-    @IBOutlet weak var scrollView: UIScrollView!
+	private let kShowTransactionDetailSegue = "ShowTransactionDetail"
+	
+	var currentPeriod: Period?
+	
+	/*
+	@IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageScroll: UIPageControl!
     var pageViews: [UIView?] = []
 	@IBOutlet weak var graphView: GraphView!
@@ -27,29 +28,19 @@ class TransactionsTableViewController: UITableViewController {
 	
 	@IBOutlet weak var summaryParentView: UIView!
 	var isGraphViewShowing = false
+	*/
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-		transactions = app.model.getTransactionsListForMonth(NSDate())
+		transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
 		getTransactionsStructure()
-
-		//Summary scroll view init
-		pageScroll.currentPage = 0
-		pageScroll.numberOfPages = kSummaryPageCount
-		loadSummaryViews()
-		
 	}
 	
 	
 	func getTransactionsStructure() {
 		let df = NSDateFormatter()
-		df.dateFormat = "MM/dd/yyyy"
+		df.dateStyle = NSDateFormatterStyle.MediumStyle
 		var date: String
 		for elem in transactions {
 			date = df.stringFromDate(elem.date)
@@ -71,7 +62,8 @@ class TransactionsTableViewController: UITableViewController {
 	
 	
     // MARK: - Summary Scroll View
-    func loadSummaryViews() {
+	/*
+	func loadSummaryViews() {
 		for summaryType in ["expenses", "earnings", "budget"] {
 			scrollView.addSubview(createSummaryView(summaryType))
 		}
@@ -96,9 +88,9 @@ class TransactionsTableViewController: UITableViewController {
 		let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
 		
 		// Update the page control
-		pageScroll.currentPage = page
+		//pageScroll.currentPage = page
 	}
-	
+	*/
 
     // MARK: - Table view data source
 
@@ -136,7 +128,7 @@ class TransactionsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
 			transactionStructure[sortedSectionTitles[indexPath.section]]?.removeAtIndex(indexPath.row)
-			app.model.deleteTransaction(transactions.removeAtIndex(indexPath.row))
+			app().model.deleteTransaction(transactions.removeAtIndex(indexPath.row))
 			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
@@ -155,15 +147,19 @@ class TransactionsTableViewController: UITableViewController {
         return true
     }
     */
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+	{
+		let selectedTransaction:Transaction = transactionStructure[sortedSectionTitles[indexPath.section]]![indexPath.row]
+		performSegueWithIdentifier(kShowTransactionDetailSegue, sender: selectedTransaction)
+	}
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+		if segue.identifier == kShowTransactionDetailSegue {
+			(segue.destinationViewController as! TransactionDetailTableViewController).transaction = sender as? Transaction
+		}
     }
-    */
 
 }
