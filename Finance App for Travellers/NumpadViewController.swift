@@ -16,6 +16,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	var amount:Money?
 	var notCompletedTransaction: Transaction?
+	var baselineOffset:Int = 20
 	
 	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	private var sound: Sound = {return Sound()}()
@@ -23,12 +24,13 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
 
-    @IBOutlet weak var currentCurrencyFlag: UIImageView!
-    @IBOutlet weak var currentCurrencyLabel: UILabel!
 	@IBOutlet weak var numpad: UIView!
     @IBOutlet weak var amountView: UIView!
-    @IBOutlet weak var currencyView: UIView!
-    @IBOutlet weak var currencyFlag: UIImageView!
+	@IBOutlet var currentFlag: UIImageView!
+	@IBOutlet var currentCurrency: UILabel!
+	@IBOutlet var expense: UIButton!
+	@IBOutlet var earning: UIButton!
+
 	
 	
     override func viewDidLoad() {
@@ -59,12 +61,23 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
         reloadAmountDisplay()
 		
 		//createNumpad()
-		amountView.layer.cornerRadius = 5
-		amountView.layer.borderColor = UIColor.darkGrayColor().CGColor
-		amountView.layer.borderWidth = 1.0
+		//amountView.layer.cornerRadius = 5
+		//amountView.layer.borderColor = UIColor.darkGrayColor().CGColor
+		//amountView.layer.borderWidth = 1.0
 		
-        currencyFlag.layer.cornerRadius = 20
-        currencyFlag.layer.masksToBounds = true
+		//currencyFlag.layer.cornerRadius = 20
+		//currencyFlag.layer.masksToBounds = true
+		
+		//amountView.backgroundColor = UIColor(patternImage: UIImage(named: "Rectangle 156x1")!)
+		
+		amountView.backgroundColor = UIColor(rgba: "#1C2531")
+		let gradient1:CAGradientLayer = CAGradientLayer()
+		gradient1.frame = amountView.bounds
+		gradient1.colors = [UIColor(rgba: "#1C2531").CGColor, UIColor(rgba: "#999999").CGColor, UIColor(rgba: "#1C2531").CGColor] //Or any colors
+		gradient1.locations = [0.0, 0.5, 1.0]
+		gradient1.startPoint = CGPointMake(0.0, 0.5);
+		gradient1.endPoint = CGPointMake(1.0, 0.5);
+		amountView.layer.insertSublayer(gradient1, atIndex: 0)
     }
 	
 	
@@ -128,10 +141,14 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
         else if sender.tag == 12 {
             amount!.backspace()
         }
+		sender.backgroundColor = UIColor.whiteColor()
 		sound.playTap()
         reloadAmountDisplay()
 	}
 	
+	@IBAction func numberPressed(sender: UIButton) {
+		sender.backgroundColor = UIColor.lightGrayColor()
+	}
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
 		if notCompletedTransaction != nil {
@@ -143,7 +160,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	func reloadAmountDisplay()
 	{
-		//amountDisplayLabel.adjustsFontSizeToFitWidth = true
+		amountDisplayLabel.adjustsFontSizeToFitWidth = true
 		amountDisplayLabel.text = amount!.valueForAmount()
 	}
 	
@@ -206,8 +223,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	func updateCurrentCurrencyBlock() {
 		if amount != nil {
-			currentCurrencyFlag.image = amount!.currency.getFlag()
-			currentCurrencyLabel.text = amount!.currency.code.uppercaseString
+			//currentCurrencyFlag.image = amount!.currency.getFlag()
+			//currentCurrencyLabel.text = amount!.currency.code.uppercaseString
 		}
 	}
 }

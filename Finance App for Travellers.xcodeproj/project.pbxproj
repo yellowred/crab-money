@@ -22,6 +22,7 @@
 		9A4B72111BF07F7400E19042 /* CategoryAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4B72101BF07F7400E19042 /* CategoryAddViewController.swift */; };
 		9A4D03AD1C1BD37900327679 /* InsightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */; };
 		9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
+		9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */; };
 		9A6A30291BC2D08D0094D403 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6A30201BC2D06F0094D403 /* Alamofire.framework */; };
 		9A6A302A1BC2D08D0094D403 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6A30201BC2D06F0094D403 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */; };
@@ -144,6 +145,7 @@
 		9A4B72101BF07F7400E19042 /* CategoryAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAddViewController.swift; sourceTree = "<group>"; };
 		9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsTableViewController.swift; sourceTree = "<group>"; };
 		9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandsOnCurrency.swift; sourceTree = "<group>"; };
+		9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */,
 				9A827C931C1D3EF50025FC5B /* NSDate+Extension.swift */,
 				9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */,
+				9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */,
 				9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */,
 				9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */,
+				9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */,
 				9A27C1491B8586220087ECDD /* Category.swift in Sources */,
 				9A827C941C1D3EF50025FC5B /* NSDate+Extension.swift in Sources */,
 			);

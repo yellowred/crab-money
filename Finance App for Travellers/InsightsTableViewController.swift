@@ -56,7 +56,7 @@ class InsightsTableViewController: UITableViewController {
 			}
 			let expensesTotal = expenses.reduce(0, combine: {return $1.amount.decimalNumberByAdding($0)})
 			expensesAmount.text = expensesTotal.formatToMoney().stringValue
-			let expensesAvg = expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: expenses.count))
+			let expensesAvg = expenses.count > 0 ? expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: expenses.count)) : NSDecimalNumber(integer: 0)
 			dailyAverageAmount.text = expensesAvg.formatToMoney().stringValue
 			let expensesExpected = expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: currentPeriod!.getDaysCount()))
 			expectedAmount.text = expensesExpected.formatToMoney().stringValue

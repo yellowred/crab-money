@@ -14,8 +14,6 @@ class CurrenciesTableViewController: UITableViewController
 
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
 
-    private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
-	
 	var currenciesStructure = [HandsOnCurrency]()
 	var providedAmount: Money?
 	
@@ -24,7 +22,11 @@ class CurrenciesTableViewController: UITableViewController
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		currenciesStructure = app.model.getHandsOnCurrenciesStructure(providedAmount!)
+		
+		if providedAmount == nil {
+			providedAmount = Money(amount: NSDecimalNumber(integer: 0), currency: app().model.getCurrentCurrency())
+		}
+		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
 		tableView.allowsMultipleSelectionDuringEditing = false;
 		//tableView.editing = true
         /*
@@ -136,7 +138,7 @@ class CurrenciesTableViewController: UITableViewController
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete
 		{
-			app.model.deleteCurrencyFromConverter(currenciesStructure.removeAtIndex(indexPath.row).amount.currency)
+			app().model.deleteCurrencyFromConverter(currenciesStructure.removeAtIndex(indexPath.row).amount.currency)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
 		else if editingStyle == .Insert
@@ -184,7 +186,7 @@ class CurrenciesTableViewController: UITableViewController
 			{
 				currenciesStructure.append(HandsOnCurrency(amount:providedAmount!.toCurrency(currencyToAdd), textField: nil))
 				currencyToAdd.addToConverter()
-				app.model.saveStorage()
+				app().model.saveStorage()
 
 				//update the tableView
 				let indexPath = NSIndexPath(forRow: currenciesStructure.count-1, inSection: 0)
