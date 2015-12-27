@@ -48,4 +48,10 @@ extension NSDate {
 		return calendar
 	}
 	
+	func fromString(dbDate: String) -> NSDate? {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"//this your string date format
+		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
+		return dateFormatter.dateFromString(dbDate)
+	}
 }

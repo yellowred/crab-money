@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import ChameleonFramework
 
-
-class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
+class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, CategorySelectDelegate {
 
 	let kShowTransactionSegue = "showTransactionsView"
 	let kCategorySelectSegue = "CategorySelectSegue"
@@ -26,6 +26,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	@IBOutlet weak var numpad: UIView!
     @IBOutlet weak var amountView: UIView!
+	@IBOutlet var currencyView: UIView!
 	@IBOutlet var currentFlag: UIImageView!
 	@IBOutlet var currentCurrency: UILabel!
 	@IBOutlet var expense: UIButton!
@@ -70,6 +71,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 		
 		//amountView.backgroundColor = UIColor(patternImage: UIImage(named: "Rectangle 156x1")!)
 		
+		/*
 		amountView.backgroundColor = UIColor(rgba: "#1C2531")
 		let gradient1:CAGradientLayer = CAGradientLayer()
 		gradient1.frame = amountView.bounds
@@ -78,6 +80,16 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 		gradient1.startPoint = CGPointMake(0.0, 0.5);
 		gradient1.endPoint = CGPointMake(1.0, 0.5);
 		amountView.layer.insertSublayer(gradient1, atIndex: 0)
+		*/
+		//amountView.backgroundColor = UIColor(rgba: "#324459")
+		expense.backgroundColor = UIColor(rgba: "#A43131")
+		earning.backgroundColor = UIColor(rgba: "#31A447")
+		expense.layer.cornerRadius = 23
+		earning.layer.cornerRadius = 23
+		currentFlag.layer.cornerRadius = 20
+		currentFlag.layer.masksToBounds = true
+		//currencyView.backgroundColor = UIColor(rgba: "#F9F9F9")
+		//currencyView.layer.cornerRadius = 3
     }
 	
 	
@@ -147,7 +159,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 	}
 	
 	@IBAction func numberPressed(sender: UIButton) {
-		sender.backgroundColor = UIColor.lightGrayColor()
+		sender.backgroundColor = UIColor(rgba: "#F4F4F4")
 	}
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
@@ -179,18 +191,16 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 	
-	@IBAction func selectedCategory(segue:UIStoryboardSegue) {
-		if let categoryTVC = segue.sourceViewController as? CategoriesCollectionViewController {
-			guard notCompletedTransaction != nil && categoryTVC.category != nil else {
-				return
-			}
-			notCompletedTransaction!.category = categoryTVC.category!
-			app.model.saveStorage()
-			notCompletedTransaction = nil
-			sound.playTap()
-			amount?.setAmount(0)
-			reloadAmountDisplay()
+	func setCategory(category:Category) {
+		guard notCompletedTransaction != nil else {
+			return
 		}
+		notCompletedTransaction!.category = category
+		app.model.saveStorage()
+		notCompletedTransaction = nil
+		sound.playTap()
+		amount!.setAmount(0)
+		reloadAmountDisplay()
 	}
 
 	
@@ -198,6 +208,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 	{
 		super.viewDidAppear(animated)
 	}
+	
 	
 	override func viewDidDisappear(animated: Bool)
 	{
@@ -212,7 +223,11 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? CurrenciesTableViewController	{
 				currenciesTVC.providedAmount = amount!
 			}
+		} else if segue.identifier == kCategorySelectSegue {
+			let c = (segue.destinationViewController as! UINavigationController).topViewController as! CategoriesCollectionViewController
+			c.delegate = self
 		}
+
 	}
 	
 	@IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
@@ -223,8 +238,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	func updateCurrentCurrencyBlock() {
 		if amount != nil {
-			//currentCurrencyFlag.image = amount!.currency.getFlag()
-			//currentCurrencyLabel.text = amount!.currency.code.uppercaseString
+			currentFlag.image = amount!.currency.getFlag()
+			currentCurrency.text = amount!.currency.code.uppercaseString
 		}
 	}
 }

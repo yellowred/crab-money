@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		Fabric.with([Crashlytics.self()])
 		model.preloadData()
+		UIApplication.sharedApplication().statusBarStyle = .Default
         return true
     }
 

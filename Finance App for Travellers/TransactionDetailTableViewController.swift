@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TransactionDetailTableViewController: UITableViewController {
+class TransactionDetailTableViewController: UITableViewController, CategorySelectDelegate {
 
+	let kEditTransactionCategory = "EditTransactionCategory"
 	var transaction: Transaction?
 	
 	@IBOutlet var categoryName: UILabel!
@@ -104,14 +105,19 @@ class TransactionDetailTableViewController: UITableViewController {
     }
     */
 
-    /*
+	
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+		if segue.identifier == kEditTransactionCategory {
+			let c = (segue.destinationViewController as! UINavigationController).topViewController as! CategoriesCollectionViewController
+			c.delegate = self
+		}
     }
-    */
-
+	
+	func setCategory(category:Category) {
+		if transaction != nil {
+			transaction!.category = category
+			categoryName.text = transaction!.category?.name
+		}
+	}
 }

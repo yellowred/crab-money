@@ -23,8 +23,6 @@ class InsightsTableViewController: UITableViewController {
 	@IBOutlet var dailyAverageEarnings: UILabel!
 	@IBOutlet var nextPeriodButton: UIButton!
 	@IBOutlet var prevPeriodButton: UIButton!
-	@IBAction func changePeriodButtonTap(sender: UIButton) {
-	}
 	
 	var currentPeriod: Period?
 	var transactions: [Transaction]?
@@ -37,14 +35,29 @@ class InsightsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		
+		app().model.createFakeTransaction()
+		app().model.saveStorage()
+		if let initialTransaction = app().model.getIinitialTransaction() {
+			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
+		}
 		showSummary()
     }
 
 	
 	func showSummary() {
-		if let initialTransaction = app().model.getIinitialTransaction() {
-			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
+		if currentPeriod != nil {
 			periodLabel.text = currentPeriod?.description
+			if currentPeriod?.getNext() == nil {
+				nextPeriodButton.enabled = false
+			} else {
+				nextPeriodButton.enabled = true
+			}
+			if currentPeriod?.getPrev() == nil {
+				prevPeriodButton.enabled = false
+			} else {
+				prevPeriodButton.enabled = true
+			}
 			transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
 			
 			let expenses: [Transaction] = transactions!.filter {
@@ -76,6 +89,14 @@ class InsightsTableViewController: UITableViewController {
 		}
 	}
 	
+	@IBAction func changePeriod(sender: UIButton) {
+		if sender.tag == 21 && currentPeriod?.getPrev() != nil {
+			currentPeriod = currentPeriod?.getPrev()
+		} else if currentPeriod?.getNext() != nil {
+			currentPeriod = currentPeriod?.getNext()
+		}
+		showSummary()
+	}
 	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

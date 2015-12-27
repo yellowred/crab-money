@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Finance App for Travellers/TransactionsTableViewController.swift"
-            timestampString = "471713219.520108"
+            timestampString = "472906965.514771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "TransactionsTableViewController"
             landmarkType = "3">
          </BreakpointContent>

@@ -133,7 +133,7 @@ class Model
 		debugPrint(data)
 		for category:String in data
 		{
-			let categoryObject = createCategory(category, logo: nil)
+			let _ = createCategory(category, logo: nil)
 		}
 		saveStorage()
 	}
@@ -422,6 +422,21 @@ class Model
 		
 		print("createTransaction \(amount.amount)")
 		
+		return newTransaction
+	}
+	
+	
+	func createFakeTransaction() -> (Transaction)
+	{
+		let newTransaction = NSEntityDescription.insertNewObjectForEntityForName(
+			NSStringFromClass(Transaction.classForCoder()),
+			inManagedObjectContext: context
+			) as! Transaction
+		
+		newTransaction.setValue(NSDecimalNumber(integer: -2500), forKey: "amount")
+		newTransaction.setValue(getCurrentCurrency(), forKey: "currency")
+		newTransaction.setValue(NSDate().fromString("2015-10-15 10:31:23"), forKey: "date")
+		newTransaction.category = getCategoriesList().first
 		return newTransaction
 	}
 	

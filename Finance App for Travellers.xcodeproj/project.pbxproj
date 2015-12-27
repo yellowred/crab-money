@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FF795020A93C17C09F2C970 /* Pods_Finance_App_for_Travellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A00ACEB3837FA20297F2B9 /* Pods_Finance_App_for_Travellers.framework */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
+		9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */; };
 		9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B11921B4E2D9400BC8BB1 /* Networking.swift */; };
 		9A0BA91E1BC3981500CE0AF1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BA91D1BC3981500CE0AF1 /* Sound.swift */; };
 		9A0BE4511BF45266002D6F5F /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BE4531BF45266002D6F5F /* categories.json */; };
@@ -129,7 +131,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84A00ACEB3837FA20297F2B9 /* Pods_Finance_App_for_Travellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finance_App_for_Travellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
+		9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
 		9A0B11921B4E2D9400BC8BB1 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; usesTabs = 1; };
 		9A0BA91D1BC3981500CE0AF1 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		9A0BE4521BF45266002D6F5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/categories.json; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		9AFB00811B576B100062C6AE /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		9AFE7CA91B82DF2B00B7159B /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
 		9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		D334F2B51154F8061569E70B /* Pods-Finance App for Travellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finance App for Travellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers.release.xcconfig"; sourceTree = "<group>"; };
+		D9D086E7D690AE16A8BEB53C /* Pods-Finance App for Travellers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finance App for Travellers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 				9A6A30291BC2D08D0094D403 /* Alamofire.framework in Frameworks */,
 				9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */,
 				9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */,
+				7FF795020A93C17C09F2C970 /* Pods_Finance_App_for_Travellers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +218,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95694BABC85C030554A7FB05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9D086E7D690AE16A8BEB53C /* Pods-Finance App for Travellers.debug.xcconfig */,
+				D334F2B51154F8061569E70B /* Pods-Finance App for Travellers.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9A27C14E1B8592570087ECDD /* CurrencyTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +306,8 @@
 				9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */,
 				9AA926861BC3AC5C009D16B3 /* Fabric.framework */,
 				9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */,
+				95694BABC85C030554A7FB05 /* Pods */,
+				E6E38FC39DD2B50FB9DE61C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -310,6 +328,7 @@
 				9A9C91911B3444E500DE580F /* AppDelegate.swift */,
 				9A827C9B1C1D71B70025FC5B /* Insights */,
 				9A9C91961B3444E500DE580F /* NumpadViewController.swift */,
+				9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */,
 				9A0BA91D1BC3981500CE0AF1 /* Sound.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
 				9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */,
@@ -382,6 +401,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		E6E38FC39DD2B50FB9DE61C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A00ACEB3837FA20297F2B9 /* Pods_Finance_App_for_Travellers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,11 +416,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A9C91AE1B3444E500DE580F /* Build configuration list for PBXNativeTarget "Finance App for Travellers" */;
 			buildPhases = (
+				1ADD9A2BA7FA9606965C4BA5 /* Check Pods Manifest.lock */,
 				9A9C91881B3444E500DE580F /* Sources */,
 				9A9C91891B3444E500DE580F /* Frameworks */,
 				9A9C918A1B3444E500DE580F /* Resources */,
 				9AB80D301B4E39E3007D1B92 /* Embed Frameworks */,
 				9AA926811BC3ABF9009D16B3 /* ShellScript */,
+				175E10A7C217AF93865AADAE /* Embed Pods Frameworks */,
+				CC10E02FDA2275B4D316CCA8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -535,6 +565,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		175E10A7C217AF93865AADAE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ADD9A2BA7FA9606965C4BA5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9AA926811BC3ABF9009D16B3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,6 +607,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 78b1e0e15cded496be7f34340550acd958032292 cd21d2ccadc5ab94b7339702447a750dd6af4bd28c79791f357e741edae4b3b3";
+		};
+		CC10E02FDA2275B4D316CCA8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -582,6 +657,7 @@
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
 				9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */,
 				9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */,
+				9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */,
 				9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */,
 				9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
@@ -737,6 +813,7 @@
 		};
 		9A9C91AF1B3444E500DE580F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9D086E7D690AE16A8BEB53C /* Pods-Finance App for Travellers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
@@ -759,6 +836,7 @@
 		};
 		9A9C91B01B3444E500DE580F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D334F2B51154F8061569E70B /* Pods-Finance App for Travellers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;

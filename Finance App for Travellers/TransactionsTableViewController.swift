@@ -39,6 +39,7 @@ class TransactionsTableViewController: UITableViewController {
 	
 	
 	func getTransactionsStructure() {
+		transactionStructure = Dictionary<String, Array<Transaction>>()
 		let df = NSDateFormatter()
 		df.dateStyle = NSDateFormatterStyle.MediumStyle
 		var date: String
@@ -161,5 +162,25 @@ class TransactionsTableViewController: UITableViewController {
 			(segue.destinationViewController as! TransactionDetailTableViewController).transaction = sender as? Transaction
 		}
     }
+	
+	@IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+
+	}
+	
+	@IBAction func saveTransaction(segue:UIStoryboardSegue) {
+		if let transactionDetailTVC = segue.sourceViewController as? TransactionDetailTableViewController {
+			if let transaction = transactionDetailTVC.transaction {
+				transaction.amount = NSDecimalNumber(string: transactionDetailTVC.amountValue.text)
+				transaction.date = transactionDetailTVC.dateValue.date
+				transaction.text = transactionDetailTVC.descriptionValue.text
+				if let currency = app().model.getCurrencyByCode(transactionDetailTVC.currencyButton.titleLabel!.text!) {
+					transaction.currency = currency
+				}
+				app().model.saveStorage()
+				getTransactionsStructure()
+				tableView.reloadData()
+			}
+		}
+	}
 
 }
