@@ -61,18 +61,23 @@ class CurrenciesTableViewController: UITableViewController
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return currenciesStructure.count + 1;
+		if section == 0 {
+			return currenciesStructure.count
+		} else {
+			return 1
+		}
+		
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-        if indexPath.row < currenciesStructure.count {
+        if indexPath.section == 0 {
 			let handsOnCurrency = currenciesStructure[indexPath.row]
 			cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
 			(cell as! CurrencyTableViewCell).setHandsOnCurrency(handsOnCurrency)
@@ -84,6 +89,16 @@ class CurrenciesTableViewController: UITableViewController
         }
         return cell
     }
+	
+	
+	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 0 {
+			return "Tap amount to change".localized
+		} else {
+			return ""
+		}
+	}
+	
     
 	@IBAction func amountChanged(sender: UITextField) {
 		if let amountTextField = sender as? AmountTextField
