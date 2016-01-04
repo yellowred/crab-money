@@ -418,6 +418,7 @@ class Model
 		
 		newTransaction.setValue(amount.amount.decimalNumberByMultiplyingBy(isExpense ? -1 : 1), forKey: "amount")
 		newTransaction.setValue(amount.currency, forKey: "currency")
+		newTransaction.setValue(amount.currency.rate, forKey: "rate")
 		newTransaction.setValue(NSDate(), forKey: "date")
 		
 		print("createTransaction \(amount.amount)")
@@ -435,7 +436,8 @@ class Model
 		
 		newTransaction.setValue(NSDecimalNumber(integer: -2500), forKey: "amount")
 		newTransaction.setValue(getCurrentCurrency(), forKey: "currency")
-		newTransaction.setValue(NSDate().fromString("2015-10-15 10:31:23"), forKey: "date")
+		newTransaction.setValue(NSDate().fromString("2015-12-15 10:31:23"), forKey: "date")
+		newTransaction.setValue(NSDecimalNumber(integer: 73), forKey: "rate")
 		newTransaction.category = getCategoriesList().first
 		return newTransaction
 	}

@@ -66,7 +66,6 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 			if let indexPath:NSIndexPath = collectionView?.indexPathForItemAtPoint(gr.locationInView(collectionView)) {
 				if let cell:CategoryCollectionViewCell = collectionView?.cellForItemAtIndexPath(indexPath) as? CategoryCollectionViewCell {
 					delegate?.setCategory(cell.category!)
-					//performSegueWithIdentifier(kReturnCategory, sender: cell)
 					self.dismissViewControllerAnimated(true, completion: nil)
 				}
 			}

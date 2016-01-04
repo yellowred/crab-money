@@ -82,8 +82,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		amountView.layer.insertSublayer(gradient1, atIndex: 0)
 		*/
 		//amountView.backgroundColor = UIColor(rgba: "#324459")
-		expense.backgroundColor = UIColor(rgba: "#A43131")
-		earning.backgroundColor = UIColor(rgba: "#31A447")
+		expense.backgroundColor = UIColor.expense()
+		earning.backgroundColor = UIColor.earning()
 		expense.layer.cornerRadius = 23
 		earning.layer.cornerRadius = 23
 		currentFlag.layer.cornerRadius = 20
@@ -172,6 +172,9 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	func reloadAmountDisplay()
 	{
+		guard amountDisplayLabel != nil else {
+			return
+		}
 		amountDisplayLabel.adjustsFontSizeToFitWidth = true
 		amountDisplayLabel.text = amount!.valueForAmount()
 	}
@@ -237,7 +240,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 	
 	func updateCurrentCurrencyBlock() {
-		if amount != nil {
+		if amount != nil && currentFlag != nil { //check whether iboutlet is loaded by viewDidLoad
 			currentFlag.image = amount!.currency.getFlag()
 			currentCurrency.text = amount!.currency.code.uppercaseString
 		}

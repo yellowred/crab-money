@@ -51,4 +51,14 @@ extension UIColor {
 		}
 		self.init(red:red, green:green, blue:blue, alpha:alpha)
 	}
+	
+	
+	static func expense() -> UIColor {
+		return UIColor(rgba: "#A43131")
+	}
+	
+	
+	static func earning() -> UIColor {
+		return UIColor(rgba: "#31A447")
+	}
 }

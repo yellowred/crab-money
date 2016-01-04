@@ -31,6 +31,10 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
 	func setHandsOnCurrency(handsOnCurrency: HandsOnCurrency) {
 		self.code.text = handsOnCurrency.amount.currency.code.uppercaseString
 		self.flag.image = handsOnCurrency.amount.currency.getFlag()
+		self.flag.layer.cornerRadius = 15
+		self.flag.layer.masksToBounds = true
+		self.code.layer.cornerRadius = 5
+		self.code.layer.masksToBounds = true
 		self.valueInput.text = handsOnCurrency.amount.amount.stringValue
 		(self.valueInput as! AmountTextField).correspondingCurrency = handsOnCurrency
 	}

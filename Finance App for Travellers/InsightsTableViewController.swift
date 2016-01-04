@@ -11,9 +11,10 @@ import UIKit
 enum InsightsSegues: String {
 	case ShowTransactions = "ShowTransactions"
 	case ShowCategories = "ShowCategories"
+	case SelectHomeCurrency = "SelectHomeCurrency"
 }
 
-class InsightsTableViewController: UITableViewController {
+class InsightsTableViewController: UITableViewController, CurrencySelectDelegate {
 
 	@IBOutlet var periodLabel: UILabel!
 	@IBOutlet var expensesAmount: UILabel!
@@ -23,6 +24,7 @@ class InsightsTableViewController: UITableViewController {
 	@IBOutlet var dailyAverageEarnings: UILabel!
 	@IBOutlet var nextPeriodButton: UIButton!
 	@IBOutlet var prevPeriodButton: UIButton!
+	@IBOutlet var homeCurrency: UILabel!
 	
 	var currentPeriod: Period?
 	var transactions: [Transaction]?
@@ -41,9 +43,20 @@ class InsightsTableViewController: UITableViewController {
 		if let initialTransaction = app().model.getIinitialTransaction() {
 			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
 		}
+		homeCurrency.text = app().model.getCurrentCurrency().code.uppercaseString
 		showSummary()
     }
 
+	
+	func setCurrency(currency: Currency) {
+		if currency.code != app().model.getCurrentCurrency().code {
+			app().model.setCurrentCurrency(currency)
+			homeCurrency.text = currency.code.uppercaseString
+			showSummary()
+		}
+		
+	}
+	
 	
 	func showSummary() {
 		if currentPeriod != nil {
@@ -59,7 +72,7 @@ class InsightsTableViewController: UITableViewController {
 				prevPeriodButton.enabled = true
 			}
 			transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
-			
+			let homeCurrencyObject = app().model.getCurrentCurrency()
 			let expenses: [Transaction] = transactions!.filter {
 				(x : Transaction) -> Bool in
 				if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
@@ -67,12 +80,15 @@ class InsightsTableViewController: UITableViewController {
 				}
 				return false
 			}
-			let expensesTotal = expenses.reduce(0, combine: {return $1.amount.decimalNumberByAdding($0)})
-			expensesAmount.text = expensesTotal.formatToMoney().stringValue
+			let expensesTotal = expenses.reduce(0, combine: {return $1.getStaticValueInCurrency(homeCurrencyObject).amount.decimalNumberByAdding($0)}).abs()
+			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesTotal)
+			
 			let expensesAvg = expenses.count > 0 ? expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: expenses.count)) : NSDecimalNumber(integer: 0)
-			dailyAverageAmount.text = expensesAvg.formatToMoney().stringValue
+			dailyAverageAmount.text = NSNumberFormatter().formatterMoney(homeCurrencyObject).stringFromNumber(expensesAvg)
+			
 			let expensesExpected = expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: currentPeriod!.getDaysCount()))
-			expectedAmount.text = expensesExpected.formatToMoney().stringValue
+			expectedAmount.text = NSNumberFormatter().formatterMoney(homeCurrencyObject).stringFromNumber(expensesExpected)
+			
 			
 			let earnings: [Transaction] = transactions!.filter {
 				(x : Transaction) -> Bool in
@@ -81,9 +97,8 @@ class InsightsTableViewController: UITableViewController {
 				}
 				return false
 			}
-			let earningsTotal = earnings.reduce(0, combine: {return $1.amount.decimalNumberByAdding($0)})
-			earningsAmount.text = earningsTotal.formatToMoney().stringValue
-			
+			let earningsTotal = earnings.reduce(0, combine: {return $1.getStaticValueInCurrency(homeCurrencyObject).amount.decimalNumberByAdding($0)}).abs()
+			earningsAmount.text = NSNumberFormatter().formatterMoney(homeCurrencyObject).stringFromNumber(earningsTotal)
 		} else {
 			periodLabel.text = "undefined".localized
 		}
@@ -98,6 +113,21 @@ class InsightsTableViewController: UITableViewController {
 		showSummary()
 	}
 	
+	@IBAction func periodSwipeRight(sender: UISwipeGestureRecognizer) {
+		if currentPeriod?.getPrev() != nil {
+			currentPeriod = currentPeriod?.getPrev()
+		}
+		showSummary()
+	}
+	
+	@IBAction func periodSwipeLeft(sender: UISwipeGestureRecognizer) {
+		if currentPeriod?.getNext() != nil {
+			currentPeriod = currentPeriod?.getNext()
+		}
+		showSummary()
+	}
+	
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,6 +184,8 @@ class InsightsTableViewController: UITableViewController {
 			(segue.destinationViewController as! TransactionsTableViewController).currentPeriod = currentPeriod
 		} else if segue.identifier == InsightsSegues.ShowCategories.rawValue {
 			(segue.destinationViewController as! InsightsCategoriesTableViewController).currentPeriod = currentPeriod
+		} else if segue.identifier == InsightsSegues.SelectHomeCurrency.rawValue {
+			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
 		}
     }
 

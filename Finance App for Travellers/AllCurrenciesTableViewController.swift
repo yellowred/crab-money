@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol CurrencySelectDelegate {
+	func setCurrency(currency: Currency)
+}
+
 class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
 
-	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
+	var delegate:CurrencySelectDelegate? = nil
 	var allCurrencies = [Currency]()
 	var selectedCurrency: Currency?
 	
@@ -29,7 +33,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 		
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		allCurrencies = app.model.getCurrenciesNotInConverter()
+		allCurrencies = app().model.getCurrenciesNotInConverter()
 		
 		resultsTableController = ResultsTableController()
 		
@@ -111,14 +115,21 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	{
 		// Check to see which table view cell was selected.
 		if tableView === self.tableView {
+			selectedCurrency = allCurrencies[indexPath.row]
+			if self.selectedCurrency != nil {
+				self.delegate!.setCurrency(self.selectedCurrency!)
+			}
+			self.dismissViewControllerAnimated(true, completion: nil)
 		}
 		else {
 			selectedCurrency = resultsTableController.filteredCurrencies[indexPath.row]
-			//self.navigationController?.popViewControllerAnimated(true)
-			//self.navigationController?.unwindForSegue(<#T##unwindSegue: UIStoryboardSegue##UIStoryboardSegue#>, towardsViewController: <#T##UIViewController#>)
 			searchController.dismissViewControllerAnimated(true, completion: {
 				() in
-				(self.tableView.delegate as! AllCurrenciesTableViewController).performSegueWithIdentifier("addCurrencyToConverter", sender: nil)
+				//(self.tableView.delegate as! AllCurrenciesTableViewController).performSegueWithIdentifier("addCurrencyToConverter", sender: nil)
+				if self.selectedCurrency != nil {
+					self.delegate!.setCurrency(self.selectedCurrency!)
+				}
+				self.dismissViewControllerAnimated(true, completion: nil)
 			})
 			
 		}

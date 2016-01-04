@@ -3,7 +3,9 @@
 import UIKit
 import CoreData
 
-let dateFormatter = NSDateFormatter()
-dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"//this your string date format
-dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-dateFormatter.dateFromString("2015-10-15 10:31:23")
+let a = NSDecimalNumber(integer: -2000)
+let b = a.decimalNumberByDividingBy(NSDecimalNumber(integer: 63))
+let c = b.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: 63), withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: -2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
+//let d = c.decimalNumberByRoundingAccordingToBehavior()
+	
+print(c)

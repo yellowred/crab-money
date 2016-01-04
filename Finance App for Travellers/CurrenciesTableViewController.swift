@@ -9,9 +9,12 @@
 import UIKit
 
 
-class CurrenciesTableViewController: UITableViewController
+class CurrenciesTableViewController: UITableViewController, CurrencySelectDelegate
 {
 
+	let kCurrencyConverterCellHeight:CGFloat = 80
+	let kCurrencyAddCellHeight:CGFloat = 60
+	
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
 
 	var currenciesStructure = [HandsOnCurrency]()
@@ -93,7 +96,7 @@ class CurrenciesTableViewController: UITableViewController
 	
 	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
-			return "Tap amount to change".localized
+			return "Tap currency to add transaction".localized
 		} else {
 			return ""
 		}
@@ -121,25 +124,17 @@ class CurrenciesTableViewController: UITableViewController
 	}
 	
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 90
+		if indexPath.section == 0 {
+			return kCurrencyConverterCellHeight
+		} else {
+			return kCurrencyAddCellHeight
+		}
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
 //		selectedCurrency = currenciesStructure[indexPath.row].currency
     }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SelectCurrencyToOperate" {
-            if let cell = sender as? UITableViewCell {
-                let indexPath = tableView.indexPathForCell(cell)
-                if let index = indexPath?.row {
-					providedAmount = currenciesStructure[index].amount
-                }
-            }
-        }
-    }
-	
 	
 
     // Override to support conditional editing of the table view.
@@ -180,33 +175,27 @@ class CurrenciesTableViewController: UITableViewController
 		return false
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-	
-	@IBAction func saveCurrencyToHandsOnCollection(segue:UIStoryboardSegue)
-	{
-		if let allCurrenciesTableViewController = segue.sourceViewController as? AllCurrenciesTableViewController
-		{
-			print("Selected currency: \(allCurrenciesTableViewController.selectedCurrency)")
-			
-			if let currencyToAdd:Currency = allCurrenciesTableViewController.selectedCurrency
-			{
-				currenciesStructure.append(HandsOnCurrency(amount:providedAmount!.toCurrency(currencyToAdd), textField: nil))
-				currencyToAdd.addToConverter()
-				app().model.saveStorage()
-
-				//update the tableView
-				let indexPath = NSIndexPath(forRow: currenciesStructure.count-1, inSection: 0)
-				tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "SelectCurrencyToOperate" {
+			if let cell = sender as? UITableViewCell {
+				let indexPath = tableView.indexPathForCell(cell)
+				if let index = indexPath?.row {
+					providedAmount = currenciesStructure[index].amount
+				}
 			}
+		} else if segue.identifier == "AddAnotherCurrency" {
+			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
 		}
+	}
+	
+	func setCurrency(currency: Currency) {
+		currenciesStructure.append(HandsOnCurrency(amount:providedAmount!.toCurrency(currency), textField: nil))
+		currency.addToConverter()
+		app().model.saveStorage()
+		
+		//update the tableView
+		let indexPath = NSIndexPath(forRow: currenciesStructure.count - 1, inSection: 0)
+		tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 	}
 }

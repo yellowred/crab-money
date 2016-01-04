@@ -35,5 +35,12 @@ import CoreData
 	func getMoney() -> Money {
 		return Money(amount: self.amount, currency: self.currency)
 	}
+	
+	
+	func getStaticValueInCurrency(currency: Currency) -> Money {
+		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(rate)
+		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
+		return Money(amount: currencyAmount, currency: currency)
+	}
 
 }
