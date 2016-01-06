@@ -10,6 +10,7 @@ import UIKit
 
 protocol CurrencySelectDelegate {
 	func setCurrency(currency: Currency)
+	func getCurrencyList() -> [Currency]
 }
 
 class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
@@ -28,13 +29,19 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		guard delegate != nil else {
+			print("Delegate should be set for AllCurrenciesTableViewController.")
+			abort()
+		}
+		
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
 		
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		// self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		allCurrencies = app().model.getCurrenciesNotInConverter()
+		allCurrencies = delegate!.getCurrencyList()
 		
+
 		resultsTableController = ResultsTableController()
 		
 		// We want to be the delegate for our filtered table so didSelectRowAtIndexPath(_:) is called for both tables.
@@ -71,23 +78,23 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	// MARK: UISearchControllerDelegate
 	
 	func presentSearchController(searchController: UISearchController) {
-		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
 	}
 	
 	func willPresentSearchController(searchController: UISearchController) {
-		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
 	}
 	
 	func didPresentSearchController(searchController: UISearchController) {
-		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
 	}
 	
 	func willDismissSearchController(searchController: UISearchController) {
-		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
 	}
 	
 	func didDismissSearchController(searchController: UISearchController) {
-		//debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
 	}
 	
 	
@@ -120,6 +127,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 				self.delegate!.setCurrency(self.selectedCurrency!)
 			}
 			self.dismissViewControllerAnimated(true, completion: nil)
+			self.navigationController?.popViewControllerAnimated(true)
 		}
 		else {
 			selectedCurrency = resultsTableController.filteredCurrencies[indexPath.row]
@@ -129,11 +137,17 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 				if self.selectedCurrency != nil {
 					self.delegate!.setCurrency(self.selectedCurrency!)
 				}
-				self.dismissViewControllerAnimated(true, completion: nil)
+				self.navigationController?.popViewControllerAnimated(true)
 			})
 			
 		}
 	}
+	
+	
+	@IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
 	
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		return 90

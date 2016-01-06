@@ -8,9 +8,11 @@
 
 import UIKit
 
-class TransactionDetailTableViewController: UITableViewController, CategorySelectDelegate {
+class TransactionDetailTableViewController: UITableViewController, CategorySelectDelegate, CurrencySelectDelegate {
 
 	let kEditTransactionCategory = "EditTransactionCategory"
+	let kSelectCurrencyForTransactionEdit = "SelectCurrencyForTransactionEdit"
+	
 	var transaction: Transaction?
 	
 	@IBOutlet var categoryName: UILabel!
@@ -111,13 +113,29 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 		if segue.identifier == kEditTransactionCategory {
 			let c = (segue.destinationViewController as! UINavigationController).topViewController as! CategoriesCollectionViewController
 			c.delegate = self
+		} else if segue.identifier == kSelectCurrencyForTransactionEdit {
+			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
 		}
     }
+	
 	
 	func setCategory(category:Category) {
 		if transaction != nil {
 			transaction!.category = category
 			categoryName.text = transaction!.category?.name
 		}
+	}
+	
+	
+	func setCurrency(currency: Currency) {
+		if transaction != nil {
+			transaction!.currency = currency
+			currencyButton.titleLabel?.text = transaction!.currency.code.uppercaseString
+		}
+	}
+	
+	
+	func getCurrencyList() -> [Currency] {
+		return app().model.getCurrenciesList()
 	}
 }

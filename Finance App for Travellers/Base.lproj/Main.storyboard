@@ -116,6 +116,9 @@
                                                         <constraint firstAttribute="width" constant="50" id="wcn-ES-cx3"/>
                                                     </constraints>
                                                     <state key="normal" title="AUD"/>
+                                                    <connections>
+                                                        <segue destination="fiR-IO-r0b" kind="show" identifier="SelectCurrencyForTransactionEdit" id="ruK-he-aZT"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -385,14 +388,14 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="AUD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dvr-a8-6Ag">
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="fiR-IO-r0b" kind="presentation" identifier="SelectHomeCurrency" modalPresentationStyle="currentContext" id="rNd-md-E9a"/>
+                                            <segue destination="fiR-IO-r0b" kind="push" identifier="SelectHomeCurrency" id="rNd-md-E9a"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1026,11 +1029,11 @@
         <!--Currency converter-->
         <scene sceneID="EEM-bZ-nNF">
             <objects>
-                <tableViewController id="obF-Gz-u71" customClass="CurrenciesTableViewController" customModule="Finance_App_for_Travellers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="obF-Gz-u71" customClass="ConverterTableViewController" customModule="Finance_App_for_Travellers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="90" sectionHeaderHeight="18" sectionFooterHeight="18" id="Xha-N9-sAx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyManagableCell" rowHeight="80" id="W70-jU-UgL" customClass="CurrencyTableViewCell" customModule="Finance_App_for_Travellers" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="80"/>
@@ -1148,7 +1151,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <segue destination="fiR-IO-r0b" kind="show" identifier="AddAnotherCurrency" id="1Q5-xo-Y9g"/>
+                                                <segue destination="fiR-IO-r0b" kind="push" identifier="AddAnotherCurrency" id="1Q5-xo-Y9g"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1177,12 +1180,12 @@
             </objects>
             <point key="canvasLocation" x="1381" y="1404"/>
         </scene>
-        <!--All Currencies Table View Controller-->
+        <!--Choose a currency-->
         <scene sceneID="IAl-WG-ebc">
             <objects>
                 <tableViewController id="fiR-IO-r0b" customClass="AllCurrenciesTableViewController" customModule="Finance_App_for_Travellers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vgf-EB-sY4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1269,10 +1272,12 @@
                             <outlet property="delegate" destination="fiR-IO-r0b" id="lTM-pj-HNZ"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Choose a currency" id="aBO-NV-rGm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43K-pZ-vYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="1404"/>
+            <point key="canvasLocation" x="361" y="1278"/>
         </scene>
         <!--Converter-->
         <scene sceneID="kQa-5e-uC5">
@@ -1801,7 +1806,7 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B9e-dp-6nI"/>
+        <segue reference="Y3u-vg-LQS"/>
         <segue reference="rNd-md-E9a"/>
         <segue reference="btf-1b-k7d"/>
     </inferredMetricsTieBreakers>

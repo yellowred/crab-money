@@ -9,7 +9,7 @@
 import UIKit
 
 
-class CurrenciesTableViewController: UITableViewController, CurrencySelectDelegate
+class ConverterTableViewController: UITableViewController, CurrencySelectDelegate
 {
 
 	let kCurrencyConverterCellHeight:CGFloat = 80
@@ -59,7 +59,27 @@ class CurrenciesTableViewController: UITableViewController, CurrencySelectDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+	
+	
+	@IBAction func amountChanged(sender: UITextField) {
+		if let amountTextField = sender as? AmountTextField
+		{
+			if amountTextField.text!.isEmpty {
+				amountTextField.text = "0"
+			}
+			if let handsOnCurrency:HandsOnCurrency = amountTextField.correspondingCurrency {
+				handsOnCurrency.setAmount(NSDecimalNumber(string: amountTextField.text))
+				providedAmount = handsOnCurrency.amount
+				
+				for handson in currenciesStructure {
+					if handsOnCurrency.amount.currency != handson.amount.currency {
+						handson.setAmount(handsOnCurrency.amount.toCurrency(handson.amount.currency).amount)
+					}
+				}
+			}
+		}
+		
+	}
     
     // MARK: - Table view data source
 
@@ -101,27 +121,7 @@ class CurrenciesTableViewController: UITableViewController, CurrencySelectDelega
 			return ""
 		}
 	}
-	
-    
-	@IBAction func amountChanged(sender: UITextField) {
-		if let amountTextField = sender as? AmountTextField
-		{
-			if amountTextField.text!.isEmpty {
-				amountTextField.text = "0"
-			}
-			if let handsOnCurrency:HandsOnCurrency = amountTextField.correspondingCurrency {
-				handsOnCurrency.setAmount(NSDecimalNumber(string: amountTextField.text))
-				providedAmount = handsOnCurrency.amount
 
-				for handson in currenciesStructure {
-					if handsOnCurrency.amount.currency != handson.amount.currency {
-						handson.setAmount(handsOnCurrency.amount.toCurrency(handson.amount.currency).amount)
-					}
-				}
-			}
-		}
-		
-	}
 	
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		if indexPath.section == 0 {
@@ -189,6 +189,8 @@ class CurrenciesTableViewController: UITableViewController, CurrencySelectDelega
 		}
 	}
 	
+	
+	// MARK: - CurrencySelectDelegate
 	func setCurrency(currency: Currency) {
 		currenciesStructure.append(HandsOnCurrency(amount:providedAmount!.toCurrency(currency), textField: nil))
 		currency.addToConverter()
@@ -197,5 +199,10 @@ class CurrenciesTableViewController: UITableViewController, CurrencySelectDelega
 		//update the tableView
 		let indexPath = NSIndexPath(forRow: currenciesStructure.count - 1, inSection: 0)
 		tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+	}
+	
+	
+	func getCurrencyList() -> [Currency] {
+		return app().model.getCurrenciesNotInConverter()
 	}
 }

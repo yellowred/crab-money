@@ -22,19 +22,31 @@
 		9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41FF221B75A32900E529D1 /* AmountTextField.swift */; };
 		9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */; };
 		9A4B72111BF07F7400E19042 /* CategoryAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4B72101BF07F7400E19042 /* CategoryAddViewController.swift */; };
+		9A4C04F11C3D733C00B2C754 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F01C3D733C00B2C754 /* Transaction.swift */; };
+		9A4C04F31C3D742700B2C754 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F21C3D742700B2C754 /* Currency.swift */; };
 		9A4D03AD1C1BD37900327679 /* InsightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */; };
 		9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
 		9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */; };
-		9A6A30291BC2D08D0094D403 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6A30201BC2D06F0094D403 /* Alamofire.framework */; };
-		9A6A302A1BC2D08D0094D403 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6A30201BC2D06F0094D403 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */; };
-		9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */; };
+		9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8D1B37DFAB00C409C1 /* ConverterTableViewController.swift */; };
 		9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
 		9A827C941C1D3EF50025FC5B /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* NSDate+Extension.swift */; };
 		9A827C961C1D41220025FC5B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */; };
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
 		9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */; };
+		9A8B456F1C3D39700037D137 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1481B8586220087ECDD /* Category.swift */; };
+		9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
+		9A8B45721C3D39700037D137 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
+		9A8B45731C3D39700037D137 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
+		9A8B45741C3D39700037D137 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
+		9A8B45751C3D39C60037D137 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* NSDate+Extension.swift */; };
+		9A8B45761C3D39D70037D137 /* NSDecimalNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */; };
+		9A8B45771C3D39D70037D137 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
+		9A8B45781C3D39D70037D137 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
+		9A8B457D1C3D3B940037D137 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B457C1C3D3B940037D137 /* currencies.json */; };
+		9A8B45831C3D48A70037D137 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B45821C3D48A70037D137 /* categories.json */; };
+		9A8B45851C3D48DB0037D137 /* transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B45841C3D48DB0037D137 /* transactions.json */; };
 		9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
 		9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */; };
 		9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91911B3444E500DE580F /* AppDelegate.swift */; };
@@ -55,6 +67,8 @@
 		9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */; };
 		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
 		9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
+		9AEDFF5D1C3D1CB900541A23 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
+		9AEDFF5E1C3D1F4600541A23 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
 		9AF5392B1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */; };
 		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
 		9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* Model.swift */; };
@@ -65,48 +79,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A6A301F1BC2D06F0094D403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		9A6A30211BC2D06F0094D403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire OSX";
-		};
-		9A6A30231BC2D06F0094D403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4202FE01B667AA100C997FB;
-			remoteInfo = "Alamofire watchOS";
-		};
-		9A6A30251BC2D06F0094D403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		9A6A30271BC2D06F0094D403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire OSX Tests";
-		};
-		9A6A302B1BC2D08D0094D403 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
 		9A9C91A51B3444E500DE580F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9C91841B3444E500DE580F /* Project object */;
@@ -123,7 +95,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9A6A302A1BC2D08D0094D403 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,18 +118,22 @@
 		9A41FF221B75A32900E529D1 /* AmountTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9A4B72101BF07F7400E19042 /* CategoryAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAddViewController.swift; sourceTree = "<group>"; };
+		9A4C04F01C3D733C00B2C754 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		9A4C04F21C3D742700B2C754 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsTableViewController.swift; sourceTree = "<group>"; };
 		9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandsOnCurrency.swift; sourceTree = "<group>"; };
 		9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
-		9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewController.swift; sourceTree = "<group>"; };
+		9A801E8D1B37DFAB00C409C1 /* ConverterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterTableViewController.swift; sourceTree = "<group>"; };
 		9A827C8D1C1D2B9C0025FC5B /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		9A827C931C1D3EF50025FC5B /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewController.swift; sourceTree = "<group>"; };
+		9A8B457C1C3D3B940037D137 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
+		9A8B45821C3D48A70037D137 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		9A8B45841C3D48DB0037D137 /* transactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
 		9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAddTableViewCell.swift; sourceTree = "<group>"; };
 		9A9C918C1B3444E500DE580F /* Finance App for Travellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finance App for Travellers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +160,7 @@
 		9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionsSummaryView.xib; sourceTree = "<group>"; };
 		9AE403C81B74671A00143932 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = currencies.json; path = ../../currencies.json; sourceTree = "<group>"; };
 		9AEA34F91B79C4ED009C65FE /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		9AEDFF5C1C3D1CB900541A23 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDecimalNumber+Extension.swift"; path = "../NSDecimalNumber+Extension.swift"; sourceTree = "<group>"; };
 		9AF9E1271B4B6F810076BE69 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9AF9E12B1B4B92DD0076BE69 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -201,7 +177,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A6A30291BC2D08D0094D403 /* Alamofire.framework in Frameworks */,
 				9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */,
 				9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */,
 				7FF795020A93C17C09F2C970 /* Pods_Finance_App_for_Travellers.framework in Frameworks */,
@@ -227,15 +202,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		9A27C14E1B8592570087ECDD /* CurrencyTable */ = {
+		9A27C14E1B8592570087ECDD /* ConverterTable */ = {
 			isa = PBXGroup;
 			children = (
-				9A801E8D1B37DFAB00C409C1 /* CurrenciesTableViewController.swift */,
+				9A801E8D1B37DFAB00C409C1 /* ConverterTableViewController.swift */,
 				9A41FF221B75A32900E529D1 /* AmountTextField.swift */,
 				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
 				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
 			);
-			name = CurrencyTable;
+			name = ConverterTable;
 			sourceTree = "<group>";
 		};
 		9A27C1511B85928D0087ECDD /* CategorySelect */ = {
@@ -257,18 +232,6 @@
 				9A36FCDA1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift */,
 			);
 			name = AllCurrencies;
-			sourceTree = "<group>";
-		};
-		9A6A30181BC2D06F0094D403 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9A6A30201BC2D06F0094D403 /* Alamofire.framework */,
-				9A6A30221BC2D06F0094D403 /* Alamofire.framework */,
-				9A6A30241BC2D06F0094D403 /* Alamofire.framework */,
-				9A6A30261BC2D06F0094D403 /* Alamofire iOS Tests.xctest */,
-				9A6A30281BC2D06F0094D403 /* Alamofire OSX Tests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9A827C9B1C1D71B70025FC5B /* Insights */ = {
@@ -303,7 +266,6 @@
 				9A9C918E1B3444E500DE580F /* Finance App for Travellers */,
 				9A9C91A71B3444E500DE580F /* Finance App for TravellersTests */,
 				9A9C918D1B3444E500DE580F /* Products */,
-				9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */,
 				9AA926861BC3AC5C009D16B3 /* Fabric.framework */,
 				9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */,
 				95694BABC85C030554A7FB05 /* Pods */,
@@ -339,7 +301,7 @@
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
 				9A36FCE01BD91AA600BD81C0 /* AllCurrencies */,
 				9A27C1511B85928D0087ECDD /* CategorySelect */,
-				9A27C14E1B8592570087ECDD /* CurrencyTable */,
+				9A27C14E1B8592570087ECDD /* ConverterTable */,
 				9AEA34FE1B79C55E009C65FE /* Model */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
@@ -363,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */,
+				9A4C04F01C3D733C00B2C754 /* Transaction.swift */,
+				9A4C04F21C3D742700B2C754 /* Currency.swift */,
 				9A9C91A81B3444E500DE580F /* Supporting Files */,
 			);
 			path = "Finance App for TravellersTests";
@@ -372,6 +336,9 @@
 			isa = PBXGroup;
 			children = (
 				9A9C91A91B3444E500DE580F /* Info.plist */,
+				9A8B457C1C3D3B940037D137 /* currencies.json */,
+				9A8B45821C3D48A70037D137 /* categories.json */,
+				9A8B45841C3D48DB0037D137 /* transactions.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -397,6 +364,7 @@
 				9AF9E12B1B4B92DD0076BE69 /* Model.swift */,
 				9AA2E9C01B82240E00367068 /* Transaction.swift */,
 				9A827C8D1C1D2B9C0025FC5B /* Period.swift */,
+				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -428,7 +396,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9A6A302C1BC2D08D0094D403 /* PBXTargetDependency */,
 			);
 			name = "Finance App for Travellers";
 			productName = "Finance App for Travellers";
@@ -486,12 +453,6 @@
 			mainGroup = 9A9C91831B3444E500DE580F;
 			productRefGroup = 9A9C918D1B3444E500DE580F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 9A6A30181BC2D06F0094D403 /* Products */;
-					ProjectRef = 9A6A30171BC2D06F0094D403 /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				9A9C918B1B3444E500DE580F /* Finance App for Travellers */,
@@ -499,44 +460,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		9A6A30201BC2D06F0094D403 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 9A6A301F1BC2D06F0094D403 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A6A30221BC2D06F0094D403 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 9A6A30211BC2D06F0094D403 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A6A30241BC2D06F0094D403 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 9A6A30231BC2D06F0094D403 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A6A30261BC2D06F0094D403 /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = 9A6A30251BC2D06F0094D403 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A6A30281BC2D06F0094D403 /* Alamofire OSX Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire OSX Tests.xctest";
-			remoteRef = 9A6A30271BC2D06F0094D403 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9A9C918A1B3444E500DE580F /* Resources */ = {
@@ -559,6 +482,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8B45831C3D48A70037D137 /* categories.json in Resources */,
+				9A8B45851C3D48DB0037D137 /* transactions.json in Resources */,
+				9A8B457D1C3D3B940037D137 /* currencies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +577,7 @@
 				9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */,
 				9AFB00801B576B0F0062C6AE /* Country.swift in Sources */,
 				9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */,
-				9A801E8E1B37DFAB00C409C1 /* CurrenciesTableViewController.swift in Sources */,
+				9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */,
 				9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */,
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
@@ -661,6 +587,7 @@
 				9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */,
 				9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
+				9AEDFF5D1C3D1CB900541A23 /* Math.swift in Sources */,
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 				9AF5392B1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift in Sources */,
 				9A4D03AD1C1BD37900327679 /* InsightsTableViewController.swift in Sources */,
@@ -677,18 +604,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8B45741C3D39700037D137 /* Period.swift in Sources */,
+				9A8B45771C3D39D70037D137 /* NSNumberFormatter+Extension.swift in Sources */,
+				9A8B456F1C3D39700037D137 /* Category.swift in Sources */,
+				9A8B45761C3D39D70037D137 /* NSDecimalNumber+Extension.swift in Sources */,
 				9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */,
+				9A4C04F11C3D733C00B2C754 /* Transaction.swift in Sources */,
+				9A8B45731C3D39700037D137 /* Money.swift in Sources */,
+				9A8B45781C3D39D70037D137 /* String+Extension.swift in Sources */,
+				9A8B45751C3D39C60037D137 /* NSDate+Extension.swift in Sources */,
+				9A8B45721C3D39700037D137 /* Country.swift in Sources */,
+				9A4C04F31C3D742700B2C754 /* Currency.swift in Sources */,
+				9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */,
+				9AEDFF5E1C3D1F4600541A23 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9A6A302C1BC2D08D0094D403 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = 9A6A302B1BC2D08D0094D403 /* PBXContainerItemProxy */;
-		};
 		9A9C91A61B3444E500DE580F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A9C918B1B3444E500DE580F /* Finance App for Travellers */;
@@ -766,7 +700,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -804,7 +738,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

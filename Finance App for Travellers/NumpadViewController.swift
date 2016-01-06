@@ -185,7 +185,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
     }
 
     @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
-		let currenciesTVC = segue.sourceViewController as? CurrenciesTableViewController
+		let currenciesTVC = segue.sourceViewController as? ConverterTableViewController
         if  (currenciesTVC != nil) {
 			amount = currenciesTVC!.providedAmount
 			updateCurrentCurrencyBlock()
@@ -223,7 +223,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	{
 		print("Segue: \(segue.identifier)")
 		if segue.identifier == "showCurrencySelect"	{
-			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? CurrenciesTableViewController	{
+			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? ConverterTableViewController	{
 				currenciesTVC.providedAmount = amount!
 			}
 		} else if segue.identifier == kCategorySelectSegue {

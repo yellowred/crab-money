@@ -38,7 +38,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
-		app().model.createFakeTransaction()
+		//app().model.createFakeTransaction()
 		app().model.saveStorage()
 		if let initialTransaction = app().model.getIinitialTransaction() {
 			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
@@ -46,16 +46,6 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		homeCurrency.text = app().model.getCurrentCurrency().code.uppercaseString
 		showSummary()
     }
-
-	
-	func setCurrency(currency: Currency) {
-		if currency.code != app().model.getCurrentCurrency().code {
-			app().model.setCurrentCurrency(currency)
-			homeCurrency.text = currency.code.uppercaseString
-			showSummary()
-		}
-		
-	}
 	
 	
 	func showSummary() {
@@ -84,10 +74,10 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesTotal)
 			
 			let expensesAvg = expenses.count > 0 ? expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: expenses.count)) : NSDecimalNumber(integer: 0)
-			dailyAverageAmount.text = NSNumberFormatter().formatterMoney(homeCurrencyObject).stringFromNumber(expensesAvg)
+			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesAvg)
 			
 			let expensesExpected = expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: currentPeriod!.getDaysCount()))
-			expectedAmount.text = NSNumberFormatter().formatterMoney(homeCurrencyObject).stringFromNumber(expensesExpected)
+			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesExpected)
 			
 			
 			let earnings: [Transaction] = transactions!.filter {
@@ -98,7 +88,11 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 				return false
 			}
 			let earningsTotal = earnings.reduce(0, combine: {return $1.getStaticValueInCurrency(homeCurrencyObject).amount.decimalNumberByAdding($0)}).abs()
-			earningsAmount.text = NSNumberFormatter().formatterMoney(homeCurrencyObject).stringFromNumber(earningsTotal)
+			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(earningsTotal)
+			
+			let earningsAvg = earnings.count > 0 ? earningsTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: earnings.count)) : NSDecimalNumber(integer: 0)
+			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesAvg)
+
 		} else {
 			periodLabel.text = "undefined".localized
 		}
@@ -189,4 +183,18 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		}
     }
 
+	
+    // MARK: - CurrencySelectDelegate
+	func setCurrency(currency: Currency) {
+		if currency.code != app().model.getCurrentCurrency().code {
+			app().model.setCurrentCurrency(currency)
+			homeCurrency.text = currency.code.uppercaseString
+			showSummary()
+		}
+	}
+	
+	
+	func getCurrencyList() -> [Currency] {
+		return app().model.getCurrenciesList()
+	}
 }
