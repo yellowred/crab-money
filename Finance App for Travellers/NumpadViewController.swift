@@ -18,7 +18,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	var notCompletedTransaction: Transaction?
 	var baselineOffset:Int = 20
 	
-	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
 	private var sound: Sound = {return Sound()}()
 	
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!

@@ -16,6 +16,7 @@
         <attribute name="flag" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="in_converter" optional="YES" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="popularity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="rate" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="country" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Country" inverseName="currency" inverseEntity="Country" syncable="YES"/>
     </entity>
@@ -30,7 +31,7 @@
     <elements>
         <element name="Category" positionX="-45" positionY="63" width="128" height="90"/>
         <element name="Country" positionX="-54" positionY="36" width="128" height="105"/>
-        <element name="Currency" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Currency" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="Transaction" positionX="-54" positionY="54" width="128" height="135"/>
     </elements>
 </model>

@@ -31,10 +31,10 @@ class Finance_App_for_TravellersTests: XCTestCase {
 			Currency(code: "USD", rate: 1),
 		]
 		transactions = [
-			Transaction(amount: -2000, date: "2015-11-15 10:00:00", rate: 100, currency: currencies[0]),
+			Transaction(amount: -3000, date: "2015-11-15 10:00:00", rate: 100, currency: currencies[0]),
 			Transaction(amount: -100, date: "2015-11-16 10:00:00", rate: 1, currency: currencies[2]),
-			Transaction(amount: -200, date: "2015-11-17 10:00:00", rate: 1.5, currency: currencies[1]),
-			Transaction(amount: 2000, date: "2015-11-18 10:00:00", rate: 1.5, currency: currencies[2]),
+			Transaction(amount: -300, date: "2015-12-05 10:00:00", rate: 1.5, currency: currencies[1]),
+			Transaction(amount: 3000, date: "2015-11-18 10:00:00", rate: 1.5, currency: currencies[2]),
 			Transaction(amount: 2000, date: "2015-11-18 11:00:00", rate: 2, currency: currencies[2]),
 		]
     }
@@ -47,11 +47,23 @@ class Finance_App_for_TravellersTests: XCTestCase {
     func testMath() {
 		XCTAssertEqual(transactions.count, 5)
 		XCTAssertEqual(currencies.count, 3)
-		let math = Math()
-		math.transactions = transactions
-		let expenses = math.getExpenses()
-		XCTAssertEqual(expenses.count, 3)
-		
+		let math = Math(
+			transactions: transactions,
+			homeCurrency: currencies[2],
+			currentPeriod: Period(
+				startDate: NSDate().fromString("2015-11-15 10:00:00")!,
+				endDate: NSDate().fromString("2015-12-15 10:00:00")!,
+				length: PeriodLength.Month,
+				initialDate: NSDate().fromString("2015-10-15 10:00:00")!
+			)
+		)
+		XCTAssertEqual(math.expenses.count, 3)
+		XCTAssertEqual(math.earnings.count, 2)
+		XCTAssertEqual(math.earningsTotal, 3000)
+		XCTAssertEqual(math.expensesTotal, 330)
+		XCTAssertEqual(math.expensesAvg, 11)
+		XCTAssertEqual(math.earningsAvg, 100)
+		XCTAssertEqual(math.expensesProjected, 330)
     }
     
     func testPerformanceExample() {

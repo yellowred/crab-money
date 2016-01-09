@@ -9,7 +9,12 @@
 import UIKit
 
 extension UIViewController {
-	func app() -> AppDelegate {
+
+	lazy var app: AppDelegate = {
 		return UIApplication.sharedApplication().delegate as! AppDelegate
-	}
+	}()
+	
+	lazy var sound: Sound = {
+		return Sound()
+	}()
 }

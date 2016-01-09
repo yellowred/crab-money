@@ -91,4 +91,13 @@ class Period: CustomStringConvertible {
 		return comp.day
 	}
 	
+	
+	func getDaysLeft() -> Int {
+		let calendar = NSCalendar.currentCalendar()
+		calendar.timeZone = NSTimeZone.systemTimeZone()
+
+		let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: getNext() != nil ? endDate : NSDate(), options: [])
+		return comp.day
+	}
+	
 }

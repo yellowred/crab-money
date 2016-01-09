@@ -8,17 +8,61 @@
 
 import Foundation
 
-class Math {
-	var transactions: [Transaction]?
+class Math: NSObject {
+	var transactions: [Transaction]
+	var homeCurrency: Currency
+	var currentPeriod: Period
 	
-	func getExpenses() -> [Transaction] {
-		let expenses: [Transaction] = transactions!.filter {
+	init(transactions: [Transaction], homeCurrency: Currency, currentPeriod: Period) {
+		self.transactions = transactions
+		self.homeCurrency = homeCurrency
+		self.currentPeriod = currentPeriod
+	}
+	
+	
+	lazy var expenses: [Transaction] = {
+		return self.transactions.filter {
 			(x : Transaction) -> Bool in
 			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
 				return true
 			}
 			return false
 		}
-		return expenses
-	}
+	}()
+	
+	
+	lazy var expensesTotal:NSDecimalNumber = {
+		return self.expenses.reduce(0, combine: {return $1.getStaticValueInCurrency(self.homeCurrency).amount.decimalNumberByAdding($0)}).abs()
+	}()
+	
+	
+	lazy var expensesAvg:NSDecimalNumber = {
+		return self.expenses.count > 0 ? self.expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysLeft())) : NSDecimalNumber(integer: 0)
+	}()
+	
+	
+	lazy var expensesProjected:NSDecimalNumber = {
+		return self.expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysCount()))
+	}()
+	
+	
+	lazy var earnings: [Transaction] = {
+		return self.transactions.filter {
+			(x : Transaction) -> Bool in
+			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending {
+				return true
+			}
+			return false
+		}
+	}()
+	
+	
+	lazy var earningsTotal:NSDecimalNumber = {
+		return self.earnings.reduce(0, combine: {return $1.getStaticValueInCurrency(self.homeCurrency).amount.decimalNumberByAdding($0)})
+	}()
+	
+	
+	lazy var earningsAvg:NSDecimalNumber = {
+		return self.earnings.count > 0 ? self.earningsTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysLeft())) : NSDecimalNumber(integer: 0)
+	}()
 }
