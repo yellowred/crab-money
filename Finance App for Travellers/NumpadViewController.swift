@@ -56,7 +56,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
 		
-		amount = Money(amount: 0, currency: app.model.getCurrentCurrency())
+		amount = Money(amount: 0, currency: app().model.getCurrentCurrency())
 		updateCurrentCurrencyBlock()
         reloadAmountDisplay()
 		
@@ -163,9 +163,9 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	@IBAction func tapSaveTransaction(sender: AnyObject) {
 		if notCompletedTransaction != nil {
-			app.model.deleteTransaction(notCompletedTransaction!)
+			app().model.deleteTransaction(notCompletedTransaction!)
 		}
-		notCompletedTransaction = app.model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
+		notCompletedTransaction = app().model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
 		performSegueWithIdentifier(kCategorySelectSegue, sender: nil)
 	}
 	
@@ -189,7 +189,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			amount = currenciesTVC!.providedAmount
 			updateCurrentCurrencyBlock()
 			reloadAmountDisplay()
-			app.model.setCurrentCurrency(amount!.currency)
+			app().model.setCurrentCurrency(amount!.currency)
         }
     }
 	
@@ -198,7 +198,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			return
 		}
 		notCompletedTransaction!.category = category
-		app.model.saveStorage()
+		app().model.saveStorage()
 		notCompletedTransaction = nil
 		sound.playTap()
 		amount!.setAmount(0)

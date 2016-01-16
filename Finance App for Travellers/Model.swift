@@ -25,7 +25,7 @@ class Model
 	
 	private lazy var context: NSManagedObjectContext = {return self.managedObjectContext!}()
 	private lazy var model: NSManagedObjectModel = {return self.managedObjectModel}()
-
+	
 	
 	func saveStorage()
 	{
@@ -47,97 +47,83 @@ class Model
 	
 	
     // MARK: - Populating
-	func preloadData () {
-		if !isEventHappen("prepopulateCurrencies") {
-			clearCurrencies()
-			
-			// Retrieve data from the source file
-			if let contentsOfURL = NSBundle.mainBundle().URLForResource("currencies", withExtension: "json") {
-				let parsedObject: AnyObject?
-				do {
-					parsedObject = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
-						options: NSJSONReadingOptions.AllowFragments)
-				} catch let error as NSError {
-					parsedObject = nil
-					debugPrint(error)
-					abort()
-				}
-				if let currencies = parsedObject as? [NSDictionary] {
-					populateCurrenciesWithData(currencies)
-					setEventHappen("prepopulateCurrencies")
-				}
+	func preloadData() {
+		if !isEventHappen("prepopulateData") {
+			populateCurrenciesWithData(loadDataFromJson("currencies")!)
+			populateCategoriesWithData(loadDataFromJson("categories")!)
+			saveStorage()
+			setEventHappen("prepopulateData")
+		}
+	}
+	
+	
+	func loadDataFromJson(name: String) -> [NSDictionary]? {
+		if let contentsOfURL = NSBundle(forClass: self.dynamicType).URLForResource(name, withExtension: "json") {
+			let parsedObject: AnyObject?
+			do {
+				parsedObject = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
+					options: NSJSONReadingOptions.AllowFragments)
+			} catch let error as NSError {
+				parsedObject = nil
+				debugPrint(error)
+				abort()
 			}
-			
-			if let contentsOfURL = NSBundle.mainBundle().URLForResource("categories", withExtension: "json") {
-				let parsedObject: AnyObject?
-				do {
-					parsedObject = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
-						options: NSJSONReadingOptions.AllowFragments)
-				} catch let error as NSError {
-					parsedObject = nil
-					debugPrint(error)
-				}
-				if let categories = parsedObject as? [String] {
-					populateCategoriesWithData(categories)
-				}
+			if let parsedDictionary = parsedObject as? [NSDictionary] {
+				return parsedDictionary
 			}
 		}
+		return nil
 	}
 
 	
 	func populateCurrenciesWithData(data: [NSDictionary]) {
-		debugPrint(data);
 		var flagPngData:NSData? = nil
-		var currencyIndex = 0;
 		for currencyData:NSDictionary in data
 		{
 			if currencyData.valueForKey("flag") != nil
 			{
-				
 				flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: [])
 			}
 			else
 			{
 				flagPngData = nil
 			}
-			let currency = createCurrency(
+			let _ = createCurrency(
 				currencyData.valueForKey("code") as! String,
-				rate: currencyData.valueForKey("rate") as! Float,
-				flag: flagPngData,
-				name: currencyData.valueForKey("name") as? String
-				//					country: model.getCountryByCode(currencyData.valueForKey("country") as! String)
+				rate: (currencyData.valueForKey("rate") as! NSString).floatValue,
+				flag: flagPngData
 			)
-			if currency != nil
-			{
-				currency?.dumpProperties()
-				currencyIndex++
-			}
-			else
-			{
-				print("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
-			}
-			
 		}
-		print("Populated: \(currencyIndex)")
-		saveStorage()
 	}
 	
 	
-	func populateCategoriesWithData(data: [String]) {
-		debugPrint(data)
-		for category:String in data
+	func populateCategoriesWithData(data: [NSDictionary]) {
+		for category:NSDictionary in data
 		{
-			let _ = createCategory(category, logo: nil)
+			let _ = createCategory(category.valueForKey("name") as! String, logo: nil)
 		}
-		saveStorage()
 	}
+	
+	
+	func populateTransactionsWithData(data: [NSDictionary]) {
+		for transactionData:NSDictionary in data
+		{
+			let newTransaction = createTransaction(
+				Money(amount: NSDecimalNumber(float: transactionData.valueForKey("amount") as! Float), currency: getCurrencyByCode(transactionData.valueForKey("currency") as! String)!),
+				isExpense: transactionData.valueForKey("isExpense") as! Bool)
+			newTransaction.setValue(NSDate().fromString(transactionData.valueForKey("date") as! String), forKey: "date")
+			newTransaction.setValue(NSDecimalNumber(integer: transactionData.valueForKey("rate") as! Int), forKey: "rate")
+			newTransaction.category = getCategoriesList().first
+		}
+	}
+	
 	
 	
     // MARK: - Model Manipulations
    
     func createEntity(name: String) -> NSEntityDescription
     {
-        return NSEntityDescription.entityForName("Currency", inManagedObjectContext: context)!
+        return NSEntityDescription.entityForName(name, inManagedObjectContext: context)!
     }
 	
     
@@ -246,7 +232,7 @@ class Model
 	
 	// MARK: - Currency
 	
-	func createCurrency(code: String, rate: Float, flag: NSData?, name: String?) -> Currency?
+	func createCurrency(code: String, rate: Float, flag: NSData?) -> Currency?
 	{
 		let newCurrency = Currency(entity: createEntity("Currency"),
 			insertIntoManagedObjectContext:context) as Currency
@@ -254,7 +240,6 @@ class Model
 		newCurrency.setValue(code, forKey: "code")
 		newCurrency.setValue(rate, forKey: "rate")
 		newCurrency.setValue(flag, forKey: "flag")
-		newCurrency.setValue(name, forKey: "name")
 		return newCurrency
 	}
 	
@@ -305,9 +290,8 @@ class Model
 		}
 		return fetchedResults
 	}
+
 	
-	
- 
 	func getCurrencyByCode(code:String) -> Currency?
 	{
 		let fetchRequest = NSFetchRequest(entityName:"Currency")
@@ -379,7 +363,8 @@ class Model
 		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "currentCurrencyCode")
 	}
 	
-	
+
+	// MARK: - User Defaults
 	func isEventHappen(name: String) -> Bool {
 		let defaults = NSUserDefaults.standardUserDefaults()
 		if let eventHappen = defaults.boolForKey("event_" + name) as Bool? {
@@ -394,6 +379,16 @@ class Model
 	func setEventHappen(name:String) {
 		let defaults = NSUserDefaults.standardUserDefaults()
 		defaults.setBool(true, forKey: "event_" + name)
+	}
+	
+	
+	func setEventTime(name:String) {
+		NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: name)
+	}
+	
+	
+	func getEventTime(name:String) -> NSDate {
+		return NSUserDefaults.standardUserDefaults().objectForKey(name) as! NSDate
 	}
 	
 	

@@ -15,4 +15,5 @@ import CoreData
     @NSManaged var name: String
     @NSManaged var transaction: NSSet
 
+	var t1:String = "Category"
 }

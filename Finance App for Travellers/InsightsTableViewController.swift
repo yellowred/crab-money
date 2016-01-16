@@ -39,7 +39,9 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
 		//app().model.createFakeTransaction()
-		app().model.saveStorage()
+		//app().model.saveStorage()
+		
+
 		if let initialTransaction = app().model.getIinitialTransaction() {
 			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
 		}
@@ -63,38 +65,24 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			}
 			transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
 			let homeCurrencyObject = app().model.getCurrentCurrency()
-			let expenses: [Transaction] = transactions!.filter {
-				(x : Transaction) -> Bool in
-				if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
-					return true
-				}
-				return false
-			}
-			let expensesTotal = expenses.reduce(0, combine: {return $1.getStaticValueInCurrency(homeCurrencyObject).amount.decimalNumberByAdding($0)}).abs()
-			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesTotal)
 			
-			let expensesAvg = expenses.count > 0 ? expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: expenses.count)) : NSDecimalNumber(integer: 0)
-			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesAvg)
+			let finmath = Math(
+				transactions: transactions!,
+				homeCurrency: homeCurrencyObject,
+				currentPeriod: currentPeriod!
+			)
 			
-			let expensesExpected = expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: currentPeriod!.getDaysCount()))
-			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesExpected)
+			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal)
+			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesAvg)
+			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected)
 			
-			
-			let earnings: [Transaction] = transactions!.filter {
-				(x : Transaction) -> Bool in
-				if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending {
-					return true
-				}
-				return false
-			}
-			let earningsTotal = earnings.reduce(0, combine: {return $1.getStaticValueInCurrency(homeCurrencyObject).amount.decimalNumberByAdding($0)}).abs()
-			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(earningsTotal)
-			
-			let earningsAvg = earnings.count > 0 ? earningsTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: earnings.count)) : NSDecimalNumber(integer: 0)
-			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(expensesAvg)
+			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
+			dailyAverageEarnings.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
 
 		} else {
 			periodLabel.text = "undefined".localized
+			let customView: UIView = NSBundle.mainBundle().loadNibNamed("InsightsEmptyView", owner: self, options: nil)[0] as! UIView
+			self.view = customView
 		}
 	}
 	

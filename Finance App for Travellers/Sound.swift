@@ -12,6 +12,8 @@ import AVFoundation
 class Sound {
 	var tapSound:NSURL?
 	var tapPlayer:AVAudioPlayer?
+	
+	static let sharedInstance = Sound()
 
 	init() {
 		tapSound = NSBundle.mainBundle().URLForResource("tap-mellow", withExtension: "aif")

@@ -54,11 +54,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	lazy var model: Model = {
 		return Model()
 	}()
-	
-	/*
-	lazy var network: Networking = {
-		return Networking(model: self.model)
-	}()
-	*/
 }
 

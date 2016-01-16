@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ChameleonFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5172ACAB7FEA22813859DC97CA0AA16F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0B305F43A2FAF9E6F5BDBBCE1275BFF</key>
+		<key>64650395451F4A87E1F0FB93B0C36B8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

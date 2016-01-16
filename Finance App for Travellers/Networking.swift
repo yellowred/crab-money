@@ -12,97 +12,29 @@ import Alamofire
 //@see http://www.raywenderlich.com/85080/beginning-alamofire-tutorial
 class Networking
 {
+	let kEventUpdateAll = "UpdateAll"
+	
 	private let api1:String = "http://api.fixer.io/latest?base=USD"
 	private let api2:String = "https://openexchangerates.org/api/api/latest.json?app_id=fc667c4ed0af4675835f20c90b8a4276"
 	private let currencyDownloadEndpoint:String = "http://sandbox.kubrakov.devel.local/currency.php"
 
-	private var model: Model
+	static let sharedInstance = Networking()
 	
-	init(model: Model) {
-		self.model = model
-	}
-
+	lazy var crabApi: CrabApi = {return CrabApi()}()
 	
-	
-	func downloadCountriesDatabase(finishCallback: () -> Void)
-	{
-		model.clearStorage()
-		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
-			response in
-
-			let data = response.data
-			print(data);
-			var flagPngData:NSData? = nil
-			for countryData:NSDictionary in data as! [NSDictionary]
-			{
-				if countryData.valueForKey("flag") != nil
-				{
-					flagPngData = NSData(base64EncodedString: countryData.valueForKey("flag") as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
+	func updateAll() {
+		crabApi.currencies({(data:AnyObject?) in
+			for currencyRateData:NSDictionary in data as! [NSDictionary] {
+				if let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("charcode") as! String) {
+					currency.setValue(currencyRateData.valueForKey("rate"), forKey: "rate")
 				}
-				else
-				{
-					flagPngData = nil
-				}
-				
-				var country = self.model.createCountry(
-					countryData.valueForKey("code") as! String,
-					name: countryData.valueForKey("name_eng") as! String,
-					flag: flagPngData,
-					currency: self.model.getCurrencyByCode(countryData.valueForKey("currency") as! String)!
-				)
 			}
-			self.model.saveStorage()
-			finishCallback()
-		}
-		
+		})
+		app().model.saveStorage()
+		app().model.setEventTime(kEventUpdateAll)
 	}
 	
-	func downloadCurrenciesDatabase(finishCallback: () -> Void)
-	{
-		model.clearCurrencies()
-		
-		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
-			response in
-			
-			let data = response.data
-			
-			
-			print(data);
-			var flagPngData:NSData? = nil
-			var currencyIndex = 0;
-			for currencyData:NSDictionary in data as! [NSDictionary]
-			{
-				if currencyData.valueForKey("flag") != nil
-				{
-					
-					flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
-				}
-				else
-				{
-					flagPngData = nil
-				}
-				var currency = self.model.createCurrency(
-					currencyData.valueForKey("code") as! String,
-					rate: currencyData.valueForKey("rate") as! Float,
-					flag: flagPngData,
-					name: currencyData.valueForKey("name") as? String
-//					country: model.getCountryByCode(currencyData.valueForKey("country") as! String)
-				)
-				if currency != nil
-				{
-					currency?.dumpProperties()
-					currencyIndex++
-				}
-				else
-				{
-					print("Skipped currency: ", currencyData.valueForKey("code"), currencyData.valueForKey("country"))
-				}
-				
-			}
-			print("Saved: \(currencyIndex)")
-			self.model.saveStorage()
-			finishCallback()
-		}
+	func app() -> AppDelegate {
+		return UIApplication.sharedApplication().delegate as! AppDelegate
 	}
-	
 }

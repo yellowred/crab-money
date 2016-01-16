@@ -74,7 +74,7 @@ class TransactionsTableViewController: UITableViewController {
 	func createSummaryView(type: String) -> SummaryView {
 		let newPageView: SummaryView = NSBundle.mainBundle().loadNibNamed("TransactionsSummaryView", owner: self, options: nil)[0] as! SummaryView
 		newPageView.contentMode = .ScaleAspectFit
-		newPageView.initBlock(type, forDate: NSDate(), transactions: transactions, currency: app.model.getCurrentCurrency())
+		newPageView.initBlock(type, forDate: NSDate(), transactions: transactions, currency: app().model.getCurrentCurrency())
 		var frame = scrollView.bounds
 		frame.origin.x = self.view.frame.size.width * CGFloat(scrollView.subviews.count - 1)
 		frame.origin.y = 0.0

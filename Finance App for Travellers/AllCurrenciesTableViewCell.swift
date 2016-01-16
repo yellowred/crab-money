@@ -29,7 +29,7 @@ class AllCurrenciesTableViewCell: UITableViewCell {
 	func setCurrency(currency: Currency) {
 		self.code.text = currency.code.uppercaseString
 		self.flag.image = currency.getFlag()
-		self.name.text = currency.name
+		self.name.text = currency.getLocalizedName()
 	}
 
 }

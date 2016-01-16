@@ -619,9 +619,6 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvE-W5-7tP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="cMq-hH-1OC">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSwipeRight" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="periodSwipeRight:" destination="b2d-7q-Sqc" id="bdB-We-6zn"/>
                     </connections>
@@ -1806,7 +1803,7 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y3u-vg-LQS"/>
+        <segue reference="B9e-dp-6nI"/>
         <segue reference="rNd-md-E9a"/>
         <segue reference="btf-1b-k7d"/>
     </inferredMetricsTieBreakers>

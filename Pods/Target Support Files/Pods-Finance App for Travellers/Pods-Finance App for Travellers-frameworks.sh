@@ -84,8 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Finance App for Travellers/Alamofire.framework"
   install_framework "Pods-Finance App for Travellers/ChameleonFramework.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Finance App for Travellers/Alamofire.framework"
   install_framework "Pods-Finance App for Travellers/ChameleonFramework.framework"
 fi

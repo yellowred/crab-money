@@ -1,11 +1,11 @@
 [
- "Food",
- "Restaurant",
- "Transport",
- "Utilities",
- "House",
- "Health",
- "Presents",
- "Tea",
- "Sport"
+ {"name": "Food"},
+ {"name": "Restaurant"},
+ {"name": "Transport"},
+ {"name": "Utilities"},
+ {"name": "House"},
+ {"name": "Health"},
+ {"name": "Presents"},
+ {"name": "Tea"},
+ {"name": "Sport"}
 ]

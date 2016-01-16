@@ -35,6 +35,7 @@
 		9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */; };
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
 		9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */; };
+		9A8B0E9C1C4146F3003E7FD2 /* CrabApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B0E9B1C4146F3003E7FD2 /* CrabApi.swift */; };
 		9A8B456F1C3D39700037D137 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1481B8586220087ECDD /* Category.swift */; };
 		9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
 		9A8B45721C3D39700037D137 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
@@ -65,6 +66,8 @@
 		9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
 		9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */; };
+		9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */; };
+		9ADC27FB1C4A30970053E77F /* Currencies.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC27FD1C4A30970053E77F /* Currencies.strings */; };
 		9AE403C91B74671A00143932 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE403C81B74671A00143932 /* currencies.json */; };
 		9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		9AEDFF5D1C3D1CB900541A23 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
@@ -131,6 +134,7 @@
 		9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewController.swift; sourceTree = "<group>"; };
+		9A8B0E9B1C4146F3003E7FD2 /* CrabApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrabApi.swift; sourceTree = "<group>"; };
 		9A8B457C1C3D3B940037D137 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
 		9A8B45821C3D48A70037D137 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		9A8B45841C3D48DB0037D137 /* transactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
@@ -158,6 +162,9 @@
 		9ACC025A1B5130D500F93A4C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionsSummaryView.xib; sourceTree = "<group>"; };
+		9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsightsEmptyView.xib; sourceTree = "<group>"; };
+		9ADC27FC1C4A30970053E77F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Currencies.strings; sourceTree = "<group>"; };
+		9ADC27FE1C4A30990053E77F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Currencies.strings; sourceTree = "<group>"; };
 		9AE403C81B74671A00143932 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = currencies.json; path = ../../currencies.json; sourceTree = "<group>"; };
 		9AEA34F91B79C4ED009C65FE /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		9AEDFF5C1C3D1CB900541A23 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
@@ -237,6 +244,7 @@
 		9A827C9B1C1D71B70025FC5B /* Insights */ = {
 			isa = PBXGroup;
 			children = (
+				9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */,
 				9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */,
 				9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */,
 				9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */,
@@ -298,6 +306,7 @@
 				9AD3082D1BC4D70800962DE1 /* TransactionsTable */,
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
 				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
+				9A8B0E9B1C4146F3003E7FD2 /* CrabApi.swift */,
 				9A9C919B1B3444E500DE580F /* Images.xcassets */,
 				9A36FCE01BD91AA600BD81C0 /* AllCurrencies */,
 				9A27C1511B85928D0087ECDD /* CategorySelect */,
@@ -317,6 +326,7 @@
 				9A9C91901B3444E500DE580F /* Info.plist */,
 				9AE403C81B74671A00143932 /* currencies.json */,
 				9A0BE4531BF45266002D6F5F /* categories.json */,
+				9ADC27FD1C4A30970053E77F /* Currencies.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -469,12 +479,14 @@
 				9AC460BD1BCFE27B00EEE4A7 /* tap-mellow.aif in Resources */,
 				9A0BE4511BF45266002D6F5F /* categories.json in Resources */,
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
+				9ADC27FB1C4A30970053E77F /* Currencies.strings in Resources */,
 				9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */,
 				9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
 				9AE403C91B74671A00143932 /* currencies.json in Resources */,
 				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
+				9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +582,7 @@
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
 				9A0BA91E1BC3981500CE0AF1 /* Sound.swift in Sources */,
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
+				9A8B0E9C1C4146F3003E7FD2 /* CrabApi.swift in Sources */,
 				9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */,
 				9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */,
 				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
@@ -658,6 +671,15 @@
 			);
 			name = Localizable.strings;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		9ADC27FD1C4A30970053E77F /* Currencies.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9ADC27FC1C4A30970053E77F /* en */,
+				9ADC27FE1C4A30990053E77F /* ru */,
+			);
+			name = Currencies.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
