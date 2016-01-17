@@ -195,7 +195,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 			return
 		}
 		print(searchText)
-		let searchPredicate = NSPredicate(format: "(code CONTAINS[c] %@) OR (name CONTAINS[c] %@) OR (code = %@)", searchText, searchText, searchText)
+		let searchPredicate = NSPredicate(format: "(code CONTAINS[c] %@) OR (code = %@)", searchText, searchText, searchText)
 		let array = NSArray(array: allCurrencies).filteredArrayUsingPredicate(searchPredicate)
 		
 		// Hand over the filtered results to our search results table.

@@ -23,6 +23,7 @@ extension NSManagedObject
 class Model
 {
 	
+	let kNotificationDataChanged = "ModelDataChanged"
 	private lazy var context: NSManagedObjectContext = {return self.managedObjectContext!}()
 	private lazy var model: NSManagedObjectModel = {return self.managedObjectModel}()
 	
@@ -34,6 +35,8 @@ class Model
 		{
 			do {
 				try context.save()
+				NSNotificationCenter.defaultCenter().postNotificationName(self.kNotificationDataChanged, object: nil)
+				print("*** Notify that Model data changed")
 			} catch let error1 as NSError {
 				error = error1
 				// Replace this implementation with code to handle the error appropriately.
@@ -117,7 +120,15 @@ class Model
 		}
 	}
 	
-	
+	func updateAllUsingApi() {
+		if !isEventHappen("prepopulateData") {
+			populateCurrenciesWithData(loadDataFromJson("currencies")!)
+			populateCategoriesWithData(loadDataFromJson("categories")!)
+			saveStorage()
+			setEventHappen("prepopulateData")
+		}
+	}
+
 	
     // MARK: - Model Manipulations
    

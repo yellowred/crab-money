@@ -22,10 +22,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		//Fabric.with([Crashlytics.self()])
 		model.preloadData()
+		let dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+		dispatch_async(dispatchQueue, {
+			Networking.sharedInstance.updateAll(nil)
+		})
 		UIApplication.sharedApplication().statusBarStyle = .Default
+		
+		application.setMinimumBackgroundFetchInterval(21600) // 6 hours
         return true
     }
 
+	
+	func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void) {
+		Networking.sharedInstance.backgroundCompletionHandler = completionHandler
+	}
+	
+	
+	func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+		Networking.sharedInstance.updateAll({(data:AnyObject?) in
+			if data != nil {
+				completionHandler(.NewData)
+			} else {
+				completionHandler(.Failed)
+			}
+		})
+	}
+	
+	
+	func application(application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+		return true
+	}
+	
+	
+	func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+		return true
+	}
+	
+	
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

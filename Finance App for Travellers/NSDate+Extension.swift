@@ -54,4 +54,12 @@ extension NSDate {
 		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
 		return dateFormatter.dateFromString(dbDate)
 	}
+	
+	func getDaysTo(date: NSDate) -> Int {
+		let calendar = NSCalendar.currentCalendar()
+		calendar.timeZone = NSTimeZone.systemTimeZone()
+		
+		let comp = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: date, options: [])
+		return comp.day
+	}
 }

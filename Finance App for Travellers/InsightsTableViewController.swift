@@ -25,6 +25,9 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	@IBOutlet var nextPeriodButton: UIButton!
 	@IBOutlet var prevPeriodButton: UIButton!
 	@IBOutlet var homeCurrency: UILabel!
+	@IBOutlet var maxTransactionAmount: UILabel!
+	
+	var underlayingView: UIView?
 	
 	var currentPeriod: Period?
 	var transactions: [Transaction]?
@@ -41,17 +44,22 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		//app().model.createFakeTransaction()
 		//app().model.saveStorage()
 		
-
-		if let initialTransaction = app().model.getIinitialTransaction() {
-			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
-		}
-		homeCurrency.text = app().model.getCurrentCurrency().code.uppercaseString
-		showSummary()
+		showAll()
+		
+		NSNotificationCenter.defaultCenter().addObserver(self,
+			selector: "onModelDataChanged:",
+			name: app().model.kNotificationDataChanged,
+			object: nil)
     }
 	
 	
 	func showSummary() {
 		if currentPeriod != nil {
+			if self.underlayingView != nil {
+				self.view = self.underlayingView
+				self.underlayingView = nil
+			}
+
 			periodLabel.text = currentPeriod?.description
 			if currentPeriod?.getNext() == nil {
 				nextPeriodButton.enabled = false
@@ -75,6 +83,10 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal)
 			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesAvg)
 			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected)
+			if let maxtranz = finmath.expensesMaxTransaction {
+				maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz.amount)
+			}
+			
 			
 			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
 			dailyAverageEarnings.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
@@ -82,8 +94,23 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		} else {
 			periodLabel.text = "undefined".localized
 			let customView: UIView = NSBundle.mainBundle().loadNibNamed("InsightsEmptyView", owner: self, options: nil)[0] as! UIView
+			if self.underlayingView == nil {
+				self.underlayingView = self.view
+			}
 			self.view = customView
 		}
+	}
+	
+	func showAll() {
+		if let initialTransaction = app().model.getIinitialTransaction() {
+			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
+		}
+		homeCurrency.text = app().model.getCurrentCurrency().code.uppercaseString
+		showSummary()
+	}
+	
+	func onModelDataChanged(notification: NSNotification){
+		showAll()
 	}
 	
 	@IBAction func changePeriod(sender: UIButton) {

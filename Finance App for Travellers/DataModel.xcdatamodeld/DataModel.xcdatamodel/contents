@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 4.3">
-    <entity name="Category" representedClassName=".Category" syncable="YES">
+    <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="logo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Category" inverseName="transaction" inverseEntity="Category" syncable="YES"/>
@@ -28,9 +28,9 @@
         <relationship name="currency" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Currency" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Category" positionX="-63" positionY="45" width="128" height="90"/>
         <element name="Country" positionX="-54" positionY="36" width="128" height="105"/>
         <element name="Currency" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Transaction" positionX="-54" positionY="54" width="128" height="135"/>
-        <element name="Category" positionX="-63" positionY="45" width="128" height="90"/>
     </elements>
 </model>

@@ -15,7 +15,7 @@ protocol CategorySelectDelegate {
 class CategoriesCollectionViewController: UICollectionViewController, UIGestureRecognizerDelegate {
 
 	var delegate:CategorySelectDelegate? = nil
-	var categories = [Category]()
+	var categories: [Category]?
 	private let kCategoryCellIdentifier = "CategoryCell"
 	private let kReturnCategory = "ReturnCategory"
 	var category:Category?
@@ -74,10 +74,12 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 	
 
 	func deleteCell(sender: UIButton) {
-		let indexPath:NSIndexPath = (collectionView?.indexPathForCell(sender.superview?.superview as! UICollectionViewCell))!
-		let category = categories.removeAtIndex(indexPath.row)
-		collectionView?.deleteItemsAtIndexPaths([indexPath])
-		app().model.deleteCategory(category)
+		if categories != nil {
+			let indexPath:NSIndexPath = (collectionView?.indexPathForCell(sender.superview?.superview as! UICollectionViewCell))!
+			let category = categories!.removeAtIndex(indexPath.row)
+			collectionView?.deleteItemsAtIndexPaths([indexPath])
+			app().model.deleteCategory(category)
+		}
 	}
 	
 	
@@ -102,13 +104,13 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+		return categories == nil ? 0 : categories!.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
-		cell.categoryTitle.text = categories[indexPath.row].name
-		cell.category = categories[indexPath.row]
+		cell.categoryTitle.text = categories![indexPath.row].name
+		cell.category = categories![indexPath.row]
 		cell.categoryTitle.autoresizingMask = UIViewAutoresizing.FlexibleHeight
 		cell.categoryTitle.layer.masksToBounds = true
 		cell.categoryTitle.layer.cornerRadius = (collectionView.bounds.width - 20 - 10 * 2) / 6
@@ -177,7 +179,12 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 			if createNewCategoryController.categoryName != "" {
 				let newCategory = app().model.createCategory(createNewCategoryController.categoryName, logo: nil)
 				app().model.saveStorage()
-				categories.append(newCategory)
+				if categories != nil {
+					categories!.append(newCategory)
+				} else {
+					categories = [newCategory]
+				}
+				
 				collectionView?.reloadData()
 			}
 		}

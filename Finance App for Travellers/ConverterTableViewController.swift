@@ -31,6 +31,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		}
 		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
 		tableView.allowsMultipleSelectionDuringEditing = false;
+		
 		//tableView.editing = true
         /*
         tableView.estimatedRowHeight = 89

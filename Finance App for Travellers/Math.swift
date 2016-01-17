@@ -15,6 +15,7 @@ class Math: NSObject {
 	
 	init(transactions: [Transaction], homeCurrency: Currency, currentPeriod: Period) {
 		self.transactions = transactions
+
 		self.homeCurrency = homeCurrency
 		self.currentPeriod = currentPeriod
 	}
@@ -43,6 +44,13 @@ class Math: NSObject {
 	
 	lazy var expensesProjected:NSDecimalNumber = {
 		return self.expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysCount()))
+	}()
+	
+	
+	lazy var expensesMaxTransaction:Transaction? = {
+		return self.expenses.maxElement({(a: Transaction, b:Transaction) in
+			return a.amount.compare(b.amount) == NSComparisonResult.OrderedAscending
+		})
 	}()
 	
 	

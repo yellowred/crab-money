@@ -21,17 +21,41 @@ class Networking
 	static let sharedInstance = Networking()
 	
 	lazy var crabApi: CrabApi = {return CrabApi()}()
+
+	lazy var backgroundManager: Alamofire.Manager = {
+		let bundleIdentifier = NSBundle.mainBundle().bundleIdentifier
+		return Alamofire.Manager(configuration: NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(bundleIdentifier! + ".background"))
+	}()
 	
-	func updateAll() {
+	var backgroundCompletionHandler: (() -> Void)? {
+		get {
+			return backgroundManager.backgroundCompletionHandler
+		}
+		set {
+			backgroundManager.backgroundCompletionHandler = newValue
+		}
+	}
+
+	
+	func updateAll(finishCallback: ((data: AnyObject?) -> Void)?) {
+		print("*** Networking: UpdateAll")
 		crabApi.currencies({(data:AnyObject?) in
+			if finishCallback != nil {
+				finishCallback!(data: data)
+			}
 			for currencyRateData:NSDictionary in data as! [NSDictionary] {
-				if let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("charcode") as! String) {
-					currency.setValue(currencyRateData.valueForKey("rate"), forKey: "rate")
+				if
+					let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("code") as! String)
+				{
+					let stringRate = String(currencyRateData.valueForKey("rate")!)
+					let rate = NSDecimalNumber(string: stringRate, locale: NSLocale(localeIdentifier: "en_US"))
+					currency.setValue(rate, forKey: "rate")
 				}
 			}
+			self.app().model.saveStorage()
+			self.app().model.setEventTime(self.kEventUpdateAll)
+			print("*** Networking: UpdateAll: ", self.app().model.getEventTime(self.kEventUpdateAll))
 		})
-		app().model.saveStorage()
-		app().model.setEventTime(kEventUpdateAll)
 	}
 	
 	func app() -> AppDelegate {
