@@ -23,6 +23,9 @@ import CoreData
 		return UIImage(data: self.flag)
 	}()
 	
+	lazy var localizedName: String = {
+		return String(self.code + "_currency_name").localized
+	}()
 	
 	func getFlag() -> UIImage?
 	{
