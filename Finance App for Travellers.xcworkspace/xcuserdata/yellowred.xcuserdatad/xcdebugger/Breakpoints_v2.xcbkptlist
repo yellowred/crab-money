@@ -42,13 +42,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Finance App for Travellers/AllCurrenciesTableViewController.swift"
-            timestampString = "473766303.2478"
+            timestampString = "474823740.794101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Finance App for TravellersTests/Finance_App_for_TravellersTests.swift"
+            timestampString = "474817933.874794"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "testMath()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrabApp.Finance_App_for_TravellersTests.testMath (CrabApp.Finance_App_for_TravellersTests)() -&gt; ()"
+                  moduleName = "CrabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yellowred/Documents/xcode/TF/Finance%20App%20for%20TravellersTests/Finance_App_for_TravellersTests.swift"
+                  timestampString = "474817943.916588"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "3641">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrabApp.Finance_App_for_TravellersTests.(testMath (CrabApp.Finance_App_for_TravellersTests) -&gt; () -&gt; ()).(implicit closure #11)"
+                  moduleName = "CrabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yellowred/Documents/xcode/TF/Finance%20App%20for%20TravellersTests/Finance_App_for_TravellersTests.swift"
+                  timestampString = "474817944.093418"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrabApp.Finance_App_for_TravellersTests.(testMath (CrabApp.Finance_App_for_TravellersTests) -&gt; () -&gt; ()).(implicit closure #12)"
+                  moduleName = "CrabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yellowred/Documents/xcode/TF/Finance%20App%20for%20TravellersTests/Finance_App_for_TravellersTests.swift"
+                  timestampString = "474817944.094198"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "3">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

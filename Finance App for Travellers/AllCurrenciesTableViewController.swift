@@ -61,6 +61,9 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 		hierarchy until it finds the root view controller or one that defines a presentation context.
 		*/
 		definesPresentationContext = true
+		
+		//searchController.hidesNavigationBarDuringPresentation = false
+		//definesPresentationContext = false
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -83,6 +86,8 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	
 	func willPresentSearchController(searchController: UISearchController) {
 		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		
+		//self.navigationController?.navigationBar.translucent = true;
 	}
 	
 	func didPresentSearchController(searchController: UISearchController) {
@@ -91,6 +96,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	
 	func willDismissSearchController(searchController: UISearchController) {
 		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		//self.navigationController?.navigationBar.translucent = true;
 	}
 	
 	func didDismissSearchController(searchController: UISearchController) {

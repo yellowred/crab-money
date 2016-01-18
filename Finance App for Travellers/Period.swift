@@ -96,8 +96,13 @@ class Period: CustomStringConvertible {
 		let calendar = NSCalendar.currentCalendar()
 		calendar.timeZone = NSTimeZone.systemTimeZone()
 
-		let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: getNext() != nil ? endDate : NSDate(), options: [])
-		return comp.day + 1
+		if getNext() != nil {
+			let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: endDate, options: [])
+			return comp.day
+		} else {
+			let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: NSDate(), options: [])
+			return comp.day + 1
+		}
 	}
 	
 }

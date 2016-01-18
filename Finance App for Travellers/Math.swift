@@ -49,7 +49,7 @@ class Math: NSObject {
 	
 	lazy var expensesMaxTransaction:Transaction? = {
 		return self.expenses.maxElement({(a: Transaction, b:Transaction) in
-			return a.amount.compare(b.amount) == NSComparisonResult.OrderedAscending
+			return a.amount.compare(b.amount) == NSComparisonResult.OrderedDescending
 		})
 	}()
 	

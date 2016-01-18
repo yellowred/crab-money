@@ -114,7 +114,11 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	
 	override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == 0 {
-			return "Last updated on ".localized + app().model.getEventTime(Networking.sharedInstance.kEventUpdateAll).formatWithTimeLong()
+			if let lastUpdateTime = app().model.getEventTime(Networking.sharedInstance.kEventUpdateAll) {
+				return "Last updated on ".localized + lastUpdateTime.formatWithTimeLong() + "."
+			} else {
+				return "Connect to the internet to update currency rates.".localized
+			}
 		} else {
 			return ""
 		}
@@ -202,5 +206,19 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	
 	func getCurrencyList() -> [Currency] {
 		return app().model.getCurrenciesNotInConverter()
+	}
+	
+	
+	
+	override func encodeRestorableStateWithCoder(coder: NSCoder) {
+		super.encodeRestorableStateWithCoder(coder)
+		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+		print("**** Encode state", self.tabBarController!.selectedIndex)
+	}
+	
+	override func decodeRestorableStateWithCoder(coder: NSCoder) {
+		super.decodeRestorableStateWithCoder(coder)
+		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+		print("**** Decode state", self.tabBarController!.selectedIndex)
 	}
 }

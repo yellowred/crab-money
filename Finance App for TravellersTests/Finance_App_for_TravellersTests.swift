@@ -64,6 +64,7 @@ class Finance_App_for_TravellersTests: XCTestCase {
 		XCTAssertEqual(math.expensesAvg, 11)
 		XCTAssertEqual(math.earningsAvg, 100)
 		XCTAssertEqual(math.expensesProjected, 330)
+		XCTAssertEqual(math.expensesMaxTransaction?.amount.abs(), 3000)
     }
     
     func testPerformanceExample() {

@@ -244,5 +244,19 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			currentCurrency.text = amount!.currency.code.uppercaseString
 		}
 	}
+	
+	
+	
+	override func encodeRestorableStateWithCoder(coder: NSCoder) {
+		super.encodeRestorableStateWithCoder(coder)
+		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+		print("Encode state", self.tabBarController!.selectedIndex)
+	}
+	
+	override func decodeRestorableStateWithCoder(coder: NSCoder) {
+		super.decodeRestorableStateWithCoder(coder)
+		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+		print("Decode state", self.tabBarController!.selectedIndex)
+	}
 }
 

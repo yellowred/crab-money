@@ -398,8 +398,8 @@ class Model
 	}
 	
 	
-	func getEventTime(name:String) -> NSDate {
-		return NSUserDefaults.standardUserDefaults().objectForKey(name) as! NSDate
+	func getEventTime(name:String) -> NSDate? {
+		return NSUserDefaults.standardUserDefaults().objectForKey(name) as? NSDate
 	}
 	
 	

@@ -29,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UIApplication.sharedApplication().statusBarStyle = .Default
 		
 		application.setMinimumBackgroundFetchInterval(21600) // 6 hours
-        return true
+		
+		self.window?.makeKeyAndVisible()
+
+		return true
     }
 
 	
