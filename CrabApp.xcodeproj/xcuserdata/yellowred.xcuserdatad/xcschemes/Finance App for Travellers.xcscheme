@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-               BuildableName = "Finance App for Travellers.app"
-               BlueprintName = "Finance App for Travellers"
-               ReferencedContainer = "container:Finance App for Travellers.xcodeproj">
+               BuildableName = "CrabApp.app"
+               BlueprintName = "CrabApp"
+               ReferencedContainer = "container:CrabApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A9C91A31B3444E500DE580F"
-               BuildableName = "Finance App for TravellersTests.xctest"
-               BlueprintName = "Finance App for TravellersTests"
-               ReferencedContainer = "container:Finance App for Travellers.xcodeproj">
+               BuildableName = "CrabApp.xctest"
+               BlueprintName = "CrabAppTests"
+               ReferencedContainer = "container:CrabApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A9C91A31B3444E500DE580F"
-               BuildableName = "Finance App for TravellersTests.xctest"
-               BlueprintName = "Finance App for TravellersTests"
-               ReferencedContainer = "container:Finance App for Travellers.xcodeproj">
+               BuildableName = "CrabApp.xctest"
+               BlueprintName = "CrabAppTests"
+               ReferencedContainer = "container:CrabApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-            BuildableName = "Finance App for Travellers.app"
-            BlueprintName = "Finance App for Travellers"
-            ReferencedContainer = "container:Finance App for Travellers.xcodeproj">
+            BuildableName = "CrabApp.app"
+            BlueprintName = "CrabApp"
+            ReferencedContainer = "container:CrabApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-            BuildableName = "Finance App for Travellers.app"
-            BlueprintName = "Finance App for Travellers"
-            ReferencedContainer = "container:Finance App for Travellers.xcodeproj">
+            BuildableName = "CrabApp.app"
+            BlueprintName = "CrabApp"
+            ReferencedContainer = "container:CrabApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -109,9 +109,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-            BuildableName = "Finance App for Travellers.app"
-            BlueprintName = "Finance App for Travellers"
-            ReferencedContainer = "container:Finance App for Travellers.xcodeproj">
+            BuildableName = "CrabApp.app"
+            BlueprintName = "CrabApp"
+            ReferencedContainer = "container:CrabApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
