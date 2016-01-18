@@ -659,7 +659,7 @@
         <!--Add transaction-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController restorationIdentifier="NumpadController" id="vXZ-lx-hvc" customClass="NumpadViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NumpadController" storyboardIdentifier="NumpadController" id="vXZ-lx-hvc" customClass="NumpadViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -1053,12 +1053,12 @@
             <objects>
                 <tableViewController restorationIdentifier="CurrencyConverter" id="obF-Gz-u71" customClass="ConverterTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="90" sectionHeaderHeight="18" sectionFooterHeight="18" id="Xha-N9-sAx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyManagableCell" rowHeight="80" id="W70-jU-UgL" customClass="CurrencyTableViewCell" customModule="CrabApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W70-jU-UgL" id="NJm-Sf-X6v">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
@@ -1150,7 +1150,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyAddCell" rowHeight="60" id="y56-mB-Oaf" customClass="CurrencyAddTableViewCell" customModule="CrabApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="194" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y56-mB-Oaf" id="dKX-6I-pbZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -1304,7 +1304,7 @@
         <!--Converter-->
         <scene sceneID="kQa-5e-uC5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZSM-wV-hDo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavConverter" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZSM-wV-hDo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Converter" image="icon_converter" id="e42-NY-80F"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="514-jI-1MB">
@@ -1602,7 +1602,7 @@
         <!--Insights-->
         <scene sceneID="msD-Kn-HA8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7fo-VY-rNt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavInsights" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7fo-VY-rNt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Insights" image="icon_insights" id="nry-mf-cPR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qz7-on-Lfy">
@@ -1639,7 +1639,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="1KG-oN-bQa">
             <objects>
-                <tabBarController restorationIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="gOD-Dj-e6q" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="gOD-Dj-e6q" customClass="TabBarController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="M5N-si-tto">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1799,7 +1799,7 @@
         <!--Add-->
         <scene sceneID="mFf-ue-8Mf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="opo-CJ-qd0" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="NavNumpad" storyboardIdentifier="NavNumpad" automaticallyAdjustsScrollViewInsets="NO" id="opo-CJ-qd0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Add" image="icon_add" id="OLP-8p-Qoi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2i4-cn-Gh6">
@@ -1828,8 +1828,8 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rNd-md-E9a"/>
-        <segue reference="B9e-dp-6nI"/>
         <segue reference="btf-1b-k7d"/>
+        <segue reference="B9e-dp-6nI"/>
+        <segue reference="1Q5-xo-Y9g"/>
     </inferredMetricsTieBreakers>
 </document>

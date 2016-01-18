@@ -31,17 +31,6 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		}
 		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
 		tableView.allowsMultipleSelectionDuringEditing = false;
-		
-		//tableView.editing = true
-        /*
-        tableView.estimatedRowHeight = 89
-        tableView.rowHeight = UITableViewAutomaticDimension
-
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "onContentSizeChange:",
-            name: UIContentSizeCategoryDidChangeNotification,
-            object: nil)
-        */
     }
 	
 	
@@ -118,6 +107,14 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
 			return "Tap currency to add transaction".localized
+		} else {
+			return ""
+		}
+	}
+	
+	override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		if section == 0 {
+			return "Last updated on ".localized + app().model.getEventTime(Networking.sharedInstance.kEventUpdateAll).formatWithTimeLong()
 		} else {
 			return ""
 		}

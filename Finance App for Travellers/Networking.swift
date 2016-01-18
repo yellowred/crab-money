@@ -13,6 +13,7 @@ import Alamofire
 class Networking
 {
 	let kEventUpdateAll = "UpdateAll"
+	let kEventUpdateAllMinHours = 4
 	
 	private let api1:String = "http://api.fixer.io/latest?base=USD"
 	private let api2:String = "https://openexchangerates.org/api/api/latest.json?app_id=fc667c4ed0af4675835f20c90b8a4276"
@@ -39,24 +40,27 @@ class Networking
 	
 	func updateAll(finishCallback: ((data: AnyObject?) -> Void)?) {
 		print("*** Networking: UpdateAll")
-		crabApi.currencies({(data:AnyObject?) in
-			if finishCallback != nil {
-				finishCallback!(data: data)
-			}
-			for currencyRateData:NSDictionary in data as! [NSDictionary] {
-				if
-					let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("code") as! String)
-				{
-					let stringRate = String(currencyRateData.valueForKey("rate")!)
-					let rate = NSDecimalNumber(string: stringRate, locale: NSLocale(localeIdentifier: "en_US"))
-					currency.setValue(rate, forKey: "rate")
+		if (self.app().model.getEventTime(self.kEventUpdateAll).getHoursTo(NSDate()) > kEventUpdateAllMinHours) {
+			crabApi.currencies({(data:AnyObject?) in
+				if finishCallback != nil {
+					finishCallback!(data: data)
 				}
-			}
-			self.app().model.saveStorage()
-			self.app().model.setEventTime(self.kEventUpdateAll)
-			print("*** Networking: UpdateAll: ", self.app().model.getEventTime(self.kEventUpdateAll))
-		})
+				for currencyRateData:NSDictionary in data as! [NSDictionary] {
+					if
+						let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("code") as! String)
+					{
+						let stringRate = String(currencyRateData.valueForKey("rate")!)
+						let rate = NSDecimalNumber(string: stringRate, locale: NSLocale(localeIdentifier: "en_US"))
+						currency.setValue(rate, forKey: "rate")
+					}
+				}
+				self.app().model.saveStorage()
+				self.app().model.setEventTime(self.kEventUpdateAll)
+				print("*** Networking: UpdateAll: ", self.app().model.getEventTime(self.kEventUpdateAll))
+			})
+		}
 	}
+	
 	
 	func app() -> AppDelegate {
 		return UIApplication.sharedApplication().delegate as! AppDelegate

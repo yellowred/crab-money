@@ -42,6 +42,15 @@ extension NSDate {
 		return df.stringFromDate(self)
 	}
 	
+	
+	func formatWithTimeLong() -> String {
+		let df = NSDateFormatter()
+		df.dateStyle = NSDateFormatterStyle.MediumStyle
+		df.timeStyle = NSDateFormatterStyle.LongStyle
+		return df.stringFromDate(self)
+	}
+	
+	
 	func getCalendar() -> NSCalendar {
 		let calendar = NSCalendar.currentCalendar()
 		calendar.timeZone = NSTimeZone.systemTimeZone()
@@ -61,5 +70,13 @@ extension NSDate {
 		
 		let comp = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: date, options: [])
 		return comp.day
+	}
+	
+	func getHoursTo(date: NSDate) -> Int {
+		let calendar = NSCalendar.currentCalendar()
+		calendar.timeZone = NSTimeZone.systemTimeZone()
+		
+		let comp = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: date, options: [])
+		return comp.hour
 	}
 }

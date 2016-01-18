@@ -83,9 +83,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal)
 			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesAvg)
 			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected)
-			if let maxtranz = finmath.expensesMaxTransaction {
-				maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz.amount)
-			}
+			let maxtranz = finmath.expensesMaxTransaction
+			maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz != nil ? maxtranz!.amount : 0)
 			
 			
 			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
@@ -211,5 +210,20 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	func getCurrencyList() -> [Currency] {
 		return app().model.getCurrenciesList()
+	}
+	
+	
+	
+	
+	override func encodeRestorableStateWithCoder(coder: NSCoder) {
+		super.encodeRestorableStateWithCoder(coder)
+		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+		print("Encode state", self.tabBarController!.selectedIndex)
+	}
+	
+	override func decodeRestorableStateWithCoder(coder: NSCoder) {
+		super.encodeRestorableStateWithCoder(coder)
+		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+		print("Decode state", self.tabBarController!.selectedIndex)
 	}
 }
