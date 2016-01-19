@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+//for carrier info
+import CoreTelephony
+
 extension NSManagedObject
 {
 	
@@ -54,6 +57,11 @@ class Model
 		if !isEventHappen("prepopulateData") {
 			populateCurrenciesWithData(loadDataFromJson("currencies")!)
 			populateCategoriesWithData(loadDataFromJson("categories")!)
+			
+			let currency = getDefaultCurrency()
+			currency.addToConverter()
+			setCurrentCurrency(currency)
+			
 			saveStorage()
 			setEventHappen("prepopulateData")
 		}
@@ -363,15 +371,41 @@ class Model
 	}
 
 	
+	//get HOME currency
 	func getCurrentCurrency() -> Currency {
-		let defaults = NSUserDefaults.standardUserDefaults()
-		let currentCurrencyCode:String? = defaults.stringForKey("currentCurrencyCode")
-		return getCurrencyByCode(currentCurrencyCode ?? "AUD")!
+		let defcur = NSUserDefaults.standardUserDefaults().stringForKey("currentCurrencyCode")
+		guard defcur != nil else {
+			return getCurrencyByCode("USD")!
+		}
+		return getCurrencyByCode(defcur!)!
 	}
 
 	
 	func setCurrentCurrency(currency:Currency) {
 		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "currentCurrencyCode")
+	}
+
+	
+	func getDefaultCurrency() -> Currency {
+		if let currency = getCurrencyByCode(getCurrencyByCurrentLocale()) {
+			return currency
+		} else {
+			return getCurrencyByCode("USD")!
+		}
+	}
+	
+	
+	func getCurrencyByCurrentLocale() -> String {
+		let currentLocale = NSLocale.currentLocale()
+		return currentLocale.objectForKey(NSLocaleCurrencyCode) as! String
+	}
+	
+	
+	func getCurrentCountryByCarrier() -> String? {
+		// Setup the Network Info and create a CTCarrier object
+		let networkInfo = CTTelephonyNetworkInfo()
+		let carrier = networkInfo.subscriberCellularProvider
+		return carrier?.isoCountryCode
 	}
 	
 
