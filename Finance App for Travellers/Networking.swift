@@ -40,7 +40,8 @@ class Networking
 	
 	func updateAll(finishCallback: ((data: AnyObject?) -> Void)?) {
 		print("*** Networking: UpdateAll")
-		if let lastUpdateTime = self.app().model.getEventTime(self.kEventUpdateAll) where lastUpdateTime.getHoursTo(NSDate()) > kEventUpdateAllMinHours
+		let lastUpdateTime = self.app().model.getEventTime(self.kEventUpdateAll)
+		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(NSDate()) > kEventUpdateAllMinHours)
 		{
 			crabApi.currencies({(data:AnyObject?) in
 				if finishCallback != nil {
