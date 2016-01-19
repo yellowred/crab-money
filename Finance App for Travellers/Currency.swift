@@ -16,6 +16,8 @@ import CoreData
     @NSManaged var flag: NSData
     @NSManaged var country: NSSet?
     @NSManaged var in_converter: NSNumber
+	@NSManaged var popularity: Float
+
 	
 	var t1:String = "Currency"
 	
@@ -39,5 +41,13 @@ import CoreData
 	func getLocalizedName() -> String {
 		let localizedIdentifier: String = code + "_currency_name"
 		return localizedIdentifier.localized
+	}
+	
+	func increasePopularity() {
+		if popularity == 0 {
+			popularity = 1
+		} else {
+			popularity =  1 / popularity + popularity
+		}
 	}
 }

@@ -60,6 +60,7 @@ class Model
 			
 			let currency = getDefaultCurrency()
 			currency.addToConverter()
+			currency.popularity = currency.popularity + 2
 			setCurrentCurrency(currency)
 			
 			saveStorage()
@@ -99,11 +100,17 @@ class Model
 			{
 				flagPngData = nil
 			}
-			let _ = createCurrency(
+			let currency = createCurrency(
 				currencyData.valueForKey("code") as! String,
 				rate: (currencyData.valueForKey("rate") as! NSString).floatValue,
 				flag: flagPngData
 			)
+			if currency != nil {
+				currency!.popularity = Float(currencyData.valueForKey("is_popular") as! String)!
+				if (currency!.code == "USD" || currency!.code == "EUR") {
+					currency!.popularity = currency!.popularity + 1
+				}
+			}
 		}
 	}
 	
@@ -201,7 +208,7 @@ class Model
 	func getObjectsList(objectClass: AnyClass) -> [AnyObject] {
 		// Create request on Event entity
 		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(objectClass))
-		
+
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
 		do {
@@ -285,7 +292,17 @@ class Model
 	
 	func getCurrenciesList() -> [Currency]
 	{
-		return getObjectsList(Currency.classForCoder()) as! [Currency]
+		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
+		
+		//Execute Fetch request
+		var fetchedResults = Array<Currency>()
+		do {
+			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+		} catch let fetchError as NSError {
+			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
+		}
+		return fetchedResults
 	}
 	
 	
@@ -298,7 +315,7 @@ class Model
 		*/
 		
 		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "code", ascending: true)]
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
 		fetchRequest.predicate = NSPredicate(format: "in_converter <> 1")
 		
 		var fetchedResults = Array<Currency>()
@@ -385,6 +402,18 @@ class Model
 		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "currentCurrencyCode")
 	}
 
+	func getNumpadCurrency() -> Currency {
+		let numcur = NSUserDefaults.standardUserDefaults().stringForKey("numpadCurrencyCode")
+		guard numcur != nil else {
+			return getCurrentCurrency()
+		}
+		return getCurrencyByCode(numcur!)!
+	}
+	
+	
+	func setNumpadCurrency(currency:Currency) {
+		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "numpadCurrencyCode")
+	}
 	
 	func getDefaultCurrency() -> Currency {
 		if let currency = getCurrencyByCode(getCurrencyByCurrentLocale()) {

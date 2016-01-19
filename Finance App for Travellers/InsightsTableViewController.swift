@@ -84,7 +84,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesAvg)
 			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected)
 			let maxtranz = finmath.expensesMaxTransaction
-			maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz != nil ? maxtranz!.amount : 0)
+			maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz != nil ? maxtranz!.getStaticValueInCurrency(homeCurrencyObject).amount.abs() : 0)
 			
 			
 			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)

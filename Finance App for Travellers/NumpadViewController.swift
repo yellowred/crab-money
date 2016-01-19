@@ -56,7 +56,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
 		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
 		
-		amount = Money(amount: 0, currency: app().model.getCurrentCurrency())
+		amount = Money(amount: 0, currency: app().model.getNumpadCurrency())
 		updateCurrentCurrencyBlock()
         reloadAmountDisplay()
 		
@@ -189,7 +189,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			amount = currenciesTVC!.providedAmount
 			updateCurrentCurrencyBlock()
 			reloadAmountDisplay()
-			app().model.setCurrentCurrency(amount!.currency)
+			app().model.setNumpadCurrency(amount!.currency)
         }
     }
 	
@@ -198,6 +198,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			return
 		}
 		notCompletedTransaction!.category = category
+		notCompletedTransaction!.currency.increasePopularity()
 		app().model.saveStorage()
 		notCompletedTransaction = nil
 		sound.playTap()
