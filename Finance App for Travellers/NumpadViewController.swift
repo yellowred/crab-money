@@ -205,6 +205,10 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		amount!.setAmount(0)
 		reloadAmountDisplay()
 	}
+	
+	func isExpense() -> Bool {
+		return !notCompletedTransaction!.amount.isPositive()
+	}
 
 	
 	override func viewDidAppear(animated: Bool)

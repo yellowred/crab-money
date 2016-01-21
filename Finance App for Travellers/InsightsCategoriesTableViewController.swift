@@ -8,55 +8,103 @@
 
 import UIKit
 
-class InsightsCategoriesTableViewController: UITableViewController {
+class InsightsCategoriesTableViewController: UITableViewController, TransactionsViewDelegate {
 
 	private let kInsightsCategoryCellIdentifier = "InsightsCategoryCell"
+	private let kShowCategoryTransactions = "ShowCategoryTransactions"
+	
 	var currentPeriod: Period?
-	var categories: [Category] = []
+	
+	var expenseCategories: [Category] = []
+	var earningCategories: [Category] = []
+	
 	var transactions: [Transaction]?
+	var finmath: Math?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
-		for trn:Transaction in transactions! {
-			if
-				trn.category != nil &&
-				categories.contains(trn.category!) != true
-			 {
-				categories.append(trn.category!)
-			}
-		}
+		loadData()
+		NSNotificationCenter.defaultCenter().addObserver(self,
+			selector: "onModelDataChanged:",
+			name: app().model.kNotificationDataChanged,
+			object: nil)
 	}
 
+	func onModelDataChanged(notification: NSNotification){
+		loadData()
+	}
+	
+	func loadData() {
+		finmath = Math(
+			transactions: app().model.getTransactionsListForPeriod(currentPeriod!),
+			homeCurrency: app().model.getCurrentCurrency(),
+			currentPeriod: currentPeriod!
+		)
+		
+		earningCategories = finmath!.earningCategories
+		expenseCategories = finmath!.expenseCategories
+	}
+
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+	
+	func getTransactions() -> [Transaction] {
+		return transactions!
+	}
+	
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return Int(earningCategories.count > 0) + Int(expenseCategories.count > 0)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+		if (section == 0) {
+			return earningCategories.count
+		} else {
+			return expenseCategories.count
+		}
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier(kInsightsCategoryCellIdentifier, forIndexPath: indexPath) as! InsightsCategoryTableViewCell
-		cell.categoryName.text = categories[indexPath.row].name
-		var amount = NSDecimalNumber(integer: 0)
-		for trn in transactions! {
-			if trn.category == categories[indexPath.row] {
-				amount = amount.decimalNumberByAdding(trn.amount)
-			}
+		
+		var category: Category
+		if indexPath.section == 0 {
+			category = earningCategories[indexPath.row]
+		} else {
+			category = expenseCategories[indexPath.row]
 		}
-		cell.categoryAmount.text = amount.formatToMoney().stringValue
+		cell.categoryName.text = category.name
+		cell.categoryAmount.text = finmath!.getCategoryAmountForPeriod(category).formatToMoney().stringValue
 		return cell
     }
+	
+	
+	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if (section == 0) {
+			return "Earnings".localized
+		} else {
+			return "Expenses".localized
+		}
+	}
 
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		var category: Category
+		if indexPath.section == 0 {
+			category = earningCategories[indexPath.row]
+		} else {
+			category = expenseCategories[indexPath.row]
+		}
+		self.transactions = finmath?.getTransactionsForCategoryAndPeriod(category)
+		performSegueWithIdentifier(kShowCategoryTransactions, sender: nil)
+	}
+	
+	
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -92,14 +140,15 @@ class InsightsCategoriesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+		if segue.identifier == kShowCategoryTransactions {
+			(segue.destinationViewController as! TransactionsTableViewController).transactionsViewDelegate = self
+		}
     }
-    */
 
 }

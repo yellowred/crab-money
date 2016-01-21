@@ -134,6 +134,9 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 		}
 	}
 	
+	func isExpense() -> Bool {
+		return !transaction!.amount.isPositive()
+	}
 	
 	func getCurrencyList() -> [Currency] {
 		return app().model.getCurrenciesList()

@@ -19,6 +19,7 @@ class Finance_App_for_TravellersTests: XCTestCase {
 	
 	var transactions = [Transaction]()
 	var currencies = [Currency]()
+	var categories = [Category]()
 	
 	
     override func setUp() {
@@ -30,6 +31,12 @@ class Finance_App_for_TravellersTests: XCTestCase {
 			Currency(code: "AUD", rate: 1.5),
 			Currency(code: "USD", rate: 1),
 		]
+		categories = [
+			Category(name: "Tea", is_expense: true),
+			Category(name: "Health", is_expense: true),
+			Category(name: "House", is_expense: true),
+			Category(name: "Coffee", is_expense: false)
+		]
 		transactions = [
 			Transaction(amount: -3000, date: "2015-11-15 10:00:00", rate: 100, currency: currencies[0]),
 			Transaction(amount: -100, date: "2015-11-16 10:00:00", rate: 1, currency: currencies[2]),
@@ -37,6 +44,11 @@ class Finance_App_for_TravellersTests: XCTestCase {
 			Transaction(amount: 3000, date: "2015-11-18 10:00:00", rate: 1.5, currency: currencies[2]),
 			Transaction(amount: 2000, date: "2015-11-18 11:00:00", rate: 2, currency: currencies[2]),
 		]
+		transactions[0].setCategoryWithUpdate(categories[0])
+		transactions[1].setCategoryWithUpdate(categories[1])
+		transactions[2].setCategoryWithUpdate(categories[2])
+		transactions[3].setCategoryWithUpdate(categories[3])
+		transactions[4].setCategoryWithUpdate(categories[3])
     }
     
     override func tearDown() {
@@ -65,6 +77,13 @@ class Finance_App_for_TravellersTests: XCTestCase {
 		XCTAssertEqual(math.earningsAvg, 100)
 		XCTAssertEqual(math.expensesProjected, 330)
 		XCTAssertEqual(math.expensesMaxTransaction?.amount.abs(), 3000)
+		
+		XCTAssert(math.expenseCategories.count == 3)
+		XCTAssertEqual(math.expenseCategories.first, categories[2])
+		XCTAssertEqual(math.expenseCategories.last, categories[0])
+		
+		XCTAssert(math.earningCategories.count == 1)
+		XCTAssertEqual(math.earningCategories.first, categories[3])
     }
     
     func testPerformanceExample() {

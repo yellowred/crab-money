@@ -10,6 +10,7 @@ import UIKit
 
 protocol CategorySelectDelegate {
 	func setCategory(category:Category)
+	func isExpense() -> Bool
 }
 
 class CategoriesCollectionViewController: UICollectionViewController, UIGestureRecognizerDelegate {
@@ -27,7 +28,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-		categories = app().model.getCategoriesList()
+		categories = app().model.getCategoriesList(delegate!.isExpense())
 		let longPress = UILongPressGestureRecognizer(target: self, action: "activateDeletionMode:")
 		longPress.delegate = self
 		collectionView?.addGestureRecognizer(longPress)
@@ -177,12 +178,14 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 			print("New category: \(createNewCategoryController.categoryName)")
 			
 			if createNewCategoryController.categoryName != "" {
-				let newCategory = app().model.createCategory(createNewCategoryController.categoryName, logo: nil)
+				let newCategory = app().model.createCategory(createNewCategoryController.categoryName, isExpense: createNewCategoryController.isExpense.on, logo: nil)
 				app().model.saveStorage()
-				if categories != nil {
-					categories!.append(newCategory)
-				} else {
-					categories = [newCategory]
+				if newCategory.is_expense == delegate!.isExpense() {
+					if categories != nil {
+						categories!.append(newCategory)
+					} else {
+						categories = [newCategory]
+					}
 				}
 				
 				collectionView?.reloadData()

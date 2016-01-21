@@ -13,6 +13,7 @@ class Transaction: NSObject {
 	var date: NSDate
 	var rate: NSDecimalNumber
 	var currency: Currency
+	var category: Category?
 	
 	init(amount:NSDecimalNumber, date:String, rate: NSDecimalNumber, currency: Currency) {
 		self.amount = amount
@@ -20,6 +21,7 @@ class Transaction: NSObject {
 		self.rate = rate
 		self.currency = currency
 	}
+	
 	
 	
 	override func setValue(value: AnyObject?, forKey key: String) {
@@ -46,5 +48,10 @@ class Transaction: NSObject {
 		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
 		return Money(amount: currencyAmount, currency: currency)
 	}
+
 	
+	func setCategoryWithUpdate(category: Category) {
+		self.category = category
+		self.category!.addTransaction(self)
+	}
 }

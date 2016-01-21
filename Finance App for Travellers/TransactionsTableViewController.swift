@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TransactionsViewDelegate {
+	func getTransactions() -> [Transaction]
+}
+
 class TransactionsTableViewController: UITableViewController {
 
 	var transactions = Array<Transaction>()
@@ -18,6 +22,7 @@ class TransactionsTableViewController: UITableViewController {
 	private let kShowTransactionDetailSegue = "ShowTransactionDetail"
 	
 	var currentPeriod: Period?
+	var transactionsViewDelegate: TransactionsViewDelegate?
 	
 	/*
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -33,10 +38,20 @@ class TransactionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
+		transactions = transactionsViewDelegate!.getTransactions()
 		getTransactionsStructure()
+		
+		NSNotificationCenter.defaultCenter().addObserver(self,
+			selector: "onModelDataChanged:",
+			name: app().model.kNotificationDataChanged,
+			object: nil)
+
 	}
 	
+	func onModelDataChanged(notification: NSNotification){
+		transactions = transactionsViewDelegate!.getTransactions()
+		getTransactionsStructure()
+	}
 	
 	func getTransactionsStructure() {
 		transactionStructure = Dictionary<String, Array<Transaction>>()

@@ -19,4 +19,8 @@ extension NSDecimalNumber {
 	func formatToMoney() -> NSDecimalNumber {
 		return NSDecimalNumber(string: NSNumberFormatter().formatterSimpleMoney().stringFromNumber(self))
 	}
+	
+	func isPositive() -> Bool {
+		return self.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending
+	}
 }

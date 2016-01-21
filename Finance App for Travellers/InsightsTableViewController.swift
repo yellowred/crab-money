@@ -14,7 +14,7 @@ enum InsightsSegues: String {
 	case SelectHomeCurrency = "SelectHomeCurrency"
 }
 
-class InsightsTableViewController: UITableViewController, CurrencySelectDelegate {
+class InsightsTableViewController: UITableViewController, CurrencySelectDelegate, TransactionsViewDelegate {
 
 	@IBOutlet var periodLabel: UILabel!
 	@IBOutlet var expensesAmount: UILabel!
@@ -141,6 +141,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
         // Dispose of any resources that can be recreated.
     }
 
+
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
@@ -189,7 +190,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == InsightsSegues.ShowTransactions.rawValue {
-			(segue.destinationViewController as! TransactionsTableViewController).currentPeriod = currentPeriod
+			(segue.destinationViewController as! TransactionsTableViewController).transactionsViewDelegate = self
 		} else if segue.identifier == InsightsSegues.ShowCategories.rawValue {
 			(segue.destinationViewController as! InsightsCategoriesTableViewController).currentPeriod = currentPeriod
 		} else if segue.identifier == InsightsSegues.SelectHomeCurrency.rawValue {
@@ -213,8 +214,16 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	}
 	
 	
+	// MARK: - TransactionsViewDelegate
+	func getTransactions() -> [Transaction] {
+		guard transactions != nil else {
+			return [Transaction]()
+		}
+		return transactions!
+	}
 	
 	
+	// MARK: - State Restoration
 	override func encodeRestorableStateWithCoder(coder: NSCoder) {
 		super.encodeRestorableStateWithCoder(coder)
 		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")

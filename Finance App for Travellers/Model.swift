@@ -118,7 +118,8 @@ class Model
 	func populateCategoriesWithData(data: [NSDictionary]) {
 		for category:NSDictionary in data
 		{
-			let _ = createCategory(category.valueForKey("name") as! String, logo: nil)
+			let type = category.valueForKey("type") as! String
+			let _ = createCategory(category.valueForKey("name") as! String, isExpense: type == "expense", logo: nil)
 		}
 	}
 	
@@ -552,12 +553,13 @@ class Model
 	
 	
 	// MARK: - category
-	func createCategory(name: String, logo: NSData?) -> (Category)
+	func createCategory(name: String, isExpense: Bool, logo: NSData?) -> (Category)
 	{
 		let newCategory = Category(entity: createEntity("Category"),
 			insertIntoManagedObjectContext:context) as Category
 
 		newCategory.setValue(name, forKey: "name")
+		newCategory.setValue(isExpense, forKey: "is_expense")
 		if let _ = logo {
 			newCategory.setValue(logo, forKey: "logo")
 		}
@@ -569,6 +571,22 @@ class Model
 	func getCategoriesList() -> [Category]
 	{
 		return getObjectsList(Category.classForCoder()) as! [Category]
+	}
+	
+	func getCategoriesList(isExpense: Bool) -> [Category] {
+		
+		print("getCategoriesList isExpense", isExpense)
+		
+		let fetchRequest = NSFetchRequest(entityName: "Category")
+		fetchRequest.predicate = NSPredicate(format: "(is_expense = %@)", isExpense)
+		
+		var fetchedResults = Array<Category>()
+		do {
+			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Category]
+		} catch let fetchError as NSError {
+			print("getExpenseCategories error: \(fetchError.localizedDescription)")
+		}
+		return fetchedResults
 	}
 	
 	

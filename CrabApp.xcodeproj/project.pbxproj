@@ -37,7 +37,6 @@
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
 		9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */; };
 		9A8B0E9C1C4146F3003E7FD2 /* CrabApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B0E9B1C4146F3003E7FD2 /* CrabApi.swift */; };
-		9A8B456F1C3D39700037D137 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1481B8586220087ECDD /* Category.swift */; };
 		9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
 		9A8B45721C3D39700037D137 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
 		9A8B45731C3D39700037D137 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
@@ -67,6 +66,7 @@
 		9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC460C41BD0B47100EEE4A7 /* Localizable.strings */; };
 		9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
+		9ACDB0061C4F4E3E0053CEE5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDB0051C4F4E3E0053CEE5 /* Category.swift */; };
 		9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */; };
 		9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */; };
 		9ADC27FB1C4A30970053E77F /* Currencies.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC27FD1C4A30970053E77F /* Currencies.strings */; };
@@ -165,6 +165,7 @@
 		9AC590251C4BD40700205287 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025A1B5130D500F93A4C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		9ACDB0051C4F4E3E0053CEE5 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionsSummaryView.xib; sourceTree = "<group>"; };
 		9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsightsEmptyView.xib; sourceTree = "<group>"; };
 		9ADC27FC1C4A30970053E77F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Currencies.strings; sourceTree = "<group>"; };
@@ -341,6 +342,7 @@
 				9A4C04F01C3D733C00B2C754 /* Transaction.swift */,
 				9A4C04F21C3D742700B2C754 /* Currency.swift */,
 				9A9C91A81B3444E500DE580F /* Supporting Files */,
+				9ACDB0051C4F4E3E0053CEE5 /* Category.swift */,
 			);
 			path = "Finance App for TravellersTests";
 			sourceTree = "<group>";
@@ -637,7 +639,6 @@
 			files = (
 				9A8B45741C3D39700037D137 /* Period.swift in Sources */,
 				9A8B45771C3D39D70037D137 /* NSNumberFormatter+Extension.swift in Sources */,
-				9A8B456F1C3D39700037D137 /* Category.swift in Sources */,
 				9A8B45761C3D39D70037D137 /* NSDecimalNumber+Extension.swift in Sources */,
 				9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */,
 				9A4C04F11C3D733C00B2C754 /* Transaction.swift in Sources */,
@@ -648,6 +649,7 @@
 				9A4C04F31C3D742700B2C754 /* Currency.swift in Sources */,
 				9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */,
 				9AEDFF5E1C3D1F4600541A23 /* Math.swift in Sources */,
+				9ACDB0061C4F4E3E0053CEE5 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

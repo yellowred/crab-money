@@ -1,11 +1,14 @@
 [
- "Еда",
- "Ресторан",
- "Транспорт",
- "Коммунальные платежи",
- "Дом",
- "Здоровье",
- "Подарки",
- "Чай",
- "Спорт"
+	{"name": "Еда", "type": "expense"},
+	{"name": "Ресторан", "type": "expense"},
+	{"name": "Транспорт", "type": "expense"},
+	{"name": "Коммунальные платежи", "type": "expense"},
+	{"name": "Дом", "type": "expense"},
+	{"name": "Здоровье", "type": "expense"},
+	{"name": "Подарки", "type": "expense"},
+	{"name": "Чай", "type": "expense"},
+	{"name": "Спорт", "type": "expense"},
+
+	{"name": "Зарплата", "type": "earning"},
+	{"name": "Продажи", "type": "earning"}
 ]

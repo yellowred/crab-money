@@ -14,6 +14,7 @@ class CategoryAddViewController: UIViewController, UITextFieldDelegate {
 	var delegate: CategoriesCollectionViewController?
 	
 	@IBOutlet weak var category: UITextField!
+	@IBOutlet var isExpense: UISwitch!
 	
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,6 +14,12 @@ import CoreData
     @NSManaged var logo: NSData?
     @NSManaged var name: String
     @NSManaged var transaction: NSSet
+    @NSManaged var is_expense: Bool
+}
 
-	var t1:String = "Category"
+extension Category {
+	func getTransactions() -> [Transaction] {
+		return self.transaction.allObjects as! [Transaction]
+	}
+	
 }

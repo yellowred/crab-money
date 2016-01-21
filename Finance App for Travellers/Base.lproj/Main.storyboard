@@ -11,13 +11,13 @@
         <scene sceneID="FeS-zd-xTH">
             <objects>
                 <tableViewController id="iMc-e9-vdI" customClass="InsightsCategoriesTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c1G-TS-5Ui">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="c1G-TS-5Ui">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsightsCategoryCell" id="gFH-up-Yc3" customClass="InsightsCategoryTableViewCell" customModule="CrabApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFH-up-Yc3" id="K2n-St-Fma">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -58,6 +58,9 @@
                             <outlet property="delegate" destination="iMc-e9-vdI" id="QRT-K4-2hW"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="11i-mH-L7W" kind="show" identifier="ShowCategoryTransactions" id="yNu-ba-KDj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zuo-Tu-UAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1418,24 +1421,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yWD-if-XbZ">
-                                <rect key="frame" x="60" y="127" width="480" height="30"/>
+                                <rect key="frame" x="60" y="126" width="480" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ah-j1-KfZ">
-                                <rect key="frame" x="60" y="84" width="480" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <rect key="frame" x="60" y="84" width="480" height="32"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zki-kB-BvS">
+                                <rect key="frame" x="60" y="166" width="480" height="32"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7k-uD-M9f">
+                                <rect key="frame" x="491" y="166" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3Ah-j1-KfZ" firstAttribute="width" secondItem="oiI-FI-eIw" secondAttribute="width" multiplier="0.8" id="6QI-09-Dr5"/>
                             <constraint firstItem="yWD-if-XbZ" firstAttribute="centerX" secondItem="oiI-FI-eIw" secondAttribute="centerX" id="KYQ-Ii-12C"/>
+                            <constraint firstItem="Zki-kB-BvS" firstAttribute="width" secondItem="3Ah-j1-KfZ" secondAttribute="width" id="X13-hW-x3f"/>
                             <constraint firstItem="yWD-if-XbZ" firstAttribute="top" secondItem="3Ah-j1-KfZ" secondAttribute="bottom" constant="10" id="X8a-XS-hmE"/>
+                            <constraint firstItem="u7k-uD-M9f" firstAttribute="trailing" secondItem="3Ah-j1-KfZ" secondAttribute="trailing" id="Xqd-L0-WXt"/>
+                            <constraint firstItem="Zki-kB-BvS" firstAttribute="top" secondItem="yWD-if-XbZ" secondAttribute="bottom" constant="10" id="Yi9-6g-m9P"/>
+                            <constraint firstItem="Zki-kB-BvS" firstAttribute="centerX" secondItem="oiI-FI-eIw" secondAttribute="centerX" id="e6b-Ng-62A"/>
                             <constraint firstItem="3Ah-j1-KfZ" firstAttribute="top" secondItem="Kcr-vo-jfj" secondAttribute="bottom" constant="20" id="lvu-ng-iXJ"/>
                             <constraint firstItem="3Ah-j1-KfZ" firstAttribute="centerX" secondItem="oiI-FI-eIw" secondAttribute="centerX" id="nvR-7Q-vMM"/>
+                            <constraint firstItem="u7k-uD-M9f" firstAttribute="top" secondItem="yWD-if-XbZ" secondAttribute="bottom" constant="10" id="oFw-aP-G0c"/>
                             <constraint firstItem="yWD-if-XbZ" firstAttribute="width" secondItem="oiI-FI-eIw" secondAttribute="width" multiplier="0.8" id="z4k-7k-aOU"/>
                         </constraints>
                     </view>
@@ -1449,6 +1466,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="category" destination="yWD-if-XbZ" id="yqJ-QA-bqv"/>
+                        <outlet property="isExpense" destination="u7k-uD-M9f" id="IZL-2z-LBH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDU-t9-4GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1827,8 +1845,9 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="btf-1b-k7d"/>
+        <segue reference="yNu-ba-KDj"/>
         <segue reference="B9e-dp-6nI"/>
+        <segue reference="btf-1b-k7d"/>
         <segue reference="1Q5-xo-Y9g"/>
     </inferredMetricsTieBreakers>
 </document>
