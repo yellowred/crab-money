@@ -147,7 +147,6 @@ class Model
 
 	
     // MARK: - Model Manipulations
-   
     func createEntity(name: String) -> NSEntityDescription
     {
         return NSEntityDescription.entityForName(name, inManagedObjectContext: context)!
@@ -174,7 +173,6 @@ class Model
     }
 
 	
-	
     func clearStorage()
     {
         for currency: Currency in getCurrenciesList()
@@ -185,11 +183,7 @@ class Model
         {
             context.deleteObject(country)
         }
-        
-        do {
-			try context.save()
-		} catch _ {
-		}
+        saveStorage()
     }
 	
 	
@@ -199,10 +193,7 @@ class Model
 		{
 			context.deleteObject(country)
 		}
-		do {
-			try context.save()
-		} catch _ {
-		}
+		saveStorage()
 	}
 	
 	
@@ -268,26 +259,6 @@ class Model
 		newCurrency.setValue(rate, forKey: "rate")
 		newCurrency.setValue(flag, forKey: "flag")
 		return newCurrency
-	}
-	
-	func clearCurrencies() -> Bool
-	{
-		//Persist deletion
-		var success:Bool
-		do {
-			for currency: Currency in getCurrenciesList()
-			{
-				context.deleteObject(currency)
-			}
-			
-			//Persist deletion to datastore
-			try context.save()
-			success = true
-		} catch let deleteError as NSError {
-			print("clearCurrencies error: \(deleteError.localizedDescription)")
-			success = false
-		}
-		return success
 	}
 	
 	
@@ -382,10 +353,7 @@ class Model
 	func deleteCurrencyFromConverter(currency:Currency)
 	{
 		currency.setValue(0, forKey: "in_converter")
-		do {
-			try context.save()
-		} catch _ {
-		}
+		saveStorage()
 	}
 
 	
@@ -526,10 +494,7 @@ class Model
 	func deleteTransaction(transaction:Transaction)
 	{
 		context.deleteObject(transaction)
-		do {
-			try context.save()
-		} catch _ {
-		}
+		saveStorage()
 	}
 
 	
@@ -593,10 +558,7 @@ class Model
 	func deleteCategory(category: Category)
 	{
 		context.deleteObject(category)
-		do {
-			try context.save()
-		} catch _ {
-		}
+		saveStorage()
 	}
 	
 	

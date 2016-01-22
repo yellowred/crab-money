@@ -43,6 +43,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		
 		earningCategories = finmath!.earningCategories
 		expenseCategories = finmath!.expenseCategories
+		tableView.reloadData()
 	}
 
 	
