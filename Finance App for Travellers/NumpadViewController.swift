@@ -9,10 +9,13 @@
 import UIKit
 import ChameleonFramework
 
-class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, CategorySelectDelegate {
 
-	let kShowTransactionSegue = "showTransactionsView"
-	let kCategorySelectSegue = "CategorySelectSegue"
+enum NumpadSegues: String {
+	case SelectNumpadCurrency = "SelectNumpadCurrency"
+	case CategorySelectSegue = "CategorySelectSegue"
+}
+
+class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, CategorySelectDelegate, CurrencySelectDelegate {
 	
 	var amount:Money?
 	var notCompletedTransaction: Transaction?
@@ -99,8 +102,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		earning.layer.cornerRadius = 23
 		currentFlag.layer.cornerRadius = 2
 		currentFlag.layer.masksToBounds = true
-		currencyView.layer.borderColor = UIColor(rgba: "#999999").CGColor
-		currencyView.layer.borderWidth = 1
 		reloadAmountDisplay()
 	}
 	
@@ -179,7 +180,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			app().model.deleteTransaction(notCompletedTransaction!)
 		}
 		notCompletedTransaction = app().model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
-		performSegueWithIdentifier(kCategorySelectSegue, sender: nil)
+		performSegueWithIdentifier(NumpadSegues.CategorySelectSegue.rawValue, sender: nil)
 	}
 	
 	@IBAction func numberPressedEnd(sender: UIButton) {
@@ -276,19 +277,25 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		super.viewDidDisappear(animated)
 	}
 	
-	
+	@IBAction func currencySelectTap(sender: UITapGestureRecognizer) {
+		let selectCurrencyView: AllCurrenciesTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectCurrency") as! AllCurrenciesTableViewController
+		selectCurrencyView.delegate = self
+		self.presentViewController(selectCurrencyView, animated: true, completion: nil)
+	}
+
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
 	{
 		print("Segue: \(segue.identifier)")
-		if segue.identifier == "showCurrencySelect"	{
+		if segue.identifier == "showCurrencySelect2"	{
 			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? ConverterTableViewController	{
 				currenciesTVC.providedAmount = amount!
 			}
-		} else if segue.identifier == kCategorySelectSegue {
+		} else if segue.identifier == NumpadSegues.CategorySelectSegue.rawValue {
 			let c = (segue.destinationViewController as! UINavigationController).topViewController as! CategoriesCollectionViewController
 			c.delegate = self
+		} else if segue.identifier == NumpadSegues.SelectNumpadCurrency.rawValue {
+			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
 		}
-
 	}
 	
 	@IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
@@ -304,8 +311,22 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		}
 	}
 	
+	// MARK: - CurrencySelectDelegate
+	func setCurrency(currency: Currency) {
+		if amount?.currency.code != currency.code {
+			amount?.currency = currency
+			updateCurrentCurrencyBlock()
+			app().model.setNumpadCurrency(amount!.currency)
+		}
+	}
 	
 	
+	func getCurrencyList() -> [Currency] {
+		return app().model.getCurrenciesList()
+	}
+	
+	
+	// MARK: - State Restoration
 	override func encodeRestorableStateWithCoder(coder: NSCoder) {
 		super.encodeRestorableStateWithCoder(coder)
 		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")

@@ -20,6 +20,7 @@
 		9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */; };
 		9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */; };
 		9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */; };
+		9A3C57941C537972001CB79D /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3C57931C537971001CB79D /* CurrencyView.swift */; };
 		9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F0FC11C4B5190009F0BA0 /* currencies.json */; };
 		9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41FF221B75A32900E529D1 /* AmountTextField.swift */; };
 		9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */; };
@@ -121,6 +122,7 @@
 		9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableController.swift; sourceTree = "<group>"; };
 		9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCurrenciesSearchCell.xib; sourceTree = "<group>"; };
 		9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
+		9A3C57931C537971001CB79D /* CurrencyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		9A3F0FC11C4B5190009F0BA0 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
 		9A41FF221B75A32900E529D1 /* AmountTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			children = (
 				9A9C91961B3444E500DE580F /* NumpadViewController.swift */,
 				9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */,
+				9A3C57931C537971001CB79D /* CurrencyView.swift */,
 			);
 			name = NumPad;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
 				9A8B0E9C1C4146F3003E7FD2 /* CrabApi.swift in Sources */,
 				9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */,
+				9A3C57941C537972001CB79D /* CurrencyView.swift in Sources */,
 				9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */,
 				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
 				9AFE7CAC1B82E78C00B7159B /* TransactionTableViewCell.swift in Sources */,
