@@ -292,7 +292,7 @@
         <!--Insights-->
         <scene sceneID="i5n-Ck-dYc">
             <objects>
-                <tableViewController restorationIdentifier="InsightsController" id="b2d-7q-Sqc" customClass="InsightsTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="b2d-7q-Sqc" customClass="InsightsTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Cts-vi-XPS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -662,7 +662,7 @@
         <!--Add transaction-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController restorationIdentifier="NumpadController" storyboardIdentifier="NumpadController" id="vXZ-lx-hvc" customClass="NumpadViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NumpadController" id="vXZ-lx-hvc" customClass="NumpadViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -675,74 +675,85 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="244"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41b-cO-QN7" userLabel="Amount View" colorLabel="IBBuiltInLabel-Red">
-                                        <rect key="frame" x="0.0" y="20" width="600" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                         <subviews>
                                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlV-oz-1kd" userLabel="Currency">
-                                                <rect key="frame" x="540" y="20" width="40" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpO-jy-7vO">
+                                                        <rect key="frame" x="68" y="0.0" width="150" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="fNh-gh-yTO"/>
+                                                            <constraint firstAttribute="width" constant="44" id="lKq-Oy-LYY"/>
+                                                            <constraint firstAttribute="height" constant="20" id="t84-Cy-rUs"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="lKq-Oy-LYY"/>
+                                                                <exclude reference="t84-Cy-rUs"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="JtI-oY-QME">
+                                                        <rect key="frame" x="557" y="10" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="F6f-IL-cKz"/>
+                                                            <constraint firstAttribute="height" constant="25" id="SnL-cc-gkF"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_ru" translatesAutoresizingMaskIntoConstraints="NO" id="0LJ-hm-uUF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <rect key="frame" x="18" y="7" width="40" height="30"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="Bsz-u2-2Kq"/>
+                                                            <constraint firstAttribute="height" constant="30" id="Bsz-u2-2Kq"/>
                                                             <constraint firstAttribute="width" constant="40" id="dxC-gu-qZs"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpO-jy-7vO">
-                                                        <rect key="frame" x="0.0" y="40" width="40" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="40" id="lKq-Oy-LYY"/>
-                                                            <constraint firstAttribute="height" constant="20" id="t84-Cy-rUs"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <accessibility key="accessibilityConfiguration" label="Currency"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="3Pr-Xf-ZlV"/>
-                                                    <constraint firstItem="GpO-jy-7vO" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="leading" id="RsN-4b-9Ab"/>
-                                                    <constraint firstItem="GpO-jy-7vO" firstAttribute="top" secondItem="0LJ-hm-uUF" secondAttribute="bottom" id="e3l-uB-ePe"/>
-                                                    <constraint firstItem="0LJ-hm-uUF" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="leading" id="g53-gY-Mcp"/>
-                                                    <constraint firstAttribute="width" constant="40" id="mHV-9G-guj"/>
-                                                    <constraint firstItem="0LJ-hm-uUF" firstAttribute="top" secondItem="OlV-oz-1kd" secondAttribute="top" id="rb0-xz-rOD"/>
+                                                    <constraint firstAttribute="height" constant="44" id="3Pr-Xf-ZlV"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="JtI-oY-QME" secondAttribute="trailing" constant="10" id="OCY-CD-sSb"/>
+                                                    <constraint firstItem="0LJ-hm-uUF" firstAttribute="centerY" secondItem="OlV-oz-1kd" secondAttribute="centerY" id="OOM-FT-Zd7"/>
+                                                    <constraint firstItem="GpO-jy-7vO" firstAttribute="top" secondItem="OlV-oz-1kd" secondAttribute="top" id="crH-ZE-kO2"/>
+                                                    <constraint firstItem="GpO-jy-7vO" firstAttribute="leading" secondItem="0LJ-hm-uUF" secondAttribute="trailing" constant="10" id="hvD-ur-lfF"/>
+                                                    <constraint firstItem="JtI-oY-QME" firstAttribute="centerY" secondItem="OlV-oz-1kd" secondAttribute="centerY" id="oYm-Yw-XNu"/>
+                                                    <constraint firstItem="0LJ-hm-uUF" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="leadingMargin" constant="10" id="pZ3-6o-N1v"/>
+                                                    <constraint firstItem="GpO-jy-7vO" firstAttribute="height" secondItem="OlV-oz-1kd" secondAttribute="height" id="r2y-YU-CBb"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="fmk-u9-7uf" appends="YES" id="umP-Iz-bKg"/>
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="50000" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-nR-Wyb">
-                                                <rect key="frame" x="75" y="25" width="450" height="50"/>
+                                                <rect key="frame" x="18" y="75" width="564" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="hFx-5g-jxI"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="64"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="70"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                         </subviews>
                                         <accessibility key="accessibilityConfiguration" label="Amount"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="4Ib-jC-ZsQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="GjU-nR-Wyb" secondAttribute="trailing" constant="75" id="DrB-0N-U2a"/>
-                                            <constraint firstItem="OlV-oz-1kd" firstAttribute="centerY" secondItem="41b-cO-QN7" secondAttribute="centerY" id="NC6-Nd-Wen"/>
+                                            <constraint firstAttribute="height" constant="200" id="4Ib-jC-ZsQ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="GjU-nR-Wyb" secondAttribute="trailing" constant="10" id="DrB-0N-U2a"/>
+                                            <constraint firstItem="OlV-oz-1kd" firstAttribute="top" secondItem="41b-cO-QN7" secondAttribute="top" id="ODw-eQ-u6b"/>
                                             <constraint firstAttribute="trailing" secondItem="OlV-oz-1kd" secondAttribute="trailing" constant="20" id="RXW-Az-new"/>
-                                            <constraint firstItem="OlV-oz-1kd" firstAttribute="leading" secondItem="41b-cO-QN7" secondAttribute="leading" constant="20" id="Rly-Xw-rmW"/>
-                                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="leading" secondItem="OlV-oz-1kd" secondAttribute="trailing" constant="20" id="WUT-Mq-qwa"/>
-                                            <constraint firstAttribute="trailing" secondItem="GjU-nR-Wyb" secondAttribute="trailing" constant="20" id="ikb-zR-nMl"/>
+                                            <constraint firstItem="OlV-oz-1kd" firstAttribute="leading" secondItem="41b-cO-QN7" secondAttribute="leading" id="Rly-Xw-rmW"/>
+                                            <constraint firstAttribute="trailing" secondItem="OlV-oz-1kd" secondAttribute="trailing" id="VU0-Nb-mdh"/>
                                             <constraint firstItem="GjU-nR-Wyb" firstAttribute="centerY" secondItem="41b-cO-QN7" secondAttribute="centerY" id="mXC-OR-zqd"/>
-                                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="leading" secondItem="41b-cO-QN7" secondAttribute="leading" constant="75" id="q5y-ft-UVx"/>
-                                            <constraint firstAttribute="width" constant="350" id="zl8-ds-bog"/>
+                                            <constraint firstItem="GjU-nR-Wyb" firstAttribute="leading" secondItem="41b-cO-QN7" secondAttribute="leadingMargin" constant="10" id="q5y-ft-UVx"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="zl8-ds-bog"/>
-                                                <exclude reference="WUT-Mq-qwa"/>
-                                                <exclude reference="ikb-zR-nMl"/>
-                                                <exclude reference="Rly-Xw-rmW"/>
+                                                <exclude reference="RXW-Az-new"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -750,10 +761,7 @@
                                         <rect key="frame" x="18" y="179" width="240" height="45"/>
                                         <color key="backgroundColor" red="0.19215686274509802" green="0.64313725490196072" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="MNP-L8-U3J"/>
-                                            <constraint firstAttribute="height" constant="45" id="PGc-NH-Nug"/>
-                                            <constraint firstAttribute="height" constant="30" id="gd0-OV-Xl7"/>
-                                            <constraint firstAttribute="width" constant="220" id="myK-jD-xnV"/>
+                                            <constraint firstAttribute="height" constant="45" identifier="conEar4" id="PGc-NH-Nug"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="25"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -761,13 +769,6 @@
                                         <state key="normal" title="Earning">
                                             <color key="titleColor" red="0.97741711750477334" green="1" blue="0.94736698123327479" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="MNP-L8-U3J"/>
-                                                <exclude reference="gd0-OV-Xl7"/>
-                                                <exclude reference="myK-jD-xnV"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="tapSaveTransaction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="drh-bz-W29"/>
                                         </connections>
@@ -776,7 +777,7 @@
                                         <rect key="frame" x="342" y="179" width="240" height="45"/>
                                         <color key="backgroundColor" red="0.64313725490196072" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="ZIl-EO-6Lg"/>
+                                            <constraint firstAttribute="height" constant="45" identifier="conExp4" id="ZIl-EO-6Lg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="25"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -790,32 +791,27 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Imk-u6-Ckj" secondAttribute="trailing" constant="10" id="8R5-nV-sfT"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Imk-u6-Ckj" secondAttribute="trailing" constant="10" identifier="conExp1" id="8R5-nV-sfT"/>
                                     <constraint firstItem="41b-cO-QN7" firstAttribute="width" secondItem="vqD-fe-04E" secondAttribute="width" id="BiK-gq-2MZ"/>
-                                    <constraint firstItem="Imk-u6-Ckj" firstAttribute="width" secondItem="vqD-fe-04E" secondAttribute="width" multiplier="0.4" id="D4V-NK-8bk"/>
+                                    <constraint firstItem="Imk-u6-Ckj" firstAttribute="width" secondItem="vqD-fe-04E" secondAttribute="width" multiplier="0.4" identifier="conExp3" id="D4V-NK-8bk"/>
                                     <constraint firstItem="41b-cO-QN7" firstAttribute="centerX" secondItem="vqD-fe-04E" secondAttribute="centerX" id="GIa-W0-a6Y"/>
-                                    <constraint firstItem="41b-cO-QN7" firstAttribute="top" secondItem="vqD-fe-04E" secondAttribute="top" constant="20" id="UCl-lc-ngX"/>
-                                    <constraint firstItem="HKv-uN-3ND" firstAttribute="leading" secondItem="vqD-fe-04E" secondAttribute="leadingMargin" constant="10" id="VNJ-AL-6ZP"/>
-                                    <constraint firstItem="HKv-uN-3ND" firstAttribute="width" secondItem="vqD-fe-04E" secondAttribute="width" multiplier="0.4" id="lO8-Qi-Vn2"/>
+                                    <constraint firstItem="41b-cO-QN7" firstAttribute="top" secondItem="vqD-fe-04E" secondAttribute="top" id="UCl-lc-ngX"/>
+                                    <constraint firstItem="HKv-uN-3ND" firstAttribute="leading" secondItem="vqD-fe-04E" secondAttribute="leadingMargin" constant="10" identifier="conEar1" id="VNJ-AL-6ZP"/>
+                                    <constraint firstItem="HKv-uN-3ND" firstAttribute="width" secondItem="vqD-fe-04E" secondAttribute="width" multiplier="0.4" identifier="conEar3" id="lO8-Qi-Vn2"/>
                                 </constraints>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJf-uB-ewv" userLabel="Numpad" customClass="NumpadView" customModule="CrabApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="244" width="560" height="243"/>
                                 <subviews>
-                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPe-M8-c7a">
+                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fPe-M8-c7a">
                                         <rect key="frame" x="0.0" y="184" width="168" height="58"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content=".">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="52" name="ArialHebrew-Bold"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="52"/>
+                                        <state key="normal" title=".">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="Plf-3V-xXR"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="nYU-yw-uui"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="32a-ic-luw"/>
                                         </connections>
                                     </button>
@@ -827,17 +823,19 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="2XA-Tv-Ks9"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="qmA-0q-ihy"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rII-t1-TBS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DF6-ad-Jgk">
                                         <rect key="frame" x="392" y="183" width="168" height="58"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="79"/>
                                         <state key="normal" title="⌫">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="E5J-va-n4a"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="qCx-hJ-nje"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MHh-P3-WdB"/>
                                         </connections>
                                     </button>
@@ -849,6 +847,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="fxJ-fz-abT"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="Z7F-3s-aw3"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gB3-wc-Abh"/>
                                         </connections>
                                     </button>
@@ -860,6 +859,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="cOf-l6-c2I"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="bEL-Yd-5jw"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wUr-8S-hzt"/>
                                         </connections>
                                     </button>
@@ -871,6 +871,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="iFv-M9-bBa"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="Zib-8z-LeB"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="u1u-Zg-vvZ"/>
                                         </connections>
                                     </button>
@@ -882,6 +883,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="LHe-l2-kea"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="4Bs-VZ-m6F"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="elA-yc-n0m"/>
                                         </connections>
                                     </button>
@@ -893,6 +895,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="8sk-BO-Eif"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="5Vg-k6-VRx"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GXQ-We-fg8"/>
                                         </connections>
                                     </button>
@@ -904,6 +907,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="XeG-oF-HcN"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="eMR-VX-PDi"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pFR-pn-K8F"/>
                                         </connections>
                                     </button>
@@ -915,6 +919,7 @@
                                         </state>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="7R6-BZ-bZs"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="tjq-P9-8Bo"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="m0P-Fh-lrp"/>
                                         </connections>
                                     </button>
@@ -932,6 +937,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="gFL-2l-hec"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="aC6-9V-fEs"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Jd-7b-GnQ"/>
                                         </connections>
                                     </button>
@@ -949,6 +955,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="numberPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="X27-hu-nN2"/>
+                                            <action selector="numberPressedEnd:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="b6D-rj-rJU"/>
                                             <action selector="tapNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KhT-xu-U5N"/>
                                         </connections>
                                     </button>
@@ -1016,11 +1023,11 @@
                         <constraints>
                             <constraint firstItem="vqD-fe-04E" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="0u0-1L-euu"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xJf-uB-ewv" secondAttribute="bottom" id="6nq-bt-n5z"/>
-                            <constraint firstItem="xJf-uB-ewv" firstAttribute="top" secondItem="HKv-uN-3ND" secondAttribute="bottom" constant="20" id="7ei-6Y-E4Y"/>
+                            <constraint firstItem="xJf-uB-ewv" firstAttribute="top" secondItem="HKv-uN-3ND" secondAttribute="bottom" constant="20" identifier="conEar2" id="7ei-6Y-E4Y"/>
                             <constraint firstItem="xJf-uB-ewv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="BFw-PD-ZuO"/>
                             <constraint firstItem="vqD-fe-04E" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="DLd-Vg-FNE"/>
                             <constraint firstItem="vqD-fe-04E" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="Gha-iC-ER6"/>
-                            <constraint firstItem="xJf-uB-ewv" firstAttribute="top" secondItem="Imk-u6-Ckj" secondAttribute="bottom" constant="20" id="NI4-3w-Ung"/>
+                            <constraint firstItem="xJf-uB-ewv" firstAttribute="top" secondItem="Imk-u6-Ckj" secondAttribute="bottom" constant="20" identifier="conExp2" id="NI4-3w-Ung"/>
                             <constraint firstItem="vqD-fe-04E" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="YuF-wV-3dK"/>
                             <constraint firstItem="xJf-uB-ewv" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="e7d-o9-5wD"/>
                             <constraint firstItem="xJf-uB-ewv" firstAttribute="top" secondItem="vqD-fe-04E" secondAttribute="bottom" id="zid-lp-tFK"/>
@@ -1037,7 +1044,9 @@
                         <outlet property="currentCurrency" destination="GpO-jy-7vO" id="Aej-nO-idd"/>
                         <outlet property="currentFlag" destination="0LJ-hm-uUF" id="r3B-tC-4VW"/>
                         <outlet property="earning" destination="HKv-uN-3ND" id="1eC-S2-Vnk"/>
+                        <outlet property="earningHPosConstraint" destination="VNJ-AL-6ZP" id="Vm5-eV-3vg"/>
                         <outlet property="expense" destination="Imk-u6-Ckj" id="b3b-1n-rCU"/>
+                        <outlet property="expenseHPosConstraint" destination="8R5-nV-sfT" id="c1V-yA-UH8"/>
                         <outlet property="numpad" destination="xJf-uB-ewv" id="YT8-uL-s4n"/>
                         <segue destination="Ua3-WG-fdl" kind="presentation" identifier="CategorySelectSegue" id="B9e-dp-6nI"/>
                     </connections>
@@ -1054,7 +1063,7 @@
         <!--Currency converter-->
         <scene sceneID="EEM-bZ-nNF">
             <objects>
-                <tableViewController restorationIdentifier="CurrencyConverter" id="obF-Gz-u71" customClass="ConverterTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="obF-Gz-u71" customClass="ConverterTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="90" sectionHeaderHeight="18" sectionFooterHeight="18" id="Xha-N9-sAx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1306,7 +1315,7 @@
         <!--Converter-->
         <scene sceneID="kQa-5e-uC5">
             <objects>
-                <navigationController storyboardIdentifier="NavConverter" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZSM-wV-hDo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavConverter" automaticallyAdjustsScrollViewInsets="NO" id="ZSM-wV-hDo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Converter" image="icon_converter" id="e42-NY-80F"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="514-jI-1MB">
@@ -1619,7 +1628,7 @@
         <!--Insights-->
         <scene sceneID="msD-Kn-HA8">
             <objects>
-                <navigationController storyboardIdentifier="NavInsights" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7fo-VY-rNt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavInsights" automaticallyAdjustsScrollViewInsets="NO" id="7fo-VY-rNt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Insights" image="icon_insights" id="nry-mf-cPR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qz7-on-Lfy">
@@ -1816,7 +1825,7 @@
         <!--Add-->
         <scene sceneID="mFf-ue-8Mf">
             <objects>
-                <navigationController restorationIdentifier="NavNumpad" storyboardIdentifier="NavNumpad" automaticallyAdjustsScrollViewInsets="NO" id="opo-CJ-qd0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavNumpad" automaticallyAdjustsScrollViewInsets="NO" id="opo-CJ-qd0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Add" image="icon_add" id="OLP-8p-Qoi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2i4-cn-Gh6">
@@ -1837,6 +1846,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="disclosure" width="25" height="25"/>
         <image name="flag_ru" width="275" height="183"/>
         <image name="icon_add" width="25" height="25"/>
         <image name="icon_converter" width="25" height="25"/>
@@ -1847,7 +1857,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="yNu-ba-KDj"/>
         <segue reference="B9e-dp-6nI"/>
+        <segue reference="rNd-md-E9a"/>
         <segue reference="btf-1b-k7d"/>
-        <segue reference="1Q5-xo-Y9g"/>
     </inferredMetricsTieBreakers>
 </document>

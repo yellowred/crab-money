@@ -16,6 +16,7 @@ class Sound {
 	static let sharedInstance = Sound()
 
 	init() {
+		/*
 		tapSound = NSBundle.mainBundle().URLForResource("tap-mellow", withExtension: "aif")
 		do {
 			try self.tapPlayer = AVAudioPlayer(contentsOfURL: tapSound!)
@@ -26,6 +27,7 @@ class Sound {
 		if self.tapPlayer != nil {
 			self.tapPlayer!.prepareToPlay()
 		}
+		*/
 	}
 
 	func playTap()

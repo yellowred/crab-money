@@ -209,7 +209,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	}
 	
 	
-	
+
+	// MARK: - State Restoration
 	override func encodeRestorableStateWithCoder(coder: NSCoder) {
 		super.encodeRestorableStateWithCoder(coder)
 		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
@@ -220,5 +221,16 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		super.decodeRestorableStateWithCoder(coder)
 		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
 		print("**** Decode state", self.tabBarController!.selectedIndex)
+	}
+	
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
+	
+	override func encodeWithCoder(aCoder: NSCoder) {
+		aCoder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+		print("**** Encode 2 state", self.tabBarController!.selectedIndex)
 	}
 }

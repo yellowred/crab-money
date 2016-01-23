@@ -19,6 +19,7 @@
 		9A36FCDB1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36FCDA1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift */; };
 		9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */; };
 		9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */; };
+		9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */; };
 		9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F0FC11C4B5190009F0BA0 /* currencies.json */; };
 		9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41FF221B75A32900E529D1 /* AmountTextField.swift */; };
 		9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */; };
@@ -119,6 +120,7 @@
 		9A36FCDA1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewCell.swift; sourceTree = "<group>"; };
 		9A36FCE11BD9E13600BD81C0 /* ResultsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableController.swift; sourceTree = "<group>"; };
 		9A36FCE51BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCurrenciesSearchCell.xib; sourceTree = "<group>"; };
+		9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 		9A3F0FC11C4B5190009F0BA0 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
 		9A41FF221B75A32900E529D1 /* AmountTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				9A827C931C1D3EF50025FC5B /* NSDate+Extension.swift */,
 				9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */,
 				9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */,
+				9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */,
 				9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */,
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
+				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
 				9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */,

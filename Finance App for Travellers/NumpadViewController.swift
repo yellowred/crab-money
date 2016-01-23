@@ -17,6 +17,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	var amount:Money?
 	var notCompletedTransaction: Transaction?
 	var baselineOffset:Int = 20
+	var isAmountLoaded:Bool = false
 	
 	private var sound: Sound = {return Sound()}()
 	
@@ -29,7 +30,9 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	@IBOutlet var currentFlag: UIImageView!
 	@IBOutlet var currentCurrency: UILabel!
 	@IBOutlet var expense: UIButton!
+	@IBOutlet var expenseHPosConstraint: NSLayoutConstraint!
 	@IBOutlet var earning: UIButton!
+	@IBOutlet var earningHPosConstraint: NSLayoutConstraint!
 
 	
 	
@@ -58,7 +61,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		
 		amount = Money(amount: 0, currency: app().model.getNumpadCurrency())
 		updateCurrentCurrencyBlock()
-        reloadAmountDisplay()
 		
 		//createNumpad()
 		//amountView.layer.cornerRadius = 5
@@ -81,17 +83,28 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		amountView.layer.insertSublayer(gradient1, atIndex: 0)
 		*/
 		//amountView.backgroundColor = UIColor(rgba: "#324459")
-		expense.backgroundColor = UIColor.expense()
-		earning.backgroundColor = UIColor.earning()
-		expense.layer.cornerRadius = 23
-		earning.layer.cornerRadius = 23
-		currentFlag.layer.cornerRadius = 20
-		currentFlag.layer.masksToBounds = true
+		
 		//currencyView.backgroundColor = UIColor(rgba: "#F9F9F9")
 		//currencyView.layer.cornerRadius = 3
     }
 	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		expense.backgroundColor = UIColor.expense()
+		//self.expense.center.x -= self.view.bounds.width
+		earning.backgroundColor = UIColor.earning()
+		//self.earning.center.x += self.view.bounds.width
+		expense.layer.cornerRadius = 23
+		earning.layer.cornerRadius = 23
+		currentFlag.layer.cornerRadius = 2
+		currentFlag.layer.masksToBounds = true
+		currencyView.layer.borderColor = UIColor(rgba: "#999999").CGColor
+		currencyView.layer.borderWidth = 1
+		reloadAmountDisplay()
+	}
 	
+
 	func createNumpad() {
 		var button = createButton("111")
 		//button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
@@ -169,6 +182,10 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		performSegueWithIdentifier(kCategorySelectSegue, sender: nil)
 	}
 	
+	@IBAction func numberPressedEnd(sender: UIButton) {
+		sender.backgroundColor = UIColor.whiteColor()
+	}
+	
 	func reloadAmountDisplay()
 	{
 		guard amountDisplayLabel != nil else {
@@ -176,6 +193,43 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		}
 		amountDisplayLabel.adjustsFontSizeToFitWidth = true
 		amountDisplayLabel.text = amount!.valueForAmount()
+			if amount!.amount.isPositive() {
+				showSaveButtons()
+			} else {
+				hideSaveButtons()
+			}
+	}
+	
+	
+	func showSaveButtons()
+	{
+		self.view.layoutIfNeeded()
+		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.95, initialSpringVelocity: 5, options: [], animations: {
+			self.expense.alpha = 1
+			self.expenseHPosConstraint.constant = 10
+			self.view.layoutIfNeeded()
+			}, completion: nil)
+		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.95, initialSpringVelocity: 5, options: [], animations: {
+			self.earning.alpha = 1
+			self.earningHPosConstraint.constant = 10
+			self.view.layoutIfNeeded()
+			}, completion: nil)
+	}
+	
+	
+	func hideSaveButtons()
+	{
+		self.view.layoutIfNeeded()
+		UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
+			self.expense.alpha = 0.5
+			self.expenseHPosConstraint.constant = -self.expense.bounds.width
+			self.view.layoutIfNeeded()
+			}, completion: nil)
+		UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
+			self.earning.alpha = 0.5
+			self.earningHPosConstraint.constant = -self.earning.bounds.width
+			self.view.layoutIfNeeded()
+			}, completion: nil)
 	}
 	
     override func didReceiveMemoryWarning() {
