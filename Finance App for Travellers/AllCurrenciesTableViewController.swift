@@ -156,7 +156,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	
 	
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 44
+		return 60
 	}
 	/*
 	// Override to support conditional editing of the table view.

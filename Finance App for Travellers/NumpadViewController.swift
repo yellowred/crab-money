@@ -278,9 +278,17 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 	
 	@IBAction func currencySelectTap(sender: UITapGestureRecognizer) {
-		let selectCurrencyView: AllCurrenciesTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectCurrency") as! AllCurrenciesTableViewController
-		selectCurrencyView.delegate = self
-		self.presentViewController(selectCurrencyView, animated: true, completion: nil)
+		if sender.state == UIGestureRecognizerState.Began {
+			currencyView.backgroundColor = UIColor.lightGrayColor()
+		} else {
+			currencyView.backgroundColor = UIColor.whiteColor()
+		}
+		
+		if sender.state == UIGestureRecognizerState.Ended {
+			let selectCurrencyView: AllCurrenciesTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectCurrency") as! AllCurrenciesTableViewController
+			selectCurrencyView.delegate = self
+			self.navigationController?.pushViewController(selectCurrencyView, animated: true)
+		}
 	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)

@@ -64,7 +64,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if (section == 0) {
+		if (section == 0 && earningCategories.count > 0) {
 			return earningCategories.count
 		} else {
 			return expenseCategories.count
@@ -75,7 +75,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		let cell = tableView.dequeueReusableCellWithIdentifier(kInsightsCategoryCellIdentifier, forIndexPath: indexPath) as! InsightsCategoryTableViewCell
 		
 		var category: Category
-		if indexPath.section == 0 {
+		if indexPath.section == 0 && earningCategories.count > 0 {
 			category = earningCategories[indexPath.row]
 		} else {
 			category = expenseCategories[indexPath.row]
@@ -87,7 +87,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 	
 	
 	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if (section == 0) {
+		if (section == 0  && earningCategories.count > 0) {
 			return "Earnings".localized
 		} else {
 			return "Expenses".localized
@@ -96,7 +96,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		var category: Category
-		if indexPath.section == 0 {
+		if indexPath.section == 0 && earningCategories.count > 0 {
 			category = earningCategories[indexPath.row]
 		} else {
 			category = expenseCategories[indexPath.row]
