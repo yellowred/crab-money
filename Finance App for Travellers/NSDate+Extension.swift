@@ -43,6 +43,14 @@ extension NSDate {
 	}
 	
 	
+	func periodShortFormat() -> String {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "d MMMM"
+		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
+		return dateFormatter.stringFromDate(self)
+	}
+	
+	
 	func formatWithTimeLong() -> String {
 		let df = NSDateFormatter()
 		df.dateStyle = NSDateFormatterStyle.MediumStyle

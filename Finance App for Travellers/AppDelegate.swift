@@ -27,11 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			Networking.sharedInstance.updateAll(nil)
 		})
 		UIApplication.sharedApplication().statusBarStyle = .Default
+		UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
 		
 		application.setMinimumBackgroundFetchInterval(21600) // 6 hours
 		
 		self.window?.makeKeyAndVisible()
-
 		return true
     }
 
@@ -53,12 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func application(application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
-		return true
+		return false
 	}
 	
 	
 	func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
-		return true
+		return false
 	}
 	
 	

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Finance App for Travellers/NumpadViewController.swift"
-            timestampString = "475243201.525063"
+            filePath = "Finance App for Travellers/ConverterTableViewController.swift"
+            timestampString = "475333030.20241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "currencySelectTap(_:)"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "encodeWithCoder(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

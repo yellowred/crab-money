@@ -205,12 +205,12 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	func showSaveButtons()
 	{
 		self.view.layoutIfNeeded()
-		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.95, initialSpringVelocity: 5, options: [], animations: {
+		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.expense.alpha = 1
 			self.expenseHPosConstraint.constant = 10
 			self.view.layoutIfNeeded()
 			}, completion: nil)
-		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.95, initialSpringVelocity: 5, options: [], animations: {
+		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.earning.alpha = 1
 			self.earningHPosConstraint.constant = 10
 			self.view.layoutIfNeeded()

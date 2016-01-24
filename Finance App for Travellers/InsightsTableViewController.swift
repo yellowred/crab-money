@@ -225,14 +225,15 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	// MARK: - State Restoration
 	override func encodeRestorableStateWithCoder(coder: NSCoder) {
-		super.encodeRestorableStateWithCoder(coder)
 		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+		super.encodeRestorableStateWithCoder(coder)
+
 		print("Encode state", self.tabBarController!.selectedIndex)
 	}
 	
 	override func decodeRestorableStateWithCoder(coder: NSCoder) {
-		super.decodeRestorableStateWithCoder(coder)
 		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+		super.decodeRestorableStateWithCoder(coder)
 		print("Decode state", self.tabBarController!.selectedIndex)
 	}
 	

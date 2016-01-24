@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gOD-Dj-e6q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gOD-Dj-e6q">
     <dependencies>
         <deployment version="2064" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsightsCategoryCell" id="gFH-up-Yc3" customClass="InsightsCategoryTableViewCell" customModule="CrabApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsightsCategoryCell" rowHeight="44" id="gFH-up-Yc3" customClass="InsightsCategoryTableViewCell" customModule="CrabApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFH-up-Yc3" id="K2n-St-Fma">
@@ -347,15 +347,17 @@
                                                         <action selector="changePeriod:" destination="b2d-7q-Sqc" eventType="touchUpInside" id="Pkv-lu-wNO"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 Nov – 17 Dec, 16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mK8-8b-kHz">
-                                                    <rect key="frame" x="226" y="11" width="148" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="17 Nov – 17 Dec, 16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mK8-8b-kHz">
+                                                    <rect key="frame" x="50" y="11" width="500" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vnK-zw-uTk" firstAttribute="leading" secondItem="mK8-8b-kHz" secondAttribute="trailing" id="4XJ-AH-tPJ"/>
                                                 <constraint firstItem="3sp-Zk-3MF" firstAttribute="centerY" secondItem="MMe-D2-drD" secondAttribute="centerY" id="FK8-6X-Vov"/>
+                                                <constraint firstItem="mK8-8b-kHz" firstAttribute="leading" secondItem="3sp-Zk-3MF" secondAttribute="trailing" id="ISV-v1-S5O"/>
                                                 <constraint firstItem="3sp-Zk-3MF" firstAttribute="top" secondItem="MMe-D2-drD" secondAttribute="topMargin" id="LuA-zt-fbz"/>
                                                 <constraint firstItem="vnK-zw-uTk" firstAttribute="centerY" secondItem="MMe-D2-drD" secondAttribute="centerY" id="Ypb-lF-AlM"/>
                                                 <constraint firstItem="mK8-8b-kHz" firstAttribute="centerX" secondItem="MMe-D2-drD" secondAttribute="centerX" id="cq8-Zh-NQK"/>
@@ -749,7 +751,7 @@
                                                     <constraint firstItem="OlV-oz-1kd" firstAttribute="top" secondItem="b2x-uG-Nb2" secondAttribute="top" id="riE-se-D21"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="50000" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-nR-Wyb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="50000" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-nR-Wyb">
                                                 <rect key="frame" x="18" y="75" width="564" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="hFx-5g-jxI"/>
@@ -757,6 +759,11 @@
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="70"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="hFx-5g-jxI"/>
+                                                    </mask>
+                                                </variation>
                                             </label>
                                         </subviews>
                                         <accessibility key="accessibilityConfiguration" label="Amount"/>
@@ -1676,6 +1683,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="M5N-si-tto">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.36526006459999999" green="0.52590990069999999" blue="0.25753524900000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="7fo-VY-rNt" kind="relationship" relationship="viewControllers" id="oj9-Ei-iBA"/>
