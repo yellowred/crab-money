@@ -26,6 +26,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	@IBOutlet var prevPeriodButton: UIButton!
 	@IBOutlet var homeCurrency: UILabel!
 	@IBOutlet var maxTransactionAmount: UILabel!
+	@IBOutlet var budgetInfoLabel: UILabel!
+	@IBOutlet var budgetProgressBar: UIProgressView!
 	
 	var underlayingView: UIView?
 	

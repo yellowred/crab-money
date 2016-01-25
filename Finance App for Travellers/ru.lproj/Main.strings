@@ -1,51 +1,98 @@
+/* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
+"OLP-8p-Qoi.title" = "Добавить";
 
-/* Class = "UIButton"; normalTitle = "1"; ObjectID = "AoL-Yo-ciG"; */
-"AoL-Yo-ciG.normalTitle" = "1";
+/* Class = "UITabBarItem"; title = "Insights"; ObjectID = "nry-mf-cPR"; */
+"nry-mf-cPR.title" = "Наблюдения";
 
-/* Class = "UIButton"; normalTitle = "2"; ObjectID = "Ibc-2H-AkF"; */
-"Ibc-2H-AkF.normalTitle" = "2";
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "0Pe-5P-1sF"; */
+"0Pe-5P-1sF.title" = "Настройки";
 
-/* Class = "UITextField"; placeholder = "1000"; ObjectID = "RFZ-iF-Jil"; */
-"RFZ-iF-Jil.placeholder" = "1000";
+/* Class = "UILabel"; text = "Category name"; ObjectID = "3Ah-j1-KfZ"; */
+"3Ah-j1-KfZ.text" = "Название категории";
 
-/* Class = "UITextField"; text = "1000"; ObjectID = "RFZ-iF-Jil"; */
-"RFZ-iF-Jil.text" = "1000";
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "3fm-G7-nUN"; */
+"3fm-G7-nUN.title" = "Назад";
 
-/* Class = "UIButton"; normalTitle = "6"; ObjectID = "Sk4-Mf-AcN"; */
-"Sk4-Mf-AcN.normalTitle" = "6";
+/* Class = "UITableViewSection"; headerTitle = "Earnings"; ObjectID = "3pR-a6-zDj"; */
+"3pR-a6-zDj.headerTitle" = "Доход";
 
-/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "WgM-wL-HCj"; */
-"WgM-wL-HCj.normalTitle" = "OK";
+/* Class = "UIButton"; accessibilityLabel = "Previous"; ObjectID = "3sp-Zk-3MF"; */
+"3sp-Zk-3MF.accessibilityLabel" = "Предыдущий";
 
-/* Class = "UIButton"; normalTitle = "4"; ObjectID = "bcl-Hb-vI7"; */
-"bcl-Hb-vI7.normalTitle" = "4";
+/* Class = "UITableViewSection"; headerTitle = "Date"; ObjectID = "3tT-fv-mmG"; */
+"3tT-fv-mmG.headerTitle" = "Дата";
 
-/* Class = "UIButton"; normalTitle = "5"; ObjectID = "duV-gL-POk"; */
-"duV-gL-POk.normalTitle" = "5";
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "3tW-UV-qXX"; */
+"3tW-UV-qXX.title" = "Отмена";
 
-/* Class = "UIButton"; normalTitle = "⌫"; ObjectID = "fW4-OZ-E8T"; */
-"fW4-OZ-E8T.normalTitle" = "⌫";
+/* Class = "UIView"; accessibilityLabel = "Amount"; ObjectID = "41b-cO-QN7"; */
+"41b-cO-QN7.accessibilityLabel" = "Сумма";
 
-/* Class = "UIButton"; normalTitle = "3"; ObjectID = "h7U-Y2-VQc"; */
-"h7U-Y2-VQc.normalTitle" = "3";
+/* Class = "UILabel"; text = "Transactions"; ObjectID = "5rK-ba-hdg"; */
+"5rK-ba-hdg.text" = "Транзакции";
 
-/* Class = "UIButton"; normalTitle = "0"; ObjectID = "k8O-BI-fL9"; */
-"k8O-BI-fL9.normalTitle" = "0";
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "852-ri-AW1"; */
+"852-ri-AW1.normalTitle" = "9";
 
-/* Class = "UILabel"; text = "RUB"; ObjectID = "nBv-mD-HcQ"; */
-"nBv-mD-HcQ.text" = "RUB";
+/* Class = "UILabel"; text = "Max transaction amount"; ObjectID = "9x3-wz-V3O"; */
+"9x3-wz-V3O.text" = "Макс размер транзакции";
 
-/* Class = "UIButton"; normalTitle = "9"; ObjectID = "pXz-cm-EJf"; */
-"pXz-cm-EJf.normalTitle" = "9";
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Ar3-ge-jIV"; */
+"Ar3-ge-jIV.title" = "Назад";
 
-/* Class = "UIButton"; normalTitle = "."; ObjectID = "qyH-DW-wbN"; */
-"qyH-DW-wbN.normalTitle" = ".";
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Cv2-G7-HeO"; */
+"Cv2-G7-HeO.title" = "Категории";
 
-/* Class = "UIButton"; normalTitle = "7"; ObjectID = "wyJ-LW-Vh8"; */
-"wyJ-LW-Vh8.normalTitle" = "7";
+/* Class = "UITableViewSection"; headerTitle = "Details"; ObjectID = "DKT-Q3-OLZ"; */
+"DKT-Q3-OLZ.headerTitle" = "Детали";
 
-/* Class = "UIButton"; normalTitle = "$ 1700"; ObjectID = "wzW-kr-rPo"; */
-"wzW-kr-rPo.normalTitle" = "$ 1700";
+/* Class = "UIBarButtonItem"; title = "All categories"; ObjectID = "GNh-A3-S0j"; */
+"GNh-A3-S0j.title" = "Все категории";
 
-/* Class = "UIButton"; normalTitle = "8"; ObjectID = "y0b-Mu-HwN"; */
-"y0b-Mu-HwN.normalTitle" = "8";
+/* Class = "UIButton"; normalTitle = "Earning"; ObjectID = "HKv-uN-3ND"; */
+"HKv-uN-3ND.normalTitle" = "Доход";
+
+/* Class = "UITableViewSection"; footerTitle = "Tap to select another category for this transaction"; ObjectID = "Hft-4l-e9f"; */
+"Hft-4l-e9f.footerTitle" = "Тап для выбора другой категории";
+
+/* Class = "UITableViewSection"; headerTitle = "Category"; ObjectID = "Hft-4l-e9f"; */
+"Hft-4l-e9f.headerTitle" = "Категория";
+
+/* Class = "UINavigationItem"; title = "Insights"; ObjectID = "HyR-0t-8hd"; */
+"HyR-0t-8hd.title" = "Наблюдения";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "Ifz-Yu-OHB"; */
+"Ifz-Yu-OHB.text" = "Категории";
+
+/* Class = "UIButton"; normalTitle = "Expense"; ObjectID = "Imk-u6-Ckj"; */
+"Imk-u6-Ckj.normalTitle" = "Расход";
+
+/* Class = "UINavigationItem"; title = "Insights"; ObjectID = "Jlb-z8-FyZ"; */
+"Jlb-z8-FyZ.title" = "Наблюдения";
+
+/* Class = "UIButton"; normalTitle = "Add another currency"; ObjectID = "LFk-xb-2Bf"; */
+"LFk-xb-2Bf.normalTitle" = "Добавить еще валюту";
+
+/* Class = "UILabel"; text = "Expenses"; ObjectID = "MpU-Ix-SEX"; */
+"MpU-Ix-SEX.text" = "Расходы";
+
+/* Class = "UILabel"; text = "Daily average"; ObjectID = "NQH-Sa-Lar"; */
+"NQH-Sa-Lar.text" = "Среднее в день";
+
+/* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
+"OLP-8p-Qoi.title" = "Добавить";
+
+/* Class = "UIBarButtonItem"; title = "Numpad"; ObjectID = "ONW-Eu-dND"; */
+"ONW-Eu-dND.title" = "Ввод суммы";
+
+/* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
+"OVX-l5-VRT.headerTitle" = "Домашняя валюта";
+
+/* Class = "UIView"; accessibilityLabel = "Currency"; ObjectID = "OlV-oz-1kd"; */
+"OlV-oz-1kd.accessibilityLabel" = "Валюта";
+
+/* Class = "UITableViewSection"; headerTitle = "Expenses"; ObjectID = "i4V-ZG-KTI"; */
+"i4V-ZG-KTI.headerTitle" = "Расходы";
+
+/* Class = "UILabel"; text = "Projected this period"; ObjectID = "Seg-EE-oTk"; */
+"Seg-EE-oTk.text" = "Ожидаемое в конце";
