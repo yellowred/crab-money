@@ -10,9 +10,10 @@ import UIKit
 
 class AllCurrenciesTableViewCell: UITableViewCell {
 
-	@IBOutlet weak var flag: UIImageView!
-	@IBOutlet weak var code: UILabel!
-	@IBOutlet weak var name: UILabel!
+	
+	@IBOutlet var flag: UIImageView!
+	@IBOutlet var code: UILabel!
+	@IBOutlet var name: UILabel!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
