@@ -1,0 +1,6 @@
+framework module Pods_CrabApp {
+  umbrella header "Pods-CrabApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

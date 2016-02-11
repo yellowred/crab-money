@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Material
 
 enum InsightsSegues: String {
 	case ShowTransactions = "ShowTransactions"
 	case ShowCategories = "ShowCategories"
 	case SelectHomeCurrency = "SelectHomeCurrency"
+	case SetBudget = "SetBudget"
 }
 
 class InsightsTableViewController: UITableViewController, CurrencySelectDelegate, TransactionsViewDelegate {
@@ -91,6 +93,17 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			
 			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
 			dailyAverageEarnings.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
+			
+			var budget = app().model.getBudget()
+			if budget.currency.code != homeCurrencyObject.code {
+				budget = budget.toCurrency(homeCurrencyObject)
+			}
+			let budgetRemains = budget.amount.decimalNumberBySubtracting(finmath.expensesTotal)
+			budgetInfoLabel.text = NSNumberFormatter().formatterMoney(budget.currency).stringFromNumber(budgetRemains.decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)))! + " " + "remains".localized
+			let expt = finmath.expensesTotal as NSDecimalNumber
+			budgetProgressBar.setProgress(expt.decimalNumberByDividingBy(budget.amount).floatValue, animated: true)
+			budgetProgressBar.progressTintColor = MaterialColor.red.darken1
+			budgetProgressBar.trackTintColor = MaterialColor.green.darken1
 
 		} else {
 			periodLabel.text = "undefined".localized
@@ -137,7 +150,18 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		showSummary()
 	}
 	
+	
+	@IBAction func saveBudget(segue:UIStoryboardSegue) {
+		if let budgetDetailTVC = segue.sourceViewController as? BudgetTableViewController {
+			if let budget = budgetDetailTVC.budget {
+				app().model.setBudget(budget)
+				
+			}
+		}
+	}
 
+	
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -406,7 +406,23 @@ class Model
 		return carrier?.isoCountryCode
 	}
 	
-
+	
+	// MARK: - Budget
+	func getBudget() -> Money {
+		if let amount = NSUserDefaults.standardUserDefaults().objectForKey("budget_amount") as? NSNumber {
+			return Money(amount: NSDecimalNumber(decimal: amount.decimalValue), currency: getCurrencyByCode(NSUserDefaults.standardUserDefaults().stringForKey("budget_currency")!)!)
+		} else {
+			return Money(amount: 0, currency: getDefaultCurrency())
+		}
+	}
+	
+	
+	func setBudget(budget:Money) {
+		NSUserDefaults.standardUserDefaults().setObject(budget.amount, forKey: "budget_amount")
+		NSUserDefaults.standardUserDefaults().setObject(budget.currency.code, forKey: "budget_currency")
+	}
+	
+	
 	// MARK: - User Defaults
 	func isEventHappen(name: String) -> Bool {
 		let defaults = NSUserDefaults.standardUserDefaults()

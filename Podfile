@@ -5,12 +5,13 @@ use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-target 'Finance App for Travellers' do
+target 'CrabApp' do
 	pod 'ChameleonFramework/Swift'
 	pod 'Alamofire', '~> 3.0'
+    pod 'Material', '~> 1.0'
 end
 
-target 'Finance App for TravellersTests' do
+target 'CrabAppTests' do
 
 end
 

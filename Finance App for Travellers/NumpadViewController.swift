@@ -8,7 +8,7 @@
 
 import UIKit
 import ChameleonFramework
-
+import Material
 
 enum NumpadSegues: String {
 	case SelectNumpadCurrency = "SelectNumpadCurrency"
@@ -37,7 +37,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	@IBOutlet var earning: UIButton!
 	@IBOutlet var earningHPosConstraint: NSLayoutConstraint!
 
-	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +87,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		//amountView.backgroundColor = UIColor(rgba: "#324459")
 		
 		//currencyView.backgroundColor = UIColor(rgba: "#F9F9F9")
-		//currencyView.layer.cornerRadius = 3
+		//currencyView.layer.cornerRadius = 3		
     }
 	
 	override func viewWillAppear(animated: Bool) {

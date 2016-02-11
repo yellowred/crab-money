@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gOD-Dj-e6q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gOD-Dj-e6q">
     <dependencies>
         <deployment version="2064" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -289,6 +289,72 @@
             </objects>
             <point key="canvasLocation" x="-540" y="-209"/>
         </scene>
+        <!--Budget-->
+        <scene sceneID="Tpj-KY-beX">
+            <objects>
+                <tableViewController id="M9f-qU-lRw" customClass="BudgetTableViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gjY-hI-IrX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Budget for expenses" footerTitle="Please set desirable amount for monthly spendings" id="Lrr-e3-9DF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cXf-XH-rr6">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cXf-XH-rr6" id="fmh-lR-l1w">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jw0-kj-ctQ">
+                                                    <rect key="frame" x="16" y="7" width="150" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="vX6-qx-KAb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hei-1F-yIJ">
+                                                    <rect key="frame" x="524" y="7" width="50" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hei-1F-yIJ" secondAttribute="trailing" constant="18" id="AhB-SH-bMT"/>
+                                                <constraint firstItem="jw0-kj-ctQ" firstAttribute="centerY" secondItem="fmh-lR-l1w" secondAttribute="centerY" id="bWL-3q-aRQ"/>
+                                                <constraint firstItem="jw0-kj-ctQ" firstAttribute="leading" secondItem="fmh-lR-l1w" secondAttribute="leadingMargin" constant="8" id="c1i-qn-rKd"/>
+                                                <constraint firstItem="hei-1F-yIJ" firstAttribute="centerY" secondItem="fmh-lR-l1w" secondAttribute="centerY" id="exj-s0-P2l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="M9f-qU-lRw" id="oKe-6R-bIl"/>
+                            <outlet property="delegate" destination="M9f-qU-lRw" id="YMO-GS-lSp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Budget" id="Gen-7d-mY4">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Ri7-6V-DfV">
+                            <connections>
+                                <segue destination="fqp-UV-Lhr" kind="unwind" unwindAction="saveBudget:" id="CRG-VN-lLx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="budgetCurrencyLabel" destination="hei-1F-yIJ" id="ozc-1W-Yu7"/>
+                        <outlet property="budgetTextInput" destination="jw0-kj-ctQ" id="HFa-De-TcM"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnj-vu-SpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fqp-UV-Lhr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="-907"/>
+        </scene>
         <!--Insights-->
         <scene sceneID="i5n-Ck-dYc">
             <objects>
@@ -531,7 +597,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Zcn-6K-BYj"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -540,7 +606,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="r1n-OL-d9M"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                                     <color key="textColor" red="0.19215686274509802" green="0.64313725490196072" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -549,7 +615,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="AYp-Qu-UG5"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -558,7 +624,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="foe-tx-7CR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.19215686274509802" green="0.64313725490196072" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -610,6 +676,9 @@
                                                 <constraint firstItem="5F8-ii-41x" firstAttribute="leading" secondItem="eWN-jI-KcU" secondAttribute="leadingMargin" constant="10" id="zIV-aX-nsu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="M9f-qU-lRw" kind="show" identifier="SetBudget" id="tGi-6o-SgP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -693,7 +762,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136" y="-235"/>
+            <point key="canvasLocation" x="136" y="-209"/>
         </scene>
         <!--Add transaction-->
         <scene sceneID="ufC-wZ-h7g">
@@ -785,8 +854,8 @@
                                                     <constraint firstItem="OlV-oz-1kd" firstAttribute="top" secondItem="b2x-uG-Nb2" secondAttribute="top" id="riE-se-D21"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="50000" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-nR-Wyb">
-                                                <rect key="frame" x="18" y="75" width="564" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="50000" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="GjU-nR-Wyb">
+                                                <rect key="frame" x="18" y="51" width="564" height="98"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="hFx-5g-jxI"/>
                                                 </constraints>
@@ -1904,8 +1973,8 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B9e-dp-6nI"/>
-        <segue reference="QbT-4Y-1V6"/>
         <segue reference="rNd-md-E9a"/>
+        <segue reference="QbT-4Y-1V6"/>
+        <segue reference="Y3u-vg-LQS"/>
     </inferredMetricsTieBreakers>
 </document>

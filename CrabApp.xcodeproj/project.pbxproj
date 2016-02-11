@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7FF795020A93C17C09F2C970 /* Pods_Finance_App_for_Travellers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A00ACEB3837FA20297F2B9 /* Pods_Finance_App_for_Travellers.framework */; };
+		337FF6B316CBFE7D58186398 /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F26D0CEAFDB2235BFE529BF7 /* Pods_CrabApp.framework */; };
+		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
+		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
 		9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */; };
 		9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B11921B4E2D9400BC8BB1 /* Networking.swift */; };
@@ -34,13 +36,9 @@
 		9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8D1B37DFAB00C409C1 /* ConverterTableViewController.swift */; };
 		9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
 		9A827C941C1D3EF50025FC5B /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* NSDate+Extension.swift */; };
-		9A827C961C1D41220025FC5B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */; };
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
 		9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */; };
-		9A87AB1E1C55CAC200021339 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87AB1D1C55CAC200021339 /* BudgetView.swift */; };
-		9A87AB201C55CAF000021339 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A87AB1F1C55CAF000021339 /* BudgetView.xib */; };
-		9A87AB221C55CFB400021339 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87AB211C55CFB400021339 /* BudgetTableViewCell.swift */; };
 		9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */; };
 		9A8B0E9C1C4146F3003E7FD2 /* CrabApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B0E9B1C4146F3003E7FD2 /* CrabApi.swift */; };
 		9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
@@ -112,7 +110,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23545DF629F55E9690631666 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
+		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		84A00ACEB3837FA20297F2B9 /* Pods_Finance_App_for_Travellers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finance_App_for_Travellers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968DBA2FC9AF0304A3711F82 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
 		9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
 		9A0B11921B4E2D9400BC8BB1 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -144,9 +145,6 @@
 		9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewController.swift; sourceTree = "<group>"; };
-		9A87AB1D1C55CAC200021339 /* BudgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
-		9A87AB1F1C55CAF000021339 /* BudgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
-		9A87AB211C55CFB400021339 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Book.otf"; sourceTree = "<group>"; };
 		9A8B0E9B1C4146F3003E7FD2 /* CrabApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrabApi.swift; sourceTree = "<group>"; };
 		9A8B457C1C3D3B940037D137 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
@@ -193,6 +191,7 @@
 		9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		D334F2B51154F8061569E70B /* Pods-Finance App for Travellers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finance App for Travellers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers.release.xcconfig"; sourceTree = "<group>"; };
 		D9D086E7D690AE16A8BEB53C /* Pods-Finance App for Travellers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finance App for Travellers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers.debug.xcconfig"; sourceTree = "<group>"; };
+		F26D0CEAFDB2235BFE529BF7 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +201,7 @@
 			files = (
 				9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */,
 				9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */,
-				7FF795020A93C17C09F2C970 /* Pods_Finance_App_for_Travellers.framework in Frameworks */,
+				337FF6B316CBFE7D58186398 /* Pods_CrabApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +220,8 @@
 			children = (
 				D9D086E7D690AE16A8BEB53C /* Pods-Finance App for Travellers.debug.xcconfig */,
 				D334F2B51154F8061569E70B /* Pods-Finance App for Travellers.release.xcconfig */,
+				968DBA2FC9AF0304A3711F82 /* Pods-CrabApp.debug.xcconfig */,
+				23545DF629F55E9690631666 /* Pods-CrabApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -261,15 +262,13 @@
 			isa = PBXGroup;
 			children = (
 				9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */,
-				9A87AB1D1C55CAC200021339 /* BudgetView.swift */,
 				9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */,
 				9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */,
 				9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */,
 				9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */,
 				9AFE7CA91B82DF2B00B7159B /* TransactionsTableViewController.swift */,
 				9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */,
-				9A87AB1F1C55CAF000021339 /* BudgetView.xib */,
-				9A87AB211C55CFB400021339 /* BudgetTableViewCell.swift */,
+				3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */,
 			);
 			name = Insights;
 			sourceTree = "<group>";
@@ -415,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				84A00ACEB3837FA20297F2B9 /* Pods_Finance_App_for_Travellers.framework */,
+				F26D0CEAFDB2235BFE529BF7 /* Pods_CrabApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -475,7 +475,7 @@
 				TargetAttributes = {
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 3V868FP58Z;
+						DevelopmentTeam = NF8ZZ5VT6T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -522,7 +522,6 @@
 				9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
 				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
-				9A87AB201C55CAF000021339 /* BudgetView.xib in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
 				9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */,
 				9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */,
@@ -554,7 +553,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1ADD9A2BA7FA9606965C4BA5 /* Check Pods Manifest.lock */ = {
@@ -597,7 +596,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Finance App for Travellers/Pods-Finance App for Travellers-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -607,7 +606,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A827C961C1D41220025FC5B /* UIViewController+Extension.swift in Sources */,
 				9A4B72111BF07F7400E19042 /* CategoryAddViewController.swift in Sources */,
 				9AB4438D1BCA1D9E0005146B /* GraphView.swift in Sources */,
 				9AC460BF1BD0AB5B00EEE4A7 /* SummaryView.swift in Sources */,
@@ -632,16 +630,16 @@
 				9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */,
 				9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */,
+				3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */,
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
 				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
 				9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */,
-				9A87AB221C55CFB400021339 /* BudgetTableViewCell.swift in Sources */,
+				3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */,
 				9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */,
 				9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */,
 				9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */,
-				9A87AB1E1C55CAC200021339 /* BudgetView.swift in Sources */,
 				9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
 				9AEDFF5D1C3D1CB900541A23 /* Math.swift in Sources */,
@@ -814,7 +812,7 @@
 		};
 		9A9C91AF1B3444E500DE580F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9D086E7D690AE16A8BEB53C /* Pods-Finance App for Travellers.debug.xcconfig */;
+			baseConfigurationReference = 968DBA2FC9AF0304A3711F82 /* Pods-CrabApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
@@ -828,7 +826,7 @@
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.Crab-Money";
+				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CrabApp;
 				PRODUCT_NAME = CrabApp;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -837,7 +835,7 @@
 		};
 		9A9C91B01B3444E500DE580F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D334F2B51154F8061569E70B /* Pods-Finance App for Travellers.release.xcconfig */;
+			baseConfigurationReference = 23545DF629F55E9690631666 /* Pods-CrabApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
@@ -851,7 +849,7 @@
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.Crab-Money";
+				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CrabApp;
 				PRODUCT_NAME = CrabApp;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 //import Fabric
 //import Crashlytics
+import Material
 
 
 @UIApplicationMain
@@ -27,7 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			Networking.sharedInstance.updateAll(nil)
 		})
 		UIApplication.sharedApplication().statusBarStyle = .Default
-		UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
+		//UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
+		UINavigationBar.appearance().barTintColor = MaterialColor.green.darken1
+		UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+		UINavigationBar.appearance().barStyle = UIBarStyle.Black
+		
+		let barShadow: NSShadow = NSShadow()
+		barShadow.shadowColor = MaterialColor.green.darken2
+		barShadow.shadowOffset = CGSize(width: 1, height: 1)
+		barShadow.shadowBlurRadius = CGFloat(5.0)
+		
+		UINavigationBar.appearance().titleTextAttributes = [
+			NSForegroundColorAttributeName:UIColor.whiteColor(),
+			NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!,
+			NSShadowAttributeName: barShadow
+		]
+		UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
 		
 		application.setMinimumBackgroundFetchInterval(21600) // 6 hours
 		

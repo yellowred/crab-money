@@ -59,6 +59,7 @@ class TransactionsTableViewController: UITableViewController {
 		df.dateStyle = NSDateFormatterStyle.MediumStyle
 		var date: String
 		for elem in transactions {
+			print(elem)
 			date = df.stringFromDate(elem.date)
 			if transactionStructure.indexForKey(date) == nil {
 				transactionStructure[date] = [elem]
@@ -67,7 +68,7 @@ class TransactionsTableViewController: UITableViewController {
 				transactionStructure[date]!.append(elem)
 			}
 		}
-		sortedSectionTitles = transactionStructure.keys.elements.sort()
+		sortedSectionTitles = transactionStructure.keys.elements.sort(){$0>$1}
 	}
 	
 	
