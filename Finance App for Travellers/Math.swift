@@ -41,6 +41,10 @@ class Math: NSObject {
 		return self.expenses.count > 0 ? self.expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysLeft())) : NSDecimalNumber(integer: 0)
 	}()
 	
+	lazy var expensesMean:NSDecimalNumber = {
+		return self.median(self.expenses)
+	}()
+	
 	
 	lazy var expensesProjected:NSDecimalNumber = {
 		return self.expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysCount()))
@@ -112,6 +116,33 @@ class Math: NSObject {
 		return transactions.filter {
 			(x : Transaction) -> Bool in
 			return x.category == category
+		}
+	}
+	
+	func median(values: [Transaction]) -> NSDecimalNumber {
+		var dailyAmounts = [String:NSDecimalNumber]()
+		var dayHash:String = ""
+		for item in values {
+			dayHash = item.date.formatToHash()
+			if dailyAmounts[dayHash] === nil {
+				dailyAmounts[dayHash] = item.getStaticValueInCurrency(self.homeCurrency).amount
+			} else {
+				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.decimalNumberByAdding(item.getStaticValueInCurrency(self.homeCurrency).amount)
+			}
+		}
+		let sorted = dailyAmounts.map {$1} .sort { $0.compare($1) == NSComparisonResult.OrderedAscending }
+		let count = Double(sorted.count)
+		if count == 0 { return 0 }
+
+		if count % 2 == 0 {
+			// Even number of items - return the mean of two middle values
+			let leftIndex = Int(count / 2 - 1)
+			let leftValue = sorted[leftIndex]
+			let rightValue = sorted[leftIndex + 1]
+			return leftValue.decimalNumberByAdding(rightValue).decimalNumberByDividingBy(2)
+		} else {
+			// Odd number of items - take the middle item.
+			return sorted[Int(count / 2)]
 		}
 	}
 }

@@ -43,6 +43,7 @@ class Transaction: NSObject {
 	}
 	
 	
+	//FIXME conersion from THB to THB adds redundant amounts
 	func getStaticValueInCurrency(currency: Currency) -> Money {
 		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(rate)
 		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))

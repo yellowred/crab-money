@@ -58,6 +58,13 @@ extension NSDate {
 		return df.stringFromDate(self)
 	}
 	
+	func formatToHash() -> String {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "yyyyMMddhhmm"
+		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
+		return dateFormatter.stringFromDate(self)
+	}
+	
 	
 	func getCalendar() -> NSCalendar {
 		let calendar = NSCalendar.currentCalendar()

@@ -8,6 +8,7 @@
 
 import UIKit
 import Material
+import SwiftyJSON
 
 enum InsightsSegues: String {
 	case ShowTransactions = "ShowTransactions"
@@ -16,7 +17,7 @@ enum InsightsSegues: String {
 	case SetBudget = "SetBudget"
 }
 
-class InsightsTableViewController: UITableViewController, CurrencySelectDelegate, TransactionsViewDelegate {
+class InsightsTableViewController: UITableViewController, CurrencySelectDelegate, TransactionsViewDelegate, UIActionSheetDelegate {
 
 	@IBOutlet var periodLabel: UILabel!
 	@IBOutlet var expensesAmount: UILabel!
@@ -36,6 +37,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	var currentPeriod: Period?
 	var transactions: [Transaction]?
 	
+	var actionSheet: UIActionSheet?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,6 +51,13 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		//app().model.createFakeTransaction()
 		//app().model.saveStorage()
 		
+		var t = Array<String>()
+		for trn:Transaction in app().model.getTransactionsList() {
+			t.append(trn.getDict(app().model.getCurrentCurrency()) as String)
+		}
+		
+		let tt = t.joinWithSeparator(", ")
+		print(tt)
 		showAll()
 		
 		NSNotificationCenter.defaultCenter().addObserver(self,
@@ -85,7 +95,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			)
 			
 			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal)
-			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesAvg)
+			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMean)
 			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected)
 			let maxtranz = finmath.expensesMaxTransaction
 			maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz != nil ? maxtranz!.getStaticValueInCurrency(homeCurrencyObject).amount.abs() : 0)
@@ -95,13 +105,18 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			dailyAverageEarnings.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
 			
 			var budget = app().model.getBudget()
-			if budget.currency.code != homeCurrencyObject.code {
-				budget = budget.toCurrency(homeCurrencyObject)
+			if (budget.amount.isPositive()) {
+				if budget.currency.code != homeCurrencyObject.code {
+					budget = budget.toCurrency(homeCurrencyObject)
+				}
+				let budgetRemains = budget.amount.decimalNumberBySubtracting(finmath.expensesTotal)
+				budgetInfoLabel.text = NSNumberFormatter().formatterMoney(budget.currency).stringFromNumber(budgetRemains.decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)))! + " " + "remains".localized
+				let expt = finmath.expensesTotal as NSDecimalNumber
+				budgetProgressBar.setProgress(expt.decimalNumberByDividingBy(budget.amount).floatValue, animated: true)
+			} else {
+				budgetInfoLabel.text = "Please set the budget".localized
+				budgetProgressBar.setProgress(Float(0), animated: false)
 			}
-			let budgetRemains = budget.amount.decimalNumberBySubtracting(finmath.expensesTotal)
-			budgetInfoLabel.text = NSNumberFormatter().formatterMoney(budget.currency).stringFromNumber(budgetRemains.decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)))! + " " + "remains".localized
-			let expt = finmath.expensesTotal as NSDecimalNumber
-			budgetProgressBar.setProgress(expt.decimalNumberByDividingBy(budget.amount).floatValue, animated: true)
 			budgetProgressBar.progressTintColor = MaterialColor.red.darken1
 			budgetProgressBar.trackTintColor = MaterialColor.green.darken1
 
@@ -155,11 +170,24 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		if let budgetDetailTVC = segue.sourceViewController as? BudgetTableViewController {
 			if let budget = budgetDetailTVC.budget {
 				app().model.setBudget(budget)
-				
+				showSummary()
 			}
 		}
 	}
 
+	
+	@IBAction func shareButtonTapped(sender: AnyObject) {
+		actionSheet = UIActionSheet(title: "", delegate: self, cancelButtonTitle: "Cancel".localized, destructiveButtonTitle: nil)
+		actionSheet!.addButtonWithTitle("Export via File Sharing")
+		actionSheet!.addButtonWithTitle("Export via Email")
+	}
+	
+	
+	func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+		if (buttonIndex == actionSheet.firstOtherButtonIndex + 0) {
+			
+		}
+	}
 	
 	
     override func didReceiveMemoryWarning() {

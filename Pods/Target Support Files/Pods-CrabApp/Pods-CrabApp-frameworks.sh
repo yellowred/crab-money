@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CrabApp/Alamofire.framework"
   install_framework "Pods-CrabApp/ChameleonFramework.framework"
   install_framework "Pods-CrabApp/Material.framework"
+  install_framework "Pods-CrabApp/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CrabApp/Alamofire.framework"
   install_framework "Pods-CrabApp/ChameleonFramework.framework"
   install_framework "Pods-CrabApp/Material.framework"
+  install_framework "Pods-CrabApp/SwiftyJSON.framework"
 fi

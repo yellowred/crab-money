@@ -412,7 +412,7 @@ class Model
 		if let amount = NSUserDefaults.standardUserDefaults().objectForKey("budget_amount") as? NSNumber {
 			return Money(amount: NSDecimalNumber(decimal: amount.decimalValue), currency: getCurrencyByCode(NSUserDefaults.standardUserDefaults().stringForKey("budget_currency")!)!)
 		} else {
-			return Money(amount: 0, currency: getDefaultCurrency())
+			return Money(amount: 0, currency: getCurrentCurrency())
 		}
 	}
 	

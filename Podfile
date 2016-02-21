@@ -9,6 +9,7 @@ target 'CrabApp' do
 	pod 'ChameleonFramework/Swift'
 	pod 'Alamofire', '~> 3.0'
     pod 'Material', '~> 1.0'
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 
 target 'CrabAppTests' do
