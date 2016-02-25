@@ -51,6 +51,14 @@ extension NSDate {
 	}
 	
 	
+	func transactionsSectionFormat() -> String {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "d MMMM"
+		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
+		return dateFormatter.stringFromDate(self)
+	}
+	
+	
 	func formatWithTimeLong() -> String {
 		let df = NSDateFormatter()
 		df.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -60,7 +68,7 @@ extension NSDate {
 	
 	func formatToHash() -> String {
 		let dateFormatter = NSDateFormatter()
-		dateFormatter.dateFormat = "yyyyMMddhhmm"
+		dateFormatter.dateFormat = "yyyyMMdd"
 		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
 		return dateFormatter.stringFromDate(self)
 	}

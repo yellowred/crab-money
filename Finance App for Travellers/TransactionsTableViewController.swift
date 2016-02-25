@@ -60,7 +60,7 @@ class TransactionsTableViewController: UITableViewController {
 		var date: String
 		for elem in transactions {
 			print(elem)
-			date = df.stringFromDate(elem.date)
+			date = elem.date.formatToHash()
 			if transactionStructure.indexForKey(date) == nil {
 				transactionStructure[date] = [elem]
 			}
@@ -131,7 +131,8 @@ class TransactionsTableViewController: UITableViewController {
 	}
 
 	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return sortedSectionTitles[section]
+		let trn = transactionStructure[sortedSectionTitles[section]]!.first! as Transaction
+		return trn.date.transactionsSectionFormat()
 	}
 	
     /*

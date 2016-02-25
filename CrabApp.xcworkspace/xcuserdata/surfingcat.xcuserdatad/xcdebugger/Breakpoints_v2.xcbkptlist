@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Finance App for Travellers/TransactionsTableViewController.swift"
+            timestampString = "478084084.165087"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getTransactionsStructure()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrabApp.TransactionsTableViewController.getTransactionsStructure (CrabApp.TransactionsTableViewController)() -&gt; ()"
+                  moduleName = "CrabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/surfingcat/Sites/CrabApp/xcode/Finance%20App%20for%20Travellers/TransactionsTableViewController.swift"
+                  timestampString = "478084338.028793"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "2056">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CrabApp.TransactionsTableViewController.(getTransactionsStructure (CrabApp.TransactionsTableViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "CrabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/surfingcat/Sites/CrabApp/xcode/Finance%20App%20for%20Travellers/TransactionsTableViewController.swift"
+                  timestampString = "478084338.02899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
