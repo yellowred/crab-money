@@ -104,53 +104,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		reloadAmountDisplay()
 	}
 	
-
-	func createNumpad() {
-		var button = createButton("111")
-		//button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
-		var widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0)
-		var heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Height, multiplier: 0.3, constant: 0)
-		var pos1 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal,
-			toItem: numpad, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
-		var pos2 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal,
-			toItem: numpad, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
-		
-		numpad.addSubview(button)
-		//constraint should apply to higher element in tree
-		numpad.addConstraint(widthConstraint)
-		numpad.addConstraint(heightConstraint)
-		numpad.addConstraint(pos1)
-		numpad.addConstraint(pos2)
-		
-		
-		button = createButton("22")
-		//button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
-		widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0)
-		heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: numpad, attribute: NSLayoutAttribute.Height, multiplier: 0.3, constant: 0)
-		pos1 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal,
-			toItem: numpad, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
-		pos2 = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal,
-			toItem: numpad, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
-		
-		numpad.addSubview(button)
-		//constraint should apply to higher element in tree
-		numpad.addConstraint(widthConstraint)
-		numpad.addConstraint(heightConstraint)
-		numpad.addConstraint(pos1)
-		numpad.addConstraint(pos2)
-	}
-
-	func createButton (title: String) -> UIButton {
-		let button = UIButton(type: UIButtonType.System);
-		button.setTitle(title, forState: .Normal)
-		button.frame = CGRectMake(0, 0, 160, 80)
-		button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-		button.titleLabel!.textAlignment = .Center
-		button.titleLabel!.numberOfLines = 1
-		button.titleLabel!.font = UIFont.systemFontOfSize(48)
-		return button
-	}
-    
 	
 	@IBAction func tapNumber(sender: UIButton)
 	{
@@ -204,15 +157,17 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	func showSaveButtons()
 	{
 		self.view.layoutIfNeeded()
-		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
+		UIView.animateWithDuration(0.2, animations: {
+		//UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.expense.alpha = 1
-			self.expenseHPosConstraint.constant = 10
-			self.view.layoutIfNeeded()
+			//self.expenseHPosConstraint.constant = 10
+			//self.view.layoutIfNeeded()
 			}, completion: nil)
-		UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
+		UIView.animateWithDuration(0.2, animations: {
+		//UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.earning.alpha = 1
-			self.earningHPosConstraint.constant = 10
-			self.view.layoutIfNeeded()
+			//self.earningHPosConstraint.constant = 10
+			//self.view.layoutIfNeeded()
 			}, completion: nil)
 	}
 	
@@ -220,15 +175,17 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	func hideSaveButtons()
 	{
 		self.view.layoutIfNeeded()
-		UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
-			self.expense.alpha = 0.5
-			self.expenseHPosConstraint.constant = -self.expense.bounds.width
-			self.view.layoutIfNeeded()
+		UIView.animateWithDuration(0.5, animations: {
+		//UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
+			self.expense.alpha = 0.2
+			//self.expenseHPosConstraint.constant = -self.expense.bounds.width
+			//self.view.layoutIfNeeded()
 			}, completion: nil)
-		UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
-			self.earning.alpha = 0.5
-			self.earningHPosConstraint.constant = -self.earning.bounds.width
-			self.view.layoutIfNeeded()
+		UIView.animateWithDuration(0.5, animations: {
+		//UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
+			self.earning.alpha = 0.2
+			//self.earningHPosConstraint.constant = -self.earning.bounds.width
+			//self.view.layoutIfNeeded()
 			}, completion: nil)
 	}
 	

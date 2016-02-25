@@ -20,9 +20,14 @@ enum InsightsSegues: String {
 class InsightsTableViewController: UITableViewController, CurrencySelectDelegate, TransactionsViewDelegate, UIActionSheetDelegate {
 
 	@IBOutlet var periodLabel: UILabel!
-	@IBOutlet var expensesAmount: UILabel!
-	@IBOutlet var dailyAverageAmount: UILabel!
-	@IBOutlet var expectedAmount: UILabel!
+
+    @IBOutlet weak var expensesTotal: UILabel!
+    @IBOutlet weak var expensesToday: UILabel!
+    @IBOutlet weak var expensesMedian: UILabel!
+    @IBOutlet weak var expensesProjected: UILabel!
+    @IBOutlet weak var expensesMax: UILabel!
+    
+    
 	@IBOutlet var earningsAmount: UILabel!
 	@IBOutlet var dailyAverageEarnings: UILabel!
 	@IBOutlet var nextPeriodButton: UIButton!
@@ -51,6 +56,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		//app().model.createFakeTransaction()
 		//app().model.saveStorage()
 		
+		/*
+		//print transactions JSON
 		var t = Array<String>()
 		for trn:Transaction in app().model.getTransactionsList() {
 			t.append(trn.getDict(app().model.getCurrentCurrency()) as String)
@@ -58,6 +65,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		
 		let tt = t.joinWithSeparator(", ")
 		print(tt)
+		*/
 		showAll()
 		
 		NSNotificationCenter.defaultCenter().addObserver(self,
@@ -94,11 +102,17 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 				currentPeriod: currentPeriod!
 			)
 			
-			expensesAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal)
-			dailyAverageAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMean)
-			expectedAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected)
-			let maxtranz = finmath.expensesMaxTransaction
-			maxTransactionAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(maxtranz != nil ? maxtranz!.getStaticValueInCurrency(homeCurrencyObject).amount.abs() : 0)
+			expensesTotal.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal.abs())
+			expensesMedian.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMean.abs())
+			expensesProjected.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected.abs())
+            expensesMax.text = NSNumberFormatter().formatterDollars().stringFromNumber((finmath.expensesMaxTransaction?.amount.abs())!)
+			expensesToday.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesToday.abs())
+			
+			expensesTotal.textColor = MaterialColor.red.darken3
+			expensesMedian.textColor = MaterialColor.red.darken3
+			expensesProjected.textColor = MaterialColor.red.darken3
+			expensesMax.textColor = MaterialColor.red.darken3
+			expensesToday.textColor = MaterialColor.red.darken3
 			
 			
 			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)

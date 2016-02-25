@@ -35,7 +35,14 @@ class Math: NSObject {
 	lazy var expensesTotal:NSDecimalNumber = {
 		return self.expenses.reduce(0, combine: {return $1.getStaticValueInCurrency(self.homeCurrency).amount.decimalNumberByAdding($0)}).abs()
 	}()
-	
+
+	lazy var expensesToday:NSDecimalNumber = {
+		var dayHash:String = NSDate().formatToHash()
+		guard self.dailyAmounts(self.expenses)[dayHash] != nil else {
+			return 0
+		}
+		return self.dailyAmounts(self.expenses)[dayHash]!
+	}()
 	
 	lazy var expensesAvg:NSDecimalNumber = {
 		return self.expenses.count > 0 ? self.expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysLeft())) : NSDecimalNumber(integer: 0)
@@ -120,17 +127,7 @@ class Math: NSObject {
 	}
 	
 	func median(values: [Transaction]) -> NSDecimalNumber {
-		var dailyAmounts = [String:NSDecimalNumber]()
-		var dayHash:String = ""
-		for item in values {
-			dayHash = item.date.formatToHash()
-			if dailyAmounts[dayHash] === nil {
-				dailyAmounts[dayHash] = item.getStaticValueInCurrency(self.homeCurrency).amount
-			} else {
-				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.decimalNumberByAdding(item.getStaticValueInCurrency(self.homeCurrency).amount)
-			}
-		}
-		let sorted = dailyAmounts.map {$1} .sort { $0.compare($1) == NSComparisonResult.OrderedAscending }
+		let sorted = dailyAmounts(values).map {$1} .sort { $0.compare($1) == NSComparisonResult.OrderedAscending }
 		let count = Double(sorted.count)
 		if count == 0 { return 0 }
 
@@ -145,4 +142,20 @@ class Math: NSObject {
 			return sorted[Int(count / 2)]
 		}
 	}
+	
+	
+	func dailyAmounts(values: [Transaction]) ->[String:NSDecimalNumber] {
+		var dailyAmounts = [String:NSDecimalNumber]()
+		var dayHash:String = ""
+		for item in values {
+			dayHash = item.date.formatToHash()
+			if dailyAmounts[dayHash] === nil {
+				dailyAmounts[dayHash] = item.getStaticValueInCurrency(self.homeCurrency).amount
+			} else {
+				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.decimalNumberByAdding(item.getStaticValueInCurrency(self.homeCurrency).amount)
+			}
+		}
+		return dailyAmounts
+	}
+
 }
