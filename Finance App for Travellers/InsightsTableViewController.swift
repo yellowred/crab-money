@@ -105,7 +105,11 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			expensesTotal.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal.abs())
 			expensesMedian.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMean.abs())
 			expensesProjected.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected.abs())
-            expensesMax.text = NSNumberFormatter().formatterDollars().stringFromNumber((finmath.expensesMaxTransaction?.amount.abs())!)
+			if (finmath.expensesMaxTransaction != nil) {
+				expensesMax.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMaxTransaction!.amount.abs())
+			} else {
+				expensesMax.text = "0"
+			}
 			expensesToday.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesToday.abs())
 			
 			expensesTotal.textColor = MaterialColor.red.darken3

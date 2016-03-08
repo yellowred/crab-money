@@ -41,14 +41,6 @@ class Transaction: NSObject {
 	func getMoney() -> Money {
 		return Money(amount: self.amount, currency: self.currency)
 	}
-	
-	
-	//FIXME conersion from THB to THB adds redundant amounts
-	func getStaticValueInCurrency(currency: Currency) -> Money {
-		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(rate)
-		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
-		return Money(amount: currencyAmount, currency: currency)
-	}
 
 	
 	func setCategoryWithUpdate(category: Category) {

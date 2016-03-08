@@ -9,6 +9,7 @@
 import UIKit
 import ChameleonFramework
 import Material
+import Spring
 
 enum NumpadSegues: String {
 	case SelectNumpadCurrency = "SelectNumpadCurrency"
@@ -21,6 +22,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	var notCompletedTransaction: Transaction?
 	var baselineOffset:Int = 20
 	var isAmountLoaded:Bool = false
+	var inputConfirmation:SpringView? = nil
 	
 	private var sound: Sound = {return Sound()}()
 	
@@ -169,6 +171,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			//self.earningHPosConstraint.constant = 10
 			//self.view.layoutIfNeeded()
 			}, completion: nil)
+		
+		
 	}
 	
 	
@@ -188,6 +192,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			//self.view.layoutIfNeeded()
 			}, completion: nil)
 	}
+
 	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -208,15 +213,57 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		guard notCompletedTransaction != nil else {
 			return
 		}
+	
 		notCompletedTransaction!.category = category
 		notCompletedTransaction!.currency.increasePopularity()
 		app().model.saveStorage()
 		notCompletedTransaction = nil
+		NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("showInputConfirmation:"), userInfo: nil, repeats: false)
+		NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("hideInputConfirmation:"), userInfo: nil, repeats: false)
+/*
+		
+*/
 		sound.playTap()
 		amount!.setAmount(0)
 		reloadAmountDisplay()
 	}
+
 	
+	func showInputConfirmation(timer: NSTimer) {
+		let frame = CGRect(x: 0, y: 0, width: 200, height: 200);
+		inputConfirmation = SpringView(frame: frame)
+		let confirmLabel = UILabel(frame: frame)
+		confirmLabel.text = "✔︎"
+		confirmLabel.textAlignment = NSTextAlignment.Center
+		confirmLabel.font = UIFont.systemFontOfSize(120)
+		inputConfirmation!.backgroundColor = MaterialColor.white
+		inputConfirmation!.alpha = 1
+		inputConfirmation!.layer.masksToBounds = true
+		inputConfirmation!.layer.cornerRadius = 10
+		inputConfirmation!.addSubview(confirmLabel)
+		self.view.addSubview(inputConfirmation!)
+		inputConfirmation!.center.x = self.view.center.x
+		inputConfirmation!.center.y = self.view.center.y
+		inputConfirmation!.animation = "zoomIn"
+		inputConfirmation!.duration = 0.5
+		inputConfirmation!.animate()
+		
+	}
+	
+	
+	func hideInputConfirmation(timer: NSTimer) {
+		print("hideInputConfirmation")
+		if inputConfirmation != nil {
+			UIView.animateWithDuration(1, animations: {
+				self.inputConfirmation!.alpha = 0
+				}, completion: {
+					(_: Bool) in
+					self.inputConfirmation!.removeFromSuperview()
+				}
+			)
+		}
+	}
+
 	func isExpense() -> Bool {
 		return !notCompletedTransaction!.amount.isPositive()
 	}

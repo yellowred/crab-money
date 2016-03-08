@@ -104,9 +104,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>The MIT License (MIT)
-
-Copyright (c) 2014 Ruoyu Fu
+			<string>Copyright (c) 2014-2015 Meng To (meng@designcode.io)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -127,7 +125,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </string>
 			<key>Title</key>
-			<string>SwiftyJSON</string>
+			<string>Spring</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

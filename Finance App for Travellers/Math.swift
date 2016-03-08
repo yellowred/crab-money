@@ -33,7 +33,7 @@ class Math: NSObject {
 	
 	
 	lazy var expensesTotal:NSDecimalNumber = {
-		return self.expenses.reduce(0, combine: {return $1.getStaticValueInCurrency(self.homeCurrency).amount.decimalNumberByAdding($0)}).abs()
+		return self.expenses.reduce(0, combine: {return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.decimalNumberByAdding($0)}).abs()
 	}()
 
 	lazy var expensesToday:NSDecimalNumber = {
@@ -60,7 +60,7 @@ class Math: NSObject {
 	
 	lazy var expensesMaxTransaction:Transaction? = {
 		return self.expenses.maxElement({(a: Transaction, b:Transaction) in
-			return a.amount.compare(b.amount) == NSComparisonResult.OrderedDescending
+			return self.getMoneyInCurrencyWithHistoryRate(a, currency:self.homeCurrency).amount.compare(self.getMoneyInCurrencyWithHistoryRate(b, currency:self.homeCurrency).amount) == NSComparisonResult.OrderedDescending
 		})
 	}()
 	
@@ -88,7 +88,7 @@ class Math: NSObject {
 	
 	
 	lazy var earningsTotal:NSDecimalNumber = {
-		return self.earnings.reduce(0, combine: {return $1.getStaticValueInCurrency(self.homeCurrency).amount.decimalNumberByAdding($0)})
+		return self.earnings.reduce(0, combine: {return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.decimalNumberByAdding($0)})
 	}()
 	
 	
@@ -113,7 +113,7 @@ class Math: NSObject {
 		var amount = NSDecimalNumber(integer: 0)
 		for elem: Transaction in transactions {
 			if elem.category == category {
-				amount = amount.decimalNumberByAdding(elem.getStaticValueInCurrency(self.homeCurrency).amount)
+				amount = amount.decimalNumberByAdding(getMoneyInCurrencyWithHistoryRate(elem, currency: self.homeCurrency).amount)
 			}
 		}
 		return amount
@@ -150,12 +150,24 @@ class Math: NSObject {
 		for item in values {
 			dayHash = item.date.formatToHash()
 			if dailyAmounts[dayHash] === nil {
-				dailyAmounts[dayHash] = item.getStaticValueInCurrency(self.homeCurrency).amount
+				dailyAmounts[dayHash] = getMoneyInCurrencyWithHistoryRate(item, currency: self.homeCurrency).amount
 			} else {
-				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.decimalNumberByAdding(item.getStaticValueInCurrency(self.homeCurrency).amount)
+				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.decimalNumberByAdding(getMoneyInCurrencyWithHistoryRate(item, currency: self.homeCurrency).amount)
 			}
 		}
 		return dailyAmounts
 	}
+	
+	
+	func getMoneyInCurrencyWithHistoryRate(transaction:Transaction, currency: Currency) -> Money {
+		guard transaction.currency.code != currency.code else {
+			return Money(amount: transaction.amount, currency: currency)
+		}
+		let usdAmount: NSDecimalNumber = transaction.amount.decimalNumberByDividingBy(transaction.rate)
+		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
+		
+		return Money(amount: currencyAmount, currency: currency)
+	}
+
 
 }

@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		UINavigationBar.appearance().titleTextAttributes = [
 			NSForegroundColorAttributeName:UIColor.whiteColor(),
-			NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!,
+			NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!,
 			NSShadowAttributeName: barShadow
 		]
 		UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent

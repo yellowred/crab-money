@@ -23,4 +23,10 @@ extension NSDecimalNumber {
 	func isPositive() -> Bool {
 		return self.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending
 	}
+	
+	func floor() -> NSDecimalNumber {
+		return self.decimalNumberByRoundingAccordingToBehavior(
+			NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundDown, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
+		)
+	}
 }

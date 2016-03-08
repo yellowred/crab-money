@@ -39,7 +39,15 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 			dateValue.calendar = NSDate().getCalendar()
 			dateValue.date = transaction!.date
 			descriptionValue.text = transaction!.text
-			currencyButton.titleLabel?.text = transaction!.currency.code.uppercaseString
+			
+			let currencyCode = transaction!.currency.code.uppercaseString;
+			if #available(iOS 9.0, *) {
+			    currencyButton.setTitle(currencyCode, forState: UIControlState.Focused)
+			}
+			currencyButton.setTitle(currencyCode, forState: UIControlState.Highlighted)
+			currencyButton.setTitle(currencyCode, forState: UIControlState.Normal)
+			currencyButton.setTitle(currencyCode, forState: UIControlState.Selected)
+			currencyButton.setTitle(currencyCode, forState: UIControlState.Reserved)
 		}
 
     }
