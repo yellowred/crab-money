@@ -27,21 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		dispatch_async(dispatchQueue, {
 			Networking.sharedInstance.updateAll(nil)
 		})
-		UIApplication.sharedApplication().statusBarStyle = .Default
 		//UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
-		UINavigationBar.appearance().barTintColor = MaterialColor.green.darken1
+		UINavigationBar.appearance().barTintColor = UIColor.statusBar()
 		UINavigationBar.appearance().tintColor = UIColor.whiteColor()
 		UINavigationBar.appearance().barStyle = UIBarStyle.Black
 		
 		let barShadow: NSShadow = NSShadow()
-		barShadow.shadowColor = MaterialColor.green.darken2
+		barShadow.shadowColor = MaterialColor.black
 		barShadow.shadowOffset = CGSize(width: 1, height: 1)
 		barShadow.shadowBlurRadius = CGFloat(5.0)
 		
 		UINavigationBar.appearance().titleTextAttributes = [
 			NSForegroundColorAttributeName:UIColor.whiteColor(),
-			NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!,
-			NSShadowAttributeName: barShadow
+			NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 20)! //,NSShadowAttributeName: barShadow
 		]
 		UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
 		

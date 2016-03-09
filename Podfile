@@ -6,10 +6,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'CrabApp' do
-	pod 'ChameleonFramework/Swift'
 	pod 'Alamofire', '~> 3.0'
-    pod 'Material', '~> 1.0'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+    pod 'SwiftRaisedTab', '~> 0.2.0'
 end
 
 target 'CrabAppTests' do

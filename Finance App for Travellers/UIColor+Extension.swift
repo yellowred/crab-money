@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum UIColorPalette: String {
+	case StatusBar = "#7b806c"
+}
+
 extension UIColor {
 	convenience init(rgba: String) {
 		var red:   CGFloat = 0.0
@@ -54,11 +58,22 @@ extension UIColor {
 	
 	
 	static func expense() -> UIColor {
-		return UIColor(rgba: "#A43131")
+		return UIColor(red:0.92, green:0.6, blue:0.53, alpha:1)
 	}
 	
 	
 	static func earning() -> UIColor {
-		return UIColor(rgba: "#31A447")
+		return UIColor(red:0.66, green:0.9, blue:0.44, alpha:1)
+		return UIColor(red:0.46, green:0.89, blue:0.47, alpha:1)
 	}
+	
+	static func statusBar() -> UIColor {
+		return UIColor(red:0.43, green:0.63, blue:0.42, alpha:1)
+		return UIColor(red:0.34, green:0.57, blue:0.33, alpha:1)
+		return UIColor(red:0.53, green:0.78, blue:0.53, alpha:1)
+		return UIColor(red:0.51, green:0.81, blue:0.45, alpha:1)
+		return UIColor(red:0.16, green:0.16, blue:0.11, alpha:1)
+		return UIColor(red:0.16, green:0.16, blue:0.16, alpha:1)
+	}
+	
 }

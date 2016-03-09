@@ -42,63 +42,16 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 
-        /*
-        var alert: UIAlertView = UIAlertView(title: "Title", message: "Please wait...", delegate: nil, cancelButtonTitle: "Cancel");
-        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
-        loadingIndicator.center = self.view.center;
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        loadingIndicator.startAnimating();
-        
-        alert.setValue(loadingIndicator, forKey: "accessoryView")
-        loadingIndicator.startAnimating()
-        
-        alert.show();
-        alert.dismissWithClickedButtonIndex(0, animated: true)
-        */
-        
-        //networkingIndicator.startAnimating()
-		//Networking().downloadCountriesDatabase({self.networkingIndicator.stopAnimating()})
-		//Networking().downloadCurrenciesDatabase({self.networkingIndicator.stopAnimating()})
-		
 		amount = Money(amount: 0, currency: app().model.getNumpadCurrency())
 		updateCurrentCurrencyBlock()
-		
-		//createNumpad()
-		//amountView.layer.cornerRadius = 5
-		//amountView.layer.borderColor = UIColor.darkGrayColor().CGColor
-		//amountView.layer.borderWidth = 1.0
-		
-		//currencyFlag.layer.cornerRadius = 20
-		//currencyFlag.layer.masksToBounds = true
-		
-		//amountView.backgroundColor = UIColor(patternImage: UIImage(named: "Rectangle 156x1")!)
-		
-		/*
-		amountView.backgroundColor = UIColor(rgba: "#1C2531")
-		let gradient1:CAGradientLayer = CAGradientLayer()
-		gradient1.frame = amountView.bounds
-		gradient1.colors = [UIColor(rgba: "#1C2531").CGColor, UIColor(rgba: "#999999").CGColor, UIColor(rgba: "#1C2531").CGColor] //Or any colors
-		gradient1.locations = [0.0, 0.5, 1.0]
-		gradient1.startPoint = CGPointMake(0.0, 0.5);
-		gradient1.endPoint = CGPointMake(1.0, 0.5);
-		amountView.layer.insertSublayer(gradient1, atIndex: 0)
-		*/
-		//amountView.backgroundColor = UIColor(rgba: "#324459")
-		
-		//currencyView.backgroundColor = UIColor(rgba: "#F9F9F9")
-		//currencyView.layer.cornerRadius = 3		
-    }
+	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 
 		expense.backgroundColor = UIColor.expense()
-		//self.expense.center.x -= self.view.bounds.width
 		earning.backgroundColor = UIColor.earning()
-		//self.earning.center.x += self.view.bounds.width
 		expense.layer.cornerRadius = 23
 		earning.layer.cornerRadius = 23
 		currentFlag.layer.cornerRadius = 2
@@ -148,11 +101,11 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		}
 		amountDisplayLabel.adjustsFontSizeToFitWidth = true
 		amountDisplayLabel.text = amount!.valueForAmount()
-			if amount!.amount.isPositive() {
-				showSaveButtons()
-			} else {
-				hideSaveButtons()
-			}
+		if amount!.amount.isPositive() {
+			showSaveButtons()
+		} else {
+			hideSaveButtons()
+		}
 	}
 	
 	
