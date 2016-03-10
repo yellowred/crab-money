@@ -9,16 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ChameleonFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Material.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-CrabApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>333FA01CFF6629A60D1F9DBF5C2F08BA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5172ACAB7FEA22813859DC97CA0AA16F</key>
+		<key>737A3CDEA9723F9F0DF05552962F5C4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A7E4583A47DB987C0E3A0E39969794C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CDD26437598B889D079C4FD9FFE3584D</key>
+		<key>DA34C3DB614FE35B3CB94C2C3FC5DCF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

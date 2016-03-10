@@ -56,6 +56,15 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		earning.layer.cornerRadius = 23
 		currentFlag.layer.cornerRadius = 2
 		currentFlag.layer.masksToBounds = true
+		amountDisplayLabel.textColor = UIColor.amountColor()
+		
+		let filteredSubviews = self.numpad.subviews.filter({
+			$0.isKindOfClass(UIButton)})
+		
+		for button in filteredSubviews {
+			(button as! UIButton).setTitleColor(UIColor.amountColor(), forState: UIControlState.Normal)
+		}
+		
 		reloadAmountDisplay()
 	}
 	
@@ -82,7 +91,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		sender.backgroundColor = UIColor(rgba: "#F4F4F4")
 	}
 	
-	@IBAction func tapSaveTransaction(sender: AnyObject) {
+	@IBAction func tapSaveTransaction(sender: UIButton) {
 		if notCompletedTransaction != nil {
 			app().model.deleteTransaction(notCompletedTransaction!)
 		}
@@ -90,6 +99,21 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		performSegueWithIdentifier(NumpadSegues.CategorySelectSegue.rawValue, sender: nil)
 	}
 	
+    @IBAction func saveTransactionTouchDown(sender: UIButton) {
+        UIView.animateWithDuration(0.2,
+            animations: {
+                sender.transform = CGAffineTransformMakeScale(1.2, 1.2)
+            },
+            completion: nil
+        )
+    }
+    
+    @IBAction func saveTransactionTouchUp(sender: UIButton) {
+        UIView.animateWithDuration(0.1){
+            sender.transform = CGAffineTransformIdentity
+        }
+    }
+    
 	@IBAction func numberPressedEnd(sender: UIButton) {
 		sender.backgroundColor = UIColor.whiteColor()
 	}
@@ -186,7 +210,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		let frame = CGRect(x: 0, y: 0, width: 200, height: 200);
 		inputConfirmation = SpringView(frame: frame)
 		let confirmLabel = UILabel(frame: frame)
-		confirmLabel.text = "✔︎"
+		confirmLabel.text = "✓"
 		confirmLabel.textAlignment = NSTextAlignment.Center
 		confirmLabel.font = UIFont.systemFontOfSize(120)
 		inputConfirmation!.backgroundColor = MaterialColor.white

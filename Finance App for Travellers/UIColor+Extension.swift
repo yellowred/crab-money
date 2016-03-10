@@ -64,16 +64,13 @@ extension UIColor {
 	
 	static func earning() -> UIColor {
 		return UIColor(red:0.66, green:0.9, blue:0.44, alpha:1)
-		return UIColor(red:0.46, green:0.89, blue:0.47, alpha:1)
 	}
 	
 	static func statusBar() -> UIColor {
 		return UIColor(red:0.43, green:0.63, blue:0.42, alpha:1)
-		return UIColor(red:0.34, green:0.57, blue:0.33, alpha:1)
-		return UIColor(red:0.53, green:0.78, blue:0.53, alpha:1)
-		return UIColor(red:0.51, green:0.81, blue:0.45, alpha:1)
-		return UIColor(red:0.16, green:0.16, blue:0.11, alpha:1)
-		return UIColor(red:0.16, green:0.16, blue:0.16, alpha:1)
 	}
-	
+
+	static func amountColor() -> UIColor {
+		return UIColor(red:0.18, green:0.18, blue:0.18, alpha:1)
+	}
 }

@@ -20,7 +20,7 @@ class NumpadView: UIView {
 		let context = UIGraphicsGetCurrentContext()
 		let myColorspace = CGColorSpaceCreateDeviceRGB();
 
-		let colors = [UIColor(rgba: "#34495E").CGColor, UIColor(rgba: "#FFFFFF").CGColor]
+		let colors = [UIColor.amountColor().CGColor, UIColor.whiteColor().CGColor]
 		let myGradient = CGGradientCreateWithColors(
 			myColorspace,
 			colors,

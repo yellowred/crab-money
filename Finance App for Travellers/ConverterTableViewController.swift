@@ -23,6 +23,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	let kCurrencyManagableCell:String = "CurrencyManagableCell"
 	let kCurrencyAddCell:String = "CurrencyAddCell"
 	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
