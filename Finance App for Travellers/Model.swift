@@ -525,7 +525,6 @@ class Model
 		} catch let fetchError as NSError {
 			print("getObjectsList error: \(fetchError.localizedDescription)")
 		}
-		print(fetchedResults.first)
 		return fetchedResults.first as? Transaction
 	}
 	

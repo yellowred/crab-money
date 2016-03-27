@@ -29,7 +29,13 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 			name: app().model.kNotificationDataChanged,
 			object: nil)
 	}
-
+	
+	
+	override func viewWillAppear(animated: Bool) {
+		tableView.reloadData()
+	}
+	
+	
 	func onModelDataChanged(notification: NSNotification){
 		loadData()
 	}
