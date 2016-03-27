@@ -42,7 +42,7 @@ class TransactionsTableViewController: UITableViewController {
 		getTransactionsStructure()
 		
 		NSNotificationCenter.defaultCenter().addObserver(self,
-			selector: "onModelDataChanged:",
+			selector: #selector(TransactionsTableViewController.onModelDataChanged(_:)),
 			name: app().model.kNotificationDataChanged,
 			object: nil)
 

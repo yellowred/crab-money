@@ -29,10 +29,10 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
         // self.clearsSelectionOnViewWillAppear = false
 
 		categories = app().model.getCategoriesList(delegate!.isExpense())
-		let longPress = UILongPressGestureRecognizer(target: self, action: "activateDeletionMode:")
+		let longPress = UILongPressGestureRecognizer(target: self, action: #selector(CategoriesCollectionViewController.activateDeletionMode(_:)))
 		longPress.delegate = self
 		collectionView?.addGestureRecognizer(longPress)
-		let tap = UITapGestureRecognizer(target: self, action: "endDeletionMode:")
+		let tap = UITapGestureRecognizer(target: self, action: #selector(CategoriesCollectionViewController.endDeletionMode(_:)))
 		tap.delegate = self
 		collectionView?.addGestureRecognizer(tap)
 
@@ -116,7 +116,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 		cell.categoryTitle.layer.masksToBounds = true
 		cell.categoryTitle.layer.cornerRadius = (collectionView.bounds.width - 20 - 10 * 2) / 6
 		//cell.contentView.superview?.clipsToBounds = false
-		cell.deleteButton?.addTarget(self, action: "deleteCell:", forControlEvents: UIControlEvents.TouchUpInside)
+		cell.deleteButton?.addTarget(self, action: #selector(CategoriesCollectionViewController.deleteCell(_:)), forControlEvents: UIControlEvents.TouchUpInside)
 
 		
 		if isDeletionModeActive {

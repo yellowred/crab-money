@@ -310,7 +310,7 @@ class Model
 			let fetchedResults = try context.executeFetchRequest(fetchRequest)
 			if fetchedResults.count > 0
 			{
-				return fetchedResults.first as! Currency
+				return fetchedResults.first as? Currency
 			}
 		} catch let fetchError as NSError {
 			print("getCountryByCode error: \(fetchError.localizedDescription)")

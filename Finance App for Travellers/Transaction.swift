@@ -15,7 +15,20 @@ import CoreData
     @NSManaged var rate: NSDecimalNumber
     @NSManaged var text: String
     @NSManaged var category: Category?
-    @NSManaged var currency: Currency
+	var currency: Currency {
+		get {
+			self.willAccessValueForKey("currency")
+			let currency = self.primitiveValueForKey("currency") as! Currency
+			self.didAccessValueForKey("currency")
+			return currency
+		}
+		set {
+			self.willChangeValueForKey("currency")
+			self.setPrimitiveValue(newValue, forKey: "currency")
+			self.didChangeValueForKey("text")
+			self.rate = newValue.rate
+		}
+	}
 	
 	
 	override func setValue(value: AnyObject?, forKey key: String) {
@@ -25,11 +38,10 @@ import CoreData
 			super.setValue(value, forKey: key)
 		}
 	}
-	
+
 	
 	func setAmountWithMoney(value: NSDecimalNumber) {
 		self.amount = value.formatToMoney()
-		print(value, self.amount)
 	}
 	
 	func getMoney() -> Money {

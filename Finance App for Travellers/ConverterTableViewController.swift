@@ -34,7 +34,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
 		tableView.allowsMultipleSelectionDuringEditing = false;
 
-		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ConverterTableViewController.dismissKeyboard))
 		view.addGestureRecognizer(tap)
 	}
 	

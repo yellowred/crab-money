@@ -18,14 +18,14 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 	var expenseCategories: [Category] = []
 	var earningCategories: [Category] = []
 	
-	var transactions: [Transaction]?
+	var currentCategory: Category?
 	var finmath: Math?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		loadData()
 		NSNotificationCenter.defaultCenter().addObserver(self,
-			selector: "onModelDataChanged:",
+			selector: #selector(InsightsCategoriesTableViewController.onModelDataChanged(_:)),
 			name: app().model.kNotificationDataChanged,
 			object: nil)
 	}
@@ -52,8 +52,12 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
         // Dispose of any resources that can be recreated.
     }
 	
+	// MARK: - TransactionsTVC delegate
 	func getTransactions() -> [Transaction] {
-		return transactions!
+		guard self.currentCategory != nil else {
+			return []
+		}
+		return finmath!.getTransactionsForCategoryAndPeriod(self.currentCategory!)
 	}
 	
     // MARK: - Table view data source
@@ -95,13 +99,11 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 	}
 
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		var category: Category
 		if indexPath.section == 0 && earningCategories.count > 0 {
-			category = earningCategories[indexPath.row]
+			self.currentCategory = earningCategories[indexPath.row]
 		} else {
-			category = expenseCategories[indexPath.row]
+			self.currentCategory = expenseCategories[indexPath.row]
 		}
-		self.transactions = finmath?.getTransactionsForCategoryAndPeriod(category)
 		performSegueWithIdentifier(kShowCategoryTransactions, sender: nil)
 	}
 	

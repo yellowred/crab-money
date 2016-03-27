@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 //import Fabric
 //import Crashlytics
-import Material
 
 
 @UIApplicationMain
@@ -33,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UINavigationBar.appearance().barStyle = UIBarStyle.Black
 		
 		let barShadow: NSShadow = NSShadow()
-		barShadow.shadowColor = MaterialColor.black
+		barShadow.shadowColor = UIColor.blackColor()
 		barShadow.shadowOffset = CGSize(width: 1, height: 1)
 		barShadow.shadowBlurRadius = CGFloat(5.0)
 		

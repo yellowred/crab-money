@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import ChameleonFramework
-import Material
 import Spring
 
 enum NumpadSegues: String {
@@ -72,7 +70,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	@IBAction func tapNumber(sender: UIButton)
 	{
 		#if DEBUG
-			println(__FUNCTION__)
+			println(#function)
 		#endif
         if sender.tag >= 1 && sender.tag <= 10 {
             amount!.appendSymbol(sender.tag < 10 ? String(sender.tag) : "0")
@@ -195,8 +193,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		notCompletedTransaction!.currency.increasePopularity()
 		app().model.saveStorage()
 		notCompletedTransaction = nil
-		NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("showInputConfirmation:"), userInfo: nil, repeats: false)
-		NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("hideInputConfirmation:"), userInfo: nil, repeats: false)
+		NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: nil, repeats: false)
+		NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
 /*
 		
 */
@@ -213,7 +211,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		confirmLabel.text = "✓"
 		confirmLabel.textAlignment = NSTextAlignment.Center
 		confirmLabel.font = UIFont.systemFontOfSize(120)
-		inputConfirmation!.backgroundColor = MaterialColor.white
+		inputConfirmation!.backgroundColor = UIColor.lightGrayColor()
 		inputConfirmation!.alpha = 1
 		inputConfirmation!.layer.masksToBounds = true
 		inputConfirmation!.layer.cornerRadius = 10

@@ -61,7 +61,7 @@ class SummaryView: UIView {
 	
 	func initCommonData(forDate: NSDate, transactions: [Transaction], currency: Currency) {
 		let normalizedTransactionValues = transactions.map {$0.getMoney().toCurrency(currency).amount.doubleValue}
-		let total = NSDecimalNumber(double: normalizedTransactionValues.reduce(0, combine: + ))
+		//let total = NSDecimalNumber(double: normalizedTransactionValues.reduce(0, combine: + ))
 		graph.graphPoints = normalizedTransactionValues.map {fabs($0)}
 
 		//amount.text = NSNumberFormatter().formatterMoney(currency).stringFromNumber(total)

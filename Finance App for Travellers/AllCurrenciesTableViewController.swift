@@ -81,26 +81,26 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 	// MARK: UISearchControllerDelegate
 	
 	func presentSearchController(searchController: UISearchController) {
-		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(#function).")
 	}
 	
 	func willPresentSearchController(searchController: UISearchController) {
-		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(#function).")
 		
 		//self.navigationController?.navigationBar.translucent = true;
 	}
 	
 	func didPresentSearchController(searchController: UISearchController) {
-		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(#function).")
 	}
 	
 	func willDismissSearchController(searchController: UISearchController) {
-		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(#function).")
 		//self.navigationController?.navigationBar.translucent = true;
 	}
 	
 	func didDismissSearchController(searchController: UISearchController) {
-		debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+		debugPrint("UISearchControllerDelegate invoked method: \(#function).")
 	}
 	
 	

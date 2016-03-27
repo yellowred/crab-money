@@ -88,7 +88,9 @@ class Math: NSObject {
 	
 	
 	lazy var earningsTotal:NSDecimalNumber = {
-		return self.earnings.reduce(0, combine: {return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.decimalNumberByAdding($0)})
+		return self.earnings.reduce(0, combine: {
+			return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.decimalNumberByAdding($0)
+		})
 	}()
 	
 	
@@ -165,7 +167,6 @@ class Math: NSObject {
 		}
 		let usdAmount: NSDecimalNumber = transaction.amount.decimalNumberByDividingBy(transaction.rate)
 		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
-		
 		return Money(amount: currencyAmount, currency: currency)
 	}
 

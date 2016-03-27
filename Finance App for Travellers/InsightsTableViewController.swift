@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Material
-import SwiftyJSON
 
 enum InsightsSegues: String {
 	case ShowTransactions = "ShowTransactions"
@@ -69,7 +67,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		showAll()
 		
 		NSNotificationCenter.defaultCenter().addObserver(self,
-			selector: "onModelDataChanged:",
+			selector: #selector(InsightsTableViewController.onModelDataChanged(_:)),
 			name: app().model.kNotificationDataChanged,
 			object: nil)
     }
@@ -112,11 +110,11 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			}
 			expensesToday.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesToday.abs())
 			
-			expensesTotal.textColor = MaterialColor.red.darken3
-			expensesMedian.textColor = MaterialColor.red.darken3
-			expensesProjected.textColor = MaterialColor.red.darken3
-			expensesMax.textColor = MaterialColor.red.darken3
-			expensesToday.textColor = MaterialColor.red.darken3
+			expensesTotal.textColor = UIColor.expense()
+			expensesMedian.textColor = UIColor.expense()
+			expensesProjected.textColor = UIColor.expense()
+			expensesMax.textColor = UIColor.expense()
+			expensesToday.textColor = UIColor.expense()
 			
 			
 			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
@@ -135,8 +133,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 				budgetInfoLabel.text = "Please set the budget".localized
 				budgetProgressBar.setProgress(Float(0), animated: false)
 			}
-			budgetProgressBar.progressTintColor = MaterialColor.red.darken1
-			budgetProgressBar.trackTintColor = MaterialColor.green.darken1
+			budgetProgressBar.progressTintColor = UIColor.expense()
+			budgetProgressBar.trackTintColor = UIColor.earning()
 
 		} else {
 			periodLabel.text = "undefined".localized
