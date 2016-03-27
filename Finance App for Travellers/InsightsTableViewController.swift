@@ -19,6 +19,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 
 	@IBOutlet var periodLabel: UILabel!
 
+	@IBOutlet weak var expensesTitle: UILabel!
     @IBOutlet weak var expensesTotal: UILabel!
     @IBOutlet weak var expensesToday: UILabel!
     @IBOutlet weak var expensesMedian: UILabel!
@@ -26,12 +27,13 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
     @IBOutlet weak var expensesMax: UILabel!
     
     
-	@IBOutlet var earningsAmount: UILabel!
-	@IBOutlet var dailyAverageEarnings: UILabel!
+	@IBOutlet weak var earningsTitle: UILabel!
+	@IBOutlet weak var earningsTotal: UILabel!
+	@IBOutlet weak var earningsAverage: UILabel!
+	
 	@IBOutlet var nextPeriodButton: UIButton!
 	@IBOutlet var prevPeriodButton: UIButton!
 	@IBOutlet var homeCurrency: UILabel!
-	@IBOutlet var maxTransactionAmount: UILabel!
 	@IBOutlet var budgetInfoLabel: UILabel!
 	@IBOutlet var budgetProgressBar: UIProgressView!
 	
@@ -110,15 +112,19 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			}
 			expensesToday.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesToday.abs())
 			
+			/*
 			expensesTotal.textColor = UIColor.expense()
 			expensesMedian.textColor = UIColor.expense()
 			expensesProjected.textColor = UIColor.expense()
 			expensesMax.textColor = UIColor.expense()
 			expensesToday.textColor = UIColor.expense()
+			*/
+			expensesTitle.textColor = UIColor.expense()
+			earningsTitle.textColor = UIColor.earning()
 			
 			
-			earningsAmount.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
-			dailyAverageEarnings.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
+			earningsTotal.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
+			earningsAverage.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
 			
 			var budget = app().model.getBudget()
 			if (budget.amount.isPositive()) {
