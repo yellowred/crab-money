@@ -198,9 +198,10 @@ class TransactionsTableViewController: UITableViewController {
 				transaction.amount = NSDecimalNumber(string: transactionDetailTVC.amountValue.text)
 				transaction.date = transactionDetailTVC.dateValue.date
 				transaction.text = transactionDetailTVC.descriptionValue.text
-				if let currency = app().model.getCurrencyByCode(transactionDetailTVC.currencyButton.titleLabel!.text!) {
-					transaction.currency = currency
+				if transactionDetailTVC.currencyUpd != nil {
+					transaction.currency = transactionDetailTVC.currencyUpd!
 				}
+				transaction.category = transactionDetailTVC.categoryUpd
 				app().model.saveStorage()
 				getTransactionsStructure()
 				tableView.reloadData()

@@ -14,6 +14,21 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 	let kSelectCurrencyForTransactionEdit = "SelectCurrencyForTransactionEdit"
 	
 	var transaction: Transaction?
+	var currencyUpd: Currency? {
+		didSet {
+			if self.currencyUpd != nil {
+				currencyButton.setTitle(self.currencyUpd!.code.uppercaseString, forState: .Normal)
+			}
+		}
+	}
+	
+	var categoryUpd: Category? {
+		didSet {
+			if self.categoryUpd != nil {
+				categoryName.text = self.categoryUpd!.name
+			}
+		}
+	}
 	
 	@IBOutlet var categoryName: UILabel!
 	@IBOutlet var amountValue: UITextField!
@@ -35,6 +50,8 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 			} else {
 				categoryName.text = "undefined".localized
 			}
+			currencyUpd = transaction!.currency
+			categoryUpd = transaction!.category
 			amountValue.text = transaction!.amount.formatToMoney().stringValue
 			dateValue.calendar = NSDate().getCalendar()
 			dateValue.date = transaction!.date
@@ -68,52 +85,6 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 		}
 		return super.tableView(tableView, titleForFooterInSection: section)
 	}
-	
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 	
     // MARK: - Navigation
@@ -128,18 +99,12 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 	
 	
 	func setCategory(category:Category) {
-		if transaction != nil {
-			transaction!.category = category
-			categoryName.text = transaction!.category?.name
-		}
+		self.categoryUpd = category
 	}
 	
 	
 	func setCurrency(currency: Currency) {
-		if transaction != nil {
-			transaction!.currency = currency
-			currencyButton.titleLabel?.text = transaction!.currency.code.uppercaseString
-		}
+		self.currencyUpd = currency
 	}
 	
 	func isExpense() -> Bool {

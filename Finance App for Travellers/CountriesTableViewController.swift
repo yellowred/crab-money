@@ -38,9 +38,6 @@ class CountriesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-		print("Countries count \(countries.count)")
         return countries.count
     }
 
