@@ -62,7 +62,6 @@ class TransactionsTableViewController: UITableViewController {
 		df.dateStyle = NSDateFormatterStyle.MediumStyle
 		var date: String
 		for elem in transactions {
-			print(elem)
 			date = elem.date.formatToHash()
 			if transactionStructure.indexForKey(date) == nil {
 				transactionStructure[date] = [elem]

@@ -227,7 +227,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	
 	func hideInputConfirmation(timer: NSTimer) {
-		print("hideInputConfirmation")
 		if inputConfirmation != nil {
 			UIView.animateWithDuration(1, animations: {
 				self.inputConfirmation!.alpha = 0
@@ -271,7 +270,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
 	{
-		print("Segue: \(segue.identifier)")
 		if segue.identifier == "showCurrencySelect2"	{
 			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? ConverterTableViewController	{
 				currenciesTVC.providedAmount = amount!

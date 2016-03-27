@@ -19,10 +19,9 @@ class CrabApi {
 		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
 			response in
 			
-			debugPrint(response.result)
+			debugPrint(#function, response.result.value?.count)
 			
 			if let JSON = response.result.value {
-				print("JSON")
 				finishCallback(data: JSON)
 			}
 			

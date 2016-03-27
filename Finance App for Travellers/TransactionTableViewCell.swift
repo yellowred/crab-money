@@ -35,8 +35,6 @@ class TransactionTableViewCell: UITableViewCell {
 		let range = amountString.rangeOfString(dollarsValue!)
 			
 		attributedString.addAttributes(secondAttributes, range: range)
-//			/attributedString.addAttributes(secondAttributes, range: amountString.rangeOfCharacterFromSet(NSCharacterSet(charactersInString: "-")))
-		print(amountString, dollarsValue!)
 		
 		trnAmount.attributedText = attributedString
 		if let category = transaction.category {

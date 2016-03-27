@@ -166,9 +166,6 @@ class Model
         {
             newCountry.setValue(flag!, forKey: "flag")
         }
-
-		print("Country", newCountry.valueForKey("code"), newCountry.valueForKey("flag"))
-        
         return newCountry
     }
 
@@ -463,9 +460,7 @@ class Model
 		newTransaction.setValue(amount.currency, forKey: "currency")
 		newTransaction.setValue(amount.currency.rate, forKey: "rate")
 		newTransaction.setValue(NSDate(), forKey: "date")
-		
-		print("createTransaction \(amount.amount)")
-		
+
 		return newTransaction
 	}
 	
@@ -543,7 +538,6 @@ class Model
 		if let _ = logo {
 			newCategory.setValue(logo, forKey: "logo")
 		}
-		print("createCategory \(name)")
 		return newCategory
 	}
 	
@@ -554,9 +548,6 @@ class Model
 	}
 	
 	func getCategoriesList(isExpense: Bool) -> [Category] {
-		
-		print("getCategoriesList isExpense", isExpense)
-		
 		let fetchRequest = NSFetchRequest(entityName: "Category")
 		fetchRequest.predicate = NSPredicate(format: "(is_expense = %@)", isExpense)
 		
