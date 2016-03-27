@@ -10,21 +10,21 @@ import Foundation
 import Alamofire
 
 class CrabApi {
-	private let apiUrl:String = "http://ec2-52-91-250-91.compute-1.amazonaws.com/crabapi/"
+	private let apiUrl:String = "http://ec2-52-91-250-91.compute-1.amazonaws.com:3000/"
 	private lazy var currencyDownloadEndpoint: String = {
-		return self.apiUrl + "currencies.php"
+		return self.apiUrl + "currency"
 	}()
 
 	func currencies(finishCallback: (data: AnyObject?) -> Void) {
+		print("Request ", currencyDownloadEndpoint)
 		Alamofire.request(.GET, currencyDownloadEndpoint).responseJSON() {
 			response in
 			
-			debugPrint(#function, response.result.value?.count)
-			
 			if let JSON = response.result.value {
 				finishCallback(data: JSON)
+			} else {
+				debugPrint("Incorrect response in ", #function)
 			}
-			
 		}
 	}
 }

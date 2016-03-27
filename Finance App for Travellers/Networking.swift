@@ -49,7 +49,7 @@ class Networking
 				}
 				for currencyRateData:NSDictionary in data as! [NSDictionary] {
 					if
-						let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("code") as! String)
+						let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("charcode") as! String)
 					{
 						let stringRate = String(currencyRateData.valueForKey("rate")!)
 						let rate = NSDecimalNumber(string: stringRate, locale: NSLocale(localeIdentifier: "en_US"))
