@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LoopBack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CrabApp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CrabAppTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>737A3CDEA9723F9F0DF05552962F5C4E</key>
+		<key>67725F4618169F7E3AD32766B5D5FD66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA34C3DB614FE35B3CB94C2C3FC5DCF9</key>
+		<key>CC730D59774FCE0EC6138945E470FF15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4C7880755E83B036391B687B7D870DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F345B327E9102E5D9E001318EB7437CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

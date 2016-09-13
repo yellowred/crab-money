@@ -7,7 +7,8 @@ platform :ios, '8.0'
 
 target 'CrabApp' do
 	pod 'Alamofire', '~> 3.0'
-    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+	pod 'LoopBack', :git => 'https://github.com/strongloop/loopback-sdk-ios.git'
 end
 
 target 'CrabAppTests' do
