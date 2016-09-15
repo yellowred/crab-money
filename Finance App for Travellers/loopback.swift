@@ -11,11 +11,11 @@ import LoopBack
 
 class Loopback {
 	
-	static let adapter:LBRESTAdapter = LBRESTAdapter(URL: NSURL(string: "http://0.0.0.0:3015/api/"))
-	static let customers:BackendRepositoryCustomer = adapter.repositoryWithClass(BackendRepositoryCustomer) as! BackendRepositoryCustomer
-	static let financials:BackendRepositoryFinancial = adapter.repositoryWithClass(BackendRepositoryFinancial) as! BackendRepositoryFinancial
+	static let adapter:LBRESTAdapter = LBRESTAdapter(url: URL(string: "http://0.0.0.0:3015/api/"))
+	static let customers:BackendRepositoryCustomer = adapter.repository(with: BackendRepositoryCustomer) as! BackendRepositoryCustomer
+	static let financials:BackendRepositoryFinancial = adapter.repository(with: BackendRepositoryFinancial) as! BackendRepositoryFinancial
 	
 	func save() {
-		let financialModel = financials.modelWithDictionary(nil) as? BackendModelFinancial
+		let financialModel = Loopback.financials.model(with: nil) as? BackendModelFinancial
 	}
 }

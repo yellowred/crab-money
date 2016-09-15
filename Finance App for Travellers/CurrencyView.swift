@@ -12,7 +12,7 @@ class CurrencyView: UIView {
 
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
 		let width = rect.width
 		let height = rect.height
@@ -20,12 +20,12 @@ class CurrencyView: UIView {
 		
 		let context = UIGraphicsGetCurrentContext()
 
-		CGContextSetStrokeColorWithColor(context, UIColor.lightGrayColor().CGColor)
-		CGContextSetLineWidth(context, 1.0)
-		CGContextSetShadow(context, CGSizeMake(5, 0), 4)
-		CGContextMoveToPoint(context, 0, height - 5)
-		CGContextAddLineToPoint(context, width, height - 5)
-		CGContextStrokePath(context)
+		context?.setStrokeColor(UIColor.lightGray.cgColor)
+		context?.setLineWidth(1.0)
+		context?.setShadow(offset: CGSize(width: 5, height: 0), blur: 4)
+		context?.move(to: CGPoint(x: 0, y: height - 5))
+		context?.addLine(to: CGPoint(x: width, y: height - 5))
+		context?.strokePath()
 		
 		/*
 		let myColorspace = CGColorSpaceCreateDeviceRGB()

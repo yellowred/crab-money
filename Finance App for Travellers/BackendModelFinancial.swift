@@ -10,7 +10,7 @@ import Foundation
 
 class BackendModelFinancial : LBPersistedModel {
 	var amount: NSDecimalNumber
-	var date: NSDate
+	var date: Date
 	var rate: NSDecimalNumber
 	var text: String
 	var category: String

@@ -19,7 +19,7 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
         // Initialization code
     }
 
-    func configure(text text: String?, placeholder: String) {
+    func configure(text: String?, placeholder: String) {
         valueInput.text = text
         valueInput.placeholder = placeholder
         
@@ -28,8 +28,8 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
     }
 
 	
-	func setHandsOnCurrency(handsOnCurrency: HandsOnCurrency) {
-		self.code.text = handsOnCurrency.amount.currency.code.uppercaseString
+	func setHandsOnCurrency(_ handsOnCurrency: HandsOnCurrency) {
+		self.code.text = handsOnCurrency.amount.currency.code.uppercased()
 		self.flag.image = handsOnCurrency.amount.currency.getFlag()
 		self.flag.layer.cornerRadius = 15
 		self.flag.layer.masksToBounds = true
@@ -40,8 +40,8 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
 	}
 
 	
-	func setCurrency(currency: Currency) {
-		self.code.text = currency.code.uppercaseString
+	func setCurrency(_ currency: Currency) {
+		self.code.text = currency.code.uppercased()
 		self.flag.image = currency.getFlag()
 	}
 }

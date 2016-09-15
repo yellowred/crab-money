@@ -503,6 +503,7 @@
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = NF8ZZ5VT6T;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -511,6 +512,7 @@
 					};
 					9A9C91A31B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 9A9C918B1B3444E500DE580F;
 					};
 				};
@@ -908,6 +910,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -933,6 +936,7 @@
 				PRODUCT_NAME = CrabApp;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -954,6 +958,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CrabApp;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrabApp.app/CrabApp";
 			};
 			name = Debug;
@@ -971,6 +976,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CrabApp;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrabApp.app/CrabApp";
 			};
 			name = Release;

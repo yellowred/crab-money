@@ -10,21 +10,21 @@ import UIKit
 class Transaction: NSObject {
 	
 	var amount: NSDecimalNumber
-	var date: NSDate
+	var date: Date
 	var rate: NSDecimalNumber
 	var currency: Currency
 	var category: Category?
 	
 	init(amount:NSDecimalNumber, date:String, rate: NSDecimalNumber, currency: Currency) {
 		self.amount = amount
-		self.date = NSDate().fromString(date)!
+		self.date = Date().fromString(date)!
 		self.rate = rate
 		self.currency = currency
 	}
 	
 	
 	
-	override func setValue(value: AnyObject?, forKey key: String) {
+	override func setValue(_ value: Any?, forKey key: String) {
 		if key == "amount" {
 			setAmountWithMoney(value as! NSDecimalNumber)
 		} else {
@@ -33,7 +33,7 @@ class Transaction: NSObject {
 	}
 	
 	
-	func setAmountWithMoney(value: NSDecimalNumber) {
+	func setAmountWithMoney(_ value: NSDecimalNumber) {
 		self.amount = value.formatToMoney()
 	}
 	
@@ -42,7 +42,7 @@ class Transaction: NSObject {
 	}
 
 	
-	func setCategoryWithUpdate(category: Category) {
+	func setCategoryWithUpdate(_ category: Category) {
 		self.category = category
 		self.category!.addTransaction(self)
 	}

@@ -24,7 +24,7 @@ class Math: NSObject {
 	lazy var expenses: [Transaction] = {
 		return self.transactions.filter {
 			(x : Transaction) -> Bool in
-			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
+			if x.amount.compare(NSDecimalNumber.zero) == ComparisonResult.orderedAscending {
 				return true
 			}
 			return false
@@ -33,11 +33,11 @@ class Math: NSObject {
 	
 	
 	lazy var expensesTotal:NSDecimalNumber = {
-		return self.expenses.reduce(0, combine: {return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.decimalNumberByAdding($0)}).abs()
+		return self.expenses.reduce(0, {return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.adding($0)}).abs()
 	}()
 
 	lazy var expensesToday:NSDecimalNumber = {
-		var dayHash:String = NSDate().formatToHash()
+		var dayHash:String = Date().formatToHash()
 		guard self.dailyAmounts(self.expenses)[dayHash] != nil else {
 			return 0
 		}
@@ -45,7 +45,7 @@ class Math: NSObject {
 	}()
 	
 	lazy var expensesAvg:NSDecimalNumber = {
-		return self.expenses.count > 0 ? self.expensesTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysLeft())) : NSDecimalNumber(integer: 0)
+		return self.expenses.count > 0 ? self.expensesTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysLeft() as Int)) : NSDecimalNumber(value: 0 as Int)
 	}()
 	
 	lazy var expensesMean:NSDecimalNumber = {
@@ -54,13 +54,13 @@ class Math: NSObject {
 	
 	
 	lazy var expensesProjected:NSDecimalNumber = {
-		return self.expensesAvg.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysCount()))
+		return self.expensesAvg.multiplying(by: NSDecimalNumber(value: self.currentPeriod.getDaysCount() as Int))
 	}()
 	
 	
 	lazy var expensesMaxTransaction:Transaction? = {
-		return self.expenses.maxElement({(a: Transaction, b:Transaction) in
-			return self.getMoneyInCurrencyWithHistoryRate(a, currency:self.homeCurrency).amount.compare(self.getMoneyInCurrencyWithHistoryRate(b, currency:self.homeCurrency).amount) == NSComparisonResult.OrderedDescending
+		return self.expenses.max(by: {(a: Transaction, b:Transaction) in
+			return self.getMoneyInCurrencyWithHistoryRate(a, currency:self.homeCurrency).amount.compare(self.getMoneyInCurrencyWithHistoryRate(b, currency:self.homeCurrency).amount) == ComparisonResult.orderedDescending
 		})
 	}()
 	
@@ -71,7 +71,7 @@ class Math: NSObject {
 				categories.append(trn.category!)
 			}
 		}
-		categories.sortInPlace { self.getCategoryAmountForPeriod($0).compare(self.getCategoryAmountForPeriod($1)) == NSComparisonResult.OrderedAscending }
+		categories.sort { self.getCategoryAmountForPeriod($0).compare(self.getCategoryAmountForPeriod($1)) == ComparisonResult.orderedAscending }
 		return categories
 	}()
 	
@@ -79,7 +79,7 @@ class Math: NSObject {
 	lazy var earnings: [Transaction] = {
 		return self.transactions.filter {
 			(x : Transaction) -> Bool in
-			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending {
+			if x.amount.compare(NSDecimalNumber.zero) == ComparisonResult.orderedDescending {
 				return true
 			}
 			return false
@@ -88,14 +88,14 @@ class Math: NSObject {
 	
 	
 	lazy var earningsTotal:NSDecimalNumber = {
-		return self.earnings.reduce(0, combine: {
-			return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.decimalNumberByAdding($0)
+		return self.earnings.reduce(0, {
+			return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.adding($0)
 		})
 	}()
 	
 	
 	lazy var earningsAvg:NSDecimalNumber = {
-		return self.earnings.count > 0 ? self.earningsTotal.decimalNumberByDividingBy(NSDecimalNumber(integer: self.currentPeriod.getDaysLeft())) : NSDecimalNumber(integer: 0)
+		return self.earnings.count > 0 ? self.earningsTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysLeft() as Int)) : NSDecimalNumber(value: 0 as Int)
 	}()
 	
 	
@@ -106,39 +106,39 @@ class Math: NSObject {
 				categories.append(trn.category!)
 			}
 		}
-		categories.sortInPlace { self.getCategoryAmountForPeriod($0).compare(self.getCategoryAmountForPeriod($1)) == NSComparisonResult.OrderedAscending }
+		categories.sort { self.getCategoryAmountForPeriod($0).compare(self.getCategoryAmountForPeriod($1)) == ComparisonResult.orderedAscending }
 		return categories
 	}()
 
 	
-	func getCategoryAmountForPeriod(category: Category) -> NSDecimalNumber {
-		var amount = NSDecimalNumber(integer: 0)
+	func getCategoryAmountForPeriod(_ category: Category) -> NSDecimalNumber {
+		var amount = NSDecimalNumber(value: 0 as Int)
 		for elem: Transaction in transactions {
 			if elem.category == category {
-				amount = amount.decimalNumberByAdding(getMoneyInCurrencyWithHistoryRate(elem, currency: self.homeCurrency).amount)
+				amount = amount.adding(getMoneyInCurrencyWithHistoryRate(elem, currency: self.homeCurrency).amount)
 			}
 		}
 		return amount
 	}
 	
-	func getTransactionsForCategoryAndPeriod(category: Category) -> [Transaction] {
+	func getTransactionsForCategoryAndPeriod(_ category: Category) -> [Transaction] {
 		return transactions.filter {
 			(x : Transaction) -> Bool in
 			return x.category == category
 		}
 	}
 	
-	func median(values: [Transaction]) -> NSDecimalNumber {
-		let sorted = dailyAmounts(values).map {$1} .sort { $0.compare($1) == NSComparisonResult.OrderedAscending }
+	func median(_ values: [Transaction]) -> NSDecimalNumber {
+		let sorted = dailyAmounts(values).map {$1} .sorted { $0.compare($1) == ComparisonResult.orderedAscending }
 		let count = Double(sorted.count)
 		if count == 0 { return 0 }
 
-		if count % 2 == 0 {
+		if count.truncatingRemainder(dividingBy: 2) == 0 {
 			// Even number of items - return the mean of two middle values
 			let leftIndex = Int(count / 2 - 1)
 			let leftValue = sorted[leftIndex]
 			let rightValue = sorted[leftIndex + 1]
-			return leftValue.decimalNumberByAdding(rightValue).decimalNumberByDividingBy(2)
+			return leftValue.adding(rightValue).dividing(by: 2)
 		} else {
 			// Odd number of items - take the middle item.
 			return sorted[Int(count / 2)]
@@ -146,7 +146,7 @@ class Math: NSObject {
 	}
 	
 	
-	func dailyAmounts(values: [Transaction]) ->[String:NSDecimalNumber] {
+	func dailyAmounts(_ values: [Transaction]) ->[String:NSDecimalNumber] {
 		var dailyAmounts = [String:NSDecimalNumber]()
 		var dayHash:String = ""
 		for item in values {
@@ -154,19 +154,19 @@ class Math: NSObject {
 			if dailyAmounts[dayHash] === nil {
 				dailyAmounts[dayHash] = getMoneyInCurrencyWithHistoryRate(item, currency: self.homeCurrency).amount
 			} else {
-				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.decimalNumberByAdding(getMoneyInCurrencyWithHistoryRate(item, currency: self.homeCurrency).amount)
+				dailyAmounts[dayHash] = dailyAmounts[dayHash]!.adding(getMoneyInCurrencyWithHistoryRate(item, currency: self.homeCurrency).amount)
 			}
 		}
 		return dailyAmounts
 	}
 	
 	
-	func getMoneyInCurrencyWithHistoryRate(transaction:Transaction, currency: Currency) -> Money {
+	func getMoneyInCurrencyWithHistoryRate(_ transaction:Transaction, currency: Currency) -> Money {
 		guard transaction.currency.code != currency.code else {
 			return Money(amount: transaction.amount, currency: currency)
 		}
-		let usdAmount: NSDecimalNumber = transaction.amount.decimalNumberByDividingBy(transaction.rate)
-		let currencyAmount = usdAmount.decimalNumberByMultiplyingBy(currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
+		let usdAmount: NSDecimalNumber = transaction.amount.dividing(by: transaction.rate)
+		let currencyAmount = usdAmount.multiplying(by: currency.rate, withBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.plain, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
 		return Money(amount: currencyAmount, currency: currency)
 	}
 

@@ -12,7 +12,7 @@ import CoreData
 @objc(Country) class Country: NSManagedObject {
 
     @NSManaged var code: String
-    @NSManaged var flag: NSData?
+    @NSManaged var flag: Data?
     @NSManaged var name: String?
     @NSManaged var currency: Currency?
 

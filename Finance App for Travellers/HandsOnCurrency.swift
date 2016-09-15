@@ -20,7 +20,7 @@ class HandsOnCurrency: NSObject {
 	}
 	
 	
-	func setAmount(amount: NSDecimalNumber) {
+	func setAmount(_ amount: NSDecimalNumber) {
 		self.amount.setAmount(amount)
 		textField?.text = self.amount.amount.stringValue
 	}

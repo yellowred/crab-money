@@ -12,7 +12,7 @@ class NumpadView: UIView {
 
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
 		let width = rect.width
 		let height = rect.height
 		
@@ -20,11 +20,11 @@ class NumpadView: UIView {
 		let context = UIGraphicsGetCurrentContext()
 		let myColorspace = CGColorSpaceCreateDeviceRGB();
 
-		let colors = [UIColor.amountColor().CGColor, UIColor.whiteColor().CGColor]
-		let myGradient = CGGradientCreateWithColors(
-			myColorspace,
-			colors,
-			[0.0, 1.0]
+		let colors = [UIColor.amountColor().cgColor, UIColor.white.cgColor]
+		let myGradient = CGGradient(
+			colorsSpace: myColorspace,
+			colors: colors as CFArray,
+			locations: [0.0, 1.0]
 		)
 		
 		var centerPoint:CGPoint
@@ -33,20 +33,18 @@ class NumpadView: UIView {
 		for x in [width * 0.3 + width * 0.1 / 3, width * 0.7 - width * 0.1 / 3] {
 			centerPoint = CGPoint(x:x, y:height / 2)
 			
-		CGContextSaveGState(context)
-		CGContextAddRect(context, CGRectMake(x, 0, 1, height))
+		context.saveGState()
+		context.addRect(CGRect(x: x, y: 0, width: 1, height: height))
 		CGContextClip(context)
 
-		CGContextDrawRadialGradient(
-			context,
-			myGradient,
-			centerPoint,
-			0,
-			centerPoint,
-			height / 2,
-			CGGradientDrawingOptions.DrawsAfterEndLocation
+		context.drawRadialGradient(myGradient,
+			startCenter: centerPoint,
+			startRadius: 0,
+			endCenter: centerPoint,
+			endRadius: height / 2,
+			options: CGGradientDrawingOptions.drawsAfterEndLocation
 		)
-		CGContextRestoreGState(context)
+		context.restoreGState()
 		}
 		
 		
@@ -54,20 +52,18 @@ class NumpadView: UIView {
 		for y in [height * 0.24 + 1, height * 0.48 + 4, height * 0.72 + 7] {
 			centerPoint = CGPoint(x:width / 2, y:y)
 			
-			CGContextSaveGState(context)
-			CGContextAddRect(context, CGRectMake(0, y, width, 1))
-			CGContextClip(context)
+			context?.saveGState()
+			context?.addRect(CGRect(x: 0, y: y, width: width, height: 1))
+			context?.clip()
 			
-			CGContextDrawRadialGradient(
-				context,
-				myGradient,
-				centerPoint,
-				0,
-				centerPoint,
-				width / 2,
-				CGGradientDrawingOptions.DrawsAfterEndLocation
+			context?.drawRadialGradient(myGradient!,
+				startCenter: centerPoint,
+				startRadius: 0,
+				endCenter: centerPoint,
+				endRadius: width / 2,
+				options: CGGradientDrawingOptions.drawsAfterEndLocation
 			)
-			CGContextRestoreGState(context)
+			context?.restoreGState()
 		}
 
     }

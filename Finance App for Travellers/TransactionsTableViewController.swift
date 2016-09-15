@@ -18,8 +18,8 @@ class TransactionsTableViewController: UITableViewController {
 	var transactionStructure = Dictionary<String, Array<Transaction>>()
 	var sortedSectionTitles = Array<String>()
 	
-	private let kTransactionCellIdentifier = "TransactionCell"
-	private let kShowTransactionDetailSegue = "ShowTransactionDetail"
+	fileprivate let kTransactionCellIdentifier = "TransactionCell"
+	fileprivate let kShowTransactionDetailSegue = "ShowTransactionDetail"
 	
 	var currentPeriod: Period?
 	var transactionsViewDelegate: TransactionsViewDelegate?
@@ -41,36 +41,36 @@ class TransactionsTableViewController: UITableViewController {
 		transactions = transactionsViewDelegate!.getTransactions()
 		getTransactionsStructure()
 		
-		NSNotificationCenter.defaultCenter().addObserver(self,
+		NotificationCenter.default.addObserver(self,
 			selector: #selector(TransactionsTableViewController.onModelDataChanged(_:)),
-			name: app().model.kNotificationDataChanged,
+			name: NSNotification.Name(rawValue: app().model.kNotificationDataChanged),
 			object: nil)
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		tableView.reloadData()
 	}
 	
-	func onModelDataChanged(notification: NSNotification){
+	func onModelDataChanged(_ notification: Notification){
 		transactions = transactionsViewDelegate!.getTransactions()
 		getTransactionsStructure()
 	}
 	
 	func getTransactionsStructure() {
 		transactionStructure = Dictionary<String, Array<Transaction>>()
-		let df = NSDateFormatter()
-		df.dateStyle = NSDateFormatterStyle.MediumStyle
+		let df = DateFormatter()
+		df.dateStyle = DateFormatter.Style.medium
 		var date: String
 		for elem in transactions {
 			date = elem.date.formatToHash()
-			if transactionStructure.indexForKey(date) == nil {
+			if transactionStructure.index(forKey: date) == nil {
 				transactionStructure[date] = [elem]
 			}
 			else {
 				transactionStructure[date]!.append(elem)
 			}
 		}
-		sortedSectionTitles = transactionStructure.keys.elements.sort(){$0>$1}
+		sortedSectionTitles = transactionStructure.keys.elements.sorted(){$0>$1}
 	}
 	
 	
@@ -113,26 +113,26 @@ class TransactionsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return transactionStructure.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactionStructure[sortedSectionTitles[section]]!.count
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier(kTransactionCellIdentifier, forIndexPath: indexPath) as! TransactionTableViewCell
-		cell.setTransaction(transactionStructure[sortedSectionTitles[indexPath.section]]![indexPath.row])
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: kTransactionCellIdentifier, for: indexPath) as! TransactionTableViewCell
+		cell.setTransaction(transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row])
 		return cell
 	}
 
-	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 90
 	}
 
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		let trn = transactionStructure[sortedSectionTitles[section]]!.first! as Transaction
 		return trn.date.transactionsSectionFormat()
 	}
@@ -145,15 +145,15 @@ class TransactionsTableViewController: UITableViewController {
     }
     */
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-			transactionStructure[sortedSectionTitles[indexPath.section]]?.removeAtIndex(indexPath.row)
-			app().model.deleteTransaction(transactions.removeAtIndex(indexPath.row))
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+			transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]?.remove(at: (indexPath as NSIndexPath).row)
+			app().model.deleteTransaction(transactions.remove(at: (indexPath as NSIndexPath).row))
 			getTransactionsStructure()
-			if tableView.numberOfRowsInSection(indexPath.section) == 1{
-				tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+			if tableView.numberOfRows(inSection: (indexPath as NSIndexPath).section) == 1{
+				tableView.deleteSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: .automatic)
 			}else{
-				tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+				tableView.deleteRows(at: [indexPath], with: .automatic)
 			}
         }
     }
@@ -172,27 +172,27 @@ class TransactionsTableViewController: UITableViewController {
         return true
     }
     */
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
 	{
-		let selectedTransaction:Transaction = transactionStructure[sortedSectionTitles[indexPath.section]]![indexPath.row]
-		performSegueWithIdentifier(kShowTransactionDetailSegue, sender: selectedTransaction)
+		let selectedTransaction:Transaction = transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row]
+		performSegue(withIdentifier: kShowTransactionDetailSegue, sender: selectedTransaction)
 	}
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == kShowTransactionDetailSegue {
-			(segue.destinationViewController as! TransactionDetailTableViewController).transaction = sender as? Transaction
+			(segue.destination as! TransactionDetailTableViewController).transaction = sender as? Transaction
 		}
     }
 	
-	@IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+	@IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
 
 	}
 	
-	@IBAction func saveTransaction(segue:UIStoryboardSegue) {
-		if let transactionDetailTVC = segue.sourceViewController as? TransactionDetailTableViewController {
+	@IBAction func saveTransaction(_ segue:UIStoryboardSegue) {
+		if let transactionDetailTVC = segue.source as? TransactionDetailTableViewController {
 			if let transaction = transactionDetailTVC.transaction {
 				transaction.amount = NSDecimalNumber(string: transactionDetailTVC.amountValue.text)
 				transaction.date = transactionDetailTVC.dateValue.date

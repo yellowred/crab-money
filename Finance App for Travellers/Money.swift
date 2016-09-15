@@ -23,16 +23,16 @@ class Money {
 	}
 	
 	
-	func appendSymbol(symbol:String) {
-		if NSPredicate(format: "SELF MATCHES %@", "[0-9.]").evaluateWithObject(symbol) {
+	func appendSymbol(_ symbol:String) {
+		if NSPredicate(format: "SELF MATCHES %@", "[0-9.]").evaluate(with: symbol) {
 			if symbol != "." {
 				if pointExists {
 					if (fractionalPart.length < 2) {
-						fractionalPart = fractionalPart.stringByAppendingString(symbol)
+						fractionalPart = fractionalPart.appending(symbol) as NSString
 					}
 				} else {
 					if integralPart.length < 10 {
-						integralPart = integralPart.stringByAppendingString(symbol)
+						integralPart = integralPart.appending(symbol) as NSString
 					}
 				}
 				recalcAmount()
@@ -45,41 +45,41 @@ class Money {
 	
 	func recalcAmount() {
 		if pointExists {
-			amount = NSDecimalNumber(string: NSArray(array: [integralPart, fractionalPart]).componentsJoinedByString(decimalPoint))
+			amount = NSDecimalNumber(string: NSArray(array: [integralPart, fractionalPart]).componentsJoined(by: decimalPoint))
 		} else {
-			amount = NSDecimalNumber(int: integralPart.intValue)
+			amount = NSDecimalNumber(value: integralPart.intValue as Int32)
 		}
 	}
 		
 	func backspace() {
 		if pointExists {
 			if fractionalPart.length > 0 {
-				fractionalPart = NSString(string: fractionalPart.substringToIndex(fractionalPart.length.predecessor()))
+				fractionalPart = NSString(string: fractionalPart.substring(to: (fractionalPart.length - 1)))
 			} else if fractionalPart.length == 0 {
 				pointExists = false
 			}
 		} else if (integralPart.length > 0) {
-			integralPart = NSString(string: integralPart.substringToIndex(integralPart.length.predecessor()))
+			integralPart = NSString(string: integralPart.substring(to: (integralPart.length - 1)))
 		}
 		recalcAmount()
 	}
 	
 	
-	func toCurrency(toCurrency: Currency) -> Money
+	func toCurrency(_ toCurrency: Currency) -> Money
 	{
-		let usdAmount: NSDecimalNumber = amount.decimalNumberByDividingBy(currency.rate)
-		return Money(amount: usdAmount.decimalNumberByMultiplyingBy(toCurrency.rate).decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)), currency: toCurrency)
+		let usdAmount: NSDecimalNumber = amount.dividing(by: currency.rate)
+		return Money(amount: usdAmount.multiplying(by: toCurrency.rate).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)), currency: toCurrency)
 	}
 	
 	
-	func setAmount(amount: NSDecimalNumber) {
+	func setAmount(_ amount: NSDecimalNumber) {
 		self.amount = amount
 		recalcParts()
 	}
 	
 	
 	func recalcParts() {
-		let amountParts = NSString(string: amount.stringValue).componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "."))
+		let amountParts = NSString(string: amount.stringValue).components(separatedBy: CharacterSet(charactersIn: "."))
 		self.integralPart = amountParts[0] as NSString
 		if amountParts.count > 1 {
 			pointExists = true
@@ -92,15 +92,15 @@ class Money {
 	}
 	
 	func stringValue() -> String {
-		return NSNumberFormatter().formatterMoney(currency).stringFromNumber(amount)!
+		return NumberFormatter().formatterMoney(currency).string(from: amount)!
 	}
 	
 	
 	func valueForAmount() -> String {
-		let numberFormatter = NSNumberFormatter().formatterSimpleMoney()
+		let numberFormatter = NumberFormatter().formatterSimpleMoney()
 		numberFormatter.minimumFractionDigits = pointExists ? 1 : 0
 		
-		return numberFormatter.stringFromNumber(amount)!
+		return numberFormatter.string(from: amount)!
 	}
 	
 }

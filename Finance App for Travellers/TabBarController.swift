@@ -22,15 +22,15 @@ class TabBarController: UITabBarController {
     }
     
 
-	override func encodeRestorableStateWithCoder(coder: NSCoder) {
-		super.encodeRestorableStateWithCoder(coder)
-		coder.encodeInteger(self.selectedIndex, forKey: "TabBarCurrentTab")
+	override func encodeRestorableState(with coder: NSCoder) {
+		super.encodeRestorableState(with: coder)
+		coder.encode(self.selectedIndex, forKey: "TabBarCurrentTab")
 		print("Encode state", self.selectedIndex)
 	}
 	
-	override func decodeRestorableStateWithCoder(coder: NSCoder) {
-		super.encodeRestorableStateWithCoder(coder)
-		self.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+	override func decodeRestorableState(with coder: NSCoder) {
+		super.encodeRestorableState(with: coder)
+		self.selectedIndex = coder.decodeInteger(forKey: "TabBarCurrentTab")
 		print("Decode state", self.selectedIndex)
 	}
     /*

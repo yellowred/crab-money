@@ -8,98 +8,98 @@
 
 import Foundation
 
-extension NSDate {
+extension Date {
 
-	func sameDayNextMonth() -> NSDate {
+	func sameDayNextMonth() -> Date {
 		let calendar = getCalendar()
-		let cmp = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Second, NSCalendarUnit.Minute], fromDate: self)
+		var cmp = (calendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.second, NSCalendar.Unit.minute], from: self)
 		
-		cmp.year = cmp.month == 12 ? cmp.year + 1 : cmp.year
-		cmp.month = cmp.month == 12 ? 1 : cmp.month + 1
+		cmp.year = cmp.month! == 12 ? cmp.year! + 1 : cmp.year
+		cmp.month = cmp.month! == 12 ? 1 : cmp.month! + 1
 		cmp.hour = 0
 		cmp.minute = 0
 		cmp.second = 0
-		return calendar.dateFromComponents(cmp)!
+		return calendar.date(from: cmp)!
 	}
 	
 	
-	func sameDayPrevMonth() -> NSDate {
+	func sameDayPrevMonth() -> Date {
 		let calendar = getCalendar()
-		let cmp = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Second, NSCalendarUnit.Minute], fromDate: self)
+		var cmp = (calendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.second, NSCalendar.Unit.minute], from: self)
 		
-		cmp.year = cmp.month == 1 ? cmp.year - 1 : cmp.year
-		cmp.month = cmp.month == 1 ? 12 : cmp.month - 1
+		cmp.year = cmp.month! == 1 ? cmp.year! - 1 : cmp.year
+		cmp.month = cmp.month! == 1 ? 12 : cmp.month! - 1
 		cmp.hour = 0
 		cmp.minute = 0
 		cmp.second = 0
-		return calendar.dateFromComponents(cmp)!
+		return calendar.date(from: cmp)!
 	}
 	
 	
 	func periodFormat() -> String {
-		let df = NSDateFormatter()
-		df.dateStyle = NSDateFormatterStyle.MediumStyle
-		return df.stringFromDate(self)
+		let df = DateFormatter()
+		df.dateStyle = DateFormatter.Style.medium
+		return df.string(from: self)
 	}
 	
 	
 	func periodShortFormat() -> String {
-		let dateFormatter = NSDateFormatter()
+		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "d MMMM"
-		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-		return dateFormatter.stringFromDate(self)
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.string(from: self)
 	}
 	
 	
 	func transactionsSectionFormat() -> String {
-		let dateFormatter = NSDateFormatter()
+		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "d MMMM"
-		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-		return dateFormatter.stringFromDate(self)
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.string(from: self)
 	}
 	
 	
 	func formatWithTimeLong() -> String {
-		let df = NSDateFormatter()
-		df.dateStyle = NSDateFormatterStyle.MediumStyle
-		df.timeStyle = NSDateFormatterStyle.LongStyle
-		return df.stringFromDate(self)
+		let df = DateFormatter()
+		df.dateStyle = DateFormatter.Style.medium
+		df.timeStyle = DateFormatter.Style.long
+		return df.string(from: self)
 	}
 	
 	func formatToHash() -> String {
-		let dateFormatter = NSDateFormatter()
+		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyyMMdd"
-		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-		return dateFormatter.stringFromDate(self)
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.string(from: self)
 	}
 	
 	
-	func getCalendar() -> NSCalendar {
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
+	func getCalendar() -> Calendar {
+		var calendar = Calendar.current
+		calendar.timeZone = TimeZone.current
 		return calendar
 	}
 	
-	func fromString(dbDate: String) -> NSDate? {
-		let dateFormatter = NSDateFormatter()
+	func fromString(_ dbDate: String) -> Date? {
+		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"//this your string date format
-		dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-		return dateFormatter.dateFromString(dbDate)
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.date(from: dbDate)
 	}
 	
-	func getDaysTo(date: NSDate) -> Int {
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
+	func getDaysTo(_ date: Date) -> Int {
+		var calendar = Calendar.current
+		calendar.timeZone = TimeZone.current
 		
-		let comp = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: date, options: [])
-		return comp.day
+		let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: self, to: date, options: [])
+		return comp.day!
 	}
 	
-	func getHoursTo(date: NSDate) -> Int {
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
+	func getHoursTo(_ date: Date) -> Int {
+		var calendar = Calendar.current
+		calendar.timeZone = TimeZone.current
 		
-		let comp = calendar.components(NSCalendarUnit.Day, fromDate: self, toDate: date, options: [])
-		return comp.hour
+		let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: self, to: date, options: [])
+		return comp.hour!
 	}
 }

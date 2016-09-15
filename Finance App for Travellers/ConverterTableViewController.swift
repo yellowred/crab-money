@@ -29,7 +29,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
         super.viewDidLoad()
 		
 		if providedAmount == nil {
-			providedAmount = Money(amount: NSDecimalNumber(integer: 0), currency: app().model.getCurrentCurrency())
+			providedAmount = Money(amount: NSDecimalNumber(value: 0 as Int), currency: app().model.getCurrentCurrency())
 		}
 		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
 		tableView.allowsMultipleSelectionDuringEditing = false;
@@ -45,13 +45,13 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	}
 	
 	
-	override func viewDidAppear(animated: Bool)
+	override func viewDidAppear(_ animated: Bool)
 	{
         tableView.reloadData()
     }
 
 	
-    func onContentSizeChange(notification: NSNotification) {
+    func onContentSizeChange(_ notification: Notification) {
         tableView.reloadData()
     }
     
@@ -62,7 +62,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
     }
 	
 	
-	@IBAction func amountChanged(sender: UITextField) {
+	@IBAction func amountChanged(_ sender: UITextField) {
 		if let amountTextField = sender as? AmountTextField
 		{
 			if amountTextField.text!.isEmpty {
@@ -84,11 +84,11 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return currenciesStructure.count
 		} else {
@@ -98,24 +98,24 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-        if indexPath.section == 0 {
-			let handsOnCurrency = currenciesStructure[indexPath.row]
-			cell = tableView.dequeueReusableCellWithIdentifier(kCurrencyManagableCell, forIndexPath: indexPath) as! CurrencyTableViewCell
+        if (indexPath as NSIndexPath).section == 0 {
+			let handsOnCurrency = currenciesStructure[(indexPath as NSIndexPath).row]
+			cell = tableView.dequeueReusableCell(withIdentifier: kCurrencyManagableCell, for: indexPath) as! CurrencyTableViewCell
 			(cell as! CurrencyTableViewCell).setHandsOnCurrency(handsOnCurrency)
 			//setup structure
 			handsOnCurrency.textField = (cell as! CurrencyTableViewCell).valueInput
         } else {
             let cellIdentifier = kCurrencyAddCell
-            cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CurrencyAddTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CurrencyAddTableViewCell
         }
         return cell
     }
 	
 	
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
 			return "Tap currency to add transaction".localized
 		} else {
@@ -123,7 +123,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		}
 	}
 	
-	override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == 0 {
 			if let lastUpdateTime = app().model.getEventTime(Networking.sharedInstance.kEventUpdateAll) {
 				return "Last updated on ".localized + lastUpdateTime.formatWithTimeLong() + "."
@@ -136,82 +136,82 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	}
 
 	
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		if indexPath.section == 0 {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if (indexPath as NSIndexPath).section == 0 {
 			return kCurrencyConverterCellHeight
 		} else {
 			return kCurrencyAddCellHeight
 		}
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
 //		selectedCurrency = currenciesStructure[indexPath.row].currency
     }
 	
 
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
 
 
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
 		{
-			app().model.deleteCurrencyFromConverter(currenciesStructure.removeAtIndex(indexPath.row).amount.currency)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+			app().model.deleteCurrencyFromConverter(currenciesStructure.remove(at: (indexPath as NSIndexPath).row).amount.currency)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
-		else if editingStyle == .Insert
+		else if editingStyle == .insert
 		{
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
 	
 	
-	override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-		let movedObject = currenciesStructure[sourceIndexPath.row]
-		currenciesStructure.removeAtIndex(sourceIndexPath.row)
-		currenciesStructure.insert(movedObject, atIndex: destinationIndexPath.row)
+	override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+		let movedObject = currenciesStructure[(sourceIndexPath as NSIndexPath).row]
+		currenciesStructure.remove(at: (sourceIndexPath as NSIndexPath).row)
+		currenciesStructure.insert(movedObject, at: (destinationIndexPath as NSIndexPath).row)
 		// To check for correctness enable: self.tableView.reloadData()
 	}
 
 
     // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return NO if you do not want the item to be re-orderable.
-		if indexPath.row < currenciesStructure.count {
+		if (indexPath as NSIndexPath).row < currenciesStructure.count {
 			return true
 		}
 		return false
     }
 
     // MARK: - Navigation
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "SelectCurrencyToOperate" {
 			if let cell = sender as? UITableViewCell {
-				let indexPath = tableView.indexPathForCell(cell)
-				if let index = indexPath?.row {
+				let indexPath = tableView.indexPath(for: cell)
+				if let index = (indexPath as NSIndexPath?)?.row {
 					providedAmount = currenciesStructure[index].amount
 				}
 			}
 		} else if segue.identifier == "AddAnotherCurrency" {
-			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
+			(segue.destination as! AllCurrenciesTableViewController).delegate = self
 		}
 	}
 	
 	
 	// MARK: - CurrencySelectDelegate
-	func setCurrency(currency: Currency) {
+	func setCurrency(_ currency: Currency) {
 		currenciesStructure.append(HandsOnCurrency(amount:providedAmount!.toCurrency(currency), textField: nil))
 		currency.addToConverter()
 		app().model.saveStorage()
 		
 		//update the tableView
-		let indexPath = NSIndexPath(forRow: currenciesStructure.count - 1, inSection: 0)
-		tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+		let indexPath = IndexPath(row: currenciesStructure.count - 1, section: 0)
+		tableView.insertRows(at: [indexPath], with: .automatic)
 	}
 	
 	
@@ -222,15 +222,15 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	
 
 	// MARK: - State Restoration
-	override func encodeRestorableStateWithCoder(coder: NSCoder) {
-		super.encodeRestorableStateWithCoder(coder)
-		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+	override func encodeRestorableState(with coder: NSCoder) {
+		super.encodeRestorableState(with: coder)
+		coder.encode(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
 		print("**** Encode state", self.tabBarController!.selectedIndex)
 	}
 	
-	override func decodeRestorableStateWithCoder(coder: NSCoder) {
-		super.decodeRestorableStateWithCoder(coder)
-		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+	override func decodeRestorableState(with coder: NSCoder) {
+		super.decodeRestorableState(with: coder)
+		self.tabBarController!.selectedIndex = coder.decodeInteger(forKey: "TabBarCurrentTab")
 		print("**** Decode state", self.tabBarController!.selectedIndex)
 	}
 	
@@ -240,8 +240,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	}
 	
 	
-	override func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+	override func encode(with aCoder: NSCoder) {
+		aCoder.encode(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
 		print("**** Encode 2 state", self.tabBarController!.selectedIndex)
 	}
 }
