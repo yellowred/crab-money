@@ -22,7 +22,7 @@ import CoreData
 	var t1:String = "Currency"
 	
 	lazy var flagImage: UIImage? = {
-		return UIImage(data: self.flag)
+		return UIImage(data: self.flag as Data)
 	}()
 	
 	lazy var localizedName: String = {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+// import Alamofire
 
 //@see http://www.raywenderlich.com/85080/beginning-alamofire-tutorial
 class Networking
@@ -21,6 +21,7 @@ class Networking
 
 	static let sharedInstance = Networking()
 	
+	/*
 	lazy var crabApi: CrabApi = {return CrabApi()}()
 
 	lazy var backgroundManager: Alamofire.Manager = {
@@ -62,7 +63,7 @@ class Networking
 			})
 		}
 	}
-	
+	*/
 	
 	func app() -> AppDelegate {
 		return UIApplication.shared.delegate as! AppDelegate

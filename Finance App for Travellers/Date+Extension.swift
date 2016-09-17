@@ -24,8 +24,8 @@ extension Date {
 	
 	
 	func sameDayPrevMonth() -> Date {
-		let calendar = getCalendar()
-		var cmp = (calendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.second, NSCalendar.Unit.minute], from: self)
+		let calendar:Calendar = getCalendar()
+		var cmp = calendar.dateComponents([.year, .month, .day, .hour, .second, .minute], from: self)
 		
 		cmp.year = cmp.month! == 1 ? cmp.year! - 1 : cmp.year
 		cmp.month = cmp.month! == 1 ? 12 : cmp.month! - 1

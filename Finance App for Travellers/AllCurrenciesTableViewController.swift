@@ -133,7 +133,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 				self.delegate!.setCurrency(self.selectedCurrency!)
 			}
 			self.dismiss(animated: true, completion: nil)
-			self.navigationController?.popViewController(animated: true)
+			_ = self.navigationController?.popViewController(animated: true)
 		}
 		else {
 			selectedCurrency = resultsTableController.filteredCurrencies[(indexPath as NSIndexPath).row]
@@ -143,7 +143,7 @@ class AllCurrenciesTableViewController: UITableViewController, UISearchBarDelega
 				if self.selectedCurrency != nil {
 					self.delegate!.setCurrency(self.selectedCurrency!)
 				}
-				self.navigationController?.popViewController(animated: true)
+				_ = self.navigationController?.popViewController(animated: true)
 			})
 			
 		}

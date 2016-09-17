@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import LoopBack
 
 //import Fabric
 //import Crashlytics
@@ -22,12 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-		//Fabric.with([Crashlytics.self()])
+		//	Fabric.with([Crashlytics.self()])
 		model.preloadData()
+		backend.saveOne()
+		/*
 		let dispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
 		dispatchQueue.async(execute: {
 			Networking.sharedInstance.updateAll(nil)
-		})
+		})*/
 		//UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
 		UINavigationBar.appearance().barTintColor = UIColor.statusBar()
 		UINavigationBar.appearance().tintColor = UIColor.white
@@ -50,12 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
     }
 
-	
+	/*
 	func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
 		Networking.sharedInstance.backgroundCompletionHandler = completionHandler
 	}
-	
-	
+
 	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 		Networking.sharedInstance.updateAll({(data:AnyObject?) in
 			if data != nil {
@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		})
 	}
+	*/
 	
 	
 	func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
@@ -104,6 +105,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	lazy var model: Model = {
 		return Model()
+	}()
+
+	lazy var backend: Backend = {
+		return Backend()
 	}()
 }
 

@@ -83,7 +83,7 @@ class Period: CustomStringConvertible {
 		let startDateCmp = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: startDate)
 		let endDateCmp = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: endDate)
 		if startDateCmp.year == endDateCmp.year {
-			return startDate.periodShortFormat() + " – " + endDate.periodShortFormat() + ", " + String(endDateCmp.year)
+			return startDate.periodShortFormat() + " – " + endDate.periodShortFormat() + ", " + String(describing: endDateCmp.year)
 		} else {
 			return startDate.periodFormat() + " – " + endDate.periodFormat()
 		}

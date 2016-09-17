@@ -70,7 +70,19 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return Int(earningCategories.count > 0) + Int(expenseCategories.count > 0)
+		/*
+		let sectionsNumber = 0
+		if earningCategories.count > 0 sectionsNumber += 1
+		if expenseCategories.count > 0 sectionsNumber += 1
+        return sectionsNumber
+		*/
+		return [earningCategories.count > 0, expenseCategories.count > 0].reduce(0, {
+			if $1 {
+				return $0 + 1
+			} else {
+				return $0
+			}
+		})
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -11,29 +11,29 @@ import CoreData
 @objc(Transaction) class Transaction: NSManagedObject {
 
     @NSManaged var amount: NSDecimalNumber
-    @NSManaged var date: NSDate
+    @NSManaged var date: Date
     @NSManaged var rate: NSDecimalNumber
     @NSManaged var text: String
     @NSManaged var category: Category?
 	var currency: Currency {
 		get {
-			self.willAccessValueForKey("currency")
-			let currency = self.primitiveValueForKey("currency") as! Currency
-			self.didAccessValueForKey("currency")
+			self.willAccessValue(forKey:"currency")
+			let currency = self.primitiveValue(forKey: "currency") as! Currency
+			self.didAccessValue(forKey: "currency")
 			return currency
 		}
 		set {
-			self.willChangeValueForKey("currency")
+			self.willChangeValue(forKey: "currency")
 			self.setPrimitiveValue(newValue, forKey: "currency")
-			self.didChangeValueForKey("text")
+			self.didChangeValue(forKey: "text")
 			self.rate = newValue.rate
 		}
 	}
 	
 	
-	override func setValue(value: AnyObject?, forKey key: String) {
+	override func setValue(_ value: Any?, forKey key: String) {
 		if key == "amount" {
-			setAmountWithMoney(value as! NSDecimalNumber)
+			setAmountWithMoney(value: value as! NSDecimalNumber)
 		} else {
 			super.setValue(value, forKey: key)
 		}

@@ -17,7 +17,7 @@ class NumpadView: UIView {
 		let height = rect.height
 		
 		
-		let context = UIGraphicsGetCurrentContext()
+		let context:CGContext = UIGraphicsGetCurrentContext()!
 		let myColorspace = CGColorSpaceCreateDeviceRGB();
 
 		let colors = [UIColor.amountColor().cgColor, UIColor.white.cgColor]
@@ -30,21 +30,20 @@ class NumpadView: UIView {
 		var centerPoint:CGPoint
 
 		// vertical lines
-		for x in [width * 0.3 + width * 0.1 / 3, width * 0.7 - width * 0.1 / 3] {
+		let firstLineX = width * 0.3 + width * 0.1 / 3
+		for x in [firstLineX, width * 0.7 - width * 0.1 / 3] {
 			centerPoint = CGPoint(x:x, y:height / 2)
-			
-		context.saveGState()
-		context.addRect(CGRect(x: x, y: 0, width: 1, height: height))
-		CGContextClip(context)
+			context.saveGState()
+			context.addRect(CGRect(x: x, y: 0, width: 1, height: height))
+			context.clip()
 
-		context.drawRadialGradient(myGradient,
-			startCenter: centerPoint,
-			startRadius: 0,
-			endCenter: centerPoint,
-			endRadius: height / 2,
-			options: CGGradientDrawingOptions.drawsAfterEndLocation
-		)
-		context.restoreGState()
+			context.drawRadialGradient( myGradient!,
+			                           startCenter: centerPoint,
+			                           startRadius: 0,
+			                           endCenter: centerPoint,
+			                           endRadius: height / 2,
+			                           options: CGGradientDrawingOptions.drawsAfterEndLocation )
+			context.restoreGState()
 		}
 		
 		
@@ -52,18 +51,18 @@ class NumpadView: UIView {
 		for y in [height * 0.24 + 1, height * 0.48 + 4, height * 0.72 + 7] {
 			centerPoint = CGPoint(x:width / 2, y:y)
 			
-			context?.saveGState()
-			context?.addRect(CGRect(x: 0, y: y, width: width, height: 1))
-			context?.clip()
+			context.saveGState()
+			context.addRect(CGRect(x: 0, y: y, width: width, height: 1))
+			context.clip()
 			
-			context?.drawRadialGradient(myGradient!,
+			context.drawRadialGradient(myGradient!,
 				startCenter: centerPoint,
 				startRadius: 0,
 				endCenter: centerPoint,
 				endRadius: width / 2,
 				options: CGGradientDrawingOptions.drawsAfterEndLocation
 			)
-			context?.restoreGState()
+			context.restoreGState()
 		}
 
     }

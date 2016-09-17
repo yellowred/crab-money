@@ -14,7 +14,6 @@ import CoreTelephony
 
 extension NSManagedObject
 {
-	
 	func dumpProperties() {
 		for (key, _) in entity.propertiesByName {
 			print("\"\(key)\": \(value(forKey: key))")
@@ -71,9 +70,9 @@ class Model
 	
 	func loadDataFromJson(_ name: String) -> [NSDictionary]? {
 		if let contentsOfURL = Bundle(for: type(of: self)).url(forResource: name, withExtension: "json") {
-			let parsedObject: AnyObject?
+			let parsedObject: Any?
 			do {
-				parsedObject = try JSONSerialization.jsonObject(with: Data(contentsOf: contentsOfURL)!,
+				parsedObject = try JSONSerialization.jsonObject(with: Data(contentsOf: contentsOfURL),
 					options: JSONSerialization.ReadingOptions.allowFragments)
 			} catch let error as NSError {
 				parsedObject = nil
@@ -130,7 +129,10 @@ class Model
 			let newTransaction = createTransaction(
 				Money(amount: NSDecimalNumber(value: transactionData.value(forKey: "amount") as! Float as Float), currency: getCurrencyByCode(transactionData.value(forKey: "currency") as! String)!),
 				isExpense: transactionData.value(forKey: "isExpense") as! Bool)
-			newTransaction.setValue(Date().fromString(transactionData.value(forKey: "date") as! String), forKey: "date")
+			newTransaction.setValue(
+				Date().fromString(transactionData.value(forKey: "date") as! String) as AnyObject?,
+				forKey: "date"
+			)
 			newTransaction.setValue(NSDecimalNumber(value: transactionData.value(forKey: "rate") as! Int as Int), forKey: "rate")
 			newTransaction.category = getCategoriesList().first
 		}
@@ -196,7 +198,7 @@ class Model
 	
 	func getObjectsList(_ objectClass: AnyClass) -> [AnyObject] {
 		// Create request on Event entity
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(objectClass))
+		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(objectClass))
 
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
@@ -218,13 +220,13 @@ class Model
  
 	func getCountryByCode(_ code:String) -> Country?
 	{
-		let fetchRequest = NSFetchRequest(entityName:"Country")
+		let fetchRequest: NSFetchRequest<Country> = NSFetchRequest(entityName:"Country")
 		let pred = NSPredicate(format: "(code = %@)", code)
 		fetchRequest.predicate = pred
 	
 		var fetchedResults = Array<Country>()
 		do {
-			try fetchedResults = context.fetch(fetchRequest) as! [Country]
+			try fetchedResults = context.fetch(fetchRequest) 
 		} catch let fetchError as NSError {
 			print("getCountryByCode error: \(fetchError.localizedDescription)")
 		}
@@ -261,13 +263,13 @@ class Model
 	
 	func getCurrenciesList() -> [Currency]
 	{
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
 		
 		//Execute Fetch request
 		var fetchedResults = Array<Currency>()
 		do {
-			try fetchedResults = context.fetch(fetchRequest) as! [Currency]
+			try fetchedResults = context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
@@ -283,13 +285,13 @@ class Model
 		fetchRequest.predicate = NSPredicate(format: "handsOnCurrency == nil || handsOnCurrency.@count =0")
 		*/
 		
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
 		fetchRequest.predicate = NSPredicate(format: "in_converter <> 1")
 		
 		var fetchedResults = Array<Currency>()
 		do {
-			try fetchedResults = context.fetch(fetchRequest) as! [Currency]
+			try fetchedResults = context.fetch(fetchRequest) 
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
@@ -299,7 +301,7 @@ class Model
 	
 	func getCurrencyByCode(_ code:String) -> Currency?
 	{
-		let fetchRequest = NSFetchRequest(entityName:"Currency")
+		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName:"Currency")
 		let pred = NSPredicate(format: "(code = %@)", code)
 		fetchRequest.predicate = pred
 
@@ -307,7 +309,7 @@ class Model
 			let fetchedResults = try context.fetch(fetchRequest)
 			if fetchedResults.count > 0
 			{
-				return fetchedResults.first as? Currency
+				return fetchedResults.first as Currency!
 			}
 		} catch let fetchError as NSError {
 			print("getCountryByCode error: \(fetchError.localizedDescription)")
@@ -318,13 +320,13 @@ class Model
 	
 	func getCurrenciesInConverter() -> [Currency]
 	{
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		let fetchRequest: NSFetchRequest<Currency>  = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "code", ascending: true)]
 		fetchRequest.predicate = NSPredicate(format: "in_converter = 1")
 		
 		var fetchedResults = Array<Currency>()
 		do {
-			try fetchedResults = context.fetch(fetchRequest) as! [Currency]
+			try fetchedResults = context.fetch(fetchRequest) 
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
@@ -487,8 +489,8 @@ class Model
 	
 	func getTransactionsListForPeriod(_ period: Period) -> [Transaction]
 	{
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
-		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", period.startDate, period.endDate)
+		let fetchRequest: NSFetchRequest<Transaction> = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
+		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", period.startDate as CVarArg, period.endDate as CVarArg)
 		
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
@@ -510,7 +512,7 @@ class Model
 
 	
 	func getIinitialTransaction() -> Transaction? {
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
+		let fetchRequest: NSFetchRequest<Transaction> = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
 		fetchRequest.fetchLimit = 1
 		//Execute Fetch request
@@ -548,12 +550,12 @@ class Model
 	}
 	
 	func getCategoriesList(_ isExpense: Bool) -> [Category] {
-		let fetchRequest = NSFetchRequest(entityName: "Category")
-		fetchRequest.predicate = NSPredicate(format: "(is_expense = %@)", isExpense)
+		let fetchRequest: NSFetchRequest<Category> = NSFetchRequest(entityName: "Category")
+		fetchRequest.predicate = NSPredicate(format: "(is_expense = %@)", isExpense as CVarArg)
 		
 		var fetchedResults = Array<Category>()
 		do {
-			try fetchedResults = context.fetch(fetchRequest) as! [Category]
+			try fetchedResults = context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getExpenseCategories error: \(fetchError.localizedDescription)")
 		}
