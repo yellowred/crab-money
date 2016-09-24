@@ -12,8 +12,8 @@ import LoopBack
 class Backend {
 	
 	var adapter: LBRESTAdapter
-	var customers: BackendRepositoryCustomer
-	var financials: BackendRepositoryFinancial
+	var customers: LBPersistedModelRepository
+	var financials: LBPersistedModelRepository
 	
 	static let sharedInstance = Backend()
 	
@@ -31,8 +31,8 @@ class Backend {
 			abort()
 		}
 		adapter = adapterObject as LBRESTAdapter!
-		customers = adapter.repository(with: BackendRepositoryCustomer.classForCoder()) as! BackendRepositoryCustomer
-		financials = adapter.repository(with: BackendRepositoryFinancial.classForCoder()) as! BackendRepositoryFinancial
+		customers = adapter.repository(withPersistedModelName: "BackendRepositoryCustomer")!
+		financials = adapter.repository(withPersistedModelName: "BackendRepositoryFinancial")!
 	}
 	
 	//	http://stackoverflow.com/questions/24939803/using-loopback-defined-data-relations-from-ios-sdk

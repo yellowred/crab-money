@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		//	Fabric.with([Crashlytics.self()])
-		model.preloadData()
-		backend.saveOne()
+		//	model.preloadData()
+			backend.saveOne()
 		/*
 		let dispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
 		dispatchQueue.async(execute: {
