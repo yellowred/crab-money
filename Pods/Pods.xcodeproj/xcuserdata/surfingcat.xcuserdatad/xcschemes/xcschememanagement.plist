@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>LoopBack.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15C1390A93C0ACDA11313FD57D0C2DC6</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88FEF529598F82707DA79741A7F75E81</key>
+		<key>8CA8005CD4CBA3D648F6FD362F4F660E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A66AC6518AD655468D2C59F15C68C180</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>CC730D59774FCE0EC6138945E470FF15</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F345B327E9102E5D9E001318EB7437CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

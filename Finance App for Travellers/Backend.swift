@@ -7,56 +7,53 @@
 //
 
 import Foundation
-import LoopBack
+import Alamofire
 
 class Backend {
+
+	let API_URL:String = "http://0.0.0.0:3015/api/financials"
 	
-	var adapter: LBRESTAdapter
-	var customers: LBPersistedModelRepository
-	var financials: LBPersistedModelRepository
-	
-	static let sharedInstance = Backend()
-	
-	init() {
-		let adapterObject = LBRESTAdapter(url: URL(string: "http://0.0.0.0:3015/api/"))
-		if (adapterObject === nil) {
-			// Report any error we got.
-			var dict = [String: AnyObject]()
-			dict[NSLocalizedDescriptionKey] = "Failed to initialize an adapter" as AnyObject?
-			dict[NSLocalizedFailureReasonErrorKey] = "Adapter is nil" as AnyObject?
-			let error = NSError(domain: "BACKEND", code: 1, userInfo: dict)
-			// Replace this with code to handle the error appropriately.
-			// abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-			NSLog("Unresolved error \(error), \(error.userInfo)")
-			abort()
-		}
-		adapter = adapterObject as LBRESTAdapter!
-		customers = adapter.repository(withPersistedModelName: "BackendRepositoryCustomer")!
-		financials = adapter.repository(withPersistedModelName: "BackendRepositoryFinancial")!
-	}
-	
-	//	http://stackoverflow.com/questions/24939803/using-loopback-defined-data-relations-from-ios-sdk
-	func save() {
-		// let financialModel = Loopback.financials.model(with: nil) as? BackendModelFinancial
-	}
-	
-	func saveOne() {
-		let financial = financials.model(with: nil) as! BackendModelFinancial
-		financial.amount = 777
-		financial.date = Date()
-		financial.rate = 1
-		financial.text = "Obama"
-		financial.uuid = "OB-AM-AM"
-		
-		var failure = { (error: (NSError!) -> Void) in
-			// failure block
-		}
-		// financial.saveWithSuccess(nil, nil)
+	func sendFinancials() -> Void {
+		let financials = [
+			[
+				"amount": 777,
+				"date": "2016-09-24",
+				"rate": 1,
+				"text": "string",
+				"category": "string",
+				"uuid": "string",
+			],
+			[
+				"amount": 888,
+				"date": "2016-09-24",
+				"rate": 1,
+				"text": "string",
+				"category": "string",
+				"uuid": "string",
+			]
+		]
+		let data = try! JSONSerialization.data(withJSONObject: financials, options: [])
+		let jsonBatch:String = String(data: data, encoding: .utf8)!
 		/*
-		financial.save(
-			success: {() -> Void in
-				NSLog("Financial saved")
-			}, failure: nil
-		)*/
+		Alamofire.request(
+			"http://0.0.0.0:3015/api/financials",
+			method: .post,
+			parameters: parameters,
+			encoding: JSONEncoding.default
+		).responseJSON { response in
+			debugPrint(response)
+		}
+		*/
+		print("jsonBatch", jsonBatch)
+		/*
+		Alamofire.upload((jsonBatch?.data(using: String.Encoding.utf8.rawValue))!, to: "http://0.0.0.0:3015/api/financials").responseJSON { response in
+			debugPrint(response)
+		}
+		*/
+		Alamofire.request(API_URL, method: .post, parameters: [:], encoding: jsonBatch, headers: [:]).responseJSON { response in
+			debugPrint(response)
+		}
+		//Alamofire.request(API_URL, method: .post, parameters: [:], encoding: "myBody", headers: [:])
+		
 	}
 }

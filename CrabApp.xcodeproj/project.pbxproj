@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		09AE3CC6B5B2F44ED3204A81 /* Pods_CrabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
-		3F2868911D88441500ACBFF4 /* BackendRepositoryCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2868901D88441500ACBFF4 /* BackendRepositoryCustomer.swift */; };
-		3F2868931D88448400ACBFF4 /* BackendRepositoryFinancial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2868921D88448400ACBFF4 /* BackendRepositoryFinancial.swift */; };
-		3F2868951D884AE400ACBFF4 /* BackendModelFinancial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2868941D884AE400ACBFF4 /* BackendModelFinancial.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
+		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
 		9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */; };
@@ -116,12 +114,10 @@
 /* Begin PBXFileReference section */
 		003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F28688A1D8841CA00ACBFF4 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
-		3F2868901D88441500ACBFF4 /* BackendRepositoryCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendRepositoryCustomer.swift; sourceTree = "<group>"; };
-		3F2868921D88448400ACBFF4 /* BackendRepositoryFinancial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendRepositoryFinancial.swift; sourceTree = "<group>"; };
-		3F2868941D884AE400ACBFF4 /* BackendModelFinancial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendModelFinancial.swift; sourceTree = "<group>"; };
+		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
+		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
@@ -239,9 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				3F28688E1D8843B500ACBFF4 /* Backend.swift */,
-				3F2868901D88441500ACBFF4 /* BackendRepositoryCustomer.swift */,
-				3F2868921D88448400ACBFF4 /* BackendRepositoryFinancial.swift */,
-				3F2868941D884AE400ACBFF4 /* BackendModelFinancial.swift */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -312,6 +305,7 @@
 				9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */,
 				9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */,
 				9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */,
+				3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -326,7 +320,6 @@
 				9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */,
 				103B95BDB29D674460FF2FC0 /* Pods */,
 				8068D767FF3DCEC55E48BD84 /* Frameworks */,
-				3F28688A1D8841CA00ACBFF4 /* CrabApp-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -363,6 +356,7 @@
 				9AEA34FE1B79C55E009C65FE /* Model */,
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
+				3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */,
 			);
 			path = "Finance App for Travellers";
 			sourceTree = "<group>";
@@ -609,7 +603,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5964492A8776037E49C986B3 /* [CP] Embed Pods Frameworks */ = {
@@ -639,7 +633,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		76FA795F9A3C9D8BC3E2E816 /* [CP] Copy Pods Resources */ = {
@@ -696,6 +690,7 @@
 				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
 				9AFE7CAC1B82E78C00B7159B /* TransactionTableViewCell.swift in Sources */,
 				9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */,
+				3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */,
 				9AFB00801B576B0F0062C6AE /* Country.swift in Sources */,
 				9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */,
 				9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */,
@@ -704,7 +699,6 @@
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
 				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,
-				3F2868931D88448400ACBFF4 /* BackendRepositoryFinancial.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
 				9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */,
 				3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */,
@@ -718,13 +712,11 @@
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 				9AF5392B1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift in Sources */,
 				9A4D03AD1C1BD37900327679 /* InsightsTableViewController.swift in Sources */,
-				3F2868911D88441500ACBFF4 /* BackendRepositoryCustomer.swift in Sources */,
 				9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */,
 				9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */,
 				9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */,
 				9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */,
 				9A27C1491B8586220087ECDD /* Category.swift in Sources */,
-				3F2868951D884AE400ACBFF4 /* BackendModelFinancial.swift in Sources */,
 				9A827C941C1D3EF50025FC5B /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,7 +834,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -883,7 +875,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -906,7 +898,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CrabApp;
 				PRODUCT_NAME = CrabApp;
@@ -933,7 +925,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CrabApp;
 				PRODUCT_NAME = CrabApp;

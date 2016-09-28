@@ -1,30 +1,25 @@
 PODS:
-  - LoopBack (1.3.0)
+  - Alamofire (4.0.0)
   - Spring (1.0.3)
 
 DEPENDENCIES:
-  - LoopBack (from `https://github.com/strongloop/loopback-sdk-ios.git`)
+  - Alamofire (~> 4.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
-  LoopBack:
-    :git: https://github.com/strongloop/loopback-sdk-ios.git
   Spring:
     :branch: swift3
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
-  LoopBack:
-    :commit: 7ac1ea58ef94822101b7dddab206def64f1bd135
-    :git: https://github.com/strongloop/loopback-sdk-ios.git
   Spring:
     :commit: 14be3acd311b43ac98ce7cbbadf92ca74acbf6b4
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  LoopBack: 0ae752b0c1d3f572e1d949945a7651f61c433f9e
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: b972cc948e0f2300cbbd5dc14ff36e7e0bfc2322
+PODFILE CHECKSUM: 0b8b90405da68ba90607804ea14175b2882ba805
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

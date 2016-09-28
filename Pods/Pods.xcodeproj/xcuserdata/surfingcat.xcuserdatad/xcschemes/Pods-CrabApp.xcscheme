@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88FEF529598F82707DA79741A7F75E81"
+               BlueprintIdentifier = "A66AC6518AD655468D2C59F15C68C180"
                BuildableName = "Pods_CrabApp.framework"
                BlueprintName = "Pods-CrabApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "88FEF529598F82707DA79741A7F75E81"
+            BlueprintIdentifier = "A66AC6518AD655468D2C59F15C68C180"
             BuildableName = "Pods_CrabApp.framework"
             BlueprintName = "Pods-CrabApp"
             ReferencedContainer = "container:Pods.xcodeproj">
