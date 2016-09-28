@@ -20,15 +20,15 @@ class AllCurrenciesTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 	
 	
-	func setCurrency(currency: Currency) {
-		self.code.text = currency.code.uppercaseString
+	func setCurrency(_ currency: Currency) {
+		self.code.text = currency.code.uppercased()
 		self.flag.image = currency.getFlag()
 		self.name.text = currency.getLocalizedName()
 	}

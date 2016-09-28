@@ -19,7 +19,7 @@ class Category: NSObject {
 		self.is_expense = is_expense
 	}
 	
-	func addTransaction(transaction: Transaction) {
+	func addTransaction(_ transaction: Transaction) {
 		transactions.append(transaction)
 	}
 	

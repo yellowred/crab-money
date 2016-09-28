@@ -22,7 +22,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	var isAmountLoaded:Bool = false
 	var inputConfirmation:SpringView? = nil
 	
-	private var sound: Sound = {return Sound()}()
+	fileprivate var sound: Sound = {return Sound()}()
 	
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
@@ -45,7 +45,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		updateCurrentCurrencyBlock()
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		expense.backgroundColor = UIColor.expense()
@@ -57,17 +57,17 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		amountDisplayLabel.textColor = UIColor.amountColor()
 		
 		let filteredSubviews = self.numpad.subviews.filter({
-			$0.isKindOfClass(UIButton)})
+			$0.isKind(of: UIButton.self)})
 		
 		for button in filteredSubviews {
-			(button as! UIButton).setTitleColor(UIColor.amountColor(), forState: UIControlState.Normal)
+			(button as! UIButton).setTitleColor(UIColor.amountColor(), for: UIControlState())
 		}
 		
 		reloadAmountDisplay()
 	}
 	
 	
-	@IBAction func tapNumber(sender: UIButton)
+	@IBAction func tapNumber(_ sender: UIButton)
 	{
 		#if DEBUG
 			println(#function)
@@ -80,40 +80,40 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
         else if sender.tag == 12 {
             amount!.backspace()
         }
-		sender.backgroundColor = UIColor.whiteColor()
+		sender.backgroundColor = UIColor.white
 		sound.playTap()
         reloadAmountDisplay()
 	}
 	
-	@IBAction func numberPressed(sender: UIButton) {
+	@IBAction func numberPressed(_ sender: UIButton) {
 		sender.backgroundColor = UIColor(rgba: "#F4F4F4")
 	}
 	
-	@IBAction func tapSaveTransaction(sender: UIButton) {
+	@IBAction func tapSaveTransaction(_ sender: UIButton) {
 		if notCompletedTransaction != nil {
 			app().model.deleteTransaction(notCompletedTransaction!)
 		}
 		notCompletedTransaction = app().model.createTransaction(amount!, isExpense: sender.tag == 102 ? true : false)
-		performSegueWithIdentifier(NumpadSegues.CategorySelectSegue.rawValue, sender: nil)
+		performSegue(withIdentifier: NumpadSegues.CategorySelectSegue.rawValue, sender: nil)
 	}
 	
-    @IBAction func saveTransactionTouchDown(sender: UIButton) {
-        UIView.animateWithDuration(0.2,
+    @IBAction func saveTransactionTouchDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.2,
             animations: {
-                sender.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                sender.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             },
             completion: nil
         )
     }
     
-    @IBAction func saveTransactionTouchUp(sender: UIButton) {
-        UIView.animateWithDuration(0.1){
-            sender.transform = CGAffineTransformIdentity
-        }
+    @IBAction func saveTransactionTouchUp(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1, animations: {
+            sender.transform = CGAffineTransform.identity
+        })
     }
     
-	@IBAction func numberPressedEnd(sender: UIButton) {
-		sender.backgroundColor = UIColor.whiteColor()
+	@IBAction func numberPressedEnd(_ sender: UIButton) {
+		sender.backgroundColor = UIColor.white
 	}
 	
 	func reloadAmountDisplay()
@@ -134,13 +134,13 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	func showSaveButtons()
 	{
 		self.view.layoutIfNeeded()
-		UIView.animateWithDuration(0.2, animations: {
+		UIView.animate(withDuration: 0.2, animations: {
 		//UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.expense.alpha = 1
 			//self.expenseHPosConstraint.constant = 10
 			//self.view.layoutIfNeeded()
 			}, completion: nil)
-		UIView.animateWithDuration(0.2, animations: {
+		UIView.animate(withDuration: 0.2, animations: {
 		//UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.earning.alpha = 1
 			//self.earningHPosConstraint.constant = 10
@@ -154,13 +154,13 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	func hideSaveButtons()
 	{
 		self.view.layoutIfNeeded()
-		UIView.animateWithDuration(0.5, animations: {
+		UIView.animate(withDuration: 0.5, animations: {
 		//UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
 			self.expense.alpha = 0.2
 			//self.expenseHPosConstraint.constant = -self.expense.bounds.width
 			//self.view.layoutIfNeeded()
 			}, completion: nil)
-		UIView.animateWithDuration(0.5, animations: {
+		UIView.animate(withDuration: 0.5, animations: {
 		//UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
 			self.earning.alpha = 0.2
 			//self.earningHPosConstraint.constant = -self.earning.bounds.width
@@ -174,8 +174,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func selectedCurrency(segue:UIStoryboardSegue) {
-		let currenciesTVC = segue.sourceViewController as? ConverterTableViewController
+    @IBAction func selectedCurrency(_ segue:UIStoryboardSegue) {
+		let currenciesTVC = segue.source as? ConverterTableViewController
         if  (currenciesTVC != nil) {
 			amount = currenciesTVC!.providedAmount
 			updateCurrentCurrencyBlock()
@@ -184,7 +184,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
         }
     }
 	
-	func setCategory(category:Category) {
+	func setCategory(_ category:Category) {
 		guard notCompletedTransaction != nil else {
 			return
 		}
@@ -193,8 +193,8 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		notCompletedTransaction!.currency.increasePopularity()
 		app().model.saveStorage()
 		notCompletedTransaction = nil
-		NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: nil, repeats: false)
-		NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
+		Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: nil, repeats: false)
+		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
 /*
 		
 */
@@ -204,14 +204,14 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 
 	
-	func showInputConfirmation(timer: NSTimer) {
+	func showInputConfirmation(_ timer: Timer) {
 		let frame = CGRect(x: 0, y: 0, width: 200, height: 200);
 		inputConfirmation = SpringView(frame: frame)
 		let confirmLabel = UILabel(frame: frame)
 		confirmLabel.text = "✓"
-		confirmLabel.textAlignment = NSTextAlignment.Center
-		confirmLabel.font = UIFont.systemFontOfSize(120)
-		inputConfirmation!.backgroundColor = UIColor.lightGrayColor()
+		confirmLabel.textAlignment = NSTextAlignment.center
+		confirmLabel.font = UIFont.systemFont(ofSize: 120)
+		inputConfirmation!.backgroundColor = UIColor.lightGray
 		inputConfirmation!.alpha = 1
 		inputConfirmation!.layer.masksToBounds = true
 		inputConfirmation!.layer.cornerRadius = 10
@@ -226,9 +226,9 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 	
 	
-	func hideInputConfirmation(timer: NSTimer) {
+	func hideInputConfirmation(_ timer: Timer) {
 		if inputConfirmation != nil {
-			UIView.animateWithDuration(1, animations: {
+			UIView.animate(withDuration: 1, animations: {
 				self.inputConfirmation!.alpha = 0
 				}, completion: {
 					(_: Bool) in
@@ -243,60 +243,60 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 
 	
-	override func viewDidAppear(animated: Bool)
+	override func viewDidAppear(_ animated: Bool)
 	{
 		super.viewDidAppear(animated)
 	}
 	
 	
-	override func viewDidDisappear(animated: Bool)
+	override func viewDidDisappear(_ animated: Bool)
 	{
 		super.viewDidDisappear(animated)
 	}
 	
-	@IBAction func currencySelectTap(sender: UITapGestureRecognizer) {
-		if sender.state == UIGestureRecognizerState.Began {
-			currencyView.backgroundColor = UIColor.lightGrayColor()
+	@IBAction func currencySelectTap(_ sender: UITapGestureRecognizer) {
+		if sender.state == UIGestureRecognizerState.began {
+			currencyView.backgroundColor = UIColor.lightGray
 		} else {
-			currencyView.backgroundColor = UIColor.whiteColor()
+			currencyView.backgroundColor = UIColor.white
 		}
 		
-		if sender.state == UIGestureRecognizerState.Ended {
-			let selectCurrencyView: AllCurrenciesTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectCurrency") as! AllCurrenciesTableViewController
+		if sender.state == UIGestureRecognizerState.ended {
+			let selectCurrencyView: AllCurrenciesTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectCurrency") as! AllCurrenciesTableViewController
 			selectCurrencyView.delegate = self
 			self.navigationController?.pushViewController(selectCurrencyView, animated: true)
 		}
 	}
 
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?)
 	{
 		if segue.identifier == "showCurrencySelect2"	{
-			if let currenciesTVC = (segue.destinationViewController as! UINavigationController).topViewController as? ConverterTableViewController	{
+			if let currenciesTVC = (segue.destination as! UINavigationController).topViewController as? ConverterTableViewController	{
 				currenciesTVC.providedAmount = amount!
 			}
 		} else if segue.identifier == NumpadSegues.CategorySelectSegue.rawValue {
-			let c = (segue.destinationViewController as! UINavigationController).topViewController as! CategoriesCollectionViewController
+			let c = (segue.destination as! UINavigationController).topViewController as! CategoriesCollectionViewController
 			c.delegate = self
 		} else if segue.identifier == NumpadSegues.SelectNumpadCurrency.rawValue {
-			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
+			(segue.destination as! AllCurrenciesTableViewController).delegate = self
 		}
 	}
 	
-	@IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
+	@IBAction func unwindToMainViewController (_ sender: UIStoryboardSegue){
 		// bug? exit segue doesn't dismiss so we do it manually...
-		self.dismissViewControllerAnimated(true, completion: nil)
+		self.dismiss(animated: true, completion: nil)
 		
 	}
 	
 	func updateCurrentCurrencyBlock() {
 		if amount != nil && currentFlag != nil { //check whether iboutlet is loaded by viewDidLoad
 			currentFlag.image = amount!.currency.getFlag()
-			currentCurrency.text = amount!.currency.code.uppercaseString
+			currentCurrency.text = amount!.currency.code.uppercased()
 		}
 	}
 	
 	// MARK: - CurrencySelectDelegate
-	func setCurrency(currency: Currency) {
+	func setCurrency(_ currency: Currency) {
 		if amount?.currency.code != currency.code {
 			amount?.currency = currency
 			updateCurrentCurrencyBlock()
@@ -311,15 +311,15 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	
 	// MARK: - State Restoration
-	override func encodeRestorableStateWithCoder(coder: NSCoder) {
-		super.encodeRestorableStateWithCoder(coder)
-		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+	override func encodeRestorableState(with coder: NSCoder) {
+		super.encodeRestorableState(with: coder)
+		coder.encode(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
 		print("Encode state", self.tabBarController!.selectedIndex)
 	}
 	
-	override func decodeRestorableStateWithCoder(coder: NSCoder) {
-		super.decodeRestorableStateWithCoder(coder)
-		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
+	override func decodeRestorableState(with coder: NSCoder) {
+		super.decodeRestorableState(with: coder)
+		self.tabBarController!.selectedIndex = coder.decodeInteger(forKey: "TabBarCurrentTab")
 		print("Decode state", self.tabBarController!.selectedIndex)
 	}
 }

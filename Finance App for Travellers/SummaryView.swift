@@ -20,10 +20,10 @@ class SummaryView: UIView {
 	@IBOutlet weak var graph: GraphView!
 
 	
-	func initExpenses(forDate: NSDate, transactions: [Transaction], currency: Currency) {
+	func initExpenses(_ forDate: Date, transactions: [Transaction], currency: Currency) {
 		let expenses: [Transaction] = transactions.filter {
 			(x : Transaction) -> Bool in
-			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
+			if x.amount.compare(NSDecimalNumber.zero) == ComparisonResult.orderedAscending {
 				return true
 			}
 			return false
@@ -33,10 +33,10 @@ class SummaryView: UIView {
 	}
 	
 	
-	func initEarnings(forDate: NSDate, transactions: [Transaction], currency: Currency) {
+	func initEarnings(_ forDate: Date, transactions: [Transaction], currency: Currency) {
 		let earnings: [Transaction] = transactions.filter {
 			(x : Transaction) -> Bool in
-			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending {
+			if x.amount.compare(NSDecimalNumber.zero) == ComparisonResult.orderedDescending {
 				return true
 			}
 			return false
@@ -46,10 +46,10 @@ class SummaryView: UIView {
 	}
 	
 	
-	func initBudget(forDate: NSDate, transactions: [Transaction], currency: Currency) {
+	func initBudget(_ forDate: Date, transactions: [Transaction], currency: Currency) {
 		let expenses: [Transaction] = transactions.filter {
 			(x : Transaction) -> Bool in
-			if x.amount.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
+			if x.amount.compare(NSDecimalNumber.zero) == ComparisonResult.orderedAscending {
 				return true
 			}
 			return false
@@ -59,27 +59,27 @@ class SummaryView: UIView {
 	}
 	
 	
-	func initCommonData(forDate: NSDate, transactions: [Transaction], currency: Currency) {
+	func initCommonData(_ forDate: Date, transactions: [Transaction], currency: Currency) {
 		let normalizedTransactionValues = transactions.map {$0.getMoney().toCurrency(currency).amount.doubleValue}
 		//let total = NSDecimalNumber(double: normalizedTransactionValues.reduce(0, combine: + ))
 		graph.graphPoints = normalizedTransactionValues.map {fabs($0)}
 
 		//amount.text = NSNumberFormatter().formatterMoney(currency).stringFromNumber(total)
-		let formatter = NSDateFormatter()
+		let formatter = DateFormatter()
 		formatter.dateFormat = "MMMM"
 		//month.text = formatter.stringFromDate(forDate)
 	}
 
 	
-	func initBlock(type: String, forDate: NSDate, transactions: [Transaction], currency: Currency) {
+	func initBlock(_ type: String, forDate: Date, transactions: [Transaction], currency: Currency) {
 		if (type == "expenses") {
-			initExpenses(NSDate(), transactions: transactions, currency: currency)
+			initExpenses(Date(), transactions: transactions, currency: currency)
 			
 		} else if type == "earnings" {
-			initEarnings(NSDate(), transactions: transactions, currency: currency)
+			initEarnings(Date(), transactions: transactions, currency: currency)
 			
 		} else {
-			initBudget(NSDate(), transactions: transactions, currency: currency)
+			initBudget(Date(), transactions: transactions, currency: currency)
 			
 		}
 	}

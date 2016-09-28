@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 class Sound {
-	var tapSound:NSURL?
+	var tapSound:URL?
 	var tapPlayer:AVAudioPlayer?
 	
 	static let sharedInstance = Sound()

@@ -29,9 +29,9 @@ class CategoryAddViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 	
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		self.view.endEditing(true);
-		performSegueWithIdentifier("saveCategory", sender: nil)
+		performSegue(withIdentifier: "saveCategory", sender: nil)
 		return false;
 	}
 
@@ -39,7 +39,7 @@ class CategoryAddViewController: UIViewController, UITextFieldDelegate {
 	// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let categoryNameTextUnwrapped = category.text {
 			categoryName = categoryNameTextUnwrapped
 		}

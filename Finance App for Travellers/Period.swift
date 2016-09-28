@@ -9,18 +9,18 @@
 import Foundation
 
 enum PeriodLength: Int8 {
-	case Month = 0
-	case Variable = 1
+	case month = 0
+	case variable = 1
 }
 
 class Period: CustomStringConvertible {
 	
-	let startDate: NSDate
-	let endDate: NSDate
+	let startDate: Date
+	let endDate: Date
 	let lengthType: PeriodLength
-	let initialDate: NSDate
+	let initialDate: Date
 	
-	init(startDate: NSDate, endDate: NSDate, length: PeriodLength, initialDate: NSDate) {
+	init(startDate: Date, endDate: Date, length: PeriodLength, initialDate: Date) {
 		self.startDate = startDate
 		self.endDate = endDate
 		self.lengthType = length
@@ -28,22 +28,22 @@ class Period: CustomStringConvertible {
 	}
 	
 	
-	init(currentDate: NSDate, length:PeriodLength, initialDate: NSDate) {
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
+	init(currentDate: Date, length:PeriodLength, initialDate: Date) {
+		var calendar = Calendar.current
+		calendar.timeZone = TimeZone.current
 		
-		let initialComponents = calendar.components([NSCalendarUnit.Day], fromDate: initialDate)
-		let currentComponents = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Second, NSCalendarUnit.Minute], fromDate: NSDate())
+		let initialComponents = (calendar as NSCalendar).components([NSCalendar.Unit.day], from: initialDate)
+		var currentComponents = (calendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.second, NSCalendar.Unit.minute], from: Date())
 
 		currentComponents.day = initialComponents.day
 		currentComponents.hour = 0
 		currentComponents.minute = 0
 		currentComponents.second = 0
-		var newStartDate = calendar.dateFromComponents(currentComponents)
-		if newStartDate!.compare(currentDate) == NSComparisonResult.OrderedDescending {
-			currentComponents.year = currentComponents.month == 1 ? currentComponents.year - 1 : currentComponents.year
-			currentComponents.month = currentComponents.month == 1 ? 12 : currentComponents.month - 1
-			newStartDate = calendar.dateFromComponents(currentComponents)
+		var newStartDate = calendar.date(from: currentComponents)
+		if newStartDate!.compare(currentDate) == ComparisonResult.orderedDescending {
+			currentComponents.year = currentComponents.month! == 1 ? currentComponents.year! - 1 : currentComponents.year
+			currentComponents.month = currentComponents.month! == 1 ? 12 : currentComponents.month! - 1
+			newStartDate = calendar.date(from: currentComponents)
 		}
 		self.startDate = newStartDate!
 		self.endDate = newStartDate!.sameDayNextMonth()
@@ -53,13 +53,13 @@ class Period: CustomStringConvertible {
 	
 	
 	func getNext() -> Period? {
-		guard lengthType == PeriodLength.Month else {
+		guard lengthType == PeriodLength.month else {
 			return nil
 		}
 		
 		//current date is later than the period
-		if NSDate().compare(endDate) == NSComparisonResult.OrderedDescending {
-			return Period(startDate: endDate.dateByAddingTimeInterval(3600 * 24), endDate: endDate.sameDayNextMonth(), length: lengthType, initialDate: initialDate)
+		if Date().compare(endDate) == ComparisonResult.orderedDescending {
+			return Period(startDate: endDate.addingTimeInterval(3600 * 24), endDate: endDate.sameDayNextMonth(), length: lengthType, initialDate: initialDate)
 		} else {
 			return nil
 		}
@@ -67,23 +67,23 @@ class Period: CustomStringConvertible {
 	
 	
 	func getPrev() -> Period? {
-		guard lengthType == PeriodLength.Month else {
+		guard lengthType == PeriodLength.month else {
 			return nil
 		}
 		
-		if startDate.compare(initialDate) == NSComparisonResult.OrderedDescending {
-			return Period(startDate: startDate.sameDayPrevMonth(), endDate: startDate.dateByAddingTimeInterval(-3600 * 24), length: lengthType, initialDate: initialDate)
+		if startDate.compare(initialDate) == ComparisonResult.orderedDescending {
+			return Period(startDate: startDate.sameDayPrevMonth(), endDate: startDate.addingTimeInterval(-3600 * 24), length: lengthType, initialDate: initialDate)
 		} else {
 			return nil
 		}
 	}
 	
 	var description: String {
-		let calendar = NSCalendar.currentCalendar()
-		let startDateCmp = calendar.components([NSCalendarUnit.Year], fromDate: startDate)
-		let endDateCmp = calendar.components([NSCalendarUnit.Year], fromDate: endDate)
+		let calendar = Calendar.current
+		let startDateCmp = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: startDate)
+		let endDateCmp = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: endDate)
 		if startDateCmp.year == endDateCmp.year {
-			return startDate.periodShortFormat() + " – " + endDate.periodShortFormat() + ", " + String(endDateCmp.year)
+			return startDate.periodShortFormat() + " – " + endDate.periodShortFormat() + ", " + String(describing: endDateCmp.year)
 		} else {
 			return startDate.periodFormat() + " – " + endDate.periodFormat()
 		}
@@ -92,24 +92,24 @@ class Period: CustomStringConvertible {
 	
 	
 	func getDaysCount() -> Int {
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
+		var calendar = Calendar.current
+		calendar.timeZone = TimeZone.current
 
-		let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: endDate, options: [])
-		return comp.day
+		let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: startDate, to: endDate, options: [])
+		return comp.day!
 	}
 	
 	
 	func getDaysLeft() -> Int {
-		let calendar = NSCalendar.currentCalendar()
-		calendar.timeZone = NSTimeZone.systemTimeZone()
+		var calendar = Calendar.current
+		calendar.timeZone = TimeZone.current
 
 		if getNext() != nil {
-			let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: endDate, options: [])
-			return comp.day
+			let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: startDate, to: endDate, options: [])
+			return comp.day!
 		} else {
-			let comp = calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: NSDate(), options: [])
-			return comp.day + 1
+			let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: startDate, to: Date(), options: [])
+			return comp.day! + 1
 		}
 	}
 	

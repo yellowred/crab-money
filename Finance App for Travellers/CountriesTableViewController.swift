@@ -10,7 +10,7 @@ import UIKit
 
 class CountriesTableViewController: UITableViewController {
 
-	private var app: AppDelegate = {return UIApplication.sharedApplication().delegate as! AppDelegate}()
+	fileprivate var app: AppDelegate = {return UIApplication.shared.delegate as! AppDelegate}()
     var countries = [Country]()
 	
     override func viewDidLoad() {
@@ -31,24 +31,24 @@ class CountriesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("countryCell", forIndexPath: indexPath) 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath) 
 
-        cell.textLabel?.text = countries[indexPath.row].valueForKey("name") as? String
-		cell.imageView?.image = countries[indexPath.row].getFlag()
+        cell.textLabel?.text = countries[(indexPath as NSIndexPath).row].value(forKey: "name") as? String
+		cell.imageView?.image = countries[(indexPath as NSIndexPath).row].getFlag()
 		
-		countries[indexPath.row].dumpProperties()
+		countries[(indexPath as NSIndexPath).row].dumpProperties()
         return cell
     }
 

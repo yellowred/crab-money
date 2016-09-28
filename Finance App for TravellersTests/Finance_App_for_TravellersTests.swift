@@ -63,10 +63,10 @@ class Finance_App_for_TravellersTests: XCTestCase {
 			transactions: transactions,
 			homeCurrency: currencies[2],
 			currentPeriod: Period(
-				startDate: NSDate().fromString("2015-11-15 10:00:00")!,
-				endDate: NSDate().fromString("2015-12-15 10:00:00")!,
-				length: PeriodLength.Month,
-				initialDate: NSDate().fromString("2015-10-15 10:00:00")!
+				startDate: Date().fromString("2015-11-15 10:00:00")!,
+				endDate: Date().fromString("2015-12-15 10:00:00")!,
+				length: PeriodLength.month,
+				initialDate: Date().fromString("2015-10-15 10:00:00")!
 			)
 		)
 		XCTAssertEqual(math.expenses.count, 3)
@@ -88,7 +88,7 @@ class Finance_App_for_TravellersTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }

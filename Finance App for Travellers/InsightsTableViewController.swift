@@ -68,9 +68,9 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		*/
 		showAll()
 		
-		NSNotificationCenter.defaultCenter().addObserver(self,
+		NotificationCenter.default.addObserver(self,
 			selector: #selector(InsightsTableViewController.onModelDataChanged(_:)),
-			name: app().model.kNotificationDataChanged,
+			name: NSNotification.Name(rawValue: app().model.kNotificationDataChanged),
 			object: nil)
     }
 	
@@ -84,14 +84,14 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 
 			periodLabel.text = currentPeriod?.description
 			if currentPeriod?.getNext() == nil {
-				nextPeriodButton.enabled = false
+				nextPeriodButton.isEnabled = false
 			} else {
-				nextPeriodButton.enabled = true
+				nextPeriodButton.isEnabled = true
 			}
 			if currentPeriod?.getPrev() == nil {
-				prevPeriodButton.enabled = false
+				prevPeriodButton.isEnabled = false
 			} else {
-				prevPeriodButton.enabled = true
+				prevPeriodButton.isEnabled = true
 			}
 			transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
 			let homeCurrencyObject = app().model.getCurrentCurrency()
@@ -102,15 +102,15 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 				currentPeriod: currentPeriod!
 			)
 			
-			expensesTotal.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesTotal.abs())
-			expensesMedian.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMean.abs())
-			expensesProjected.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesProjected.abs())
+			expensesTotal.text = NumberFormatter().formatterDollars().string(from: finmath.expensesTotal.abs())
+			expensesMedian.text = NumberFormatter().formatterDollars().string(from: finmath.expensesMean.abs())
+			expensesProjected.text = NumberFormatter().formatterDollars().string(from: finmath.expensesProjected.abs())
 			if (finmath.expensesMaxTransaction != nil) {
-				expensesMax.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesMaxTransaction!.amount.abs())
+				expensesMax.text = NumberFormatter().formatterDollars().string(from: finmath.expensesMaxTransaction!.amount.abs())
 			} else {
 				expensesMax.text = "0"
 			}
-			expensesToday.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.expensesToday.abs())
+			expensesToday.text = NumberFormatter().formatterDollars().string(from: finmath.expensesToday.abs())
 			
 			/*
 			expensesTotal.textColor = UIColor.expense()
@@ -123,18 +123,18 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			earningsTitle.textColor = UIColor.earning()
 			
 			
-			earningsTotal.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsTotal)
-			earningsAverage.text = NSNumberFormatter().formatterDollars().stringFromNumber(finmath.earningsAvg)
+			earningsTotal.text = NumberFormatter().formatterDollars().string(from: finmath.earningsTotal)
+			earningsAverage.text = NumberFormatter().formatterDollars().string(from: finmath.earningsAvg)
 			
 			var budget = app().model.getBudget()
 			if (budget.amount.isPositive()) {
 				if budget.currency.code != homeCurrencyObject.code {
 					budget = budget.toCurrency(homeCurrencyObject)
 				}
-				let budgetRemains = budget.amount.decimalNumberBySubtracting(finmath.expensesTotal)
-				budgetInfoLabel.text = NSNumberFormatter().formatterMoney(budget.currency).stringFromNumber(budgetRemains.decimalNumberByRoundingAccordingToBehavior(NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundUp, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)))! + " " + "remains".localized
+				let budgetRemains = budget.amount.subtracting(finmath.expensesTotal)
+				budgetInfoLabel.text = NumberFormatter().formatterMoney(budget.currency).string(from: budgetRemains.rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)))! + " " + "remains".localized
 				let expt = finmath.expensesTotal as NSDecimalNumber
-				budgetProgressBar.setProgress(expt.decimalNumberByDividingBy(budget.amount).floatValue, animated: true)
+				budgetProgressBar.setProgress(expt.dividing(by: budget.amount).floatValue, animated: true)
 			} else {
 				budgetInfoLabel.text = "Please set the budget".localized
 				budgetProgressBar.setProgress(Float(0), animated: false)
@@ -144,7 +144,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 
 		} else {
 			periodLabel.text = "undefined".localized
-			let customView: UIView = NSBundle.mainBundle().loadNibNamed("InsightsEmptyView", owner: self, options: nil)[0] as! UIView
+			let customView: UIView = Bundle.main.loadNibNamed("InsightsEmptyView", owner: self, options: nil)![0] as! UIView
 			if self.underlayingView == nil {
 				self.underlayingView = self.view
 			}
@@ -154,17 +154,17 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	func showAll() {
 		if let initialTransaction = app().model.getIinitialTransaction() {
-			currentPeriod = Period(currentDate: NSDate(), length: PeriodLength.Month, initialDate: initialTransaction.date)
+			currentPeriod = Period(currentDate: Date(), length: PeriodLength.month, initialDate: initialTransaction.date)
 		}
-		homeCurrency.text = app().model.getCurrentCurrency().code.uppercaseString
+		homeCurrency.text = app().model.getCurrentCurrency().code.uppercased()
 		showSummary()
 	}
 	
-	func onModelDataChanged(notification: NSNotification){
+	func onModelDataChanged(_ notification: Notification){
 		showAll()
 	}
 	
-	@IBAction func changePeriod(sender: UIButton) {
+	@IBAction func changePeriod(_ sender: UIButton) {
 		if sender.tag == 21 && currentPeriod?.getPrev() != nil {
 			currentPeriod = currentPeriod?.getPrev()
 		} else if currentPeriod?.getNext() != nil {
@@ -173,14 +173,14 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		showSummary()
 	}
 	
-	@IBAction func periodSwipeRight(sender: UISwipeGestureRecognizer) {
+	@IBAction func periodSwipeRight(_ sender: UISwipeGestureRecognizer) {
 		if currentPeriod?.getPrev() != nil {
 			currentPeriod = currentPeriod?.getPrev()
 		}
 		showSummary()
 	}
 	
-	@IBAction func periodSwipeLeft(sender: UISwipeGestureRecognizer) {
+	@IBAction func periodSwipeLeft(_ sender: UISwipeGestureRecognizer) {
 		if currentPeriod?.getNext() != nil {
 			currentPeriod = currentPeriod?.getNext()
 		}
@@ -188,8 +188,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	}
 	
 	
-	@IBAction func saveBudget(segue:UIStoryboardSegue) {
-		if let budgetDetailTVC = segue.sourceViewController as? BudgetTableViewController {
+	@IBAction func saveBudget(_ segue:UIStoryboardSegue) {
+		if let budgetDetailTVC = segue.source as? BudgetTableViewController {
 			if let budget = budgetDetailTVC.budget {
 				app().model.setBudget(budget)
 				showSummary()
@@ -198,14 +198,14 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	}
 
 	
-	@IBAction func shareButtonTapped(sender: AnyObject) {
+	@IBAction func shareButtonTapped(_ sender: AnyObject) {
 		actionSheet = UIActionSheet(title: "", delegate: self, cancelButtonTitle: "Cancel".localized, destructiveButtonTitle: nil)
-		actionSheet!.addButtonWithTitle("Export via File Sharing")
-		actionSheet!.addButtonWithTitle("Export via Email")
+		actionSheet!.addButton(withTitle: "Export via File Sharing")
+		actionSheet!.addButton(withTitle: "Export via Email")
 	}
 	
 	
-	func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+	func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
 		if (buttonIndex == actionSheet.firstOtherButtonIndex + 0) {
 			
 		}
@@ -264,22 +264,22 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
     */
 
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == InsightsSegues.ShowTransactions.rawValue {
-			(segue.destinationViewController as! TransactionsTableViewController).transactionsViewDelegate = self
+			(segue.destination as! TransactionsTableViewController).transactionsViewDelegate = self
 		} else if segue.identifier == InsightsSegues.ShowCategories.rawValue {
-			(segue.destinationViewController as! InsightsCategoriesTableViewController).currentPeriod = currentPeriod
+			(segue.destination as! InsightsCategoriesTableViewController).currentPeriod = currentPeriod
 		} else if segue.identifier == InsightsSegues.SelectHomeCurrency.rawValue {
-			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
+			(segue.destination as! AllCurrenciesTableViewController).delegate = self
 		}
     }
 
 	
     // MARK: - CurrencySelectDelegate
-	func setCurrency(currency: Currency) {
+	func setCurrency(_ currency: Currency) {
 		if currency.code != app().model.getCurrentCurrency().code {
 			app().model.setCurrentCurrency(currency)
-			homeCurrency.text = currency.code.uppercaseString
+			homeCurrency.text = currency.code.uppercased()
 			showSummary()
 		}
 	}
@@ -300,16 +300,16 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	
 	// MARK: - State Restoration
-	override func encodeRestorableStateWithCoder(coder: NSCoder) {
-		coder.encodeInteger(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
-		super.encodeRestorableStateWithCoder(coder)
+	override func encodeRestorableState(with coder: NSCoder) {
+		coder.encode(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")
+		super.encodeRestorableState(with: coder)
 
 		print("Encode state", self.tabBarController!.selectedIndex)
 	}
 	
-	override func decodeRestorableStateWithCoder(coder: NSCoder) {
-		self.tabBarController!.selectedIndex = coder.decodeIntegerForKey("TabBarCurrentTab")
-		super.decodeRestorableStateWithCoder(coder)
+	override func decodeRestorableState(with coder: NSCoder) {
+		self.tabBarController!.selectedIndex = coder.decodeInteger(forKey: "TabBarCurrentTab")
+		super.decodeRestorableState(with: coder)
 		print("Decode state", self.tabBarController!.selectedIndex)
 	}
 	

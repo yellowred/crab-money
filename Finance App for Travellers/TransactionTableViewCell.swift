@@ -19,20 +19,20 @@ class TransactionTableViewCell: UITableViewCell {
     }
 
 	
-	func setTransaction(transaction: Transaction) {
+	func setTransaction(_ transaction: Transaction) {
 		var attributedString:NSMutableAttributedString
-		guard let string = NSNumberFormatter().formatterMoney(transaction.currency).stringFromNumber(transaction.amount) else {
+		guard let string = NumberFormatter().formatterMoney(transaction.currency).string(from: transaction.amount) else {
 			trnAmount.attributedText = NSMutableAttributedString(string: "")
 			return
 		}
 		let amountString = NSString(string: string)
-		let firstAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(20)]
-		let secondAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(32)]
+		let firstAttributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 20)]
+		let secondAttributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 32)]
 		
 		attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
 			
-		let dollarsValue = NSNumberFormatter().formatterDollars().stringFromNumber(transaction.amount.abs())
-		let range = amountString.rangeOfString(dollarsValue!)
+		let dollarsValue = NumberFormatter().formatterDollars().string(from: transaction.amount.abs())
+		let range = amountString.range(of: dollarsValue!)
 			
 		attributedString.addAttributes(secondAttributes, range: range)
 		

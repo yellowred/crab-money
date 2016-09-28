@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+// import Alamofire
 
 //@see http://www.raywenderlich.com/85080/beginning-alamofire-tutorial
 class Networking
@@ -15,17 +15,18 @@ class Networking
 	let kEventUpdateAll = "UpdateAll"
 	let kEventUpdateAllMinHours = 4
 	
-	private let api1:String = "http://api.fixer.io/latest?base=USD"
-	private let api2:String = "https://openexchangerates.org/api/api/latest.json?app_id=fc667c4ed0af4675835f20c90b8a4276"
-	private let currencyDownloadEndpoint:String = "http://sandbox.kubrakov.devel.local/currency.php"
+	fileprivate let api1:String = "http://api.fixer.io/latest?base=USD"
+	fileprivate let api2:String = "https://openexchangerates.org/api/api/latest.json?app_id=fc667c4ed0af4675835f20c90b8a4276"
+	fileprivate let currencyDownloadEndpoint:String = "http://sandbox.kubrakov.devel.local/currency.php"
 
 	static let sharedInstance = Networking()
 	
+	/*
 	lazy var crabApi: CrabApi = {return CrabApi()}()
 
 	lazy var backgroundManager: Alamofire.Manager = {
-		let bundleIdentifier = NSBundle.mainBundle().bundleIdentifier
-		return Alamofire.Manager(configuration: NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(bundleIdentifier! + ".background"))
+		let bundleIdentifier = Bundle.main.bundleIdentifier
+		return Alamofire.Manager(configuration: URLSessionConfiguration.background(withIdentifier: bundleIdentifier! + ".background"))
 	}()
 	
 	var backgroundCompletionHandler: (() -> Void)? {
@@ -38,10 +39,10 @@ class Networking
 	}
 
 	
-	func updateAll(finishCallback: ((data: AnyObject?) -> Void)?) {
+	func updateAll(_ finishCallback: ((_ data: AnyObject?) -> Void)?) {
 		print("*** Networking: UpdateAll")
 		let lastUpdateTime = self.app().model.getEventTime(self.kEventUpdateAll)
-		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(NSDate()) > kEventUpdateAllMinHours)
+		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > kEventUpdateAllMinHours)
 		{
 			crabApi.currencies({(data:AnyObject?) in
 				if finishCallback != nil {
@@ -49,10 +50,10 @@ class Networking
 				}
 				for currencyRateData:NSDictionary in data as! [NSDictionary] {
 					if
-						let currency = self.app().model.getCurrencyByCode(currencyRateData.valueForKey("charcode") as! String)
+						let currency = self.app().model.getCurrencyByCode(currencyRateData.value(forKey: "charcode") as! String)
 					{
-						let stringRate = String(currencyRateData.valueForKey("rate")!)
-						let rate = NSDecimalNumber(string: stringRate, locale: NSLocale(localeIdentifier: "en_US"))
+						let stringRate = String(currencyRateData.value(forKey: "rate")!)
+						let rate = NSDecimalNumber(string: stringRate, locale: Locale(localeIdentifier: "en_US"))
 						currency.setValue(rate, forKey: "rate")
 					}
 				}
@@ -62,9 +63,9 @@ class Networking
 			})
 		}
 	}
-	
+	*/
 	
 	func app() -> AppDelegate {
-		return UIApplication.sharedApplication().delegate as! AppDelegate
+		return UIApplication.shared.delegate as! AppDelegate
 	}
 }

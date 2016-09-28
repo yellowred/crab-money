@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
 
 	func app() -> AppDelegate {
-		return UIApplication.sharedApplication().delegate as! AppDelegate
+		return UIApplication.shared.delegate as! AppDelegate
 	}
 	
 	func sound() -> Sound {

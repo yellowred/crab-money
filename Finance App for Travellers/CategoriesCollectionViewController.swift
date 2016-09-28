@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CategorySelectDelegate {
-	func setCategory(category:Category)
+	func setCategory(_ category:Category)
 	func isExpense() -> Bool
 }
 
@@ -17,8 +17,8 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 
 	var delegate:CategorySelectDelegate? = nil
 	var categories: [Category]?
-	private let kCategoryCellIdentifier = "CategoryCell"
-	private let kReturnCategory = "ReturnCategory"
+	fileprivate let kCategoryCellIdentifier = "CategoryCell"
+	fileprivate let kReturnCategory = "ReturnCategory"
 	var category:Category?
 	var isDeletionModeActive:Bool = false
 	
@@ -38,8 +38,8 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 
     }
 
-	@IBAction func cancelCategorySelect(sender: UIBarButtonItem) {
-		self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+	@IBAction func cancelCategorySelect(_ sender: UIBarButtonItem) {
+		self.navigationController?.dismiss(animated: true, completion: nil)
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -47,9 +47,9 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
         // Dispose of any resources that can be recreated.
     }
 
-	func activateDeletionMode(gr:UILongPressGestureRecognizer) {
-		if gr.state == UIGestureRecognizerState.Began {
-			if let _ = collectionView?.indexPathForItemAtPoint(gr.locationInView(collectionView)) {
+	func activateDeletionMode(_ gr:UILongPressGestureRecognizer) {
+		if gr.state == UIGestureRecognizerState.began {
+			if let _ = collectionView?.indexPathForItem(at: gr.location(in: collectionView)) {
 				isDeletionModeActive = true
 				collectionView?.reloadData()
 			}
@@ -57,28 +57,28 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 	}
 
 	
-	func endDeletionMode(gr:UILongPressGestureRecognizer) {
+	func endDeletionMode(_ gr:UILongPressGestureRecognizer) {
 		if isDeletionModeActive {
-			if let _ = collectionView?.indexPathForItemAtPoint(gr.locationInView(collectionView)) {
+			if let _ = collectionView?.indexPathForItem(at: gr.location(in: collectionView)) {
 				isDeletionModeActive = false
 				collectionView?.reloadData()
 			}
 		} else {
-			if let indexPath:NSIndexPath = collectionView?.indexPathForItemAtPoint(gr.locationInView(collectionView)) {
-				if let cell:CategoryCollectionViewCell = collectionView?.cellForItemAtIndexPath(indexPath) as? CategoryCollectionViewCell {
+			if let indexPath:IndexPath = collectionView?.indexPathForItem(at: gr.location(in: collectionView)) {
+				if let cell:CategoryCollectionViewCell = collectionView?.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
 					delegate?.setCategory(cell.category!)
-					self.dismissViewControllerAnimated(true, completion: nil)
+					self.dismiss(animated: true, completion: nil)
 				}
 			}
 		}
 	}
 	
 
-	func deleteCell(sender: UIButton) {
+	func deleteCell(_ sender: UIButton) {
 		if categories != nil {
-			let indexPath:NSIndexPath = (collectionView?.indexPathForCell(sender.superview?.superview as! UICollectionViewCell))!
-			let category = categories!.removeAtIndex(indexPath.row)
-			collectionView?.deleteItemsAtIndexPaths([indexPath])
+			let indexPath:IndexPath = (collectionView?.indexPath(for: sender.superview?.superview as! UICollectionViewCell))!
+			let category = categories!.remove(at: (indexPath as NSIndexPath).row)
+			collectionView?.deleteItems(at: [indexPath])
 			app().model.deleteCategory(category)
 		}
 	}
@@ -87,7 +87,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == kReturnCategory {
 			if let categoryCell = sender as? CategoryCollectionViewCell {
 				category = categoryCell.category
@@ -98,25 +98,25 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         //#warning Incomplete method implementation -- Return the number of sections
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return categories == nil ? 0 : categories!.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
-		cell.categoryTitle.text = categories![indexPath.row].name
-		cell.category = categories![indexPath.row]
-		cell.categoryTitle.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath) as! CategoryCollectionViewCell
+		cell.categoryTitle.text = categories![(indexPath as NSIndexPath).row].name
+		cell.category = categories![(indexPath as NSIndexPath).row]
+		cell.categoryTitle.autoresizingMask = UIViewAutoresizing.flexibleHeight
 		cell.categoryTitle.layer.masksToBounds = true
 		cell.categoryTitle.layer.cornerRadius = (collectionView.bounds.width - 20 - 10 * 2) / 6
 		//cell.contentView.superview?.clipsToBounds = false
-		cell.deleteButton?.addTarget(self, action: #selector(CategoriesCollectionViewController.deleteCell(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+		cell.deleteButton?.addTarget(self, action: #selector(CategoriesCollectionViewController.deleteCell(_:)), for: UIControlEvents.touchUpInside)
 
 		
 		if isDeletionModeActive {
@@ -127,7 +127,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
         return cell
     }
 	
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
 		let cellWidth = (collectionView.bounds.width - 20 - 10 * 2) / 3
 		return CGSize(width: cellWidth, height: cellWidth)
 	}
@@ -142,7 +142,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
     */
 
 
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
 		if isDeletionModeActive {
 			return false
 		}
@@ -150,10 +150,10 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
     }
 
 
-	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		if let cell:CategoryCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as? CategoryCollectionViewCell {
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if let cell:CategoryCollectionViewCell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
 			delegate?.setCategory(cell.category!)
-			performSegueWithIdentifier(kReturnCategory, sender: cell)
+			performSegue(withIdentifier: kReturnCategory, sender: cell)
 		}
 	}
 	
@@ -172,13 +172,13 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
     
     }
     */
-	@IBAction func createNewCategory(segue:UIStoryboardSegue) {
-		if let createNewCategoryController = segue.sourceViewController as? CategoryAddViewController
+	@IBAction func createNewCategory(_ segue:UIStoryboardSegue) {
+		if let createNewCategoryController = segue.source as? CategoryAddViewController
 		{
 			print("New category: \(createNewCategoryController.categoryName)")
 			
 			if createNewCategoryController.categoryName != "" {
-				let newCategory = app().model.createCategory(createNewCategoryController.categoryName, isExpense: createNewCategoryController.isExpense.on, logo: nil)
+				let newCategory = app().model.createCategory(createNewCategoryController.categoryName, isExpense: createNewCategoryController.isExpense.isOn, logo: nil)
 				app().model.saveStorage()
 				if newCategory.is_expense == delegate!.isExpense() {
 					if categories != nil {
@@ -194,7 +194,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 	}
 	
 	
-	@IBAction func returnCategoryToDelegate(segue:UIStoryboardSegue) {
+	@IBAction func returnCategoryToDelegate(_ segue:UIStoryboardSegue) {
 		
 	}
 }

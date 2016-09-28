@@ -9,7 +9,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7AA56244-AE91-4BE2-8BEC-C9575AE41E75",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "B2C99A5BF378D50A4C307670051856C08D568D13" : "TF\/",
+    "B2C99A5BF378D50A4C307670051856C08D568D13" : "xcode\/",
     "67620B5EFA902936DF04070AF595B76AB0333747" : "TF\/Alamofire\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Finance App for Travellers",

@@ -3,11 +3,11 @@
 # Uncomment this line if you're using Swift
 use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'CrabApp' do
-	pod 'Alamofire', '~> 3.0'
-    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+    pod 'Alamofire', '~> 4.0'
 end
 
 target 'CrabAppTests' do

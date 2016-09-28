@@ -14,10 +14,9 @@ import CoreTelephony
 
 extension NSManagedObject
 {
-	
 	func dumpProperties() {
 		for (key, _) in entity.propertiesByName {
-			print("\"\(key)\": \(valueForKey(key))")
+			print("\"\(key)\": \(value(forKey: key))")
 		}
 	}
 }
@@ -27,8 +26,8 @@ class Model
 {
 	
 	let kNotificationDataChanged = "ModelDataChanged"
-	private lazy var context: NSManagedObjectContext = {return self.managedObjectContext!}()
-	private lazy var model: NSManagedObjectModel = {return self.managedObjectModel}()
+	fileprivate lazy var context: NSManagedObjectContext = {return self.managedObjectContext!}()
+	fileprivate lazy var model: NSManagedObjectModel = {return self.managedObjectModel}()
 	
 	
 	func saveStorage()
@@ -38,7 +37,7 @@ class Model
 		{
 			do {
 				try context.save()
-				NSNotificationCenter.defaultCenter().postNotificationName(self.kNotificationDataChanged, object: nil)
+				NotificationCenter.default.post(name: Notification.Name(rawValue: self.kNotificationDataChanged), object: nil)
 				print("*** Notify that Model data changed")
 			} catch let error1 as NSError {
 				error = error1
@@ -69,12 +68,12 @@ class Model
 	}
 	
 	
-	func loadDataFromJson(name: String) -> [NSDictionary]? {
-		if let contentsOfURL = NSBundle(forClass: self.dynamicType).URLForResource(name, withExtension: "json") {
-			let parsedObject: AnyObject?
+	func loadDataFromJson(_ name: String) -> [NSDictionary]? {
+		if let contentsOfURL = Bundle(for: type(of: self)).url(forResource: name, withExtension: "json") {
+			let parsedObject: Any?
 			do {
-				parsedObject = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: contentsOfURL)!,
-					options: NSJSONReadingOptions.AllowFragments)
+				parsedObject = try JSONSerialization.jsonObject(with: Data(contentsOf: contentsOfURL),
+					options: JSONSerialization.ReadingOptions.allowFragments)
 			} catch let error as NSError {
 				parsedObject = nil
 				debugPrint(error)
@@ -88,25 +87,25 @@ class Model
 	}
 
 	
-	func populateCurrenciesWithData(data: [NSDictionary]) {
-		var flagPngData:NSData? = nil
+	func populateCurrenciesWithData(_ data: [NSDictionary]) {
+		var flagPngData:Data? = nil
 		for currencyData:NSDictionary in data
 		{
-			if currencyData.valueForKey("flag") != nil
+			if currencyData.value(forKey: "flag") != nil
 			{
-				flagPngData = NSData(base64EncodedString: currencyData.valueForKey("flag") as! String, options: [])
+				flagPngData = Data(base64Encoded: currencyData.value(forKey: "flag") as! String, options: [])
 			}
 			else
 			{
 				flagPngData = nil
 			}
 			let currency = createCurrency(
-				currencyData.valueForKey("code") as! String,
-				rate: (currencyData.valueForKey("rate") as! NSString).floatValue,
+				currencyData.value(forKey: "code") as! String,
+				rate: (currencyData.value(forKey: "rate") as! NSString).floatValue,
 				flag: flagPngData
 			)
 			if currency != nil {
-				currency!.popularity = Float(currencyData.valueForKey("is_popular") as! String)!
+				currency!.popularity = Float(currencyData.value(forKey: "is_popular") as! String)!
 				if (currency!.code == "USD" || currency!.code == "EUR") {
 					currency!.popularity = currency!.popularity + 1
 				}
@@ -115,23 +114,26 @@ class Model
 	}
 	
 	
-	func populateCategoriesWithData(data: [NSDictionary]) {
+	func populateCategoriesWithData(_ data: [NSDictionary]) {
 		for category:NSDictionary in data
 		{
-			let type = category.valueForKey("type") as! String
-			let _ = createCategory(category.valueForKey("name") as! String, isExpense: type == "expense", logo: nil)
+			let type = category.value(forKey: "type") as! String
+			let _ = createCategory(category.value(forKey: "name") as! String, isExpense: type == "expense", logo: nil)
 		}
 	}
 	
 	
-	func populateTransactionsWithData(data: [NSDictionary]) {
+	func populateTransactionsWithData(_ data: [NSDictionary]) {
 		for transactionData:NSDictionary in data
 		{
 			let newTransaction = createTransaction(
-				Money(amount: NSDecimalNumber(float: transactionData.valueForKey("amount") as! Float), currency: getCurrencyByCode(transactionData.valueForKey("currency") as! String)!),
-				isExpense: transactionData.valueForKey("isExpense") as! Bool)
-			newTransaction.setValue(NSDate().fromString(transactionData.valueForKey("date") as! String), forKey: "date")
-			newTransaction.setValue(NSDecimalNumber(integer: transactionData.valueForKey("rate") as! Int), forKey: "rate")
+				Money(amount: NSDecimalNumber(value: transactionData.value(forKey: "amount") as! Float as Float), currency: getCurrencyByCode(transactionData.value(forKey: "currency") as! String)!),
+				isExpense: transactionData.value(forKey: "isExpense") as! Bool)
+			newTransaction.setValue(
+				Date().fromString(transactionData.value(forKey: "date") as! String) as AnyObject?,
+				forKey: "date"
+			)
+			newTransaction.setValue(NSDecimalNumber(value: transactionData.value(forKey: "rate") as! Int as Int), forKey: "rate")
 			newTransaction.category = getCategoriesList().first
 		}
 	}
@@ -147,15 +149,15 @@ class Model
 
 	
     // MARK: - Model Manipulations
-    func createEntity(name: String) -> NSEntityDescription
+    func createEntity(_ name: String) -> NSEntityDescription
     {
-        return NSEntityDescription.entityForName(name, inManagedObjectContext: context)!
+        return NSEntityDescription.entity(forEntityName: name, in: context)!
     }
 	
     
-	func createCountry(code: String, name: String, flag: NSData?, currency: Currency) -> (Country)
+	func createCountry(_ code: String, name: String, flag: Data?, currency: Currency) -> (Country)
     {
-        let newCountry = NSEntityDescription.insertNewObjectForEntityForName( NSStringFromClass(Country.classForCoder()), inManagedObjectContext: context) as! Country
+        let newCountry = NSEntityDescription.insertNewObject( forEntityName: NSStringFromClass(Country.classForCoder()), into: context) as! Country
         
         //let newCountry = Country(entity: createEntity("Country"), insertIntoManagedObjectContext:context) as Country
         
@@ -174,11 +176,11 @@ class Model
     {
         for currency: Currency in getCurrenciesList()
         {
-            context.deleteObject(currency)
+            context.delete(currency)
         }
         for country: Country in getCountriesList()
         {
-            context.deleteObject(country)
+            context.delete(country)
         }
         saveStorage()
     }
@@ -188,20 +190,20 @@ class Model
 	{
 		for country: Country in getCountriesList()
 		{
-			context.deleteObject(country)
+			context.delete(country)
 		}
 		saveStorage()
 	}
 	
 	
-	func getObjectsList(objectClass: AnyClass) -> [AnyObject] {
+	func getObjectsList(_ objectClass: AnyClass) -> [AnyObject] {
 		// Create request on Event entity
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(objectClass))
+		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: NSStringFromClass(objectClass))
 
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
 		do {
-			fetchedResults = try context.executeFetchRequest(fetchRequest)
+			fetchedResults = try context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getObjectsList error: \(fetchError.localizedDescription)")
 		}
@@ -216,15 +218,15 @@ class Model
     }
 	
  
-	func getCountryByCode(code:String) -> Country?
+	func getCountryByCode(_ code:String) -> Country?
 	{
-		let fetchRequest = NSFetchRequest(entityName:"Country")
+		let fetchRequest: NSFetchRequest<Country> = NSFetchRequest(entityName:"Country")
 		let pred = NSPredicate(format: "(code = %@)", code)
 		fetchRequest.predicate = pred
 	
 		var fetchedResults = Array<Country>()
 		do {
-			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Country]
+			try fetchedResults = context.fetch(fetchRequest) 
 		} catch let fetchError as NSError {
 			print("getCountryByCode error: \(fetchError.localizedDescription)")
 		}
@@ -247,10 +249,10 @@ class Model
 	
 	// MARK: - Currency
 	
-	func createCurrency(code: String, rate: Float, flag: NSData?) -> Currency?
+	func createCurrency(_ code: String, rate: Float, flag: Data?) -> Currency?
 	{
 		let newCurrency = Currency(entity: createEntity("Currency"),
-			insertIntoManagedObjectContext:context) as Currency
+			insertInto:context) as Currency
 		
 		newCurrency.setValue(code, forKey: "code")
 		newCurrency.setValue(rate, forKey: "rate")
@@ -261,13 +263,13 @@ class Model
 	
 	func getCurrenciesList() -> [Currency]
 	{
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
 		
 		//Execute Fetch request
 		var fetchedResults = Array<Currency>()
 		do {
-			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+			try fetchedResults = context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
@@ -283,13 +285,13 @@ class Model
 		fetchRequest.predicate = NSPredicate(format: "handsOnCurrency == nil || handsOnCurrency.@count =0")
 		*/
 		
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
 		fetchRequest.predicate = NSPredicate(format: "in_converter <> 1")
 		
 		var fetchedResults = Array<Currency>()
 		do {
-			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+			try fetchedResults = context.fetch(fetchRequest) 
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
@@ -297,17 +299,17 @@ class Model
 	}
 
 	
-	func getCurrencyByCode(code:String) -> Currency?
+	func getCurrencyByCode(_ code:String) -> Currency?
 	{
-		let fetchRequest = NSFetchRequest(entityName:"Currency")
+		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName:"Currency")
 		let pred = NSPredicate(format: "(code = %@)", code)
 		fetchRequest.predicate = pred
 
 		do {
-			let fetchedResults = try context.executeFetchRequest(fetchRequest)
+			let fetchedResults = try context.fetch(fetchRequest)
 			if fetchedResults.count > 0
 			{
-				return fetchedResults.first as? Currency
+				return fetchedResults.first as Currency!
 			}
 		} catch let fetchError as NSError {
 			print("getCountryByCode error: \(fetchError.localizedDescription)")
@@ -318,13 +320,13 @@ class Model
 	
 	func getCurrenciesInConverter() -> [Currency]
 	{
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
+		let fetchRequest: NSFetchRequest<Currency>  = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "code", ascending: true)]
 		fetchRequest.predicate = NSPredicate(format: "in_converter = 1")
 		
 		var fetchedResults = Array<Currency>()
 		do {
-			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Currency]
+			try fetchedResults = context.fetch(fetchRequest) 
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
@@ -332,7 +334,7 @@ class Model
 	}
 
 	
-	func getHandsOnCurrenciesStructure(amount: Money) -> [HandsOnCurrency] {
+	func getHandsOnCurrenciesStructure(_ amount: Money) -> [HandsOnCurrency] {
 		var handson: [HandsOnCurrency] = []
 		var handsOnAmount: Money?
 		for currency:Currency in getCurrenciesInConverter() {
@@ -347,7 +349,7 @@ class Model
 	}
 	
 	
-	func deleteCurrencyFromConverter(currency:Currency)
+	func deleteCurrencyFromConverter(_ currency:Currency)
 	{
 		currency.setValue(0, forKey: "in_converter")
 		saveStorage()
@@ -356,7 +358,7 @@ class Model
 	
 	//get HOME currency
 	func getCurrentCurrency() -> Currency {
-		let defcur = NSUserDefaults.standardUserDefaults().stringForKey("currentCurrencyCode")
+		let defcur = UserDefaults.standard.string(forKey: "currentCurrencyCode")
 		guard defcur != nil else {
 			return getCurrencyByCode("USD")!
 		}
@@ -364,12 +366,12 @@ class Model
 	}
 
 	
-	func setCurrentCurrency(currency:Currency) {
-		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "currentCurrencyCode")
+	func setCurrentCurrency(_ currency:Currency) {
+		UserDefaults.standard.setValue(currency.code, forKey: "currentCurrencyCode")
 	}
 
 	func getNumpadCurrency() -> Currency {
-		let numcur = NSUserDefaults.standardUserDefaults().stringForKey("numpadCurrencyCode")
+		let numcur = UserDefaults.standard.string(forKey: "numpadCurrencyCode")
 		guard numcur != nil else {
 			return getCurrentCurrency()
 		}
@@ -377,8 +379,8 @@ class Model
 	}
 	
 	
-	func setNumpadCurrency(currency:Currency) {
-		NSUserDefaults.standardUserDefaults().setValue(currency.code, forKey: "numpadCurrencyCode")
+	func setNumpadCurrency(_ currency:Currency) {
+		UserDefaults.standard.setValue(currency.code, forKey: "numpadCurrencyCode")
 	}
 	
 	func getDefaultCurrency() -> Currency {
@@ -391,8 +393,8 @@ class Model
 	
 	
 	func getCurrencyByCurrentLocale() -> String {
-		let currentLocale = NSLocale.currentLocale()
-		return currentLocale.objectForKey(NSLocaleCurrencyCode) as! String
+		let currentLocale = Locale.current
+		return (currentLocale as NSLocale).object(forKey: NSLocale.Key.currencyCode) as! String
 	}
 	
 	
@@ -406,24 +408,24 @@ class Model
 	
 	// MARK: - Budget
 	func getBudget() -> Money {
-		if let amount = NSUserDefaults.standardUserDefaults().objectForKey("budget_amount") as? NSNumber {
-			return Money(amount: NSDecimalNumber(decimal: amount.decimalValue), currency: getCurrencyByCode(NSUserDefaults.standardUserDefaults().stringForKey("budget_currency")!)!)
+		if let amount = UserDefaults.standard.object(forKey: "budget_amount") as? NSNumber {
+			return Money(amount: NSDecimalNumber(decimal: amount.decimalValue), currency: getCurrencyByCode(UserDefaults.standard.string(forKey: "budget_currency")!)!)
 		} else {
 			return Money(amount: 0, currency: getCurrentCurrency())
 		}
 	}
 	
 	
-	func setBudget(budget:Money) {
-		NSUserDefaults.standardUserDefaults().setObject(budget.amount, forKey: "budget_amount")
-		NSUserDefaults.standardUserDefaults().setObject(budget.currency.code, forKey: "budget_currency")
+	func setBudget(_ budget:Money) {
+		UserDefaults.standard.set(budget.amount, forKey: "budget_amount")
+		UserDefaults.standard.set(budget.currency.code, forKey: "budget_currency")
 	}
 	
 	
 	// MARK: - User Defaults
-	func isEventHappen(name: String) -> Bool {
-		let defaults = NSUserDefaults.standardUserDefaults()
-		if let eventHappen = defaults.boolForKey("event_" + name) as Bool? {
+	func isEventHappen(_ name: String) -> Bool {
+		let defaults = UserDefaults.standard
+		if let eventHappen = defaults.bool(forKey: "event_" + name) as Bool? {
 			if eventHappen {
 				return true
 			}
@@ -432,49 +434,49 @@ class Model
 	}
 	
 	
-	func setEventHappen(name:String) {
-		let defaults = NSUserDefaults.standardUserDefaults()
-		defaults.setBool(true, forKey: "event_" + name)
+	func setEventHappen(_ name:String) {
+		let defaults = UserDefaults.standard
+		defaults.set(true, forKey: "event_" + name)
 	}
 	
 	
-	func setEventTime(name:String) {
-		NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: name)
+	func setEventTime(_ name:String) {
+		UserDefaults.standard.set(Date(), forKey: name)
 	}
 	
 	
-	func getEventTime(name:String) -> NSDate? {
-		return NSUserDefaults.standardUserDefaults().objectForKey(name) as? NSDate
+	func getEventTime(_ name:String) -> Date? {
+		return UserDefaults.standard.object(forKey: name) as? Date
 	}
 	
 	
 	// MARK: - transactions
-	func createTransaction(amount: Money, isExpense: Bool) -> Transaction
+	func createTransaction(_ amount: Money, isExpense: Bool) -> Transaction
 	{
-		let newTransaction = NSEntityDescription.insertNewObjectForEntityForName(
-			NSStringFromClass(Transaction.classForCoder()),
-			inManagedObjectContext: context
+		let newTransaction = NSEntityDescription.insertNewObject(
+			forEntityName: NSStringFromClass(Transaction.classForCoder()),
+			into: context
 		) as! Transaction
 		
-		newTransaction.setValue(amount.amount.decimalNumberByMultiplyingBy(isExpense ? -1 : 1), forKey: "amount")
+		newTransaction.setValue(amount.amount.multiplying(by: isExpense ? -1 : 1), forKey: "amount")
 		newTransaction.setValue(amount.currency, forKey: "currency")
 		newTransaction.setValue(amount.currency.rate, forKey: "rate")
-		newTransaction.setValue(NSDate(), forKey: "date")
+		newTransaction.setValue(Date(), forKey: "date")
 
 		return newTransaction
 	}
 	
 	func createFakeTransaction() -> Transaction
 	{
-		let newTransaction = NSEntityDescription.insertNewObjectForEntityForName(
-			NSStringFromClass(Transaction.classForCoder()),
-			inManagedObjectContext: context
+		let newTransaction = NSEntityDescription.insertNewObject(
+			forEntityName: NSStringFromClass(Transaction.classForCoder()),
+			into: context
 			) as! Transaction
 		
-		newTransaction.setValue(NSDecimalNumber(integer: -2500), forKey: "amount")
+		newTransaction.setValue(NSDecimalNumber(value: -2500 as Int), forKey: "amount")
 		newTransaction.setValue(getCurrentCurrency(), forKey: "currency")
-		newTransaction.setValue(NSDate().fromString("2015-12-15 10:31:23"), forKey: "date")
-		newTransaction.setValue(NSDecimalNumber(integer: 73), forKey: "rate")
+		newTransaction.setValue(Date().fromString("2015-12-15 10:31:23"), forKey: "date")
+		newTransaction.setValue(NSDecimalNumber(value: 73 as Int), forKey: "rate")
 		newTransaction.category = getCategoriesList().first
 		return newTransaction
 	}	
@@ -485,15 +487,15 @@ class Model
 	}
 
 	
-	func getTransactionsListForPeriod(period: Period) -> [Transaction]
+	func getTransactionsListForPeriod(_ period: Period) -> [Transaction]
 	{
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
-		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", period.startDate, period.endDate)
+		let fetchRequest: NSFetchRequest<Transaction> = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
+		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", period.startDate as CVarArg, period.endDate as CVarArg)
 		
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
 		do {
-			fetchedResults = try context.executeFetchRequest(fetchRequest)
+			fetchedResults = try context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getObjectsList error: \(fetchError.localizedDescription)")
 		}
@@ -502,21 +504,21 @@ class Model
 	}
 	
 	
-	func deleteTransaction(transaction:Transaction)
+	func deleteTransaction(_ transaction:Transaction)
 	{
-		context.deleteObject(transaction)
+		context.delete(transaction)
 		saveStorage()
 	}
 
 	
 	func getIinitialTransaction() -> Transaction? {
-		let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
+		let fetchRequest: NSFetchRequest<Transaction> = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
 		fetchRequest.fetchLimit = 1
 		//Execute Fetch request
 		var fetchedResults = Array<AnyObject>()
 		do {
-			fetchedResults = try context.executeFetchRequest(fetchRequest)
+			fetchedResults = try context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getObjectsList error: \(fetchError.localizedDescription)")
 		}
@@ -528,10 +530,10 @@ class Model
 	
 	
 	// MARK: - category
-	func createCategory(name: String, isExpense: Bool, logo: NSData?) -> (Category)
+	func createCategory(_ name: String, isExpense: Bool, logo: Data?) -> (Category)
 	{
 		let newCategory = Category(entity: createEntity("Category"),
-			insertIntoManagedObjectContext:context) as Category
+			insertInto:context) as Category
 
 		newCategory.setValue(name, forKey: "name")
 		newCategory.setValue(isExpense, forKey: "is_expense")
@@ -547,13 +549,13 @@ class Model
 		return getObjectsList(Category.classForCoder()) as! [Category]
 	}
 	
-	func getCategoriesList(isExpense: Bool) -> [Category] {
-		let fetchRequest = NSFetchRequest(entityName: "Category")
-		fetchRequest.predicate = NSPredicate(format: "(is_expense = %@)", isExpense)
+	func getCategoriesList(_ isExpense: Bool) -> [Category] {
+		let fetchRequest: NSFetchRequest<Category> = NSFetchRequest(entityName: "Category")
+		fetchRequest.predicate = NSPredicate(format: "(is_expense = %@)", isExpense as CVarArg)
 		
 		var fetchedResults = Array<Category>()
 		do {
-			try fetchedResults = context.executeFetchRequest(fetchRequest) as! [Category]
+			try fetchedResults = context.fetch(fetchRequest)
 		} catch let fetchError as NSError {
 			print("getExpenseCategories error: \(fetchError.localizedDescription)")
 		}
@@ -561,44 +563,44 @@ class Model
 	}
 	
 	
-	func deleteCategory(category: Category)
+	func deleteCategory(_ category: Category)
 	{
-		context.deleteObject(category)
+		context.delete(category)
 		saveStorage()
 	}
 	
 	
 	// MARK: - Core Data Delegate
 	
-	lazy var applicationDocumentsDirectory: NSURL = {
+	lazy var applicationDocumentsDirectory: URL = {
 		// The directory the application uses to store the Core Data store file. This code uses a directory named "kubrakov.Finance_App_for_Travellers" in the application's documents Application Support directory.
-		let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 		print(urls);
 		return urls[urls.count-1]
 	}()
 	
 	lazy var managedObjectModel: NSManagedObjectModel = {
 		// The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-		let modelURL = NSBundle.mainBundle().URLForResource("DataModel", withExtension: "momd")!
-		return NSManagedObjectModel(contentsOfURL: modelURL)!
+		let modelURL = Bundle.main.url(forResource: "DataModel", withExtension: "momd")!
+		return NSManagedObjectModel(contentsOf: modelURL)!
 	}()
 	
 	lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
 		// The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
 		// Create the coordinator and store
 		var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-		let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(self.getDbName())
+		let url = self.applicationDocumentsDirectory.appendingPathComponent(self.getDbName())
 		var error: NSError? = nil
 		var failureReason = "There was an error creating or loading the application's saved data."
 		do {
-			try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+			try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
 		} catch var error1 as NSError {
 			error = error1
 			coordinator = nil
 			// Report any error we got.
 			var dict = [String: AnyObject]()
-			dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-			dict[NSLocalizedFailureReasonErrorKey] = failureReason
+			dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+			dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
 			dict[NSUnderlyingErrorKey] = error
 			error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
 			// Replace this with code to handle the error appropriately.

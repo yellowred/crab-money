@@ -17,7 +17,7 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 	var currencyUpd: Currency? {
 		didSet {
 			if self.currencyUpd != nil {
-				currencyButton.setTitle(self.currencyUpd!.code.uppercaseString, forState: .Normal)
+				currencyButton.setTitle(self.currencyUpd!.code.uppercased(), for: UIControlState())
 			}
 		}
 	}
@@ -53,18 +53,18 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 			currencyUpd = transaction!.currency
 			categoryUpd = transaction!.category
 			amountValue.text = transaction!.amount.formatToMoney().stringValue
-			dateValue.calendar = NSDate().getCalendar()
-			dateValue.date = transaction!.date
+			dateValue.calendar = Date().getCalendar()
+			dateValue.date = transaction!.date as Date
 			descriptionValue.text = transaction!.text
 			
-			let currencyCode = transaction!.currency.code.uppercaseString;
+			let currencyCode = transaction!.currency.code.uppercased();
 			if #available(iOS 9.0, *) {
-			    currencyButton.setTitle(currencyCode, forState: UIControlState.Focused)
+			    currencyButton.setTitle(currencyCode, for: UIControlState.focused)
 			}
-			currencyButton.setTitle(currencyCode, forState: UIControlState.Highlighted)
-			currencyButton.setTitle(currencyCode, forState: UIControlState.Normal)
-			currencyButton.setTitle(currencyCode, forState: UIControlState.Selected)
-			currencyButton.setTitle(currencyCode, forState: UIControlState.Reserved)
+			currencyButton.setTitle(currencyCode, for: UIControlState.highlighted)
+			currencyButton.setTitle(currencyCode, for: UIControlState())
+			currencyButton.setTitle(currencyCode, for: UIControlState.selected)
+			currencyButton.setTitle(currencyCode, for: UIControlState.reserved)
 		}
 
     }
@@ -74,11 +74,11 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
         // Dispose of any resources that can be recreated.
     }
 	
-	override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == 1 {
 			if transaction != nil {
 				let toCurrency = app().model.getCurrentCurrency()
-				return NSNumberFormatter().formatterMoney(toCurrency).stringFromNumber(transaction!.getMoney().toCurrency(toCurrency).amount)
+				return NumberFormatter().formatterMoney(toCurrency).string(from: transaction!.getMoney().toCurrency(toCurrency).amount)
 			} else {
 				return ""
 			}
@@ -88,22 +88,22 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 
 	
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == kEditTransactionCategory {
-			let c = (segue.destinationViewController as! UINavigationController).topViewController as! CategoriesCollectionViewController
+			let c = (segue.destination as! UINavigationController).topViewController as! CategoriesCollectionViewController
 			c.delegate = self
 		} else if segue.identifier == kSelectCurrencyForTransactionEdit {
-			(segue.destinationViewController as! AllCurrenciesTableViewController).delegate = self
+			(segue.destination as! AllCurrenciesTableViewController).delegate = self
 		}
     }
 	
 	
-	func setCategory(category:Category) {
+	func setCategory(_ category:Category) {
 		self.categoryUpd = category
 	}
 	
 	
-	func setCurrency(currency: Currency) {
+	func setCurrency(_ currency: Currency) {
 		self.currencyUpd = currency
 	}
 	

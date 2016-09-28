@@ -7,23 +7,23 @@
 //
 
 import Foundation
-extension NSNumberFormatter {
+extension NumberFormatter {
 
-	func formatterSimpleMoney() -> NSNumberFormatter {
-		self.numberStyle = NSNumberFormatterStyle.NoStyle
+	func formatterSimpleMoney() -> NumberFormatter {
+		self.numberStyle = NumberFormatter.Style.none
 		self.maximumFractionDigits = 2
 		self.minimumFractionDigits = 2
 		return self
 	}
 	
 	
-	func formatterMoney(currency: Currency) -> NSNumberFormatter {
-		self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-		let locale = NSLocale(
-			localeIdentifier: NSLocale.localeIdentifierFromComponents(
-				[
-					NSLocaleCurrencyCode: currency.code,
-					NSLocaleLanguageCode: NSBundle.mainBundle().preferredLocalizations.first!
+	func formatterMoney(_ currency: Currency) -> NumberFormatter {
+		self.numberStyle = NumberFormatter.Style.currency
+		let locale = Locale(
+			identifier: Locale.identifier(
+				fromComponents: [
+					NSLocale.Key.currencyCode.rawValue: currency.code,
+					NSLocale.Key.languageCode.rawValue: Bundle.main.preferredLocalizations.first!
 				]
 			)
 		)
@@ -31,9 +31,9 @@ extension NSNumberFormatter {
 		return self
 	}
 	
-	func formatterDollars() -> NSNumberFormatter {
-		self.numberStyle = NSNumberFormatterStyle.DecimalStyle
-		self.roundingMode = NSNumberFormatterRoundingMode.RoundFloor
+	func formatterDollars() -> NumberFormatter {
+		self.numberStyle = NumberFormatter.Style.decimal
+		self.roundingMode = NumberFormatter.RoundingMode.floor
 		self.maximumFractionDigits = 0
 		self.minimumFractionDigits = 0
 		return self

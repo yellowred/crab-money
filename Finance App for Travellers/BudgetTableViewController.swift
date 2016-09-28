@@ -24,7 +24,7 @@ class BudgetTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		budget = app().model.getBudget()
 		budgetTextInput.text = budget!.amount.stringValue
-		budgetCurrencyLabel.text = budget!.currency.code.uppercaseString
+		budgetCurrencyLabel.text = budget!.currency.code.uppercased()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,12 +34,12 @@ class BudgetTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
@@ -92,7 +92,7 @@ class BudgetTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 		budget?.amount = NSDecimalNumber(string: budgetTextInput.text)

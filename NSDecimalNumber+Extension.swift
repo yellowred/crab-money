@@ -9,24 +9,24 @@
 import Foundation
 extension NSDecimalNumber {
 	func abs() -> NSDecimalNumber {
-		if self.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedAscending {
-			return NSDecimalNumber.zero().decimalNumberBySubtracting(self)
+		if self.compare(NSDecimalNumber.zero) == ComparisonResult.orderedAscending {
+			return NSDecimalNumber.zero.subtracting(self)
 		} else {
 			return self
 		}
 	}
 
 	func formatToMoney() -> NSDecimalNumber {
-		return NSDecimalNumber(string: NSNumberFormatter().formatterSimpleMoney().stringFromNumber(self))
+		return NSDecimalNumber(string: NumberFormatter().formatterSimpleMoney().string(from: self))
 	}
 	
 	func isPositive() -> Bool {
-		return self.compare(NSDecimalNumber.zero()) == NSComparisonResult.OrderedDescending
+		return self.compare(NSDecimalNumber.zero) == ComparisonResult.orderedDescending
 	}
 	
 	func floor() -> NSDecimalNumber {
-		return self.decimalNumberByRoundingAccordingToBehavior(
-			NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundDown, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
+		return self.rounding(
+			accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
 		)
 	}
 }
