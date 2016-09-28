@@ -56,4 +56,16 @@ import CoreData
 		str	+= ",\"currency\": \"" + self.currency.code + "\""
 		return str
 	}
+	
+	func encode() -> [String:Any] {
+		return [
+			"amount": self.amount.stringValue,
+			"currency": self.currency.code,
+			"date": self.date.formatWithTimeLong(),
+			"rate": self.rate.stringValue,
+			"text": self.text,
+			"category": self.category!.name,
+			"uuid": "oleg",
+		]
+	}
 }

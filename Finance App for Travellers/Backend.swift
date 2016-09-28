@@ -13,25 +13,10 @@ class Backend {
 
 	let API_URL:String = "http://0.0.0.0:3015/api/financials"
 	
-	func sendFinancials() -> Void {
-		let financials = [
-			[
-				"amount": 777,
-				"date": "2016-09-24",
-				"rate": 1,
-				"text": "string",
-				"category": "string",
-				"uuid": "string",
-			],
-			[
-				"amount": 888,
-				"date": "2016-09-24",
-				"rate": 1,
-				"text": "string",
-				"category": "string",
-				"uuid": "string",
-			]
-		]
+	func sendFinancials(transactions: [Transaction], callback: @escaping () -> Void) -> Void {
+		let financials = transactions.map({transaction in
+			return transaction.encode()
+		})
 		let data = try! JSONSerialization.data(withJSONObject: financials, options: [])
 		let jsonBatch:String = String(data: data, encoding: .utf8)!
 		/*
@@ -52,6 +37,7 @@ class Backend {
 		*/
 		Alamofire.request(API_URL, method: .post, parameters: [:], encoding: jsonBatch, headers: [:]).responseJSON { response in
 			debugPrint(response)
+			callback()
 		}
 		//Alamofire.request(API_URL, method: .post, parameters: [:], encoding: "myBody", headers: [:])
 		

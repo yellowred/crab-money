@@ -12,6 +12,7 @@
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
+		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
 		9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */; };
@@ -118,6 +119,7 @@
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
+		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				9AC590231C4BCBA900205287 /* NumPad */,
 				9A0BA91D1BC3981500CE0AF1 /* Sound.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
+				3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */,
 				9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */,
 				9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */,
 				9AD3082D1BC4D70800962DE1 /* TransactionsTable */,
@@ -677,6 +680,7 @@
 				9A36FCDB1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift in Sources */,
 				9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */,
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
+				3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
 				9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */,
 				9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */,
