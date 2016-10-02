@@ -42,8 +42,6 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	var currentPeriod: Period?
 	var transactions: [Transaction]?
 	
-	var actionSheet: UIActionSheet?
-	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -194,20 +192,6 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 				app().model.setBudget(budget)
 				showSummary()
 			}
-		}
-	}
-
-	
-	@IBAction func shareButtonTapped(_ sender: AnyObject) {
-		actionSheet = UIActionSheet(title: "", delegate: self, cancelButtonTitle: "Cancel".localized, destructiveButtonTitle: nil)
-		actionSheet!.addButton(withTitle: "Export via File Sharing")
-		actionSheet!.addButton(withTitle: "Export via Email")
-	}
-	
-	
-	func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-		if (buttonIndex == actionSheet.firstOtherButtonIndex + 0) {
-			
 		}
 	}
 	

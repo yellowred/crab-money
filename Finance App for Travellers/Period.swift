@@ -72,7 +72,7 @@ class Period: CustomStringConvertible {
 		}
 		
 		if startDate.compare(initialDate) == ComparisonResult.orderedDescending {
-			return Period(startDate: startDate.sameDayPrevMonth(), endDate: startDate.addingTimeInterval(-3600 * 24), length: lengthType, initialDate: initialDate)
+			return Period(startDate: startDate.sameDayPrevMonth(), endDate: startDate, length: lengthType, initialDate: initialDate)
 		} else {
 			return nil
 		}
@@ -83,7 +83,7 @@ class Period: CustomStringConvertible {
 		let startDateCmp = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: startDate)
 		let endDateCmp = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: endDate)
 		if startDateCmp.year == endDateCmp.year {
-			return startDate.periodShortFormat() + " – " + endDate.periodShortFormat() + ", " + String(describing: endDateCmp.year)
+			return startDate.periodShortFormat() + " – " + endDate.periodShortFormat() + ", " + String(describing: endDateCmp.year!)
 		} else {
 			return startDate.periodFormat() + " – " + endDate.periodFormat()
 		}
