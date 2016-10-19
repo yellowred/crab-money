@@ -59,7 +59,7 @@ class Period: CustomStringConvertible {
 		
 		//current date is later than the period
 		if Date().compare(endDate) == ComparisonResult.orderedDescending {
-			return Period(startDate: endDate.addingTimeInterval(3600 * 24), endDate: endDate.sameDayNextMonth(), length: lengthType, initialDate: initialDate)
+			return Period(startDate: endDate.addingTimeInterval(1), endDate: endDate.sameDayNextMonth(), length: lengthType, initialDate: initialDate)
 		} else {
 			return nil
 		}

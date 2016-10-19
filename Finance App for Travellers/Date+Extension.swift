@@ -99,7 +99,7 @@ extension Date {
 		var calendar = Calendar.current
 		calendar.timeZone = TimeZone.current
 		
-		let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: self, to: date, options: [])
+		let comp = (calendar as NSCalendar).components(NSCalendar.Unit.hour, from: self, to: date, options: [])
 		return comp.hour!
 	}
 }

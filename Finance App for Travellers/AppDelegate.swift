@@ -23,11 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		//	Fabric.with([Crashlytics.self()])
 		model.preloadData()
-		/*
-		let dispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
-		dispatchQueue.async(execute: {
-			Networking.sharedInstance.updateAll(nil)
-		})*/
+		
+		
+		DispatchQueue.global().async(execute: {
+			Backend.sharedInstance.updateRates()
+		})
+		
 		//UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
 		UINavigationBar.appearance().barTintColor = UIColor.statusBar()
 		UINavigationBar.appearance().tintColor = UIColor.white

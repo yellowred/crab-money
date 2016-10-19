@@ -8,10 +8,14 @@
 
 import Foundation
 import Alamofire
+import PromiseKit
 
 class Backend {
+	static let kEventUpdateAll = "UpdateAll"
+	static let kEventUpdateAllMinHours = 4
 
-	let API_URL:String = "http://0.0.0.0:3015/api/financials"
+	static let API_URL:String = "http://192.168.0.102:3015/api/"
+	static let sharedInstance = Backend()
 	
 	func sendFinancials(transactions: [Transaction], callback: @escaping () -> Void) -> Void {
 		let financials = transactions.map({transaction in
@@ -19,27 +23,44 @@ class Backend {
 		})
 		let data = try! JSONSerialization.data(withJSONObject: financials, options: [])
 		let jsonBatch:String = String(data: data, encoding: .utf8)!
-		/*
-		Alamofire.request(
-			"http://0.0.0.0:3015/api/financials",
-			method: .post,
-			parameters: parameters,
-			encoding: JSONEncoding.default
-		).responseJSON { response in
-			debugPrint(response)
-		}
-		*/
-		print("jsonBatch", jsonBatch)
-		/*
-		Alamofire.upload((jsonBatch?.data(using: String.Encoding.utf8.rawValue))!, to: "http://0.0.0.0:3015/api/financials").responseJSON { response in
-			debugPrint(response)
-		}
-		*/
-		Alamofire.request(API_URL, method: .post, parameters: [:], encoding: jsonBatch, headers: [:]).responseJSON { response in
+		Alamofire.request(Backend.API_URL + "financials", method: .post, parameters: [:], encoding: jsonBatch, headers: [:]).responseJSON { response in
 			debugPrint(response)
 			callback()
 		}
-		//Alamofire.request(API_URL, method: .post, parameters: [:], encoding: "myBody", headers: [:])
+	}
+	
+	
+	func updateRates() {
+		let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
+		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > Backend.kEventUpdateAllMinHours)
+		{
+			print("*** Backend: updateRates")
+			print(Backend.API_URL + "currencies")
+			Alamofire.request(Backend.API_URL + "currencies").responseJSON().then { response -> Void in
+				print(response)
+				//to get status code
+				let JSON = response as! Array<NSDictionary>
+				for currencyRateData:NSDictionary in JSON {
+					if
+						let currency = self.app().model.getCurrencyByCode(currencyRateData.value(forKey: "code") as! String)
+					{
+						let stringRate = String(describing: currencyRateData.value(forKey: "rate")!)
+						let rate = NSDecimalNumber(string: stringRate, locale: Locale(identifier: "en_US"))
+						currency.setValue(rate, forKey: "rate")
+					}
+				}
+				self.app().model.saveStorage()
+				self.app().model.setEventTime(Backend.kEventUpdateAll)
+				print("*** Networking: UpdateAll: ", self.app().model.getEventTime(Backend.kEventUpdateAll))
+			}.catch{ error in
+				print("*** Backend: error", error)
+			}
+		}
 		
+	}
+
+	
+	func app() -> AppDelegate {
+		return UIApplication.shared.delegate as! AppDelegate
 	}
 }

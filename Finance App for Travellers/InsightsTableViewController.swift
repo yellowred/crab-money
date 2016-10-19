@@ -276,6 +276,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	// MARK: - TransactionsViewDelegate
 	func getTransactions() -> [Transaction] {
+		transactions = app().model.getTransactionsListForPeriod(currentPeriod!)
 		guard transactions != nil else {
 			return [Transaction]()
 		}

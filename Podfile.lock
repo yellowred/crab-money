@@ -1,9 +1,25 @@
 PODS:
   - Alamofire (4.0.0)
+  - PromiseKit (4.0.1):
+    - PromiseKit/Foundation (= 4.0.1)
+    - PromiseKit/QuartzCore (= 4.0.1)
+    - PromiseKit/UIKit (= 4.0.1)
+  - PromiseKit/Alamofire (4.0.1):
+    - Alamofire (~> 4.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (4.0.1)
+  - PromiseKit/Foundation (4.0.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.0.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.0.1):
+    - PromiseKit/CorePromise
   - Spring (1.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - PromiseKit (~> 4.0)
+  - PromiseKit/Alamofire (~> 4.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
@@ -18,8 +34,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  PromiseKit: ae9e7f97ee758e23f7b9c5e80380a2e78d6338c5
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 0b8b90405da68ba90607804ea14175b2882ba805
+PODFILE CHECKSUM: 28a255eb43ecbabe2735abe3e9cf32fa82341393
 
 COCOAPODS: 1.1.0.rc.2
