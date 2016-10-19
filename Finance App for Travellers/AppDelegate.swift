@@ -30,20 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		})
 		
 		//UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
+		/*
 		UINavigationBar.appearance().barTintColor = UIColor.statusBar()
 		UINavigationBar.appearance().tintColor = UIColor.white
 		UINavigationBar.appearance().barStyle = UIBarStyle.black
-		
+		*/
 		let barShadow: NSShadow = NSShadow()
 		barShadow.shadowColor = UIColor.black
 		barShadow.shadowOffset = CGSize(width: 1, height: 1)
 		barShadow.shadowBlurRadius = CGFloat(5.0)
 		
 		UINavigationBar.appearance().titleTextAttributes = [
-			NSForegroundColorAttributeName:UIColor.white,
-			NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 20)! //,NSShadowAttributeName: barShadow
+			NSForegroundColorAttributeName:UIColor.statusBarText(),
+			//NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 20)! //,NSShadowAttributeName: barShadow
+			NSFontAttributeName: UIFont.systemFont(ofSize: 20)
 		]
-		UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+		// UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 		
 		application.setMinimumBackgroundFetchInterval(21600) // 6 hours
 		

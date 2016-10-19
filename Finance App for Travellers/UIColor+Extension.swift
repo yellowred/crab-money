@@ -67,9 +67,13 @@ extension UIColor {
 	}
 	
 	static func statusBar() -> UIColor {
-		return UIColor(red:0.43, green:0.63, blue:0.42, alpha:1)
+		return UIColor(red:1, green:1, blue:1, alpha:1)
 	}
 
+	static func statusBarText() -> UIColor {
+		return UIColor(red:0, green:0, blue:0, alpha:1)
+	}
+	
 	static func amountColor() -> UIColor {
 		return UIColor(red:0.18, green:0.18, blue:0.18, alpha:1)
 	}
