@@ -297,5 +297,12 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		super.decodeRestorableState(with: coder)
 		print("Decode state", self.tabBarController!.selectedIndex)
 	}
-	
+
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if (indexPath.section == 5) {
+			return 60
+		} else {
+			return UITableViewAutomaticDimension
+		}
+	}
 }
