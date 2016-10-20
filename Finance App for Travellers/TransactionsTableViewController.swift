@@ -20,6 +20,7 @@ class TransactionsTableViewController: UITableViewController {
 	
 	fileprivate let kTransactionCellIdentifier = "TransactionCell"
 	fileprivate let kShowTransactionDetailSegue = "ShowTransactionDetail"
+	fileprivate let kTransactionCellHeight = 70
 	
 	var currentPeriod: Period?
 	var transactionsViewDelegate: TransactionsViewDelegate?
@@ -129,7 +130,7 @@ class TransactionsTableViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 90
+		return CGFloat(kTransactionCellHeight)
 	}
 
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

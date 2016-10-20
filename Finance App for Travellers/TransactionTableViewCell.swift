@@ -21,13 +21,15 @@ class TransactionTableViewCell: UITableViewCell {
 	
 	func setTransaction(_ transaction: Transaction) {
 		var attributedString:NSMutableAttributedString
-		guard let string = NumberFormatter().formatterMoney(transaction.currency).string(from: transaction.amount) else {
+		let numberFormatter: NumberFormatter
+		numberFormatter = NumberFormatter().formatterMoney(transaction.currency)
+		guard let string = numberFormatter.string(from: transaction.amount) else {
 			trnAmount.attributedText = NSMutableAttributedString(string: "")
 			return
 		}
 		let amountString = NSString(string: string)
-		let firstAttributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 20)]
-		let secondAttributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 32)]
+		let firstAttributes = [NSFontAttributeName: UIFont.light(ofSize: 20)]
+		let secondAttributes = [NSFontAttributeName: UIFont.light(ofSize: 32)]
 		
 		attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
 			
@@ -38,7 +40,18 @@ class TransactionTableViewCell: UITableViewCell {
 		
 		trnAmount.attributedText = attributedString
 		if let category = transaction.category {
-			trnLabel.text = category.name
+			let categoryText = NSMutableAttributedString(string: category.name)
+			if transaction.text.length > 0 {
+				let noteForFinancialString = transaction.text
+				let substringIndex = noteForFinancialString.index(noteForFinancialString.startIndex, offsetBy: noteForFinancialString.characters.count <= 32 ? noteForFinancialString.characters.count : 32)
+				
+				let noteForFinancial = NSMutableAttributedString(string: "\n" +	noteForFinancialString.substring(to: substringIndex), attributes: [
+						NSFontAttributeName: UIFont.light(ofSize: 13),
+						NSStrokeColorAttributeName: UIColor.lightGray
+					])
+				categoryText.append(noteForFinancial)
+			}
+			trnLabel.attributedText = categoryText
 		}
 	}
 }
