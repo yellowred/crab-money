@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Rectangle 156x1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Rectangle 156x2.png",
+      "filename" : "ok_sign.png",
       "scale" : "2x"
     },
     {

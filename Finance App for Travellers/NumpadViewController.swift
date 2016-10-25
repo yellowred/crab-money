@@ -37,7 +37,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	@IBOutlet var earning: UIButton!
 	@IBOutlet var earningHPosConstraint: NSLayoutConstraint!
 
-	
+	// MARK: - ViewDid
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,7 +66,24 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		reloadAmountDisplay()
 	}
 	
+	override func viewDidAppear(_ animated: Bool)
+	{
+		super.viewDidAppear(animated)
+	}
 	
+	
+	override func viewDidDisappear(_ animated: Bool)
+	{
+		super.viewDidDisappear(animated)
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
+	
+	// MARK: - TouchPad
 	@IBAction func tapNumber(_ sender: UIButton)
 	{
 		#if DEBUG
@@ -169,11 +186,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 
 	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func selectedCurrency(_ segue:UIStoryboardSegue) {
 		let currenciesTVC = segue.source as? ConverterTableViewController
         if  (currenciesTVC != nil) {
@@ -194,66 +206,132 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		app().model.saveStorage()
 		notCompletedTransaction = nil
 		Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: nil, repeats: false)
-		Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
-/*
-		
-*/
+		Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
 		sound.playTap()
 		amount!.setAmount(0)
 		reloadAmountDisplay()
 	}
 
-	
-	func showInputConfirmation(_ timer: Timer) {
-		let frame = CGRect(x: 0, y: 0, width: 200, height: 200);
-		inputConfirmation = SpringView(frame: frame)
-		let confirmLabel = UILabel(frame: frame)
-		confirmLabel.text = "✓"
-		confirmLabel.textAlignment = NSTextAlignment.center
-		confirmLabel.font = UIFont.systemFont(ofSize: 120)
-		inputConfirmation!.backgroundColor = UIColor.lightGray
-		inputConfirmation!.alpha = 1
-		inputConfirmation!.layer.masksToBounds = true
-		inputConfirmation!.layer.cornerRadius = 10
-		inputConfirmation!.addSubview(confirmLabel)
-		self.view.addSubview(inputConfirmation!)
-		inputConfirmation!.center.x = self.view.center.x
-		inputConfirmation!.center.y = self.view.center.y
-		inputConfirmation!.animation = "zoomIn"
-		inputConfirmation!.duration = 0.5
-		inputConfirmation!.animate()
-		
-	}
-	
-	
-	func hideInputConfirmation(_ timer: Timer) {
-		if inputConfirmation != nil {
-			UIView.animate(withDuration: 1, animations: {
-				self.inputConfirmation!.alpha = 0
-				}, completion: {
-					(_: Bool) in
-					self.inputConfirmation!.removeFromSuperview()
-				}
-			)
-		}
-	}
 
 	func isExpense() -> Bool {
 		return !notCompletedTransaction!.amount.isPositive()
 	}
 
+	func updateCurrentCurrencyBlock() {
+		if amount != nil && currentFlag != nil { //check whether iboutlet is loaded by viewDidLoad
+			currentFlag.image = amount!.currency.getFlag()
+			currentCurrency.text = amount!.currency.code.uppercased()
+		}
+	}
+
 	
-	override func viewDidAppear(_ animated: Bool)
-	{
-		super.viewDidAppear(animated)
+	// MARK: - OK Sign (Input Confirmation)
+	
+	func showInputConfirmation(_ timer: Timer) {
+		let frame = CGRect(x: 0, y: 0, width: 200, height: 200);
+		inputConfirmation = SpringView(frame: frame)
+		
+		
+		
+		// Circle
+		let circlePath = UIBezierPath(arcCenter: CGPoint(x: 100,y: 100), radius: CGFloat(50), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+		
+		let shapeLayer = CAShapeLayer()
+		shapeLayer.path = circlePath.cgPath
+		
+		shapeLayer.fillColor = UIColor.clear.cgColor
+		shapeLayer.strokeColor = UIColor.gray.cgColor
+		shapeLayer.lineWidth = 2.0
+		shapeLayer.strokeEnd = 0.0
+		inputConfirmation?.layer.addSublayer(shapeLayer)
+		
+		let animation = CABasicAnimation(keyPath: "strokeEnd")
+		animation.duration = 1
+		animation.fromValue = 0
+		animation.toValue = 1
+		animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+		shapeLayer.strokeEnd = 1.0
+//		shapeLayer.add(animation, forKey: "animateCircle")
+		
+		
+		// OK
+		let linePath = UIBezierPath()
+		linePath.move(to: CGPoint(x: 75, y: 95))
+		linePath.addLine(to: CGPoint(x: 95, y: 117))
+		linePath.addLine(to: CGPoint(x: 128, y: 85))
+		
+		let shapeLayer2 = CAShapeLayer()
+		shapeLayer2.path = linePath.cgPath
+		
+		//change the fill color
+		shapeLayer2.fillColor = UIColor.clear.cgColor
+		//you can change the stroke color
+		shapeLayer2.strokeColor = UIColor.gray.cgColor
+		//you can change the line width
+		shapeLayer2.lineWidth = 4.0
+		shapeLayer2.strokeEnd = 0
+		inputConfirmation?.layer.addSublayer(shapeLayer2)
+		
+		
+		let animation2 = CABasicAnimation(keyPath: "strokeEnd")
+		animation2.duration = 0.3
+		animation2.fromValue = 0
+		animation2.toValue = 1
+		animation2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+		shapeLayer2.strokeEnd = 1.0
+		shapeLayer2.add(animation2, forKey: "animateLine")
+
+
+		inputConfirmation!.backgroundColor = UIColor.white
+		inputConfirmation!.alpha = 1
+		inputConfirmation!.layer.masksToBounds = true
+		inputConfirmation!.layer.cornerRadius = 50
+
+		
+		
+		self.view.addSubview(inputConfirmation!)
+		inputConfirmation!.center.x = self.view.center.x
+		inputConfirmation!.center.y = self.view.center.y
+		inputConfirmation!.animation = "zoomIn"
+		inputConfirmation!.duration = 0.3
+		inputConfirmation!.animate()
+		
+		let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.hideInputConfirmationAfterTap (_:)))
+		inputConfirmation!.addGestureRecognizer(gesture)
+		
 	}
 	
 	
-	override func viewDidDisappear(_ animated: Bool)
-	{
-		super.viewDidDisappear(animated)
+	// or for Swift 3
+	func hideInputConfirmationAfterTap(_ sender:UITapGestureRecognizer){
+		if inputConfirmation != nil {
+			UIView.animate(withDuration: 0.2, animations: {
+				self.inputConfirmation!.alpha = 0
+				}, completion: {
+					(_: Bool) in
+					self.inputConfirmation!.removeFromSuperview()
+					self.inputConfirmation = nil
+				}
+			)
+		}
 	}
+
 	
+	func hideInputConfirmation(_ timer: Timer) {
+		if inputConfirmation != nil {
+			UIView.animate(withDuration: 0.2, animations: {
+				self.inputConfirmation!.alpha = 0
+				}, completion: {
+					(_: Bool) in
+					self.inputConfirmation!.removeFromSuperview()
+					self.inputConfirmation = nil
+				}
+			)
+		}
+	}
+
+	
+	// MARK: - Navigation
 	@IBAction func currencySelectTap(_ sender: UITapGestureRecognizer) {
 		if sender.state == UIGestureRecognizerState.began {
 			currencyView.backgroundColor = UIColor.lightGray
@@ -288,12 +366,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		
 	}
 	
-	func updateCurrentCurrencyBlock() {
-		if amount != nil && currentFlag != nil { //check whether iboutlet is loaded by viewDidLoad
-			currentFlag.image = amount!.currency.getFlag()
-			currentCurrency.text = amount!.currency.code.uppercased()
-		}
-	}
 	
 	// MARK: - CurrencySelectDelegate
 	func setCurrency(_ currency: Currency) {
