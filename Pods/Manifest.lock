@@ -1,18 +1,18 @@
 PODS:
-  - Alamofire (4.0.0)
-  - PromiseKit (4.0.1):
-    - PromiseKit/Foundation (= 4.0.1)
-    - PromiseKit/QuartzCore (= 4.0.1)
-    - PromiseKit/UIKit (= 4.0.1)
-  - PromiseKit/Alamofire (4.0.1):
+  - Alamofire (4.0.1)
+  - PromiseKit (4.0.4):
+    - PromiseKit/Foundation (= 4.0.4)
+    - PromiseKit/QuartzCore (= 4.0.4)
+    - PromiseKit/UIKit (= 4.0.4)
+  - PromiseKit/Alamofire (4.0.4):
     - Alamofire (~> 4.0)
     - PromiseKit/CorePromise
-  - PromiseKit/CorePromise (4.0.1)
-  - PromiseKit/Foundation (4.0.1):
+  - PromiseKit/CorePromise (4.0.4)
+  - PromiseKit/Foundation (4.0.4):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.0.1):
+  - PromiseKit/QuartzCore (4.0.4):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.0.1):
+  - PromiseKit/UIKit (4.0.4):
     - PromiseKit/CorePromise
   - Spring (1.0.3)
 
@@ -29,12 +29,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Spring:
-    :commit: 14be3acd311b43ac98ce7cbbadf92ca74acbf6b4
+    :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
-  PromiseKit: ae9e7f97ee758e23f7b9c5e80380a2e78d6338c5
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  PromiseKit: 8e8ee39d33ff199d92a1a883b5396f6285be6c91
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
 PODFILE CHECKSUM: 28a255eb43ecbabe2735abe3e9cf32fa82341393

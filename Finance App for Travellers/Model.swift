@@ -535,7 +535,7 @@ class Model
 		let newCategory = Category(entity: createEntity("Category"),
 			insertInto:context) as Category
 
-		newCategory.setValue(name, forKey: "name")
+		newCategory.setValue(name.capitalized, forKey: "name")
 		newCategory.setValue(isExpense, forKey: "is_expense")
 		if let _ = logo {
 			newCategory.setValue(logo, forKey: "logo")
@@ -571,7 +571,6 @@ class Model
 	
 	
 	// MARK: - Core Data Delegate
-	
 	lazy var applicationDocumentsDirectory: URL = {
 		// The directory the application uses to store the Core Data store file. This code uses a directory named "kubrakov.Finance_App_for_Travellers" in the application's documents Application Support directory.
 		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -620,11 +619,11 @@ class Model
 		if coordinator == nil {
 			return nil
 		}
-		var managedObjectContext = NSManagedObjectContext()
+		var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 		managedObjectContext.persistentStoreCoordinator = coordinator
 		return managedObjectContext
 	}()
-	
+
 	
 	func getDbName() -> String {
 		return "CurrencyStorage.sqlite";

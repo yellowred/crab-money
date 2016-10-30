@@ -204,9 +204,10 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		notCompletedTransaction!.category = category
 		notCompletedTransaction!.currency.increasePopularity()
 		app().model.saveStorage()
+		
+		Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: notCompletedTransaction, repeats: false)
+		Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
 		notCompletedTransaction = nil
-		Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: nil, repeats: false)
-		Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
 		sound.playTap()
 		amount!.setAmount(0)
 		reloadAmountDisplay()
@@ -231,8 +232,13 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		let frame = CGRect(x: 0, y: 0, width: 200, height: 200);
 		inputConfirmation = SpringView(frame: frame)
 		
-		
-		
+		let label = UILabel(frame: CGRect(x: 0, y: 170, width: 200, height: 20))
+		label.textAlignment = NSTextAlignment.center
+		label.font = UIFont.light(ofSize: 20)
+		let savedTransaction = timer.userInfo as! Transaction
+		label.text = savedTransaction.getMoney().stringValue()
+		inputConfirmation?.addSubview(label)
+				
 		// Circle
 		let circlePath = UIBezierPath(arcCenter: CGPoint(x: 100,y: 100), radius: CGFloat(50), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
 		

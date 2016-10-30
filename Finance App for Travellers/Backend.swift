@@ -51,7 +51,7 @@ class Backend {
 				}
 				self.app().model.saveStorage()
 				self.app().model.setEventTime(Backend.kEventUpdateAll)
-				print("*** Networking: UpdateAll: ", self.app().model.getEventTime(Backend.kEventUpdateAll))
+				print("*** Networking: UpdateAll: ", self.app().model.getEventTime(Backend.kEventUpdateAll) ?? "nil")
 			}.catch{ error in
 				print("*** Backend: error", error)
 			}
