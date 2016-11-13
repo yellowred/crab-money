@@ -14,7 +14,7 @@ class Backend {
 	static let kEventUpdateAll = "UpdateAll"
 	static let kEventUpdateAllMinHours = 4
 
-	static let API_URL:String = "http://192.168.0.102:3015/api/"
+	static let API_URL:String = "http://calm-money.com/api/"
 	static let sharedInstance = Backend()
 	
 	func sendFinancials(transactions: [Transaction], callback: @escaping () -> Void) -> Void {
@@ -59,6 +59,22 @@ class Backend {
 		
 	}
 
+	/*
+	как делать загрузку в бэкраунде с помощью alamofire
+	lazy var backgroundManager: Alamofire.Manager = {
+		let bundleIdentifier = Bundle.main.bundleIdentifier
+		return Alamofire.Manager(configuration: URLSessionConfiguration.background(withIdentifier: bundleIdentifier! + ".background"))
+	}()
+	
+	var backgroundCompletionHandler: (() -> Void)? {
+		get {
+			return backgroundManager.backgroundCompletionHandler
+		}
+		set {
+			backgroundManager.backgroundCompletionHandler = newValue
+		}
+	}
+	*/
 	
 	func app() -> AppDelegate {
 		return UIApplication.shared.delegate as! AppDelegate

@@ -52,14 +52,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window?.makeKeyAndVisible()
 		return true
     }
-
+	
 	/*
 	func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-		Networking.sharedInstance.backgroundCompletionHandler = completionHandler
+		Backend.sharedInstance.backgroundCompletionHandler = completionHandler
 	}
 
 	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		Networking.sharedInstance.updateAll({(data:AnyObject?) in
+		Backend.sharedInstance.updateRates()({(data:AnyObject?) in
 			if data != nil {
 				completionHandler(.newData)
 			} else {
@@ -68,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		})
 	}
 	*/
-	
 	
 	func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
 		return false
