@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import PromiseKit
 
 class Backend {
@@ -30,13 +29,13 @@ class Backend {
 	}
 	
 	
-	func updateRates() {
+	func updateRates2() -> Promise<Any> {
 		let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
 		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > Backend.kEventUpdateAllMinHours)
 		{
 			print("*** Backend: updateRates")
 			print(Backend.API_URL + "currencies")
-			Alamofire.request(Backend.API_URL + "currencies").responseJSON().then { response -> Void in
+			return Alamofire.request(Backend.API_URL + "currencies").responseJSON().then { response -> Void in
 				print(response)
 				//to get status code
 				let JSON = response as! Array<NSDictionary>
@@ -52,15 +51,31 @@ class Backend {
 				self.app().model.saveStorage()
 				self.app().model.setEventTime(Backend.kEventUpdateAll)
 				print("*** Networking: UpdateAll: ", self.app().model.getEventTime(Backend.kEventUpdateAll) ?? "nil")
-			}.catch{ error in
-				print("*** Backend: error", error)
 			}
+		} else {
+			return Promise(value: [])
 		}
 		
 	}
 
+	func updateRates(model: Model) -> Promise<Any> {
+		let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
+		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > Backend.kEventUpdateAllMinHours)
+		{
+			print("*** Backend: updateRates")
+			print(Backend.API_URL + "currencies")
+			return Alamofire.request(Backend.API_URL + "currencies").responseJSON().then {
+				result in
+				let JSON = result as! Array<NSDictionary>
+				model.saveRatesFrom(array: JSON)
+				model.setEventTime(Backend.kEventUpdateAll)
+			}
+		} else {
+			return Promise(value: [])
+		}
+	}
+
 	/*
-	как делать загрузку в бэкраунде с помощью alamofire
 	lazy var backgroundManager: Alamofire.Manager = {
 		let bundleIdentifier = Bundle.main.bundleIdentifier
 		return Alamofire.Manager(configuration: URLSessionConfiguration.background(withIdentifier: bundleIdentifier! + ".background"))

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import PromiseKit
 
 //import Fabric
 //import Crashlytics
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		DispatchQueue.global().async(execute: {
-			Backend.sharedInstance.updateRates()
+			Backend.sharedInstance.updateRates(model: self.model)
 		})
 		
 		//UITabBar.appearance().tintColor = UIColor(rgba: "#5D8642")
@@ -57,17 +58,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
 		Backend.sharedInstance.backgroundCompletionHandler = completionHandler
 	}
-
-	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		Backend.sharedInstance.updateRates()({(data:AnyObject?) in
-			if data != nil {
-				completionHandler(.newData)
-			} else {
-				completionHandler(.failed)
-			}
-		})
-	}
 	*/
+	
+	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+		Backend.sharedInstance.updateRates(model: self.model).then {_ in
+			completionHandler(.newData)
+		}.catch { error in
+			completionHandler(.failed)
+		}
+	}
 	
 	func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
 		return false
