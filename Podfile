@@ -12,6 +12,7 @@ target 'CrabApp' do
 end
 
 target 'CrabAppTests' do
-
+    pod "Spring", :git => "https://github.com/MengTo/Spring.git", :branch => "swift3"
+    pod "Alamofire", "~> 4.0"
 end
 

@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PromiseKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>53EE008C234859FCC4F173DA66AEE972</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B570DAD3F2C118A2DAA556FEF47AC344</key>
+		<key>8CA8005CD4CBA3D648F6FD362F4F660E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B995860B5C1AB562D6CC256FD54C6642</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CC730D59774FCE0EC6138945E470FF15</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E69387C99C166AC7E27545B0868FD6E8</key>
+		<key>A66AC6518AD655468D2C59F15C68C180</key>
 		<dict>
 			<key>primary</key>
 			<true/>

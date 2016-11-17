@@ -48,7 +48,7 @@ class Math: NSObject {
 		return self.expenses.count > 0 ? self.expensesTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysLeft() as Int)) : NSDecimalNumber(value: 0 as Int)
 	}()
 	
-	lazy var expensesMean:NSDecimalNumber = {
+	lazy var expensesMedian:NSDecimalNumber = {
 		return self.median(self.expenses)
 	}()
 	
