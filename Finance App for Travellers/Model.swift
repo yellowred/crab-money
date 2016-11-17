@@ -159,6 +159,7 @@ class Model
 				currency.setValue(rate, forKey: "rate")
 			}
 		}
+		print("*** Model: \(array.count) rates saved")
 		self.saveStorage()
 	}
 

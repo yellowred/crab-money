@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import PromiseKit
+import Alamofire
 
 class Backend {
 	static let kEventUpdateAll = "UpdateAll"
@@ -28,7 +28,7 @@ class Backend {
 		}
 	}
 	
-	
+	/*
 	func updateRates2() -> Promise<Any> {
 		let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
 		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > Backend.kEventUpdateAllMinHours)
@@ -57,28 +57,27 @@ class Backend {
 		}
 		
 	}
-
-	func updateRates(model: Model) -> Promise<Any> {
+	*/
+	
+	func updateRates(model: Model, completionHandler: ((Array<Any>) -> Void)?) {
 		let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
 		if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > Backend.kEventUpdateAllMinHours)
 		{
 			print("*** Backend: updateRates")
 			print(Backend.API_URL + "currencies")
-			return Alamofire.request(Backend.API_URL + "currencies").responseJSON().then {
-				result in
-				let JSON = result as! Array<NSDictionary>
-				model.saveRatesFrom(array: JSON)
+			Alamofire.request(Backend.API_URL + "currencies").responseJSON() {
+				response in
+				let array = response.result.value as! Array<NSDictionary>
+				model.saveRatesFrom(array: array)
 				model.setEventTime(Backend.kEventUpdateAll)
+				completionHandler?(array)
 			}
-		} else {
-			return Promise(value: [])
 		}
 	}
 
-	/*
-	lazy var backgroundManager: Alamofire.Manager = {
+	lazy var backgroundManager: Alamofire.SessionManager = {
 		let bundleIdentifier = Bundle.main.bundleIdentifier
-		return Alamofire.Manager(configuration: URLSessionConfiguration.background(withIdentifier: bundleIdentifier! + ".background"))
+		return Alamofire.SessionManager(configuration: URLSessionConfiguration.background(withIdentifier: bundleIdentifier! + ".background"))
 	}()
 	
 	var backgroundCompletionHandler: (() -> Void)? {
@@ -89,7 +88,6 @@ class Backend {
 			backgroundManager.backgroundCompletionHandler = newValue
 		}
 	}
-	*/
 	
 	func app() -> AppDelegate {
 		return UIApplication.shared.delegate as! AppDelegate
