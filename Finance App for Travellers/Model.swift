@@ -146,6 +146,22 @@ class Model
 			setEventHappen("prepopulateData")
 		}
 	}
+	
+	
+	func saveRatesFrom(array: Array<NSDictionary>)
+	{
+		for currencyRateData:NSDictionary in array {
+			if
+				let currency = self.getCurrencyByCode(currencyRateData.value(forKey: "code") as! String)
+			{
+				let stringRate = String(describing: currencyRateData.value(forKey: "rate")!)
+				let rate = NSDecimalNumber(string: stringRate, locale: Locale(identifier: "en_US"))
+				currency.setValue(rate, forKey: "rate")
+			}
+		}
+		print("*** Model: \(array.count) rates saved")
+		self.saveStorage()
+	}
 
 	
     // MARK: - Model Manipulations

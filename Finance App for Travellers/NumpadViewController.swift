@@ -156,13 +156,19 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			self.expense.alpha = 1
 			//self.expenseHPosConstraint.constant = 10
 			//self.view.layoutIfNeeded()
-			}, completion: nil)
+		}, completion: {
+			_ in
+			self.expense.isEnabled = true
+		})
 		UIView.animate(withDuration: 0.2, animations: {
 		//UIView.animateWithDuration(1, delay: 0.3, usingSpringWithDamping: 0.99, initialSpringVelocity: 15, options: [], animations: {
 			self.earning.alpha = 1
 			//self.earningHPosConstraint.constant = 10
 			//self.view.layoutIfNeeded()
-			}, completion: nil)
+		}, completion: {
+			_ in
+			self.earning.isEnabled = true
+		})
 		
 		
 	}
@@ -176,13 +182,19 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			self.expense.alpha = 0.2
 			//self.expenseHPosConstraint.constant = -self.expense.bounds.width
 			//self.view.layoutIfNeeded()
-			}, completion: nil)
+		}, completion: {
+			_ in
+			self.expense.isEnabled = false
+		})
 		UIView.animate(withDuration: 0.5, animations: {
 		//UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.35, initialSpringVelocity: 15, options: [], animations: {
 			self.earning.alpha = 0.2
 			//self.earningHPosConstraint.constant = -self.earning.bounds.width
 			//self.view.layoutIfNeeded()
-			}, completion: nil)
+		}, completion: {
+			_ in
+			self.earning.isEnabled = false
+		})
 	}
 
 	
@@ -309,17 +321,18 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	
 	// or for Swift 3
-	func hideInputConfirmationAfterTap(_ sender:UITapGestureRecognizer){
-		if inputConfirmation != nil {
-			UIView.animate(withDuration: 0.2, animations: {
-				self.inputConfirmation!.alpha = 0
-				}, completion: {
-					(_: Bool) in
-					self.inputConfirmation!.removeFromSuperview()
-					self.inputConfirmation = nil
-				}
-			)
+	func hideInputConfirmationAfterTap(_ sender:UITapGestureRecognizer) {
+		guard inputConfirmation != nil else {
+			return
 		}
+		UIView.animate(withDuration: 0.2, animations: {
+			self.inputConfirmation!.alpha = 0
+			}, completion: {
+				(_: Bool) in
+				self.inputConfirmation?.removeFromSuperview()
+				self.inputConfirmation = nil
+			}
+		)
 	}
 
 	
