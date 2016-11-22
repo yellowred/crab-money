@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//	import Crashlytics
 
 enum InsightsSegues: String {
 	case ShowTransactions = "ShowTransactions"
@@ -66,12 +67,26 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		*/
 		showAll()
 		
+		/*
+		//	Crashlitycs
+		let button = UIButton(type: UIButtonType.roundedRect)
+		button.frame = CGRect.init(x: 20, y: 50, width: 100, height: 30)
+		button.setTitle("Crash", for: UIControlState.normal)
+		button.addTarget(self, action: #selector(self.crashButtonTapped(sender:)), for: UIControlEvents.touchUpInside)
+		view.addSubview(button)
+		*/
+		
 		NotificationCenter.default.addObserver(self,
 			selector: #selector(InsightsTableViewController.onModelDataChanged(_:)),
 			name: NSNotification.Name(rawValue: app().model.kNotificationDataChanged),
 			object: nil)
     }
 	
+	/*
+	@IBAction func crashButtonTapped(sender: AnyObject) {
+		Crashlytics.sharedInstance().crash()
+	}
+	*/
 	
 	func showSummary() {
 		if currentPeriod != nil {

@@ -151,7 +151,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fnq-P9-PiJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="471710853.08336997">
                                                         <!--2015-12-13 14:47:33 +0000-->
                                                     </date>
@@ -210,7 +210,7 @@
                     <navigationItem key="navigationItem" title="Edit transaction" id="d2n-bK-cvR">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MkV-iF-ELT">
                             <connections>
-                                <segue destination="pQV-HL-jjZ" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="5dK-df-1Tb"/>
+                                <segue destination="pQV-HL-jjZ" kind="unwind" unwindAction="unwindToViewController:" id="gd1-tL-vlk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tGw-De-F3p">
@@ -249,7 +249,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDa-9l-g9Y">
-                                            <rect key="frame" x="18" y="11" width="342" height="21.5"/>
+                                            <rect key="frame" x="18" y="11" width="342" height="22"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Category">
                                                     <attributes>
@@ -262,7 +262,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iym-fW-Czt">
-                                            <rect key="frame" x="60.5" y="11" width="273.5" height="21.5"/>
+                                            <rect key="frame" x="59.5" y="11" width="274.5" height="22"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1259,7 +1259,7 @@
                                             </variation>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" placeholder="1000" textAlignment="right" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="RFZ-iF-Jil" customClass="AmountTextField" customModule="CrabApp" customModuleProvider="target">
-                                            <rect key="frame" x="169.5" y="15" width="187.5" height="50"/>
+                                            <rect key="frame" x="170" y="15" width="187" height="50"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                             </accessibility>
@@ -1444,7 +1444,7 @@
                 <navigationController storyboardIdentifier="NavConverter" automaticallyAdjustsScrollViewInsets="NO" id="ZSM-wV-hDo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Converter" image="icon_converter" id="e42-NY-80F"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="514-jI-1MB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="514-jI-1MB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1465,7 +1465,7 @@
         <scene sceneID="Wnz-Sl-Fqo">
             <objects>
                 <collectionViewController id="4Dx-na-3aS" customClass="CategoriesCollectionViewController" customModule="CrabApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" indicatorStyle="black" delaysContentTouches="NO" dataMode="prototypes" id="Eve-lC-CPd">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" indicatorStyle="black" delaysContentTouches="NO" dataMode="prototypes" id="Eve-lC-CPd">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1919,7 +1919,7 @@
                 <navigationController storyboardIdentifier="NavNumpad" automaticallyAdjustsScrollViewInsets="NO" id="opo-CJ-qd0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Add" image="icon_add" id="OLP-8p-Qoi"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2i4-cn-Gh6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2i4-cn-Gh6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -1947,8 +1947,8 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rNd-md-E9a"/>
-        <segue reference="B9e-dp-6nI"/>
         <segue reference="QbT-4Y-1V6"/>
+        <segue reference="Y3u-vg-LQS"/>
+        <segue reference="ruK-he-aZT"/>
     </inferredMetricsTieBreakers>
 </document>

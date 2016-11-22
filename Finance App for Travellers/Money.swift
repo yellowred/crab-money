@@ -67,8 +67,15 @@ class Money {
 	
 	func toCurrency(_ toCurrency: Currency) -> Money
 	{
+		// Avoid 1999.99 numbers when it is exactly 2000
+		var roundingMode = NSDecimalNumber.RoundingMode.up
+		if !amount.isPositive() {
+			roundingMode = NSDecimalNumber.RoundingMode.down
+		}
 		let usdAmount: NSDecimalNumber = amount.dividing(by: currency.rate)
-		return Money(amount: usdAmount.multiplying(by: toCurrency.rate).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)), currency: toCurrency)
+		let proratedAmount = usdAmount.multiplying(by: toCurrency.rate)
+		let newAmount = proratedAmount.rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: roundingMode, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
+		return Money(amount: newAmount, currency: toCurrency)
 	}
 	
 	
