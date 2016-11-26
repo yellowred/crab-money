@@ -45,26 +45,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
-		//app().model.createFakeTransaction()
-		//app().model.saveStorage()
-		
-		/*
-		//print transactions JSON
-		var t = Array<String>()
-		for trn:Transaction in app().model.getTransactionsList() {
-			t.append(trn.getDict(app().model.getCurrentCurrency()) as String)
-		}
-		
-		let tt = t.joinWithSeparator(", ")
-		print(tt)
-		*/
 		showAll()
 		
 		/*

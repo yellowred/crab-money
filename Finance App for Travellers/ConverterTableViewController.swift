@@ -36,6 +36,11 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ConverterTableViewController.dismissKeyboard))
 		view.addGestureRecognizer(tap)
+		
+		/*
+		let customView: UIView = Bundle.main.loadNibNamed("NotPurchased", owner: self, options: nil)![0] as! UIView
+		self.view = customView
+		*/
 	}
 	
 	//Calls this function when the tap is recognized.

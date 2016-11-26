@@ -67,7 +67,11 @@ class Backend {
 			print(Backend.API_URL + "currencies")
 			Alamofire.request(Backend.API_URL + "currencies").responseJSON() {
 				response in
-				let array = response.result.value as! Array<NSDictionary>
+				var array:Array<NSDictionary> = []
+				if (response.result.isSuccess) {
+					array = response.result.value as! Array<NSDictionary>
+				}
+				
 				model.saveRatesFrom(array: array)
 				model.setEventTime(Backend.kEventUpdateAll)
 				completionHandler?(array)

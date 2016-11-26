@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09AE3CC6B5B2F44ED3204A81 /* Pods_CrabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */; };
+		3F1E94E01DE9BB6200D2832D /* NotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F6C01361DC5ECE0004A3DA2 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C01351DC5ECE0004A3DA2 /* LaunchScreenView.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
@@ -117,6 +118,7 @@
 /* Begin PBXFileReference section */
 		003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotPurchased.xib; sourceTree = "<group>"; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		3F6C01351DC5ECE0004A3DA2 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				9A41FF221B75A32900E529D1 /* AmountTextField.swift */,
 				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
 				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
+				3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */,
 			);
 			name = ConverterTable;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */,
 				9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
+				3F1E94E01DE9BB6200D2832D /* NotPurchased.xib in Resources */,
 				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
 				9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */,
