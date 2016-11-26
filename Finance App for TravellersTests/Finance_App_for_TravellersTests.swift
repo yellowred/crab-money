@@ -85,7 +85,17 @@ class Finance_App_for_TravellersTests: XCTestCase {
 		XCTAssert(math.earningCategories.count == 1)
 		XCTAssertEqual(math.earningCategories.first, categories[3])
     }
-    
+	
+	func testMoney() {
+		let money = transactions[2].getMoney()
+		XCTAssertEqual(money.amount, -300)
+		XCTAssertEqual(money.amount, money.toCurrency(currencies[1]).amount)
+		money.appendSymbol("0")
+		XCTAssertEqual(money.amount, -3000)
+		money.backspace()
+		XCTAssertEqual(money.amount, -300)
+	}
+	
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure() {
