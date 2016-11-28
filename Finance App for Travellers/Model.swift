@@ -363,7 +363,22 @@ class Model
 		}
 		return handson
 	}
-	
+
+	func getHandsOnCurrenciesStructureFake(_ amount: Money) -> [HandsOnCurrency] {
+		var handson: [HandsOnCurrency] = []
+		var handsOnAmount: Money?
+		let currencies = ["USD", "RUB", "EUR", "JPY"].map {code in getCurrencyByCode(code)!}
+		for currency:Currency in currencies {
+			if amount.currency != currency {
+				handsOnAmount = amount.toCurrency(currency)
+			} else {
+				handsOnAmount = amount
+			}
+			handson.append(HandsOnCurrency(amount: handsOnAmount!, textField: nil))
+		}
+		return handson
+	}
+
 	
 	func deleteCurrencyFromConverter(_ currency:Currency)
 	{

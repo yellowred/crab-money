@@ -14,30 +14,41 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not subscribed to Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVy-cy-szF">
-                    <rect key="frame" x="16" y="238.5" width="343" height="110"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVy-cy-szF">
+                    <rect key="frame" x="16" y="239" width="343" height="65"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="110" id="yLf-UD-9Jg"/>
+                        <constraint firstAttribute="height" constant="65" id="c4D-wA-Yln"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9r-Xs-DK8">
-                    <rect key="frame" x="77" y="362.5" width="221" height="30"/>
-                    <state key="normal" title="Buy Now from in-app purchases"/>
+                    <rect key="frame" x="77" y="364" width="220" height="50"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                    <state key="normal" title="Subscribe Now"/>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="currency-converter-process-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPz-Vy-aBS">
+                    <rect key="frame" x="33" y="160" width="308" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="7Zd-o8-C5n"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="fVy-cy-szF" secondAttribute="trailing" constant="16" id="A1A-nN-Z2J"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="BDf-Lg-6TI"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="centerX" secondItem="k9r-Xs-DK8" secondAttribute="centerX" id="Gb7-c2-ltl"/>
-                <constraint firstItem="k9r-Xs-DK8" firstAttribute="top" secondItem="fVy-cy-szF" secondAttribute="bottom" constant="14" id="ZAS-uu-t6I"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lTI-Qn-f6b"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-40" id="mlu-5M-Rf4"/>
+                <constraint firstItem="fVy-cy-szF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1LN-K7-1wT"/>
+                <constraint firstItem="fVy-cy-szF" firstAttribute="top" secondItem="yPz-Vy-aBS" secondAttribute="bottom" constant="1" id="6pU-GD-BjK"/>
+                <constraint firstItem="fVy-cy-szF" firstAttribute="centerX" secondItem="k9r-Xs-DK8" secondAttribute="centerX" id="7Je-ss-K45"/>
+                <constraint firstItem="fVy-cy-szF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-62" id="BbP-TM-Dur"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="centerX" secondItem="fVy-cy-szF" secondAttribute="centerX" id="D2B-mV-9KZ"/>
+                <constraint firstItem="k9r-Xs-DK8" firstAttribute="top" secondItem="fVy-cy-szF" secondAttribute="bottom" constant="60" id="Gyh-in-XWw"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bt2-Cu-Ctl"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="currency-converter-process-icon" width="160" height="65"/>
+    </resources>
 </document>
