@@ -69,8 +69,26 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	override func viewDidAppear(_ animated: Bool)
 	{
 		super.viewDidAppear(animated)
+		checkPurchase()
 	}
 	
+	func checkPurchase() {
+		if !Purchase.canAddTransaction(to: app().model) {
+			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+			if #available(iOS 10.0, *) {
+				blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+			}
+			let blurEffectView = UIVisualEffectView(effect: blurEffect)
+			blurEffectView.frame = view.bounds
+			blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+			view.addSubview(blurEffectView)
+			
+			let customView: UIView = Bundle.main.loadNibNamed("NumpadNotPurchased", owner: self, options: nil)![0] as! UIView
+			customView.frame = view.frame
+			//customView.updateConstraintsIfNeeded()
+			self.view.addSubview(customView)
+		}
+	}
 	
 	override func viewDidDisappear(_ animated: Bool)
 	{

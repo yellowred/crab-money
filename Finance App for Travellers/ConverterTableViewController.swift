@@ -70,19 +70,21 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	
 	
 	func checkPurchase() {
-		var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-		if #available(iOS 10.0, *) {
-			blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+		if !Purchase.canUseConverter() {
+			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+			if #available(iOS 10.0, *) {
+				blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+			}
+			let blurEffectView = UIVisualEffectView(effect: blurEffect)
+			blurEffectView.frame = view.bounds
+			blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+			view.addSubview(blurEffectView)
+			
+			let customView: UIView = Bundle.main.loadNibNamed("ConverterNotPurchased", owner: self, options: nil)![0] as! UIView
+			customView.frame = view.frame
+			//customView.updateConstraintsIfNeeded()
+			self.view.addSubview(customView)
 		}
-		let blurEffectView = UIVisualEffectView(effect: blurEffect)
-		blurEffectView.frame = view.bounds
-		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		view.addSubview(blurEffectView)
-		
-		let customView: UIView = Bundle.main.loadNibNamed("NotPurchased", owner: self, options: nil)![0] as! UIView
-		customView.frame = view.frame
-		//customView.updateConstraintsIfNeeded()
-		self.view.addSubview(customView)
 	}
 	
     func onContentSizeChange(_ notification: Notification) {

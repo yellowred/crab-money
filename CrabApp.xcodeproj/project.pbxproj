@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		09AE3CC6B5B2F44ED3204A81 /* Pods_CrabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */; };
-		3F1E94E01DE9BB6200D2832D /* NotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
 		3FE2BDC71DF19CBF009E4321 /* CrabAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */; };
+		3FE2BDCF1DF1B7E3009E4321 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */; };
+		3FE2BDD41DF1BDD2009E4321 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDD61DF1BDD2009E4321 /* Config.plist */; };
+		3FE2BDD71DF1C1D6009E4321 /* NumpadNotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDD91DF1C1D6009E4321 /* NumpadNotPurchased.xib */; };
+		3FE2BDDA1DF1C3E2009E4321 /* ConverterNotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDC1DF1C3E2009E4321 /* ConverterNotPurchased.xib */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
@@ -124,7 +127,6 @@
 /* Begin PBXFileReference section */
 		003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotPurchased.xib; sourceTree = "<group>"; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,10 @@
 		3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrabAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabAppUITests.swift; sourceTree = "<group>"; };
 		3FE2BDC81DF19CBF009E4321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		3FE2BDD51DF1BDD2009E4321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Config.plist; sourceTree = "<group>"; };
+		3FE2BDD81DF1C1D6009E4321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NumpadNotPurchased.xib; sourceTree = "<group>"; };
+		3FE2BDDB1DF1C3E2009E4321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConverterNotPurchased.xib; sourceTree = "<group>"; };
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,7 +292,7 @@
 				9A41FF221B75A32900E529D1 /* AmountTextField.swift */,
 				9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */,
 				9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */,
-				3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */,
+				3FE2BDDC1DF1C3E2009E4321 /* ConverterNotPurchased.xib */,
 			);
 			name = ConverterTable;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 		9A9C918E1B3444E500DE580F /* Finance App for Travellers */ = {
 			isa = PBXGroup;
 			children = (
+				3FE2BDD61DF1BDD2009E4321 /* Config.plist */,
 				3F28688D1D88439D00ACBFF4 /* Backend */,
 				9A9C91911B3444E500DE580F /* AppDelegate.swift */,
 				9ABCE1861C4C9AE700B64BC7 /* TabBarController.swift */,
@@ -439,6 +446,7 @@
 				9A9C91961B3444E500DE580F /* NumpadViewController.swift */,
 				9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */,
 				9A3C57931C537971001CB79D /* CurrencyView.swift */,
+				3FE2BDD91DF1C1D6009E4321 /* NumpadNotPurchased.xib */,
 			);
 			name = NumPad;
 			sourceTree = "<group>";
@@ -465,6 +473,7 @@
 				9AA2E9C01B82240E00367068 /* Transaction.swift */,
 				9A827C8D1C1D2B9C0025FC5B /* Period.swift */,
 				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
+				3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -602,16 +611,18 @@
 			files = (
 				9AC460BD1BCFE27B00EEE4A7 /* tap-mellow.aif in Resources */,
 				9A0BE4511BF45266002D6F5F /* categories.json in Resources */,
+				3FE2BDD71DF1C1D6009E4321 /* NumpadNotPurchased.xib in Resources */,
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
 				9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */,
 				9ADC27FB1C4A30970053E77F /* Currencies.strings in Resources */,
 				9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
-				3F1E94E01DE9BB6200D2832D /* NotPurchased.xib in Resources */,
+				3FE2BDDA1DF1C3E2009E4321 /* ConverterNotPurchased.xib in Resources */,
 				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
 				9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */,
 				9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */,
+				3FE2BDD41DF1BDD2009E4321 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +773,7 @@
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
 				9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */,
 				9A3C57941C537972001CB79D /* CurrencyView.swift in Sources */,
+				3FE2BDCF1DF1B7E3009E4321 /* Purchase.swift in Sources */,
 				9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */,
 				9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */,
 				9AFE7CAC1B82E78C00B7159B /* TransactionTableViewCell.swift in Sources */,
@@ -834,6 +846,31 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3FE2BDD61DF1BDD2009E4321 /* Config.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE2BDD51DF1BDD2009E4321 /* en */,
+			);
+			name = Config.plist;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3FE2BDD91DF1C1D6009E4321 /* NumpadNotPurchased.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE2BDD81DF1C1D6009E4321 /* Base */,
+			);
+			name = NumpadNotPurchased.xib;
+			sourceTree = "<group>";
+		};
+		3FE2BDDC1DF1C3E2009E4321 /* ConverterNotPurchased.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE2BDDB1DF1C3E2009E4321 /* Base */,
+			);
+			name = ConverterNotPurchased.xib;
+			sourceTree = "<group>";
+		};
 		9A0BE4531BF45266002D6F5F /* categories.json */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.69999999999999996" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9r-Xs-DK8">
+                    <rect key="frame" x="141.66666666666669" y="428.66666666666669" width="131.00000000000006" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="j43-jJ-dKp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                    <state key="normal" title="Buy Now"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ouch, you have reached the free transactions limit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddI-dl-2bQ">
+                    <rect key="frame" x="16" y="239.66666666666669" width="382" height="68.000000000000057"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="uZy-Zm-XLr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please purchase Unlimited transactions package to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-AL-Ibj">
+                    <rect key="frame" x="16" y="315.66666666666669" width="382" height="105"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="105" id="pyG-Yo-Ocg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pFf-AL-Ibj" secondAttribute="trailing" constant="16" id="025-up-IXZ"/>
+                <constraint firstItem="ddI-dl-2bQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="2d5-A6-dSB"/>
+                <constraint firstAttribute="trailing" secondItem="ddI-dl-2bQ" secondAttribute="trailing" constant="16" id="BU5-m6-XnJ"/>
+                <constraint firstItem="k9r-Xs-DK8" firstAttribute="top" secondItem="pFf-AL-Ibj" secondAttribute="bottom" constant="8" id="C6w-cp-9W8"/>
+                <constraint firstItem="pFf-AL-Ibj" firstAttribute="top" secondItem="ddI-dl-2bQ" secondAttribute="bottom" constant="8" id="GCN-FO-7Ln"/>
+                <constraint firstItem="k9r-Xs-DK8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="I2W-Dn-LtH"/>
+                <constraint firstItem="pFf-AL-Ibj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Q1z-tl-tQL"/>
+                <constraint firstItem="pFf-AL-Ibj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="esH-ou-8Dt"/>
+                <constraint firstItem="pFf-AL-Ibj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rXo-r2-4g5"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
