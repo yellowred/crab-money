@@ -62,7 +62,13 @@ class CrabAppUITests: XCTestCase {
 	
 	func testDeleteTransactions() {
 
-		
+		let tablesQuery = XCUIApplication().tables
+		tablesQuery.staticTexts["Transactions"].tap()
+		let beforeCellsCount = tablesQuery.cells.count
+		tablesQuery.cells.element(boundBy: 0).swipeLeft()
+		tablesQuery.buttons["Delete"].tap()
+		XCTAssertEqual(tablesQuery.cells.count + 1, beforeCellsCount, "before=\(beforeCellsCount), after=\(tablesQuery.cells.count)")
+
 	}
     
 }
