@@ -64,3 +64,11 @@ shapeLayer2.strokeEnd = 1.0
 UIView.animate(withDuration: 1, delay: 1, animations: {
     shapeLayer2.strokeEnd = 1
     }, completion: nil)
+
+
+let num:CGPoint? = nil
+if num?.x != 100 {
+    print("He")
+} else {
+    print("Ho")
+}

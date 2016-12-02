@@ -150,7 +150,6 @@ class TransactionsTableViewController: UITableViewController {
         if editingStyle == .delete {
 			let elem = transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]?.remove(at: (indexPath as NSIndexPath).row)
 			app().model.deleteTransaction(elem!)
-			getTransactionsStructure()
 			if tableView.numberOfRows(inSection: (indexPath as NSIndexPath).section) == 1{
 				tableView.deleteSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: .automatic)
 			}else{

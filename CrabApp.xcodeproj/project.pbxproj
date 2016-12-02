@@ -10,7 +10,6 @@
 		09AE3CC6B5B2F44ED3204A81 /* Pods_CrabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */; };
 		3F1E94E01DE9BB6200D2832D /* NotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
-		3F6C01361DC5ECE0004A3DA2 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C01351DC5ECE0004A3DA2 /* LaunchScreenView.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
@@ -65,7 +64,6 @@
 		9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C91981B3444E500DE580F /* Main.storyboard */; };
 		9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919B1B3444E500DE580F /* Images.xcassets */; };
 		9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */; };
-		9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */; };
 		9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA2E9C01B82240E00367068 /* Transaction.swift */; };
 		9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926861BC3AC5C009D16B3 /* Fabric.framework */; };
 		9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */; };
@@ -120,7 +118,6 @@
 		1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1E94DF1DE9BB6200D2832D /* NotPurchased.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotPurchased.xib; sourceTree = "<group>"; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
-		3F6C01351DC5ECE0004A3DA2 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -174,7 +171,6 @@
 		9A9C91A41B3444E500DE580F /* CrabApp.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrabApp.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91A91B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance_App_for_TravellersTests.swift; sourceTree = "<group>"; };
-		9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9AA2E9C01B82240E00367068 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9AA926861BC3AC5C009D16B3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -245,15 +241,6 @@
 				3F28688E1D8843B500ACBFF4 /* Backend.swift */,
 			);
 			name = Backend;
-			sourceTree = "<group>";
-		};
-		3F6C01341DC5ECA5004A3DA2 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				9AA227501BBCFC0100E12696 /* Launch Screen.storyboard */,
-				3F6C01351DC5ECE0004A3DA2 /* LaunchScreenView.swift */,
-			);
-			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		8068D767FF3DCEC55E48BD84 /* Frameworks */ = {
@@ -365,7 +352,6 @@
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
 				3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */,
 				9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */,
-				3F6C01341DC5ECA5004A3DA2 /* LaunchScreen */,
 				9AD3082D1BC4D70800962DE1 /* TransactionsTable */,
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
 				9A0B11921B4E2D9400BC8BB1 /* Networking.swift */,
@@ -558,7 +544,6 @@
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
 				9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */,
 				9ADC27FB1C4A30970053E77F /* Currencies.strings in Resources */,
-				9AA227511BBCFC0100E12696 /* Launch Screen.storyboard in Resources */,
 				9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
 				3F1E94E01DE9BB6200D2832D /* NotPurchased.xib in Resources */,
@@ -697,7 +682,6 @@
 				9AC460BF1BD0AB5B00EEE4A7 /* SummaryView.swift in Sources */,
 				9A36FCDB1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift in Sources */,
 				9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */,
-				3F6C01361DC5ECE0004A3DA2 /* LaunchScreenView.swift in Sources */,
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
 				3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
@@ -913,7 +897,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -940,7 +923,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

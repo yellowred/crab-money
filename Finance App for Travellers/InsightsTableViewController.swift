@@ -147,8 +147,11 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	}
 	
 	func showAll() {
+		//	recalc period as it may be affected if initial transaction was removed
 		if let initialTransaction = app().model.getIinitialTransaction() {
-			currentPeriod = Period(currentDate: Date(), length: PeriodLength.month, initialDate: initialTransaction.date)
+			if currentPeriod?.initialDate != initialTransaction.date {
+				currentPeriod = Period(currentDate: Date(), length: PeriodLength.month, initialDate: initialTransaction.date)
+			}
 		}
 		homeCurrency.text = app().model.getCurrentCurrency().code.uppercased()
 		showSummary()
