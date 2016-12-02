@@ -13,6 +13,7 @@
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
+		3FE2BDC71DF19CBF009E4321 /* CrabAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
@@ -91,6 +92,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3FE2BDC91DF19CBF009E4321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9C91841B3444E500DE580F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A9C918B1B3444E500DE580F;
+			remoteInfo = CrabApp;
+		};
 		9A9C91A51B3444E500DE580F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9C91841B3444E500DE580F /* Project object */;
@@ -121,6 +129,9 @@
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrabAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabAppUITests.swift; sourceTree = "<group>"; };
+		3FE2BDC81DF19CBF009E4321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +214,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3FE2BDC11DF19CBF009E4321 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A9C91891B3444E500DE580F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +259,15 @@
 				3F28688E1D8843B500ACBFF4 /* Backend.swift */,
 			);
 			name = Backend;
+			sourceTree = "<group>";
+		};
+		3FE2BDC51DF19CBF009E4321 /* CrabAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */,
+				3FE2BDC81DF19CBF009E4321 /* Info.plist */,
+			);
+			path = CrabAppUITests;
 			sourceTree = "<group>";
 		};
 		8068D767FF3DCEC55E48BD84 /* Frameworks */ = {
@@ -321,6 +348,7 @@
 			children = (
 				9A9C918E1B3444E500DE580F /* Finance App for Travellers */,
 				9A9C91A71B3444E500DE580F /* Finance App for TravellersTests */,
+				3FE2BDC51DF19CBF009E4321 /* CrabAppUITests */,
 				9A9C918D1B3444E500DE580F /* Products */,
 				9AA926861BC3AC5C009D16B3 /* Fabric.framework */,
 				9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */,
@@ -335,6 +363,7 @@
 			children = (
 				9A9C918C1B3444E500DE580F /* CrabApp.app */,
 				9A9C91A41B3444E500DE580F /* CrabApp.xctest */,
+				3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -443,6 +472,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3FE2BDC31DF19CBF009E4321 /* CrabAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE2BDCB1DF19CBF009E4321 /* Build configuration list for PBXNativeTarget "CrabAppUITests" */;
+			buildPhases = (
+				3FE2BDC01DF19CBF009E4321 /* Sources */,
+				3FE2BDC11DF19CBF009E4321 /* Frameworks */,
+				3FE2BDC21DF19CBF009E4321 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FE2BDCA1DF19CBF009E4321 /* PBXTargetDependency */,
+			);
+			name = CrabAppUITests;
+			productName = CrabAppUITests;
+			productReference = 3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9A9C918B1B3444E500DE580F /* CrabApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A9C91AE1B3444E500DE580F /* Build configuration list for PBXNativeTarget "CrabApp" */;
@@ -493,10 +540,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Oleg Kubrakov";
 				TargetAttributes = {
+					3FE2BDC31DF19CBF009E4321 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = R8F58LM7GS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9A9C918B1B3444E500DE580F;
+					};
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = NF8ZZ5VT6T;
@@ -530,11 +583,19 @@
 			targets = (
 				9A9C918B1B3444E500DE580F /* CrabApp */,
 				9A9C91A31B3444E500DE580F /* CrabAppTests */,
+				3FE2BDC31DF19CBF009E4321 /* CrabAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3FE2BDC21DF19CBF009E4321 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A9C918A1B3444E500DE580F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -673,6 +734,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3FE2BDC01DF19CBF009E4321 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE2BDC71DF19CBF009E4321 /* CrabAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A9C91881B3444E500DE580F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -752,6 +821,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3FE2BDCA1DF19CBF009E4321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A9C918B1B3444E500DE580F /* CrabApp */;
+			targetProxy = 3FE2BDC91DF19CBF009E4321 /* PBXContainerItemProxy */;
+		};
 		9A9C91A61B3444E500DE580F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A9C918B1B3444E500DE580F /* CrabApp */;
@@ -802,6 +876,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3FE2BDCC1DF19CBF009E4321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = R8F58LM7GS;
+				INFOPLIST_FILE = CrabAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CrabAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CrabApp;
+			};
+			name = Debug;
+		};
+		3FE2BDCD1DF19CBF009E4321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = R8F58LM7GS;
+				INFOPLIST_FILE = CrabAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CrabAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CrabApp;
+			};
+			name = Release;
+		};
 		9A9C91AC1B3444E500DE580F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -985,6 +1095,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3FE2BDCB1DF19CBF009E4321 /* Build configuration list for PBXNativeTarget "CrabAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE2BDCC1DF19CBF009E4321 /* Debug */,
+				3FE2BDCD1DF19CBF009E4321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9A9C91871B3444E500DE580F /* Build configuration list for PBXProject "CrabApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

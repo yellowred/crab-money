@@ -38,6 +38,16 @@
                ReferencedContainer = "container:CrabApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3FE2BDC31DF19CBF009E4321"
+               BuildableName = "CrabAppUITests.xctest"
+               BlueprintName = "CrabAppUITests"
+               ReferencedContainer = "container:CrabApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
