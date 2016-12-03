@@ -11,7 +11,7 @@ import CoreData
 
 import Fabric
 import Crashlytics
-
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		Fabric.with([Crashlytics.self()])
 		model.preloadData()
+		
+		SwiftyStoreKit.completeTransactions(atomically: true) { products in
+			for product in products {
+				if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+					if product.needsFinishTransaction {
+						// Deliver content from server, then:
+						SwiftyStoreKit.finishTransaction(product.transaction)
+					}
+					print("purchased: \(product)")
+				}
+			}
+		}
 		
 		let _ = Rater.sharedInstance
 		
