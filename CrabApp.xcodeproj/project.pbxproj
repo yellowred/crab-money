@@ -17,6 +17,8 @@
 		3FE2BDD41DF1BDD2009E4321 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDD61DF1BDD2009E4321 /* Config.plist */; };
 		3FE2BDD71DF1C1D6009E4321 /* NumpadNotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDD91DF1C1D6009E4321 /* NumpadNotPurchased.xib */; };
 		3FE2BDDA1DF1C3E2009E4321 /* ConverterNotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDC1DF1C3E2009E4321 /* ConverterNotPurchased.xib */; };
+		3FE2BDDE1DF1C596009E4321 /* Rater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDD1DF1C596009E4321 /* Rater.swift */; };
+		3FE2BDE01DF1CC20009E4321 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDF1DF1CC20009E4321 /* Config.swift */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
@@ -138,6 +140,8 @@
 		3FE2BDD51DF1BDD2009E4321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Config.plist; sourceTree = "<group>"; };
 		3FE2BDD81DF1C1D6009E4321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NumpadNotPurchased.xib; sourceTree = "<group>"; };
 		3FE2BDDB1DF1C3E2009E4321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConverterNotPurchased.xib; sourceTree = "<group>"; };
+		3FE2BDDD1DF1C596009E4321 /* Rater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rater.swift; path = ../Rater.swift; sourceTree = "<group>"; };
+		3FE2BDDF1DF1CC20009E4321 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -378,9 +382,9 @@
 			isa = PBXGroup;
 			children = (
 				3FE2BDD61DF1BDD2009E4321 /* Config.plist */,
-				3F28688D1D88439D00ACBFF4 /* Backend */,
 				9A9C91911B3444E500DE580F /* AppDelegate.swift */,
 				9ABCE1861C4C9AE700B64BC7 /* TabBarController.swift */,
+				3F28688D1D88439D00ACBFF4 /* Backend */,
 				9A91B4211BCCB8EF00964B36 /* Extension */,
 				9A827C9B1C1D71B70025FC5B /* Insights */,
 				9AC590231C4BCBA900205287 /* NumPad */,
@@ -464,6 +468,7 @@
 		9AEA34FE1B79C55E009C65FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3FE2BDDD1DF1C596009E4321 /* Rater.swift */,
 				9A27C1481B8586220087ECDD /* Category.swift */,
 				9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */,
 				9AFB00811B576B100062C6AE /* Currency.swift */,
@@ -474,6 +479,7 @@
 				9A827C8D1C1D2B9C0025FC5B /* Period.swift */,
 				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
 				3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */,
+				3FE2BDDF1DF1CC20009E4321 /* Config.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -779,6 +785,7 @@
 				9AFE7CAC1B82E78C00B7159B /* TransactionTableViewCell.swift in Sources */,
 				9A36FCE21BD9E13600BD81C0 /* ResultsTableController.swift in Sources */,
 				3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */,
+				3FE2BDDE1DF1C596009E4321 /* Rater.swift in Sources */,
 				3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */,
 				9AFB00801B576B0F0062C6AE /* Country.swift in Sources */,
 				9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */,
@@ -801,6 +808,7 @@
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,
 				9AF5392B1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift in Sources */,
 				9A4D03AD1C1BD37900327679 /* InsightsTableViewController.swift in Sources */,
+				3FE2BDE01DF1CC20009E4321 /* Config.swift in Sources */,
 				9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */,
 				9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */,
 				9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */,

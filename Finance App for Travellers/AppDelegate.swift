@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		Fabric.with([Crashlytics.self()])
 		model.preloadData()
 		
+		let _ = Rater.sharedInstance
+		
 		DispatchQueue.global().async(execute: {
 			Backend.sharedInstance.updateRates(model: self.model, completionHandler: nil)
 		})
@@ -41,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		UINavigationBar.appearance().titleTextAttributes = [
 			NSForegroundColorAttributeName:UIColor.statusBarText(),
-			//NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 20)! //,NSShadowAttributeName: barShadow
-			NSFontAttributeName: UIFont.systemFont(ofSize: 20)
+			NSFontAttributeName: UIFont(name: "HelveticaNeue-Bold", size: 20)! //,NSShadowAttributeName: barShadow
+//			NSFontAttributeName: UIFont.systemFont(ofSize: 20)
 		]
 		// UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 		

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>appstore-id</key>
+	<string>calm-money</string>
+	<key>rater-required-launches-before-rating</key>
+	<integer>1</integer>
 	<key>converter-free</key>
 	<false/>
 	<key>transactions-max-free</key>
