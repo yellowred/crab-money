@@ -30,6 +30,7 @@
 		3FE2BDE01DF1CC20009E4321 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDF1DF1CC20009E4321 /* Config.swift */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
+		5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
 		9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */; };
@@ -121,7 +122,9 @@
 
 /* Begin PBXFileReference section */
 		003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1915CD61FEFFC716FBF7DD75 /* Pods-CalmMoneyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmMoneyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalmMoneyTests/Pods-CalmMoneyTests.release.xcconfig"; sourceTree = "<group>"; };
 		1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalmMoneyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0396561DF27E5500252187 /* CalmMoneyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0396581DF27E5500252187 /* CalmMoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneyTests.swift; sourceTree = "<group>"; };
 		3F03965A1DF27E5500252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 		9AFE7CA91B82DF2B00B7159B /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
 		9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		A760F060DA945CC37203D260 /* Pods-CrabAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		B5B539191076B61FC22AEF37 /* Pods-CalmMoneyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmMoneyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalmMoneyTests/Pods-CalmMoneyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +253,8 @@
 				5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */,
 				003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */,
 				A760F060DA945CC37203D260 /* Pods-CrabAppTests.release.xcconfig */,
+				B5B539191076B61FC22AEF37 /* Pods-CalmMoneyTests.debug.xcconfig */,
+				1915CD61FEFFC716FBF7DD75 /* Pods-CalmMoneyTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -286,6 +293,7 @@
 			children = (
 				1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */,
 				C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */,
+				2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -469,9 +477,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F03965D1DF27E5500252187 /* Build configuration list for PBXNativeTarget "CalmMoneyTests" */;
 			buildPhases = (
+				3583736C1B261E31D85D8188 /* [CP] Check Pods Manifest.lock */,
 				3F0396521DF27E5500252187 /* Sources */,
 				3F0396531DF27E5500252187 /* Frameworks */,
 				3F0396541DF27E5500252187 /* Resources */,
+				1A0C6EC5B6D54F770DAE144C /* [CP] Embed Pods Frameworks */,
+				8420E11F7A014FA423F4CBF5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -536,19 +547,19 @@
 				TargetAttributes = {
 					3F0396551DF27E5500252187 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = R8F58LM7GS;
+						DevelopmentTeam = Y54725FB3U;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9A9C918B1B3444E500DE580F;
 					};
 					3F03966C1DF27FB000252187 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = R8F58LM7GS;
+						DevelopmentTeam = Y54725FB3U;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9A9C918B1B3444E500DE580F;
 					};
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = R8F58LM7GS;
+						DevelopmentTeam = Y54725FB3U;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -633,6 +644,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1A0C6EC5B6D54F770DAE144C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalmMoneyTests/Pods-CalmMoneyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3583736C1B261E31D85D8188 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		6CCD7C300A6F4C086D9722B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,6 +702,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8420E11F7A014FA423F4CBF5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalmMoneyTests/Pods-CalmMoneyTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9AA926811BC3ABF9009D16B3 /* ShellScript */ = {
@@ -848,13 +904,14 @@
 /* Begin XCBuildConfiguration section */
 		3F03965E1DF27E5500252187 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5B539191076B61FC22AEF37 /* Pods-CalmMoneyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = R8F58LM7GS;
+				DEVELOPMENT_TEAM = Y54725FB3U;
 				INFOPLIST_FILE = CalmMoneyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -868,12 +925,13 @@
 		};
 		3F03965F1DF27E5500252187 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1915CD61FEFFC716FBF7DD75 /* Pods-CalmMoneyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = R8F58LM7GS;
+				DEVELOPMENT_TEAM = Y54725FB3U;
 				INFOPLIST_FILE = CalmMoneyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -891,7 +949,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = R8F58LM7GS;
+				DEVELOPMENT_TEAM = Y54725FB3U;
 				INFOPLIST_FILE = CalmMoneyUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -909,7 +967,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = R8F58LM7GS;
+				DEVELOPMENT_TEAM = Y54725FB3U;
 				INFOPLIST_FILE = CalmMoneyUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1015,12 +1073,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R8F58LM7GS;
+				DEVELOPMENT_TEAM = Y54725FB3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1028,7 +1085,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CalmMoney/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CalmMoney;
+				PRODUCT_BUNDLE_IDENTIFIER = surfingcathk.CalmMoney;
 				PRODUCT_NAME = "Calm Money";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
@@ -1042,12 +1099,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R8F58LM7GS;
+				DEVELOPMENT_TEAM = Y54725FB3U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1055,7 +1111,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CalmMoney/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CalmMoney;
+				PRODUCT_BUNDLE_IDENTIFIER = surfingcathk.CalmMoney;
 				PRODUCT_NAME = "Calm Money";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
@@ -1074,6 +1130,7 @@
 				3F03965F1DF27E5500252187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F0396741DF27FB000252187 /* Build configuration list for PBXNativeTarget "CalmMoneyUITests" */ = {
 			isa = XCConfigurationList;
@@ -1082,6 +1139,7 @@
 				3F0396761DF27FB000252187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A9C91871B3444E500DE580F /* Build configuration list for PBXProject "CalmMoney" */ = {
 			isa = XCConfigurationList;

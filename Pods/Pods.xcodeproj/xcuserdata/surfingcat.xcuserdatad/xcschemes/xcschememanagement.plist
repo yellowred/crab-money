@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CalmMoney.xcscheme</key>
+		<key>Pods-CalmMoneyTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CalmMoneyTests.xcscheme</key>
+		<key>Pods-CrabApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,10 +24,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyStoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>53EE008C234859FCC4F173DA66AEE972</key>
+		<key>4132F97FB15302E4CA84EE908BE0B683</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>473E47D1BA85DD0FE9AD7E6039A363B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CA8005CD4CBA3D648F6FD362F4F660E</key>
+		<key>97094F6632CBE66FDB63E91682FD8370</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A66AC6518AD655468D2C59F15C68C180</key>
+		<key>D7783CC8B8CB4250A129FB29178BE566</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -360,7 +360,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 				self.inputConfirmation!.alpha = 0
 				}, completion: {
 					(_: Bool) in
-					self.inputConfirmation!.removeFromSuperview()
+					self.inputConfirmation?.removeFromSuperview()
 					self.inputConfirmation = nil
 				}
 			)
