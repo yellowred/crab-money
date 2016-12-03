@@ -31,8 +31,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		if providedAmount == nil {
 			providedAmount = Money(amount: NSDecimalNumber(value: 0 as Int), currency: app().model.getCurrentCurrency())
 		}
-//		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
-		currenciesStructure = app().model.getHandsOnCurrenciesStructureFake(providedAmount!)
+		currenciesStructure = app().model.getHandsOnCurrenciesStructure(providedAmount!)
 		tableView.allowsMultipleSelectionDuringEditing = false;
 
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ConverterTableViewController.dismissKeyboard))
@@ -55,22 +54,10 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
     }
 
 	
-	func checkPurchase2() {
-		var image:UIImage?
-		UIGraphicsBeginImageContext(view.frame.size)
-		if let context = UIGraphicsGetCurrentContext() {
-			self.view.layer.render(in: context)
-			image = UIGraphicsGetImageFromCurrentImageContext()
-			UIGraphicsEndImageContext()
-		}
-		guard image != nil else {
-			return
-		}
-	}
-	
-	
 	func checkPurchase() {
 		if !Purchase.canUseConverter() {
+			currenciesStructure = app().model.getHandsOnCurrenciesStructureFake(providedAmount!)
+			
 			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
 			if #available(iOS 10.0, *) {
 				blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)

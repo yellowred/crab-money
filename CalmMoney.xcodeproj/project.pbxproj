@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09AE3CC6B5B2F44ED3204A81 /* Pods_CrabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */; };
+		3F0396591DF27E5500252187 /* CalmMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0396581DF27E5500252187 /* CalmMoneyTests.swift */; };
+		3F0396601DF27EB700252187 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F01C3D733C00B2C754 /* Transaction.swift */; };
+		3F0396611DF27EBC00252187 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F21C3D742700B2C754 /* Currency.swift */; };
+		3F0396621DF27EC000252187 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDB0051C4F4E3E0053CEE5 /* Category.swift */; };
+		3F0396631DF27EE500252187 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
+		3F0396641DF27EF200252187 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
+		3F0396651DF27F1A00252187 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* Date+Extension.swift */; };
+		3F0396661DF27F3200252187 /* NSDecimalNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */; };
+		3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
+		3F0396681DF27F5900252187 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
+		3F0396701DF27FB000252187 /* CalmMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
-		3FE2BDC71DF19CBF009E4321 /* CrabAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */; };
 		3FE2BDCF1DF1B7E3009E4321 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */; };
 		3FE2BDD41DF1BDD2009E4321 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDD61DF1BDD2009E4321 /* Config.plist */; };
 		3FE2BDD71DF1C1D6009E4321 /* NumpadNotPurchased.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2BDD91DF1C1D6009E4321 /* NumpadNotPurchased.xib */; };
@@ -39,8 +48,6 @@
 		9A41FF231B75A32900E529D1 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41FF221B75A32900E529D1 /* AmountTextField.swift */; };
 		9A43CA181BFD8EBF00D42507 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */; };
 		9A4B72111BF07F7400E19042 /* CategoryAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4B72101BF07F7400E19042 /* CategoryAddViewController.swift */; };
-		9A4C04F11C3D733C00B2C754 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F01C3D733C00B2C754 /* Transaction.swift */; };
-		9A4C04F31C3D742700B2C754 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F21C3D742700B2C754 /* Currency.swift */; };
 		9A4D03AD1C1BD37900327679 /* InsightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D03AC1C1BD37900327679 /* InsightsTableViewController.swift */; };
 		9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
 		9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */; };
@@ -52,24 +59,12 @@
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
 		9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */; };
 		9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */; };
-		9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */; };
-		9A8B45721C3D39700037D137 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB007F1B576B0F0062C6AE /* Country.swift */; };
-		9A8B45731C3D39700037D137 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
-		9A8B45741C3D39700037D137 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
-		9A8B45751C3D39C60037D137 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* Date+Extension.swift */; };
-		9A8B45761C3D39D70037D137 /* NSDecimalNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */; };
-		9A8B45771C3D39D70037D137 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
-		9A8B45781C3D39D70037D137 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
-		9A8B457D1C3D3B940037D137 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B457C1C3D3B940037D137 /* currencies.json */; };
-		9A8B45831C3D48A70037D137 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B45821C3D48A70037D137 /* categories.json */; };
-		9A8B45851C3D48DB0037D137 /* transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8B45841C3D48DB0037D137 /* transactions.json */; };
 		9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
 		9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */; };
 		9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91911B3444E500DE580F /* AppDelegate.swift */; };
 		9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91961B3444E500DE580F /* NumpadViewController.swift */; };
 		9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C91981B3444E500DE580F /* Main.storyboard */; };
 		9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C919B1B3444E500DE580F /* Images.xcassets */; };
-		9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */; };
 		9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA2E9C01B82240E00367068 /* Transaction.swift */; };
 		9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926861BC3AC5C009D16B3 /* Fabric.framework */; };
 		9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */; };
@@ -80,13 +75,11 @@
 		9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC460C41BD0B47100EEE4A7 /* Localizable.strings */; };
 		9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
 		9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */; };
-		9ACDB0061C4F4E3E0053CEE5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDB0051C4F4E3E0053CEE5 /* Category.swift */; };
 		9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD308321BC4DB4D00962DE1 /* TransactionsSummaryView.xib */; };
 		9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC27F71C4A27890053E77F /* InsightsEmptyView.xib */; };
 		9ADC27FB1C4A30970053E77F /* Currencies.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC27FD1C4A30970053E77F /* Currencies.strings */; };
 		9AEA34FA1B79C4ED009C65FE /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		9AEDFF5D1C3D1CB900541A23 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
-		9AEDFF5E1C3D1F4600541A23 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
 		9AF5392B1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */; };
 		9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */; };
 		9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9E12B1B4B92DD0076BE69 /* Model.swift */; };
@@ -97,19 +90,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FE2BDC91DF19CBF009E4321 /* PBXContainerItemProxy */ = {
+		3F03965B1DF27E5500252187 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9C91841B3444E500DE580F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9A9C918B1B3444E500DE580F;
 			remoteInfo = CrabApp;
 		};
-		9A9C91A51B3444E500DE580F /* PBXContainerItemProxy */ = {
+		3F0396721DF27FB000252187 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9C91841B3444E500DE580F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9A9C918B1B3444E500DE580F;
-			remoteInfo = "Finance App for Travellers";
+			remoteInfo = CrabApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -129,13 +122,16 @@
 /* Begin PBXFileReference section */
 		003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0396561DF27E5500252187 /* CalmMoneyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0396581DF27E5500252187 /* CalmMoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneyTests.swift; sourceTree = "<group>"; };
+		3F03965A1DF27E5500252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneyUITests.swift; sourceTree = "<group>"; };
+		3F0396711DF27FB000252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
-		3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrabAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrabAppUITests.swift; sourceTree = "<group>"; };
-		3FE2BDC81DF19CBF009E4321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		3FE2BDD51DF1BDD2009E4321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Config.plist; sourceTree = "<group>"; };
 		3FE2BDD81DF1C1D6009E4321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NumpadNotPurchased.xib; sourceTree = "<group>"; };
@@ -178,20 +174,14 @@
 		9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewController.swift; sourceTree = "<group>"; };
 		9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Book.otf"; sourceTree = "<group>"; };
-		9A8B457C1C3D3B940037D137 /* currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
-		9A8B45821C3D48A70037D137 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
-		9A8B45841C3D48DB0037D137 /* transactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
 		9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAddTableViewCell.swift; sourceTree = "<group>"; };
-		9A9C918C1B3444E500DE580F /* CrabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9C918C1B3444E500DE580F /* Calm Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calm Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9C91901B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91911B3444E500DE580F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A9C91961B3444E500DE580F /* NumpadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadViewController.swift; sourceTree = "<group>"; };
 		9A9C91991B3444E500DE580F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A9C919B1B3444E500DE580F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9A9C91A41B3444E500DE580F /* CrabApp.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrabApp.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A9C91A91B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance_App_for_TravellersTests.swift; sourceTree = "<group>"; };
 		9AA2E9C01B82240E00367068 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9AA926861BC3AC5C009D16B3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -224,7 +214,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3FE2BDC11DF19CBF009E4321 /* Frameworks */ = {
+		3F0396531DF27E5500252187 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F03966A1DF27FB000252187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -238,14 +235,6 @@
 				9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */,
 				9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */,
 				764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A9C91A11B3444E500DE580F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				09AE3CC6B5B2F44ED3204A81 /* Pods_CrabAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,21 +252,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3F0396571DF27E5500252187 /* CalmMoneyTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A4C04F01C3D733C00B2C754 /* Transaction.swift */,
+				9A4C04F21C3D742700B2C754 /* Currency.swift */,
+				9ACDB0051C4F4E3E0053CEE5 /* Category.swift */,
+				3F0396581DF27E5500252187 /* CalmMoneyTests.swift */,
+				3F03965A1DF27E5500252187 /* Info.plist */,
+			);
+			path = CalmMoneyTests;
+			sourceTree = "<group>";
+		};
+		3F03966E1DF27FB000252187 /* CalmMoneyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */,
+				3F0396711DF27FB000252187 /* Info.plist */,
+			);
+			path = CalmMoneyUITests;
+			sourceTree = "<group>";
+		};
 		3F28688D1D88439D00ACBFF4 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
 				3F28688E1D8843B500ACBFF4 /* Backend.swift */,
 			);
 			name = Backend;
-			sourceTree = "<group>";
-		};
-		3FE2BDC51DF19CBF009E4321 /* CrabAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3FE2BDC61DF19CBF009E4321 /* CrabAppUITests.swift */,
-				3FE2BDC81DF19CBF009E4321 /* Info.plist */,
-			);
-			path = CrabAppUITests;
 			sourceTree = "<group>";
 		};
 		8068D767FF3DCEC55E48BD84 /* Frameworks */ = {
@@ -356,9 +357,9 @@
 		9A9C91831B3444E500DE580F = {
 			isa = PBXGroup;
 			children = (
-				9A9C918E1B3444E500DE580F /* Finance App for Travellers */,
-				9A9C91A71B3444E500DE580F /* Finance App for TravellersTests */,
-				3FE2BDC51DF19CBF009E4321 /* CrabAppUITests */,
+				9A9C918E1B3444E500DE580F /* CalmMoney */,
+				3F0396571DF27E5500252187 /* CalmMoneyTests */,
+				3F03966E1DF27FB000252187 /* CalmMoneyUITests */,
 				9A9C918D1B3444E500DE580F /* Products */,
 				9AA926861BC3AC5C009D16B3 /* Fabric.framework */,
 				9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */,
@@ -371,14 +372,14 @@
 		9A9C918D1B3444E500DE580F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A9C918C1B3444E500DE580F /* CrabApp.app */,
-				9A9C91A41B3444E500DE580F /* CrabApp.xctest */,
-				3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */,
+				9A9C918C1B3444E500DE580F /* Calm Money.app */,
+				3F0396561DF27E5500252187 /* CalmMoneyTests.xctest */,
+				3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A9C918E1B3444E500DE580F /* Finance App for Travellers */ = {
+		9A9C918E1B3444E500DE580F /* CalmMoney */ = {
 			isa = PBXGroup;
 			children = (
 				3FE2BDD61DF1BDD2009E4321 /* Config.plist */,
@@ -404,7 +405,7 @@
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
 				3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */,
 			);
-			path = "Finance App for Travellers";
+			path = CalmMoney;
 			sourceTree = "<group>";
 		};
 		9A9C918F1B3444E500DE580F /* Supporting Files */ = {
@@ -417,29 +418,6 @@
 				9A3F0FC11C4B5190009F0BA0 /* currencies.json */,
 				9A0BE4531BF45266002D6F5F /* categories.json */,
 				9ADC27FD1C4A30970053E77F /* Currencies.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9A9C91A71B3444E500DE580F /* Finance App for TravellersTests */ = {
-			isa = PBXGroup;
-			children = (
-				9A9C91AA1B3444E500DE580F /* Finance_App_for_TravellersTests.swift */,
-				9A4C04F01C3D733C00B2C754 /* Transaction.swift */,
-				9A4C04F21C3D742700B2C754 /* Currency.swift */,
-				9A9C91A81B3444E500DE580F /* Supporting Files */,
-				9ACDB0051C4F4E3E0053CEE5 /* Category.swift */,
-			);
-			path = "Finance App for TravellersTests";
-			sourceTree = "<group>";
-		};
-		9A9C91A81B3444E500DE580F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9A9C91A91B3444E500DE580F /* Info.plist */,
-				9A8B457C1C3D3B940037D137 /* currencies.json */,
-				9A8B45821C3D48A70037D137 /* categories.json */,
-				9A8B45841C3D48DB0037D137 /* transactions.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -487,22 +465,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3FE2BDC31DF19CBF009E4321 /* CrabAppUITests */ = {
+		3F0396551DF27E5500252187 /* CalmMoneyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FE2BDCB1DF19CBF009E4321 /* Build configuration list for PBXNativeTarget "CrabAppUITests" */;
+			buildConfigurationList = 3F03965D1DF27E5500252187 /* Build configuration list for PBXNativeTarget "CalmMoneyTests" */;
 			buildPhases = (
-				3FE2BDC01DF19CBF009E4321 /* Sources */,
-				3FE2BDC11DF19CBF009E4321 /* Frameworks */,
-				3FE2BDC21DF19CBF009E4321 /* Resources */,
+				3F0396521DF27E5500252187 /* Sources */,
+				3F0396531DF27E5500252187 /* Frameworks */,
+				3F0396541DF27E5500252187 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FE2BDCA1DF19CBF009E4321 /* PBXTargetDependency */,
+				3F03965C1DF27E5500252187 /* PBXTargetDependency */,
 			);
-			name = CrabAppUITests;
-			productName = CrabAppUITests;
-			productReference = 3FE2BDC41DF19CBF009E4321 /* CrabAppUITests.xctest */;
+			name = CalmMoneyTests;
+			productName = CalmMoneyTests;
+			productReference = 3F0396561DF27E5500252187 /* CalmMoneyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3F03966C1DF27FB000252187 /* CalmMoneyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F0396741DF27FB000252187 /* Build configuration list for PBXNativeTarget "CalmMoneyUITests" */;
+			buildPhases = (
+				3F0396691DF27FB000252187 /* Sources */,
+				3F03966A1DF27FB000252187 /* Frameworks */,
+				3F03966B1DF27FB000252187 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F0396731DF27FB000252187 /* PBXTargetDependency */,
+			);
+			name = CalmMoneyUITests;
+			productName = CalmMoneyUITests;
+			productReference = 3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		9A9C918B1B3444E500DE580F /* CrabApp */ = {
@@ -524,29 +520,8 @@
 			);
 			name = CrabApp;
 			productName = "Finance App for Travellers";
-			productReference = 9A9C918C1B3444E500DE580F /* CrabApp.app */;
+			productReference = 9A9C918C1B3444E500DE580F /* Calm Money.app */;
 			productType = "com.apple.product-type.application";
-		};
-		9A9C91A31B3444E500DE580F /* CrabAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9A9C91B11B3444E500DE580F /* Build configuration list for PBXNativeTarget "CrabAppTests" */;
-			buildPhases = (
-				56F3492B8EDEFF8EBBA44A35 /* [CP] Check Pods Manifest.lock */,
-				9A9C91A01B3444E500DE580F /* Sources */,
-				9A9C91A11B3444E500DE580F /* Frameworks */,
-				9A9C91A21B3444E500DE580F /* Resources */,
-				5964492A8776037E49C986B3 /* [CP] Embed Pods Frameworks */,
-				4708ED8AA3217FE30C2D8D44 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9A9C91A61B3444E500DE580F /* PBXTargetDependency */,
-			);
-			name = CrabAppTests;
-			productName = "Finance App for TravellersTests";
-			productReference = 9A9C91A41B3444E500DE580F /* CrabApp.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -559,7 +534,13 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Oleg Kubrakov";
 				TargetAttributes = {
-					3FE2BDC31DF19CBF009E4321 = {
+					3F0396551DF27E5500252187 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = R8F58LM7GS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9A9C918B1B3444E500DE580F;
+					};
+					3F03966C1DF27FB000252187 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = R8F58LM7GS;
 						ProvisioningStyle = Automatic;
@@ -567,7 +548,7 @@
 					};
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = NF8ZZ5VT6T;
+						DevelopmentTeam = R8F58LM7GS;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -575,14 +556,9 @@
 							};
 						};
 					};
-					9A9C91A31B3444E500DE580F = {
-						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0800;
-						TestTargetID = 9A9C918B1B3444E500DE580F;
-					};
 				};
 			};
-			buildConfigurationList = 9A9C91871B3444E500DE580F /* Build configuration list for PBXProject "CrabApp" */;
+			buildConfigurationList = 9A9C91871B3444E500DE580F /* Build configuration list for PBXProject "CalmMoney" */;
 			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -597,14 +573,21 @@
 			projectRoot = "";
 			targets = (
 				9A9C918B1B3444E500DE580F /* CrabApp */,
-				9A9C91A31B3444E500DE580F /* CrabAppTests */,
-				3FE2BDC31DF19CBF009E4321 /* CrabAppUITests */,
+				3F0396551DF27E5500252187 /* CalmMoneyTests */,
+				3F03966C1DF27FB000252187 /* CalmMoneyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3FE2BDC21DF19CBF009E4321 /* Resources */ = {
+		3F0396541DF27E5500252187 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F03966B1DF27FB000252187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -632,16 +615,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A9C91A21B3444E500DE580F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9A8B45831C3D48A70037D137 /* categories.json in Resources */,
-				9A8B45851C3D48DB0037D137 /* transactions.json in Resources */,
-				9A8B457D1C3D3B940037D137 /* currencies.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -658,51 +631,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4708ED8AA3217FE30C2D8D44 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		56F3492B8EDEFF8EBBA44A35 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5964492A8776037E49C986B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6CCD7C300A6F4C086D9722B1 /* [CP] Check Pods Manifest.lock */ = {
@@ -751,11 +679,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3FE2BDC01DF19CBF009E4321 /* Sources */ = {
+		3F0396521DF27E5500252187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE2BDC71DF19CBF009E4321 /* CrabAppUITests.swift in Sources */,
+				3F0396611DF27EBC00252187 /* Currency.swift in Sources */,
+				3F0396601DF27EB700252187 /* Transaction.swift in Sources */,
+				3F0396591DF27E5500252187 /* CalmMoneyTests.swift in Sources */,
+				3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */,
+				3F0396661DF27F3200252187 /* NSDecimalNumber+Extension.swift in Sources */,
+				3F0396621DF27EC000252187 /* Category.swift in Sources */,
+				3F0396681DF27F5900252187 /* Money.swift in Sources */,
+				3F0396651DF27F1A00252187 /* Date+Extension.swift in Sources */,
+				3F0396641DF27EF200252187 /* Period.swift in Sources */,
+				3F0396631DF27EE500252187 /* Math.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F0396691DF27FB000252187 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0396701DF27FB000252187 /* CalmMoneyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,38 +763,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A9C91A01B3444E500DE580F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9A8B45741C3D39700037D137 /* Period.swift in Sources */,
-				9A8B45771C3D39D70037D137 /* NSNumberFormatter+Extension.swift in Sources */,
-				9A8B45761C3D39D70037D137 /* NSDecimalNumber+Extension.swift in Sources */,
-				9A9C91AB1B3444E500DE580F /* Finance_App_for_TravellersTests.swift in Sources */,
-				9A4C04F11C3D733C00B2C754 /* Transaction.swift in Sources */,
-				9A8B45731C3D39700037D137 /* Money.swift in Sources */,
-				9A8B45781C3D39D70037D137 /* String+Extension.swift in Sources */,
-				9A8B45751C3D39C60037D137 /* Date+Extension.swift in Sources */,
-				9A8B45721C3D39700037D137 /* Country.swift in Sources */,
-				9A4C04F31C3D742700B2C754 /* Currency.swift in Sources */,
-				9A8B45701C3D39700037D137 /* HandsOnCurrency.swift in Sources */,
-				9AEDFF5E1C3D1F4600541A23 /* Math.swift in Sources */,
-				9ACDB0061C4F4E3E0053CEE5 /* Category.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3FE2BDCA1DF19CBF009E4321 /* PBXTargetDependency */ = {
+		3F03965C1DF27E5500252187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A9C918B1B3444E500DE580F /* CrabApp */;
-			targetProxy = 3FE2BDC91DF19CBF009E4321 /* PBXContainerItemProxy */;
+			targetProxy = 3F03965B1DF27E5500252187 /* PBXContainerItemProxy */;
 		};
-		9A9C91A61B3444E500DE580F /* PBXTargetDependency */ = {
+		3F0396731DF27FB000252187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A9C918B1B3444E500DE580F /* CrabApp */;
-			targetProxy = 9A9C91A51B3444E500DE580F /* PBXContainerItemProxy */;
+			targetProxy = 3F0396721DF27FB000252187 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -921,7 +846,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3FE2BDCC1DF19CBF009E4321 /* Debug */ = {
+		3F03965E1DF27E5500252187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = R8F58LM7GS;
+				INFOPLIST_FILE = CalmMoneyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calm Money.app/Calm Money";
+			};
+			name = Debug;
+		};
+		3F03965F1DF27E5500252187 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = R8F58LM7GS;
+				INFOPLIST_FILE = CalmMoneyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calm Money.app/Calm Money";
+			};
+			name = Release;
+		};
+		3F0396751DF27FB000252187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -929,10 +892,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = R8F58LM7GS;
-				INFOPLIST_FILE = CrabAppUITests/Info.plist;
+				INFOPLIST_FILE = CalmMoneyUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = VC.CrabAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
@@ -940,17 +903,17 @@
 			};
 			name = Debug;
 		};
-		3FE2BDCD1DF19CBF009E4321 /* Release */ = {
+		3F0396761DF27FB000252187 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEVELOPMENT_TEAM = R8F58LM7GS;
-				INFOPLIST_FILE = CrabAppUITests/Info.plist;
+				INFOPLIST_FILE = CalmMoneyUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = VC.CrabAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = CrabApp;
@@ -1000,6 +963,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Calm Money";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1040,6 +1004,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "Calm Money";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -1055,15 +1020,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = R8F58LM7GS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CalmMoney/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CrabApp;
-				PRODUCT_NAME = CrabApp;
+				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CalmMoney;
+				PRODUCT_NAME = "Calm Money";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1081,15 +1047,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = R8F58LM7GS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Finance App for Travellers/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CalmMoney/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CrabApp;
-				PRODUCT_NAME = CrabApp;
+				PRODUCT_BUNDLE_IDENTIFIER = kubrakov.CalmMoney;
+				PRODUCT_NAME = "Calm Money";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1097,58 +1064,26 @@
 			};
 			name = Release;
 		};
-		9A9C91B21B3444E500DE580F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 003B777BA873BF18FC4065E6 /* Pods-CrabAppTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Finance App for TravellersTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CrabApp;
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrabApp.app/CrabApp";
-			};
-			name = Debug;
-		};
-		9A9C91B31B3444E500DE580F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A760F060DA945CC37203D260 /* Pods-CrabAppTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Finance App for TravellersTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kubrakov.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CrabApp;
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrabApp.app/CrabApp";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3FE2BDCB1DF19CBF009E4321 /* Build configuration list for PBXNativeTarget "CrabAppUITests" */ = {
+		3F03965D1DF27E5500252187 /* Build configuration list for PBXNativeTarget "CalmMoneyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FE2BDCC1DF19CBF009E4321 /* Debug */,
-				3FE2BDCD1DF19CBF009E4321 /* Release */,
+				3F03965E1DF27E5500252187 /* Debug */,
+				3F03965F1DF27E5500252187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		9A9C91871B3444E500DE580F /* Build configuration list for PBXProject "CrabApp" */ = {
+		3F0396741DF27FB000252187 /* Build configuration list for PBXNativeTarget "CalmMoneyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F0396751DF27FB000252187 /* Debug */,
+				3F0396761DF27FB000252187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9A9C91871B3444E500DE580F /* Build configuration list for PBXProject "CalmMoney" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A9C91AC1B3444E500DE580F /* Debug */,
@@ -1162,15 +1097,6 @@
 			buildConfigurations = (
 				9A9C91AF1B3444E500DE580F /* Debug */,
 				9A9C91B01B3444E500DE580F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9A9C91B11B3444E500DE580F /* Build configuration list for PBXNativeTarget "CrabAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9A9C91B21B3444E500DE580F /* Debug */,
-				9A9C91B31B3444E500DE580F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

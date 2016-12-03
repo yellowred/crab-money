@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-               BuildableName = "CrabApp.app"
+               BuildableName = "Calm Money.app"
                BlueprintName = "CrabApp"
-               ReferencedContainer = "container:CrabApp.xcodeproj">
+               ReferencedContainer = "container:CalmMoney.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A9C91A31B3444E500DE580F"
-               BuildableName = "CrabApp.xctest"
+               BuildableName = "Calm Money.xctest"
                BlueprintName = "CrabAppTests"
-               ReferencedContainer = "container:CrabApp.xcodeproj">
+               ReferencedContainer = "container:CalmMoney.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,27 @@
                BlueprintIdentifier = "3FE2BDC31DF19CBF009E4321"
                BuildableName = "CrabAppUITests.xctest"
                BlueprintName = "CrabAppUITests"
-               ReferencedContainer = "container:CrabApp.xcodeproj">
+               ReferencedContainer = "container:CalmMoney.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F0396551DF27E5500252187"
+               BuildableName = "CalmMoneyTests.xctest"
+               BlueprintName = "CalmMoneyTests"
+               ReferencedContainer = "container:CalmMoney.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F03966C1DF27FB000252187"
+               BuildableName = "CalmMoneyUITests.xctest"
+               BlueprintName = "CalmMoneyUITests"
+               ReferencedContainer = "container:CalmMoney.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-            BuildableName = "CrabApp.app"
+            BuildableName = "Calm Money.app"
             BlueprintName = "CrabApp"
-            ReferencedContainer = "container:CrabApp.xcodeproj">
+            ReferencedContainer = "container:CalmMoney.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-            BuildableName = "CrabApp.app"
+            BuildableName = "Calm Money.app"
             BlueprintName = "CrabApp"
-            ReferencedContainer = "container:CrabApp.xcodeproj">
+            ReferencedContainer = "container:CalmMoney.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -102,9 +122,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A9C918B1B3444E500DE580F"
-            BuildableName = "CrabApp.app"
+            BuildableName = "Calm Money.app"
             BlueprintName = "CrabApp"
-            ReferencedContainer = "container:CrabApp.xcodeproj">
+            ReferencedContainer = "container:CalmMoney.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

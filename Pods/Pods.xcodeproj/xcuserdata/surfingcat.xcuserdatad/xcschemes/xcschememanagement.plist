@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CrabApp.xcscheme</key>
+		<key>Pods-CalmMoney.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CrabAppTests.xcscheme</key>
+		<key>Pods-CalmMoneyTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

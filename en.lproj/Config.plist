@@ -5,9 +5,9 @@
 	<key>appstore-id</key>
 	<string>calm-money</string>
 	<key>rater-required-launches-before-rating</key>
-	<integer>1</integer>
+	<integer>30</integer>
 	<key>converter-free</key>
-	<false/>
+	<true/>
 	<key>transactions-max-free</key>
 	<integer>50</integer>
 </dict>

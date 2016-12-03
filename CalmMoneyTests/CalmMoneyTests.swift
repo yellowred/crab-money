@@ -1,20 +1,15 @@
 //
-//  Finance_App_for_TravellersTests.swift
-//  Finance App for TravellersTests
+//  CalmMoneyTests.swift
+//  CalmMoneyTests
 //
-//  Created by Oleg Kubrakov on 19/06/15.
-//  Copyright (c) 2015 Oleg Kubrakov. All rights reserved.
+//  Created by Oleg Kubrakov on 3/12/2016.
+//  Copyright © 2016 Oleg Kubrakov. All rights reserved.
 //
 
-import UIKit
 import XCTest
-//import ChameleonFramework
 
-//@testable import Finance_App_for_Travellers;
-
-
-class Finance_App_for_TravellersTests: XCTestCase {
-	
+class CalmMoneyTests: XCTestCase {
+    
 	//var model: Model = {return TestModel()}()
 	
 	var transactions = [Transaction]()
@@ -22,9 +17,9 @@ class Finance_App_for_TravellersTests: XCTestCase {
 	var categories = [Category]()
 	
 	
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+	override func setUp() {
+		super.setUp()
+		// Put setup code here. This method is called before the invocation of each test method in the class.
 		//preloadData()
 		currencies = [
 			Currency(code: "RUB", rate: 100),
@@ -49,14 +44,14 @@ class Finance_App_for_TravellersTests: XCTestCase {
 		transactions[2].setCategoryWithUpdate(categories[2])
 		transactions[3].setCategoryWithUpdate(categories[3])
 		transactions[4].setCategoryWithUpdate(categories[3])
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testMath() {
+	}
+	
+	override func tearDown() {
+		// Put teardown code here. This method is called after the invocation of each test method in the class.
+		super.tearDown()
+	}
+	
+	func testMath() {
 		XCTAssertEqual(transactions.count, 5)
 		XCTAssertEqual(currencies.count, 3)
 		let math = Math(
@@ -84,7 +79,7 @@ class Finance_App_for_TravellersTests: XCTestCase {
 		
 		XCTAssert(math.earningCategories.count == 1)
 		XCTAssertEqual(math.earningCategories.first, categories[3])
-    }
+	}
 	
 	func testMoney() {
 		let money = transactions[2].getMoney()
@@ -96,10 +91,11 @@ class Finance_App_for_TravellersTests: XCTestCase {
 		XCTAssertEqual(money.amount, -300)
 	}
 	
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
-    }
+	func testPerformanceExample() {
+		// This is an example of a performance test case.
+		self.measure() {
+			// Put the code you want to measure the time of here.
+		}
+	}
+	
 }
