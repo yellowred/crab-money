@@ -2,12 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>products</key>
+	<dict>
+		<key>unlimited_transactions</key>
+		<string>com.surfingcathk.calmmoney.unlimited_transactions</string>
+		<key>converter</key>
+		<array>
+			<string>com.surfingcathk.calmmoney.currency_converter_1m</string>
+			<string>com.surfingcathk.calmmoney.currency_converter_3m</string>
+			<string>com.surfingcathk.calmmoney.currency_converter_6m</string>
+		</array>
+	</dict>
 	<key>appstore-id</key>
 	<string>calm-money</string>
 	<key>rater-required-launches-before-rating</key>
 	<integer>30</integer>
 	<key>converter-free</key>
-	<true/>
+	<false/>
 	<key>transactions-max-free</key>
 	<integer>50</integer>
 </dict>

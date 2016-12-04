@@ -15,38 +15,90 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVy-cy-szF">
-                    <rect key="frame" x="16" y="239" width="343" height="65"/>
+                    <rect key="frame" x="16" y="239" width="344" height="65"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="65" id="c4D-wA-Yln"/>
+                        <constraint firstAttribute="height" constant="65" id="z9R-pt-bYt"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9r-Xs-DK8">
-                    <rect key="frame" x="77" y="364" width="220" height="50"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
-                    <state key="normal" title="Subscribe Now"/>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="currency-converter-process-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPz-Vy-aBS">
-                    <rect key="frame" x="33" y="160" width="308" height="80"/>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currency-converter-process-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPz-Vy-aBS">
+                    <rect key="frame" x="33" y="160" width="309" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="7Zd-o8-C5n"/>
+                        <constraint firstAttribute="height" constant="80" id="15n-fA-UNc"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAW-3N-3Yp">
+                    <rect key="frame" x="10" y="412" width="355" height="28"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <state key="normal" title="1 Month Subscription for HK$ 100"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l86-V9-gib">
+                    <rect key="frame" x="10" y="448" width="355" height="28"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <state key="normal" title="3 Month Subscription for HK$ 100"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi currency instant conversion" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-WS-rEL">
+                    <rect key="frame" x="33" y="306" width="309" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="166 useful currencies" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nO-jE-Qk1">
+                    <rect key="frame" x="33" y="335" width="309" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everyday rates update" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aO-dj-Qf0">
+                    <rect key="frame" x="33" y="364" width="309" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfm-3o-3lO">
+                    <rect key="frame" x="10" y="484" width="355" height="28"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <state key="normal" title="6 Month Subscription for HK$ 100"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1LN-K7-1wT"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="top" secondItem="yPz-Vy-aBS" secondAttribute="bottom" constant="1" id="6pU-GD-BjK"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="centerX" secondItem="k9r-Xs-DK8" secondAttribute="centerX" id="7Je-ss-K45"/>
-                <constraint firstItem="fVy-cy-szF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-62" id="BbP-TM-Dur"/>
-                <constraint firstItem="yPz-Vy-aBS" firstAttribute="centerX" secondItem="fVy-cy-szF" secondAttribute="centerX" id="D2B-mV-9KZ"/>
-                <constraint firstItem="k9r-Xs-DK8" firstAttribute="top" secondItem="fVy-cy-szF" secondAttribute="bottom" constant="60" id="Gyh-in-XWw"/>
-                <constraint firstItem="yPz-Vy-aBS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bt2-Cu-Ctl"/>
+                <constraint firstItem="1nO-jE-Qk1" firstAttribute="leading" secondItem="8aO-dj-Qf0" secondAttribute="leading" id="0oz-dd-neK"/>
+                <constraint firstItem="l86-V9-gib" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="7y6-TJ-yOX"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="leading" secondItem="cd1-WS-rEL" secondAttribute="leading" id="8YW-MQ-nfG"/>
+                <constraint firstItem="8aO-dj-Qf0" firstAttribute="centerX" secondItem="JAW-3N-3Yp" secondAttribute="centerX" id="C6Z-jB-dHW"/>
+                <constraint firstItem="cd1-WS-rEL" firstAttribute="trailing" secondItem="1nO-jE-Qk1" secondAttribute="trailing" id="CjE-1n-kwL"/>
+                <constraint firstItem="l86-V9-gib" firstAttribute="trailing" secondItem="Bfm-3o-3lO" secondAttribute="trailing" id="DAo-pA-LyC"/>
+                <constraint firstItem="cd1-WS-rEL" firstAttribute="top" secondItem="yPz-Vy-aBS" secondAttribute="bottom" constant="66" id="Dgh-EN-bbQ"/>
+                <constraint firstItem="8aO-dj-Qf0" firstAttribute="top" secondItem="1nO-jE-Qk1" secondAttribute="bottom" constant="8" symbolic="YES" id="EAD-Mc-5Ti"/>
+                <constraint firstItem="cd1-WS-rEL" firstAttribute="leading" secondItem="1nO-jE-Qk1" secondAttribute="leading" id="FFy-iz-ow9"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MWa-lA-HHB"/>
+                <constraint firstItem="JAW-3N-3Yp" firstAttribute="top" secondItem="8aO-dj-Qf0" secondAttribute="bottom" constant="27" id="PWh-bo-Py2"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="QuF-74-Epl"/>
+                <constraint firstItem="fVy-cy-szF" firstAttribute="centerX" secondItem="cd1-WS-rEL" secondAttribute="centerX" id="YUN-PP-kgj"/>
+                <constraint firstItem="1nO-jE-Qk1" firstAttribute="trailing" secondItem="8aO-dj-Qf0" secondAttribute="trailing" id="abJ-hC-6lc"/>
+                <constraint firstItem="JAW-3N-3Yp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dGg-Nz-hxG"/>
+                <constraint firstItem="l86-V9-gib" firstAttribute="top" secondItem="JAW-3N-3Yp" secondAttribute="bottom" constant="8" symbolic="YES" id="mCS-dj-BBa"/>
+                <constraint firstItem="Bfm-3o-3lO" firstAttribute="top" secondItem="l86-V9-gib" secondAttribute="bottom" constant="8" symbolic="YES" id="miJ-fU-QHq"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="trailing" secondItem="cd1-WS-rEL" secondAttribute="trailing" id="ney-71-Skx"/>
+                <constraint firstItem="l86-V9-gib" firstAttribute="leading" secondItem="Bfm-3o-3lO" secondAttribute="leading" id="s9k-ji-Yhz"/>
+                <constraint firstItem="1nO-jE-Qk1" firstAttribute="top" secondItem="cd1-WS-rEL" secondAttribute="bottom" constant="8" symbolic="YES" id="sVp-z2-TdD"/>
+                <constraint firstItem="cd1-WS-rEL" firstAttribute="top" secondItem="fVy-cy-szF" secondAttribute="bottom" constant="2" id="tRy-95-cDy"/>
+                <constraint firstItem="JAW-3N-3Yp" firstAttribute="centerX" secondItem="l86-V9-gib" secondAttribute="centerX" id="xIc-2d-IfB"/>
+                <constraint firstItem="yPz-Vy-aBS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="33" id="xSb-oC-qdL"/>
+                <constraint firstItem="fVy-cy-szF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xYg-mx-OxA"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi currency instant conversion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSl-jH-mer">
+            <rect key="frame" x="0.0" y="0.0" width="308" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+        </label>
     </objects>
     <resources>
         <image name="currency-converter-process-icon" width="160" height="65"/>

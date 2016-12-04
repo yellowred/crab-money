@@ -73,7 +73,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	}
 	
 	func checkPurchase() {
-		if !Purchase.canAddTransaction(to: app().model) {
+		if !Purchase().canAddTransaction(to: app().model) {
 			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
 			if #available(iOS 10.0, *) {
 				blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)

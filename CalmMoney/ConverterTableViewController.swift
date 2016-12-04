@@ -55,7 +55,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 
 	
 	func checkPurchase() {
-		if !Purchase.canUseConverter() {
+		if !Purchase().canUseConverter() {
 			currenciesStructure = app().model.getHandsOnCurrenciesStructureFake(providedAmount!)
 			
 			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)

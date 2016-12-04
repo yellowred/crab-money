@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
 
+	var purchase = Purchase()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,8 @@ class ProfileTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		
+		purchase.dumpAllProducts()
     }
 
     override func didReceiveMemoryWarning() {

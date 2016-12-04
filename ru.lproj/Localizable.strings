@@ -52,6 +52,7 @@
 "CNY_currency_name" = "Chinese renminbi yuan";
 "COP_currency_name" = "Colombian pesos";
 "CRC_currency_name" = "Costa Rican colones";
+"CUC_currency_name" = "Cuban convertible pesos";
 "CUP_currency_name" = "Cuban pesos";
 "CVE_currency_name" = "Cape Verdean escudos";
 "CZK_currency_name" = "Czech korun";
@@ -67,6 +68,7 @@
 "FKP_currency_name" = "Falkland Islands pounds";
 "GBP_currency_name" = "British pounds sterling";
 "GEL_currency_name" = "Georgian lari";
+"GGP_currency_name" = "Guernsey Pound";
 "GHS_currency_name" = "Ghana cedis";
 "GIP_currency_name" = "Gibraltar pounds";
 "GMD_currency_name" = "Gambian dalasi";
@@ -80,6 +82,7 @@
 "HUF_currency_name" = "Hungarian forint";
 "IDR_currency_name" = "Indonesia Rupiahs";
 "ILS_currency_name" = "Israeli shekalim hadash";
+"IMP_currency_name" = "Isle of Man pounds";
 "INR_currency_name" = "India Rupeess";
 "IQD_currency_name" = "Iraqi dinara";
 "IRR_currency_name" = "Iranian rials";

@@ -18,6 +18,7 @@
 		3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
 		3F0396681DF27F5900252187 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		3F0396701DF27FB000252187 /* CalmMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */; };
+		3F1552011DF2E9E6008985B1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1552001DF2E9E6008985B1 /* StoreKit.framework */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
@@ -131,6 +132,7 @@
 		3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneyUITests.swift; sourceTree = "<group>"; };
 		3F0396711DF27FB000252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F1552001DF2E9E6008985B1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */,
 				9AA926881BC3AC5C009D16B3 /* Fabric.framework in Frameworks */,
 				764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */,
+				3F1552011DF2E9E6008985B1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +294,7 @@
 		8068D767FF3DCEC55E48BD84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F1552001DF2E9E6008985B1 /* StoreKit.framework */,
 				1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */,
 				C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */,
 				2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */,
@@ -559,10 +563,14 @@
 					};
 					9A9C918B1B3444E500DE580F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = Y54725FB3U;
+						DevelopmentTeam = 64RQC7L2B5;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -1077,7 +1085,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y54725FB3U;
+				DEVELOPMENT_TEAM = 64RQC7L2B5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1085,9 +1093,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CalmMoney/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = surfingcathk.CalmMoney;
+				PRODUCT_BUNDLE_IDENTIFIER = com.surfingcathk.calmmoney.master;
 				PRODUCT_NAME = "Calm Money";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "98726ec7-8868-44d6-b7c1-cc25a90d3c30";
+				PROVISIONING_PROFILE_SPECIFIER = "Calm Money dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1103,7 +1112,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y54725FB3U;
+				DEVELOPMENT_TEAM = 64RQC7L2B5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1111,9 +1120,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CalmMoney/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = surfingcathk.CalmMoney;
+				PRODUCT_BUNDLE_IDENTIFIER = com.surfingcathk.calmmoney.master;
 				PRODUCT_NAME = "Calm Money";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "98726ec7-8868-44d6-b7c1-cc25a90d3c30";
+				PROVISIONING_PROFILE_SPECIFIER = "Calm Money dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
