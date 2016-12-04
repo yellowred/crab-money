@@ -68,7 +68,21 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			view.addSubview(blurEffectView)
 			
 			let customView: UIView = Bundle.main.loadNibNamed("ConverterNotPurchased", owner: self, options: nil)![0] as! UIView
-			customView.frame = view.frame
+			customView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height + view.frame.origin.y)
+			
+			[211, 212, 213].forEach({
+				tag in
+				customView.viewWithTag(tag)?.layer.cornerRadius = 5
+			})
+			
+			[221, 222, 223].forEach({
+				tag in
+				let priceLabel = customView.viewWithTag(tag) as! UILabel
+				priceLabel.text = ""
+			})
+			
+			
+			
 			//customView.updateConstraintsIfNeeded()
 			self.view.addSubview(customView)
 		}

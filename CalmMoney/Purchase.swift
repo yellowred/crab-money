@@ -33,6 +33,14 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 		return Config.read(value: "converter-free") as! Bool
 	}
 	
+	func getConverterProducts(cb:@escaping (RetrieveResults)->()) -> Array<String>? {
+		if let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? {
+			if let products:Set<String> = productDescriptions["currency_converter"] as! Set<String>? {
+				SwiftyStoreKit.retrieveProductsInfo(products, completion: cb)
+			}
+		}
+		return nil
+	}
 	
 	func dumpAllProducts() {
 		if let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? {
