@@ -20,6 +20,7 @@
 		3F0396701DF27FB000252187 /* CalmMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */; };
 		3F1552011DF2E9E6008985B1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1552001DF2E9E6008985B1 /* StoreKit.framework */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
+		3F3F150B1DF5979600CFAF34 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
@@ -134,6 +135,7 @@
 		3F0396711DF27FB000252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F1552001DF2E9E6008985B1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				9A3C57911C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift */,
 				3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */,
 				3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */,
+				3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */,
 				9A5CA8981B7862B000AE3BA3 /* HandsOnCurrency.swift in Sources */,
 				3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */,
+				3F3F150B1DF5979600CFAF34 /* Dictionary+Extension.swift in Sources */,
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
 				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,

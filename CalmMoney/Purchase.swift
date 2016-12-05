@@ -10,6 +10,10 @@ import Foundation
 import SwiftyStoreKit
 import StoreKit
 
+enum PurchaseError: Error {
+	case cantFindProductBy(tag: Int)
+}
+
 public class Purchase: NSObject, SKProductsRequestDelegate {
 	
 	public static var sharedInstance = Purchase()
@@ -30,7 +34,8 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 	
 	
 	func canUseConverter() -> Bool {
-		return Config.read(value: "converter-free") as! Bool
+		let isFree = Config.read(value: "converter-free") as! Bool
+		return isFree || isPurchasedConverter()
 	}
 	
 	func getConverterProducts(cb:@escaping (RetrieveResults)->()) {
@@ -44,6 +49,23 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 		}
 	}
 	
+	
+	func purchase(productId: String, cb: @escaping (PurchaseResult) -> ()) {
+		SwiftyStoreKit.purchaseProduct(productId, completion: cb)
+	}
+	
+	
+	func setPurchasedConverter() {
+		UserDefaults.standard.set(true, forKey: "purchase_converter")
+	}
+	
+	
+	func isPurchasedConverter() -> Bool {
+		return UserDefaults.standard.bool(forKey: "purchase_converter")
+	}
+	
+	
+	//MARK: - Dump
 	func dumpAllProducts() {
 		if let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? {
 			if let productName:String = productDescriptions["unlimited_transactions"] as! String? {

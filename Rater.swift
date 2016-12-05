@@ -63,7 +63,7 @@ public class Rater: NSObject {
 			self.resetAppLaunches()
 		}))
 		
-		DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .seconds(20), execute: {
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(20), execute: {
 			let window = self.application.windows[0]
 			window.rootViewController?.present(rateAlert, animated: true, completion: nil)
 		})

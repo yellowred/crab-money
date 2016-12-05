@@ -23,6 +23,11 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	let kCurrencyManagableCell:String = "CurrencyManagableCell"
 	let kCurrencyAddCell:String = "CurrencyAddCell"
 	
+	let tagsToProduct = [
+		"com.surfingcathk.calmmoney.currency_converter_1m": 221,
+		"com.surfingcathk.calmmoney.currency_converter_3m": 222,
+		"com.surfingcathk.calmmoney.currency_converter_6m": 223
+	]
 	
 	
     override func viewDidLoad() {
@@ -70,11 +75,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			let customView: UIView = Bundle.main.loadNibNamed("ConverterNotPurchased", owner: self, options: nil)![0] as! UIView
 			customView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height + view.frame.origin.y)
 			
-			let tagsToProduct = [
-				"com.surfingcathk.calmmoney.currency_converter_1m": 221,
-				"com.surfingcathk.calmmoney.currency_converter_3m": 222,
-				"com.surfingcathk.calmmoney.currency_converter_6m": 223
-			]
+			
 			tagsToProduct.values.forEach({
 				tag in
 				customView.viewWithTag(tag)?.layer.cornerRadius = 5
@@ -93,18 +94,48 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 				priceLabel.text = results.retrievedProducts.first?.localizedPrice
 				
 				for product in results.retrievedProducts {
-					if let tagNum = tagsToProduct[product.productIdentifier] {
+					if let tagNum = self.tagsToProduct[product.productIdentifier] {
 						priceLabel = customView.viewWithTag(tagNum) as! UILabel
 						priceLabel.text = product.localizedPrice
 					}
 				}
 				
+				[211, 212, 213].forEach({
+					tag in
+					let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapSubscriptionPlan(_:)))
+					customView.viewWithTag(tag)?.addGestureRecognizer(tap)
+				})
+				
+				
 			})
 			
-			//customView.updateConstraintsIfNeeded()
+			customView.tag = 231
 			self.view.addSubview(customView)
 		}
 	}
+	
+	func tapSubscriptionPlan(_ gestureRecognizer: UITapGestureRecognizer) {
+		if let productId = tagsToProduct.keysForValue(value: gestureRecognizer.view!.tag + 10).first {
+			Purchase().purchase(productId: productId, cb: {
+				result in
+				switch result {
+				case .success( _):
+					Purchase().setPurchasedConverter()
+					self.hideStore()
+				case .error(let error):
+					print("Purchase Failed: \(error)")
+				}
+			})
+		} else {
+			print ("Can not find product with tag \(gestureRecognizer.view!.tag)")
+		}
+	}
+	
+	func hideStore() {
+		self.currenciesStructure = app().model.getHandsOnCurrenciesStructure(self.providedAmount!)
+		self.view.viewWithTag(231)?.removeFromSuperview()
+	}
+	
 	
     func onContentSizeChange(_ notification: Notification) {
         tableView.reloadData()
