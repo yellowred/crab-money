@@ -33,13 +33,15 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 		return Config.read(value: "converter-free") as! Bool
 	}
 	
-	func getConverterProducts(cb:@escaping (RetrieveResults)->()) -> Array<String>? {
+	func getConverterProducts(cb:@escaping (RetrieveResults)->()) {
 		if let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? {
-			if let products:Set<String> = productDescriptions["currency_converter"] as! Set<String>? {
-				SwiftyStoreKit.retrieveProductsInfo(products, completion: cb)
+			if let products:Array<String> = productDescriptions["converter"] as! Array<String>? {
+				let productsSet:Set<String> = Set(products)
+				SwiftyStoreKit.retrieveProductsInfo(productsSet, completion: cb)
 			}
+		} else {
+			print("No converter products configs find")
 		}
-		return nil
 	}
 	
 	func dumpAllProducts() {

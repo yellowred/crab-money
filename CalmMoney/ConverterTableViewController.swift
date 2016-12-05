@@ -70,18 +70,36 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			let customView: UIView = Bundle.main.loadNibNamed("ConverterNotPurchased", owner: self, options: nil)![0] as! UIView
 			customView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height + view.frame.origin.y)
 			
-			[211, 212, 213].forEach({
+			let tagsToProduct = [
+				"com.surfingcathk.calmmoney.currency_converter_1m": 221,
+				"com.surfingcathk.calmmoney.currency_converter_3m": 222,
+				"com.surfingcathk.calmmoney.currency_converter_6m": 223
+			]
+			tagsToProduct.values.forEach({
 				tag in
 				customView.viewWithTag(tag)?.layer.cornerRadius = 5
 			})
 			
-			[221, 222, 223].forEach({
+			tagsToProduct.values.forEach({
 				tag in
 				let priceLabel = customView.viewWithTag(tag) as! UILabel
 				priceLabel.text = ""
 			})
 			
-			
+			Purchase().getConverterProducts(cb: {
+				results in
+				
+				var priceLabel = customView.viewWithTag(221) as! UILabel
+				priceLabel.text = results.retrievedProducts.first?.localizedPrice
+				
+				for product in results.retrievedProducts {
+					if let tagNum = tagsToProduct[product.productIdentifier] {
+						priceLabel = customView.viewWithTag(tagNum) as! UILabel
+						priceLabel.text = product.localizedPrice
+					}
+				}
+				
+			})
 			
 			//customView.updateConstraintsIfNeeded()
 			self.view.addSubview(customView)
