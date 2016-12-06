@@ -45,7 +45,7 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 				SwiftyStoreKit.retrieveProductsInfo(productsSet, completion: cb)
 			}
 		} else {
-			print("No converter products configs find")
+			print("No converter products configs found")
 		}
 	}
 	
@@ -60,8 +60,22 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 	}
 	
 	
+	func setPurchasedUnlimitedTransactions() {
+		UserDefaults.standard.set(true, forKey: "unlimited_transactions")
+	}
+	
+	
 	func isPurchasedConverter() -> Bool {
 		return UserDefaults.standard.bool(forKey: "purchase_converter")
+	}
+	
+	
+	func getUnlimitedTransactionsProductId() -> String? {
+		if let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? {
+			return productDescriptions["unlimited_transactions"] as? String
+		} else {
+			return nil
+		}
 	}
 	
 	

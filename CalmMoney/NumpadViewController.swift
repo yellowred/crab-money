@@ -85,10 +85,31 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			
 			let customView: UIView = Bundle.main.loadNibNamed("NumpadNotPurchased", owner: self, options: nil)![0] as! UIView
 			customView.frame = view.frame
-			//customView.updateConstraintsIfNeeded()
+			let buyButton:UIButton = customView.viewWithTag(401)! as! UIButton
+			buyButton.addTarget(self, action: #selector(tapPurchase), for: .touchUpInside)
+			customView.tag = 411
 			self.view.addSubview(customView)
 		}
 	}
+	
+	
+	func tapPurchase() {
+		Purchase().purchase(productId: Purchase().getUnlimitedTransactionsProductId()!, cb: {
+			result in
+			switch result {
+			case .success( _):
+				Purchase().setPurchasedUnlimitedTransactions()
+				self.hideStore()
+			case .error(let error):
+				print("Purchase Failed: \(error)")
+			}
+		})
+	}
+	
+	func hideStore() {
+		self.view.viewWithTag(411)?.removeFromSuperview()
+	}
+	
 	
 	override func viewDidDisappear(_ animated: Bool)
 	{
