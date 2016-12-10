@@ -101,18 +101,22 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 	}
 	
 	
-	func restorePurchases(cb: @escaping (RestoreResults) -> ()) {
+	func restorePurchases(cb: @escaping (String) -> ()) {
 		SwiftyStoreKit.restorePurchases(atomically: true) { results in
+			var message = ""
 			if results.restoreFailedProducts.count > 0 {
 				print("Restore Failed: \(results.restoreFailedProducts)")
+				message = "Can not restore. Please check the internet connection and try again.".localized
 			}
 			else if results.restoredProducts.count > 0 {
 				print("Restore Success: \(results.restoredProducts)")
+				message = "Succesful.".localized + " \(results.restoredProducts.count) " + "products have been restored.".localized
 			}
 			else {
 				print("Nothing to Restore")
+				message = "Nothing to restore. Please purchase a PRO version or Currency Converter.".localized
 			}
-			cb(results)
+			cb(message)
 		}
 	}
 	

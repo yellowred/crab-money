@@ -127,12 +127,17 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		}
 	}
 	
+	
 	func tapSubscriptionPlan(_ gestureRecognizer: UITapGestureRecognizer) {
 		let oldColor = gestureRecognizer.view!.backgroundColor
 		gestureRecognizer.view!.backgroundColor = UIColor.selectedSubscriptionPlan()
 		if let productId = tagsToProduct.keysForValue(value: gestureRecognizer.view!.tag + 10).first {
+			let alert = Alerter().loading(message: "Please wait...".localized)
+			present(alert, animated: true, completion: nil)
+			
 			Purchase().purchase(productId: productId, cb: {
 				result in
+				alert.dismiss(animated: true, completion: nil)
 				gestureRecognizer.view!.backgroundColor = oldColor
 				switch result {
 				case .success( _):
@@ -140,18 +145,13 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 					self.hideStore()
 				case .error(let error):
 					print("Purchase Failed: \(error)")
-					
-					let alert = UIAlertController(title:nil, message: "Error", preferredStyle: .alert)
-					alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: { (action) -> Void in
-						alert.dismiss(animated: true, completion: nil)
-					}))
-					self.present(alert, animated: true, completion: nil)
 				}
 			})
 		} else {
 			print ("Can not find product with tag \(gestureRecognizer.view!.tag)")
 		}
 	}
+	
 	
 	func hideStore() {
 		self.currenciesStructure = app().model.getHandsOnCurrenciesStructure(self.providedAmount!)

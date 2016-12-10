@@ -1,12 +1,10 @@
 PODS:
   - Alamofire (4.2.0)
-  - Kamagari (1.1.0)
   - Spring (1.0.3)
   - SwiftyStoreKit (0.6.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
-  - Kamagari
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyStoreKit
 
@@ -22,10 +20,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  Kamagari: e4d489eb27735d2ecc246750443dd29dc6bf21f5
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyStoreKit: 956408606f43ec3df3386b56e65615bb19bee85e
 
-PODFILE CHECKSUM: 9eaaebf90e953275a27b96ef8e1a9867cd159434
+PODFILE CHECKSUM: bb86464875f7430c23b3b22c57066525894dd18f
 
 COCOAPODS: 1.1.0.rc.2

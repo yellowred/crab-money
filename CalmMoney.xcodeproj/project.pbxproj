@@ -35,6 +35,7 @@
 		3FE2BDE01DF1CC20009E4321 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDF1DF1CC20009E4321 /* Config.swift */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07541DFB093C004F4514 /* TermsViewController.swift */; };
+		3FFB07571DFC3701004F4514 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07561DFC3701004F4514 /* Alerter.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
@@ -151,6 +152,7 @@
 		3FE2BDDF1DF1CC20009E4321 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
 		3FFB07541DFB093C004F4514 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		3FFB07561DFC3701004F4514 /* Alerter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
 				3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */,
 				3FE2BDDF1DF1CC20009E4321 /* Config.swift */,
+				3FFB07561DFC3701004F4514 /* Alerter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
 				9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */,
 				3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */,
+				3FFB07571DFC3701004F4514 /* Alerter.swift in Sources */,
 				9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */,
 				9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */,
 				9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */,
