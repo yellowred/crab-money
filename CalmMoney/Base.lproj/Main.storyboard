@@ -1260,7 +1260,7 @@
                                                 </mask>
                                             </variation>
                                         </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" placeholder="1000" textAlignment="right" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="RFZ-iF-Jil" customClass="AmountTextField" customModule="Calm_Money" customModuleProvider="target">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" placeholder="1000" textAlignment="right" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RFZ-iF-Jil" customClass="AmountTextField" customModule="Calm_Money" customModuleProvider="target">
                                             <rect key="frame" x="189" y="15" width="207" height="50"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" updatesFrequently="YES"/>
@@ -1271,6 +1271,11 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="32"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="y5l-NZ-Iab"/>
@@ -2052,8 +2057,8 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B9e-dp-6nI"/>
         <segue reference="QbT-4Y-1V6"/>
-        <segue reference="rNd-md-E9a"/>
+        <segue reference="1Q5-xo-Y9g"/>
+        <segue reference="B9e-dp-6nI"/>
     </inferredMetricsTieBreakers>
 </document>
