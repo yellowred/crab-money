@@ -99,8 +99,8 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			expensesTotal.text = NumberFormatter().formatterDollars().string(from: finmath.expensesTotal.abs())
 			expensesMedian.text = NumberFormatter().formatterDollars().string(from: finmath.expensesMedian.abs())
 			expensesProjected.text = NumberFormatter().formatterDollars().string(from: finmath.expensesProjected.abs())
-			if (finmath.expensesMaxTransaction != nil) {
-				expensesMax.text = NumberFormatter().formatterDollars().string(from: finmath.expensesMaxTransaction!.amount.abs())
+			if let maxTrn = finmath.expensesMaxTransaction {
+				expensesMax.text = NumberFormatter().formatterDollars().string(from: finmath.getMoneyInCurrencyWithHistoryRate(maxTrn, currency: homeCurrencyObject).amount.abs())
 			} else {
 				expensesMax.text = "0"
 			}
