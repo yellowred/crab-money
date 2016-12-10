@@ -22,7 +22,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	var isAmountLoaded:Bool = false
 	var inputConfirmation:SpringView? = nil
 	
-	fileprivate var sound: Sound = {return Sound()}()
 	
     @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var amountDisplayLabel: UILabel!
@@ -81,26 +80,31 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			let blurEffectView = UIVisualEffectView(effect: blurEffect)
 			blurEffectView.frame = view.bounds
 			blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+			blurEffectView.tag = 411
 			view.addSubview(blurEffectView)
 			
 			let customView: UIView = Bundle.main.loadNibNamed("NumpadNotPurchased", owner: self, options: nil)![0] as! UIView
 			customView.frame = view.frame
 			let buyButton:UIButton = customView.viewWithTag(401)! as! UIButton
 			buyButton.addTarget(self, action: #selector(tapPurchase), for: .touchUpInside)
-			customView.tag = 411
+			customView.tag = 412
 			self.view.addSubview(customView)
 		}
 	}
 	
 	
 	func tapPurchase() {
+		let buyButton:UIButton = view.viewWithTag(401)! as! UIButton
+		buyButton.isEnabled = false
 		Purchase().purchase(productId: Purchase().getUnlimitedTransactionsProductId()!, cb: {
 			result in
 			switch result {
 			case .success( _):
+				print("Successful purchase: \(Purchase().getUnlimitedTransactionsProductId()!)")
 				Purchase().setPurchasedUnlimitedTransactions()
 				self.hideStore()
 			case .error(let error):
+				buyButton.isEnabled = true
 				print("Purchase Failed: \(error)")
 			}
 		})
@@ -108,6 +112,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	func hideStore() {
 		self.view.viewWithTag(411)?.removeFromSuperview()
+		self.view.viewWithTag(412)?.removeFromSuperview()
 	}
 	
 	
@@ -137,7 +142,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
             amount!.backspace()
         }
 		sender.backgroundColor = UIColor.white
-		sound.playTap()
         reloadAmountDisplay()
 	}
 	
@@ -259,7 +263,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(NumpadViewController.showInputConfirmation(_:)), userInfo: notCompletedTransaction, repeats: false)
 		Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(NumpadViewController.hideInputConfirmation(_:)), userInfo: nil, repeats: false)
 		notCompletedTransaction = nil
-		sound.playTap()
 		amount!.setAmount(0)
 		reloadAmountDisplay()
 	}

@@ -77,4 +77,8 @@ extension UIColor {
 	static func amountColor() -> UIColor {
 		return UIColor(red:0.18, green:0.18, blue:0.18, alpha:1)
 	}
+	
+	static func selectedSubscriptionPlan() -> UIColor {
+		return UIColor(rgba: "#587F36")
+	}
 }

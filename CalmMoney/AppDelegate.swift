@@ -30,8 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					if product.needsFinishTransaction {
 						// Deliver content from server, then:
 						SwiftyStoreKit.finishTransaction(product.transaction)
+						Purchase().setPurchased(productId: product.productId)
 					}
-					print("purchased: \(product)")
+					print("Observer: purchased: \(product)")
 				}
 			}
 		}

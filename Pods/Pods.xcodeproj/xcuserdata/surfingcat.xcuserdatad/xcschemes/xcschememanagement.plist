@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kamagari.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CalmMoneyTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4132F97FB15302E4CA84EE908BE0B683</key>
+		<key>0E5CEA37A837082B01526CE5B8113A6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>473E47D1BA85DD0FE9AD7E6039A363B7</key>
+		<key>6FA68EF8EB0195DCA612AFE0301D9E43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97094F6632CBE66FDB63E91682FD8370</key>
+		<key>7AFC9E7316BE6A089C4AE0B76CC4EBCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7783CC8B8CB4250A129FB29178BE566</key>
+		<key>D4BE21C7855ED4C376D6D9090DBD155C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1B89066BA5FE850F539970437ADC5BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

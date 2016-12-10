@@ -50,18 +50,22 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		view.endEditing(true)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		checkPurchase()
+	}
 	
 	override func viewDidAppear(_ animated: Bool)
 	{
         tableView.reloadData()
-		checkPurchase()
-
+		self.view.viewWithTag(231)?.superview?.bringSubview(toFront: self.view.viewWithTag(231)!)
+		self.view.viewWithTag(232)?.superview?.bringSubview(toFront: self.view.viewWithTag(232)!)
     }
 
 	
 	func checkPurchase() {
 		if !Purchase().canUseConverter() {
 			currenciesStructure = app().model.getHandsOnCurrenciesStructureFake(providedAmount!)
+			self.tableView.reloadData()
 			
 			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
 			if #available(iOS 10.0, *) {
@@ -70,6 +74,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			let blurEffectView = UIVisualEffectView(effect: blurEffect)
 			blurEffectView.frame = view.bounds
 			blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+			blurEffectView.tag = 231
 			view.addSubview(blurEffectView)
 			
 			let customView: UIView = Bundle.main.loadNibNamed("ConverterNotPurchased", owner: self, options: nil)![0] as! UIView
@@ -86,44 +91,61 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 				let priceLabel = customView.viewWithTag(tag) as! UILabel
 				priceLabel.text = ""
 			})
-			
-			Purchase().getConverterProducts(cb: {
-				results in
-				
-				var priceLabel = customView.viewWithTag(221) as! UILabel
-				priceLabel.text = results.retrievedProducts.first?.localizedPrice
-				
-				for product in results.retrievedProducts {
-					if let tagNum = self.tagsToProduct[product.productIdentifier] {
-						priceLabel = customView.viewWithTag(tagNum) as! UILabel
-						priceLabel.text = product.localizedPrice
+			if Purchase().canMakePayments() {
+				Purchase().getConverterProducts(cb: {
+					results in
+					
+					var priceLabel = customView.viewWithTag(221) as! UILabel
+					priceLabel.text = results.retrievedProducts.first?.localizedPrice
+					
+					for product in results.retrievedProducts {
+						if let tagNum = self.tagsToProduct[product.productIdentifier] {
+							priceLabel = customView.viewWithTag(tagNum) as! UILabel
+							priceLabel.text = product.localizedPrice
+						}
 					}
-				}
-				
-				[211, 212, 213].forEach({
-					tag in
-					let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapSubscriptionPlan(_:)))
-					customView.viewWithTag(tag)?.addGestureRecognizer(tap)
+					
+					[211, 212, 213].forEach({
+						tag in
+						let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapSubscriptionPlan(_:)))
+						customView.viewWithTag(tag)?.addGestureRecognizer(tap)
+					})
+					
+					
 				})
-				
-				
-			})
+			} else {
+				tagsToProduct.values.forEach({
+					tag in
+					let priceLabel = customView.viewWithTag(tag) as! UILabel
+					priceLabel.text = "N/A".localized
+				})
+			}
 			
-			customView.tag = 231
+			
+			customView.tag = 232
 			self.view.addSubview(customView)
 		}
 	}
 	
 	func tapSubscriptionPlan(_ gestureRecognizer: UITapGestureRecognizer) {
+		let oldColor = gestureRecognizer.view!.backgroundColor
+		gestureRecognizer.view!.backgroundColor = UIColor.selectedSubscriptionPlan()
 		if let productId = tagsToProduct.keysForValue(value: gestureRecognizer.view!.tag + 10).first {
 			Purchase().purchase(productId: productId, cb: {
 				result in
+				gestureRecognizer.view!.backgroundColor = oldColor
 				switch result {
 				case .success( _):
 					Purchase().setPurchasedConverter()
 					self.hideStore()
 				case .error(let error):
 					print("Purchase Failed: \(error)")
+					
+					let alert = UIAlertController(title:nil, message: "Error", preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: { (action) -> Void in
+						alert.dismiss(animated: true, completion: nil)
+					}))
+					self.present(alert, animated: true, completion: nil)
 				}
 			})
 		} else {
@@ -134,6 +156,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	func hideStore() {
 		self.currenciesStructure = app().model.getHandsOnCurrenciesStructure(self.providedAmount!)
 		self.view.viewWithTag(231)?.removeFromSuperview()
+		self.view.viewWithTag(232)?.removeFromSuperview()
+		self.tableView.reloadData()
 	}
 	
 	

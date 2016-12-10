@@ -20,6 +20,6 @@
 	<key>converter-free</key>
 	<false/>
 	<key>transactions-max-free</key>
-	<integer>50</integer>
+	<integer>30</integer>
 </dict>
 </plist>

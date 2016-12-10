@@ -91,6 +91,23 @@ class CalmMoneyTests: XCTestCase {
 		XCTAssertEqual(money.amount, -300)
 	}
 	
+	
+	func testPurchase() {
+		UserDefaults.standard.set(false, forKey: "purchase_converter")
+		UserDefaults.standard.set(false, forKey: "unlimited_transactions")
+
+		
+		XCTAssertFalse(Purchase().isPurchasedConverter())
+		XCTAssertFalse(Purchase().isPurchasedUnlimitedTransactions())
+		
+		Purchase().setPurchased(productId: "com.surfingcathk.calmmoney.unlimited_transactions")
+		XCTAssertTrue(Purchase().isPurchasedUnlimitedTransactions())
+		
+		Purchase().setPurchased(productId: "com.surfingcathk.calmmoney.currency_converter_1m")
+		XCTAssertTrue(Purchase().isPurchasedConverter())
+		
+	}
+	
 	func testPerformanceExample() {
 		// This is an example of a performance test case.
 		self.measure() {

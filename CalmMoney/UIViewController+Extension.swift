@@ -13,11 +13,7 @@ extension UIViewController {
 	func app() -> AppDelegate {
 		return UIApplication.shared.delegate as! AppDelegate
 	}
-	
-	func sound() -> Sound {
-		return Sound.sharedInstance
-	}
-	
+		
 	func networking() -> Networking {
 		return Networking.sharedInstance
 	}

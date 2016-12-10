@@ -54,9 +54,7 @@ public class Rater: NSObject {
 		let message = "Enjoying Calm Money? Please rate us. It helps us to provide better updates.".localized
 		let rateAlert = UIAlertController(title:"Rate us".localized, message: message, preferredStyle: .alert)
 		rateAlert.addAction(UIAlertAction(title: "Rate".localized, style: .default, handler: { (action) -> Void in
-			let url = NSURL(string: "itms-apps://itunes.apple.com/app/id\(Config.read(value: "appstore-id"))")
-			UIApplication.shared.openURL(url! as URL)
-			
+			self.openRatePage()
 			self.setAppRatingShown()
 		}))
 		rateAlert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: { (action) -> Void in
@@ -69,6 +67,10 @@ public class Rater: NSObject {
 		})
 	}
 	
+	func openRatePage() {
+		let url = NSURL(string: "itms-apps://itunes.apple.com/app/id\(Config.read(value: "appstore-id"))")
+		UIApplication.shared.openURL(url! as URL)
+	}
 	
 	//MARK: - App Launch Count
 	private func getAppLaunchCount()  -> Int{

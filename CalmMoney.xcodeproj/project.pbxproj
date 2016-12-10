@@ -21,6 +21,9 @@
 		3F1552011DF2E9E6008985B1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1552001DF2E9E6008985B1 /* StoreKit.framework */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F3F150B1DF5979600CFAF34 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */; };
+		3F4EDD811DF849D100B216F4 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */; };
+		3F4EDD841DF84C8100B216F4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4EDD831DF84C8100B216F4 /* Model.swift */; };
+		3F4EDD851DF84D0F00B216F4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDF1DF1CC20009E4321 /* Config.swift */; };
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
@@ -31,13 +34,13 @@
 		3FE2BDDE1DF1C596009E4321 /* Rater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDD1DF1C596009E4321 /* Rater.swift */; };
 		3FE2BDE01DF1CC20009E4321 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDDF1DF1CC20009E4321 /* Config.swift */; };
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
+		3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07541DFB093C004F4514 /* TermsViewController.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
 		9A0A82F81C2CFE66005BEE09 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */; };
 		9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B11921B4E2D9400BC8BB1 /* Networking.swift */; };
-		9A0BA91E1BC3981500CE0AF1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BA91D1BC3981500CE0AF1 /* Sound.swift */; };
 		9A0BE4511BF45266002D6F5F /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BE4531BF45266002D6F5F /* categories.json */; };
 		9A27C1471B85859A0087ECDD /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1461B85859A0087ECDD /* CategoriesCollectionViewController.swift */; };
 		9A27C1491B8586220087ECDD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27C1481B8586220087ECDD /* Category.swift */; };
@@ -136,6 +139,7 @@
 		3F1552001DF2E9E6008985B1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		3F4EDD831DF84C8100B216F4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -146,13 +150,13 @@
 		3FE2BDDD1DF1C596009E4321 /* Rater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rater.swift; path = ../Rater.swift; sourceTree = "<group>"; };
 		3FE2BDDF1DF1CC20009E4321 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
+		3FFB07541DFB093C004F4514 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
 		9A0A82F71C2CFE66005BEE09 /* NumpadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
 		9A0B11921B4E2D9400BC8BB1 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; usesTabs = 1; };
-		9A0BA91D1BC3981500CE0AF1 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		9A0BE4521BF45266002D6F5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/categories.json; sourceTree = "<group>"; };
 		9A0BE4541BF4526E002D6F5F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = ru; path = ru.lproj/categories.json; sourceTree = "<group>"; };
 		9A27C1461B85859A0087ECDD /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				9ACDB0051C4F4E3E0053CEE5 /* Category.swift */,
 				3F0396581DF27E5500252187 /* CalmMoneyTests.swift */,
 				3F03965A1DF27E5500252187 /* Info.plist */,
+				3F4EDD831DF84C8100B216F4 /* Model.swift */,
 			);
 			path = CalmMoneyTests;
 			sourceTree = "<group>";
@@ -404,9 +409,9 @@
 				9A91B4211BCCB8EF00964B36 /* Extension */,
 				9A827C9B1C1D71B70025FC5B /* Insights */,
 				9AC590231C4BCBA900205287 /* NumPad */,
-				9A0BA91D1BC3981500CE0AF1 /* Sound.swift */,
 				9A9C91981B3444E500DE580F /* Main.storyboard */,
 				3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */,
+				3FFB07541DFB093C004F4514 /* TermsViewController.swift */,
 				9A43CA171BFD8EBF00D42507 /* SettingsTableViewController.swift */,
 				9AD3082D1BC4D70800962DE1 /* TransactionsTable */,
 				9ACC025B1B5162EC00F93A4C /* CountriesTableViewController.swift */,
@@ -750,10 +755,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4EDD811DF849D100B216F4 /* Purchase.swift in Sources */,
 				3F0396611DF27EBC00252187 /* Currency.swift in Sources */,
 				3F0396601DF27EB700252187 /* Transaction.swift in Sources */,
+				3F4EDD841DF84C8100B216F4 /* Model.swift in Sources */,
 				3F0396591DF27E5500252187 /* CalmMoneyTests.swift in Sources */,
 				3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */,
+				3F4EDD851DF84D0F00B216F4 /* Config.swift in Sources */,
 				3F0396661DF27F3200252187 /* NSDecimalNumber+Extension.swift in Sources */,
 				3F0396621DF27EC000252187 /* Category.swift in Sources */,
 				3F0396681DF27F5900252187 /* Money.swift in Sources */,
@@ -783,11 +791,11 @@
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
 				3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
+				3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */,
 				9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */,
 				9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */,
 				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
-				9A0BA91E1BC3981500CE0AF1 /* Sound.swift in Sources */,
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
 				9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */,
 				9A3C57941C537972001CB79D /* CurrencyView.swift in Sources */,
@@ -1099,7 +1107,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.surfingcathk.calmmoney.master;
 				PRODUCT_NAME = "Calm Money";
-				PROVISIONING_PROFILE = "98726ec7-8868-44d6-b7c1-cc25a90d3c30";
+				PROVISIONING_PROFILE = "67873f43-4709-4236-8bfb-a938e17eefd5";
 				PROVISIONING_PROFILE_SPECIFIER = "Calm Money dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1126,7 +1134,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.surfingcathk.calmmoney.master;
 				PRODUCT_NAME = "Calm Money";
-				PROVISIONING_PROFILE = "98726ec7-8868-44d6-b7c1-cc25a90d3c30";
+				PROVISIONING_PROFILE = "67873f43-4709-4236-8bfb-a938e17eefd5";
 				PROVISIONING_PROFILE_SPECIFIER = "Calm Money dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

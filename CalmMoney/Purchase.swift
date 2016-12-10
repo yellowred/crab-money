@@ -26,7 +26,7 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 	func canAddTransaction(to model: Model) -> Bool {
 		if let transactionsMaxFree = Config.read(value: "transactions-max-free") {
 			if model.getTransactionsList().count >= transactionsMaxFree as! Int {
-				return false
+				return isPurchasedUnlimitedTransactions()
 			}
 		}
 		return true
@@ -39,18 +39,24 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 	}
 	
 	func getConverterProducts(cb:@escaping (RetrieveResults)->()) {
-		if let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? {
-			if let products:Array<String> = productDescriptions["converter"] as! Array<String>? {
-				let productsSet:Set<String> = Set(products)
-				SwiftyStoreKit.retrieveProductsInfo(productsSet, completion: cb)
-			}
+		if let products = getConverterProductIds() {
+			let productsSet:Set<String> = Set(products)
+			SwiftyStoreKit.retrieveProductsInfo(productsSet, completion: cb)
 		} else {
 			print("No converter products configs found")
 		}
 	}
 	
 	
+	func getConverterProductIds() -> Array<String>? {
+		guard let productDescriptions:NSDictionary = Config.read(value: "products") as! NSDictionary? else {
+			return nil
+		}
+		return productDescriptions["converter"] as! Array<String>?
+	}
+	
 	func purchase(productId: String, cb: @escaping (PurchaseResult) -> ()) {
+		print("Purchasing: \(productId)")
 		SwiftyStoreKit.purchaseProduct(productId, completion: cb)
 	}
 	
@@ -65,8 +71,24 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 	}
 	
 	
+	func setPurchased(productId: String) {
+		if (getConverterProductIds()?.contains(productId))! {
+			setPurchasedConverter()
+		} else if getUnlimitedTransactionsProductId() == productId {
+			setPurchasedUnlimitedTransactions()
+		} else {
+			print("Unrecognized productId: \(productId)")
+		}
+	}
+	
+	
 	func isPurchasedConverter() -> Bool {
 		return UserDefaults.standard.bool(forKey: "purchase_converter")
+	}
+	
+	
+	func isPurchasedUnlimitedTransactions() -> Bool {
+		return UserDefaults.standard.bool(forKey: "unlimited_transactions")
 	}
 	
 	
@@ -78,6 +100,26 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 		}
 	}
 	
+	
+	func restorePurchases(cb: @escaping (RestoreResults) -> ()) {
+		SwiftyStoreKit.restorePurchases(atomically: true) { results in
+			if results.restoreFailedProducts.count > 0 {
+				print("Restore Failed: \(results.restoreFailedProducts)")
+			}
+			else if results.restoredProducts.count > 0 {
+				print("Restore Success: \(results.restoredProducts)")
+			}
+			else {
+				print("Nothing to Restore")
+			}
+			cb(results)
+		}
+	}
+	
+	
+	func canMakePayments() -> Bool {
+		return SwiftyStoreKit.canMakePayments
+	}
 	
 	//MARK: - Dump
 	func dumpAllProducts() {
