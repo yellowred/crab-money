@@ -1,5 +1,5 @@
 [
- {"name": "Food", "type": "expense"},
+ {"name": "Groceries", "type": "expense"},
  {"name": "Restaurant", "type": "expense"},
  {"name": "Transport", "type": "expense"},
  {"name": "Utilities", "type": "expense"},
@@ -8,6 +8,7 @@
  {"name": "Presents", "type": "expense"},
  {"name": "Tea", "type": "expense"},
  {"name": "Sport", "type": "expense"},
+ {"name": "Travel", "type": "expense"},
  
  {"name": "Salary", "type": "earning"},
  {"name": "Sales", "type": "earning"}

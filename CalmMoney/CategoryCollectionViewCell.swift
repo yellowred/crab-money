@@ -14,12 +14,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 	var category: Category?
 	var deleteButtonImg: UIImage?
 	var deleteButton: UIButton?
-	let margin:CGFloat = 10.0
+	let margin:CGFloat = 7.0
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 
-		deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: frame.size.width/4, height: frame.size.width/4))
+		deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: frame.size.width/3, height: frame.size.width/3))
 		let buttonFrame = deleteButton!.frame
 		UIGraphicsBeginImageContext(buttonFrame.size)
 		
@@ -31,7 +31,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 		path.addLine(to: CGPoint(x: sz-margin, y: margin))
 		UIColor.red.setFill()
 		UIColor.white.setStroke()
-		path.lineWidth = 3.0
+		path.lineWidth = 2.0
 		path.fill()
 		path.stroke()
 		
@@ -41,9 +41,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 		
 		deleteButton!.setImage(deleteButtonImg, for: UIControlState())
 		contentView.addSubview(deleteButton!)
-
 	}
-
 	
 	func startQuivering() {
 		let quiverAnim:CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation")
@@ -58,7 +56,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 		quiverAnim.repeatCount = Float.infinity;
 		quiverAnim.timeOffset = CFTimeInterval(timeOffset)
 		layer.add(quiverAnim, forKey: "quivering")
-		
 	}
 	
 	

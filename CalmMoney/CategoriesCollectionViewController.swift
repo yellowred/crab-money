@@ -77,9 +77,15 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 	func deleteCell(_ sender: UIButton) {
 		if categories != nil {
 			let indexPath:IndexPath = (collectionView?.indexPath(for: sender.superview?.superview as! UICollectionViewCell))!
-			let category = categories!.remove(at: (indexPath as NSIndexPath).row)
-			collectionView?.deleteItems(at: [indexPath])
-			app().model.deleteCategory(category)
+			if let category = categories?[indexPath.row] {
+				if category.getTransactions().count > 0 {
+					present(Alerter().notify(title: "Category can not be removed".localized, message: "You have transactions assigned to this category. Please remove them first.".localized), animated: true, completion: nil)
+				} else {
+					categories!.remove(at: indexPath.row)
+					collectionView?.deleteItems(at: [indexPath])
+					app().model.deleteCategory(category)
+				}
+			}
 		}
 	}
 	

@@ -36,6 +36,7 @@
 		3FE9B35B1D9AB8720077A832 /* Alamofire.Manager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */; };
 		3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07541DFB093C004F4514 /* TermsViewController.swift */; };
 		3FFB07571DFC3701004F4514 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07561DFC3701004F4514 /* Alerter.swift */; };
+		3FFB07591DFD29E7004F4514 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
@@ -153,6 +154,7 @@
 		3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Manager+Extension.swift"; sourceTree = "<group>"; };
 		3FFB07541DFB093C004F4514 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		3FFB07561DFC3701004F4514 /* Alerter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
+		3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				3FE9B35A1D9AB8720077A832 /* Alamofire.Manager+Extension.swift */,
 				3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */,
 				3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */,
+				3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */,
 				9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */,
 				3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */,
+				3FFB07591DFD29E7004F4514 /* UIImage+Extension.swift in Sources */,
 				9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */,
 				9AEDFF5D1C3D1CB900541A23 /* Math.swift in Sources */,
 				9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */,

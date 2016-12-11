@@ -30,7 +30,7 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
 	
 	func setHandsOnCurrency(_ handsOnCurrency: HandsOnCurrency) {
 		self.code.text = handsOnCurrency.amount.currency.code.uppercased()
-		self.flag.image = handsOnCurrency.amount.currency.getFlag()
+		self.flag.image = handsOnCurrency.amount.currency.getFlag()?.square
 		self.flag.layer.cornerRadius = 15
 		self.flag.layer.masksToBounds = true
 		self.code.layer.cornerRadius = 5
