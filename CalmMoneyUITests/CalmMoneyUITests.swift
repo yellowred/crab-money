@@ -97,5 +97,6 @@ class CrabAppUITests: XCTestCase {
 		amount = (tablesQuery.cells.element(boundBy: 0).textFields.element(boundBy: 0).value as! NSString).intValue
 		XCTAssertTrue(amount > 0)
 	}
+
 	
 }

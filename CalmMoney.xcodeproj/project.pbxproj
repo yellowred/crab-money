@@ -37,6 +37,7 @@
 		3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07541DFB093C004F4514 /* TermsViewController.swift */; };
 		3FFB07571DFC3701004F4514 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07561DFC3701004F4514 /* Alerter.swift */; };
 		3FFB07591DFD29E7004F4514 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */; };
+		3FFB075A1DFDA6CF004F4514 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
 		5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
@@ -66,7 +67,6 @@
 		9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */; };
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
 		9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */; };
-		9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */; };
 		9A91B41C1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
 		9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */; };
 		9A9C91921B3444E500DE580F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C91911B3444E500DE580F /* AppDelegate.swift */; };
@@ -78,7 +78,6 @@
 		9AA926891BC3AC5C009D16B3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */; };
 		9AB4438D1BCA1D9E0005146B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4438C1BCA1D9E0005146B /* GraphView.swift */; };
 		9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCE1861C4C9AE700B64BC7 /* TabBarController.swift */; };
-		9AC460BD1BCFE27B00EEE4A7 /* tap-mellow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 9AC460B81BCFAF1500EEE4A7 /* tap-mellow.aif */; };
 		9AC460BF1BD0AB5B00EEE4A7 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460BE1BD0AB5B00EEE4A7 /* SummaryView.swift */; };
 		9AC460C21BD0B47100EEE4A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC460C41BD0B47100EEE4A7 /* Localizable.strings */; };
 		9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
@@ -188,7 +187,6 @@
 		9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewController.swift; sourceTree = "<group>"; };
-		9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Book.otf"; sourceTree = "<group>"; };
 		9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAddTableViewCell.swift; sourceTree = "<group>"; };
 		9A9C918C1B3444E500DE580F /* Calm Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calm Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +200,6 @@
 		9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		9AB4438C1BCA1D9E0005146B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9ABCE1861C4C9AE700B64BC7 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		9AC460B81BCFAF1500EEE4A7 /* tap-mellow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-mellow.aif"; sourceTree = "<group>"; };
 		9AC460BE1BD0AB5B00EEE4A7 /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		9AC460C51BD0B47A00EEE4A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AC460C61BD0B49C00EEE4A7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -436,9 +433,7 @@
 		9A9C918F1B3444E500DE580F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9A87AB231C55D7CD00021339 /* FiraSans-Book.otf */,
 				9AC460C41BD0B47100EEE4A7 /* Localizable.strings */,
-				9AC460B81BCFAF1500EEE4A7 /* tap-mellow.aif */,
 				9A9C91901B3444E500DE580F /* Info.plist */,
 				9A3F0FC11C4B5190009F0BA0 /* currencies.json */,
 				9A0BE4531BF45266002D6F5F /* categories.json */,
@@ -631,7 +626,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC460BD1BCFE27B00EEE4A7 /* tap-mellow.aif in Resources */,
 				9A0BE4511BF45266002D6F5F /* categories.json in Resources */,
 				3FE2BDD71DF1C1D6009E4321 /* NumpadNotPurchased.xib in Resources */,
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
@@ -642,7 +636,6 @@
 				3FE2BDDA1DF1C3E2009E4321 /* ConverterNotPurchased.xib in Resources */,
 				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
 				9A9C919C1B3444E500DE580F /* Images.xcassets in Resources */,
-				9A87AB241C55D7CD00021339 /* FiraSans-Book.otf in Resources */,
 				9ADC27F81C4A27890053E77F /* InsightsEmptyView.xib in Resources */,
 				3FE2BDD41DF1BDD2009E4321 /* Config.plist in Resources */,
 			);
@@ -769,6 +762,7 @@
 				3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */,
 				3F4EDD851DF84D0F00B216F4 /* Config.swift in Sources */,
 				3F0396661DF27F3200252187 /* NSDecimalNumber+Extension.swift in Sources */,
+				3FFB075A1DFDA6CF004F4514 /* String+Extension.swift in Sources */,
 				3F0396621DF27EC000252187 /* Category.swift in Sources */,
 				3F0396681DF27F5900252187 /* Money.swift in Sources */,
 				3F0396651DF27F1A00252187 /* Date+Extension.swift in Sources */,
