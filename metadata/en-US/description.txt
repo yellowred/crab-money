@@ -1,0 +1,20 @@
+Calm Money is the minimalistic yet powerful tool that gives you control over your spendings without paying much attention to it.
+
++ Input spendings with ease on the go even in crowded and distracting areas.
++ Use home currency to summarize expenses in different currencies if you are a traveller or an expat.
++ Currency Converter with 170 currencies (including Bitcoins).
++ Simple calm non-distracting interface.
+
+Welcome to Calm Money. I hope this tool will bring you peace of mind about your personal finances. I think that most of the time we need as few as a comfortable way to input our expenses, an insight about how healthy our spending performance, how much more we can spend and some tool to answer the question "Can we afford this spending?".
+
+❖ Input transactions
+Large buttons for swift input while in hustle in any of 170 currencies.
+In-App purchase for more that 30 transactions.
+
+❖ Insights
+Spendings in different countries converted to your home currency (with history rate).
+Check insights to maintain peace of mind: budget, projected monthly total, daily mean, today, by category, etc.
+
+❖ Currency converter
+Available after In-App Subscription.
+Compare a price of a Macbook in Hong Kong to your home country price and also all those countries that you plan to visit, like Singapore, Thailand, Australia, etc. Instantly.
