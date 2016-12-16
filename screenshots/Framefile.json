@@ -1,0 +1,20 @@
+{
+  "default": {
+    "keyword": {
+    },
+    "title": {
+    	"font": "Helvetica.otf",
+     	"color": "#ffffff"
+    },
+    "background": "./background.png",
+    "padding": 60
+  },
+  "data": [
+    {
+      "filter": "NumPad"
+    },
+    {
+      "filter": "Categories"
+    }
+  ]
+}
