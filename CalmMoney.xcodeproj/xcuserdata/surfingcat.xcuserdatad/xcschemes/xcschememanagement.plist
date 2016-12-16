@@ -7,7 +7,17 @@
 		<key>CalmMoney.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
+		</dict>
+		<key>CalmMoneyProd.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>CalmMoneySnapshots.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>3FE2BDC31DF19CBF009E4321</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FFED5C11DFEFDA60034320B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

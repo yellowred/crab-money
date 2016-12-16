@@ -16,3 +16,10 @@ target 'CalmMoneyTests' do
     pod "SwiftyStoreKit"
 end
 
+target 'CalmMoneySnapshots' do
+    pod "Spring", :git => "https://github.com/MengTo/Spring.git", :branch => "swift3"
+    pod "Alamofire", "~> 4.0"
+    pod "SwiftyStoreKit"
+end
+
+

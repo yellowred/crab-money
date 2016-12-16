@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CC40CDDC3D807066ED95F42 /* Pods_CalmMoneySnapshots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB65195577648467B0467F8C /* Pods_CalmMoneySnapshots.framework */; };
 		3F0396591DF27E5500252187 /* CalmMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0396581DF27E5500252187 /* CalmMoneyTests.swift */; };
 		3F0396601DF27EB700252187 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F01C3D733C00B2C754 /* Transaction.swift */; };
 		3F0396611DF27EBC00252187 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F21C3D742700B2C754 /* Currency.swift */; };
@@ -39,6 +40,8 @@
 		3FFB07591DFD29E7004F4514 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */; };
 		3FFB075A1DFDA6CF004F4514 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC460C71BD0B5B800EEE4A7 /* String+Extension.swift */; };
 		3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */; };
+		3FFED5C51DFEFDA60034320B /* CalmMoneySnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFED5C41DFEFDA60034320B /* CalmMoneySnapshots.swift */; };
+		3FFED5CD1DFEFE740034320B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFED5CC1DFEFE740034320B /* SnapshotHelper.swift */; };
 		5C9D42DE7ADE443569BEE419 /* Pods_CalmMoneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */; };
 		764F166406CC9F9B477688CF /* Pods_CrabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */; };
 		9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */; };
@@ -111,6 +114,13 @@
 			remoteGlobalIDString = 9A9C918B1B3444E500DE580F;
 			remoteInfo = CrabApp;
 		};
+		3FFED5C71DFEFDA60034320B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9C91841B3444E500DE580F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A9C918B1B3444E500DE580F;
+			remoteInfo = CrabApp;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -155,6 +165,11 @@
 		3FFB07561DFC3701004F4514 /* Alerter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		3FFED5C21DFEFDA60034320B /* CalmMoneySnapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneySnapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFED5C41DFEFDA60034320B /* CalmMoneySnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneySnapshots.swift; sourceTree = "<group>"; };
+		3FFED5C61DFEFDA60034320B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FFED5CC1DFEFE740034320B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		58A336D8805E1B3B1B5A6292 /* Pods-CalmMoneySnapshots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmMoneySnapshots.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalmMoneySnapshots/Pods-CalmMoneySnapshots.release.xcconfig"; sourceTree = "<group>"; };
 		5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A04DA101B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCurrenciesTableViewController.swift; sourceTree = "<group>"; };
@@ -222,7 +237,9 @@
 		9AFE7CA91B82DF2B00B7159B /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
 		9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		A760F060DA945CC37203D260 /* Pods-CrabAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrabAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrabAppTests/Pods-CrabAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		AB65195577648467B0467F8C /* Pods_CalmMoneySnapshots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalmMoneySnapshots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B539191076B61FC22AEF37 /* Pods-CalmMoneyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmMoneyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalmMoneyTests/Pods-CalmMoneyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA95DFD31E7C58013E65A271 /* Pods-CalmMoneySnapshots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmMoneySnapshots.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalmMoneySnapshots/Pods-CalmMoneySnapshots.debug.xcconfig"; sourceTree = "<group>"; };
 		C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrabAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -239,6 +256,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FFED5BF1DFEFDA60034320B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC40CDDC3D807066ED95F42 /* Pods_CalmMoneySnapshots.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +290,8 @@
 				A760F060DA945CC37203D260 /* Pods-CrabAppTests.release.xcconfig */,
 				B5B539191076B61FC22AEF37 /* Pods-CalmMoneyTests.debug.xcconfig */,
 				1915CD61FEFFC716FBF7DD75 /* Pods-CalmMoneyTests.release.xcconfig */,
+				BA95DFD31E7C58013E65A271 /* Pods-CalmMoneySnapshots.debug.xcconfig */,
+				58A336D8805E1B3B1B5A6292 /* Pods-CalmMoneySnapshots.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -299,6 +326,16 @@
 			name = Backend;
 			sourceTree = "<group>";
 		};
+		3FFED5C31DFEFDA60034320B /* CalmMoneySnapshots */ = {
+			isa = PBXGroup;
+			children = (
+				3FFED5CC1DFEFE740034320B /* SnapshotHelper.swift */,
+				3FFED5C41DFEFDA60034320B /* CalmMoneySnapshots.swift */,
+				3FFED5C61DFEFDA60034320B /* Info.plist */,
+			);
+			path = CalmMoneySnapshots;
+			sourceTree = "<group>";
+		};
 		8068D767FF3DCEC55E48BD84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +343,7 @@
 				1AAB0B1DEFC5FFEE06399F68 /* Pods_CrabApp.framework */,
 				C97919ECCF491A49B4EF5D05 /* Pods_CrabAppTests.framework */,
 				2EBA5A4DA87460B872384FB5 /* Pods_CalmMoneyTests.framework */,
+				AB65195577648467B0467F8C /* Pods_CalmMoneySnapshots.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -382,6 +420,7 @@
 				9A9C918E1B3444E500DE580F /* CalmMoney */,
 				3F0396571DF27E5500252187 /* CalmMoneyTests */,
 				3F03966E1DF27FB000252187 /* CalmMoneyUITests */,
+				3FFED5C31DFEFDA60034320B /* CalmMoneySnapshots */,
 				9A9C918D1B3444E500DE580F /* Products */,
 				9AA926861BC3AC5C009D16B3 /* Fabric.framework */,
 				9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */,
@@ -397,6 +436,7 @@
 				9A9C918C1B3444E500DE580F /* Calm Money.app */,
 				3F0396561DF27E5500252187 /* CalmMoneyTests.xctest */,
 				3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */,
+				3FFED5C21DFEFDA60034320B /* CalmMoneySnapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -525,6 +565,27 @@
 			productReference = 3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		3FFED5C11DFEFDA60034320B /* CalmMoneySnapshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FFED5CB1DFEFDA60034320B /* Build configuration list for PBXNativeTarget "CalmMoneySnapshots" */;
+			buildPhases = (
+				3DB32ADD4301BE47CF171109 /* [CP] Check Pods Manifest.lock */,
+				3FFED5BE1DFEFDA60034320B /* Sources */,
+				3FFED5BF1DFEFDA60034320B /* Frameworks */,
+				3FFED5C01DFEFDA60034320B /* Resources */,
+				042635D3FFBBDEE478140A2E /* [CP] Embed Pods Frameworks */,
+				196E14F7DC6193072706BB4C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FFED5C81DFEFDA60034320B /* PBXTargetDependency */,
+			);
+			name = CalmMoneySnapshots;
+			productName = CalmMoneySnapshots;
+			productReference = 3FFED5C21DFEFDA60034320B /* CalmMoneySnapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9A9C918B1B3444E500DE580F /* CrabApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A9C91AE1B3444E500DE580F /* Build configuration list for PBXNativeTarget "CrabApp" */;
@@ -566,7 +627,11 @@
 					};
 					3F03966C1DF27FB000252187 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Y54725FB3U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9A9C918B1B3444E500DE580F;
+					};
+					3FFED5C11DFEFDA60034320B = {
+						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9A9C918B1B3444E500DE580F;
 					};
@@ -603,6 +668,7 @@
 				9A9C918B1B3444E500DE580F /* CrabApp */,
 				3F0396551DF27E5500252187 /* CalmMoneyTests */,
 				3F03966C1DF27FB000252187 /* CalmMoneyUITests */,
+				3FFED5C11DFEFDA60034320B /* CalmMoneySnapshots */,
 			);
 		};
 /* End PBXProject section */
@@ -616,6 +682,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3F03966B1DF27FB000252187 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FFED5C01DFEFDA60034320B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -644,6 +717,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		042635D3FFBBDEE478140A2E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalmMoneySnapshots/Pods-CalmMoneySnapshots-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0796E628B4A84CFEE3753537 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -657,6 +745,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrabApp/Pods-CrabApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		196E14F7DC6193072706BB4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalmMoneySnapshots/Pods-CalmMoneySnapshots-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1A0C6EC5B6D54F770DAE144C /* [CP] Embed Pods Frameworks */ = {
@@ -675,6 +778,21 @@
 			showEnvVarsInLog = 0;
 		};
 		3583736C1B261E31D85D8188 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3DB32ADD4301BE47CF171109 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -779,6 +897,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3FFED5BE1DFEFDA60034320B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FFED5C51DFEFDA60034320B /* CalmMoneySnapshots.swift in Sources */,
+				3FFED5CD1DFEFE740034320B /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A9C91881B3444E500DE580F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -853,6 +980,11 @@
 			isa = PBXTargetDependency;
 			target = 9A9C918B1B3444E500DE580F /* CrabApp */;
 			targetProxy = 3F0396721DF27FB000252187 /* PBXContainerItemProxy */;
+		};
+		3FFED5C81DFEFDA60034320B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A9C918B1B3444E500DE580F /* CrabApp */;
+			targetProxy = 3FFED5C71DFEFDA60034320B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -970,8 +1102,9 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = Y54725FB3U;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CalmMoneyUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -989,12 +1122,57 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = Y54725FB3U;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CalmMoneyUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CrabApp;
+			};
+			name = Release;
+		};
+		3FFED5C91DFEFDA60034320B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA95DFD31E7C58013E65A271 /* Pods-CalmMoneySnapshots.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CalmMoneySnapshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneySnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CrabApp;
+			};
+			name = Debug;
+		};
+		3FFED5CA1DFEFDA60034320B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58A336D8805E1B3B1B5A6292 /* Pods-CalmMoneySnapshots.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CalmMoneySnapshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VC.CalmMoneySnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = CrabApp;
 			};
@@ -1125,7 +1303,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 64RQC7L2B5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1136,8 +1314,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.surfingcathk.calmmoney.master;
 				PRODUCT_NAME = "Calm Money";
-				PROVISIONING_PROFILE = "67873f43-4709-4236-8bfb-a938e17eefd5";
-				PROVISIONING_PROFILE_SPECIFIER = "Calm Money dev";
+				PROVISIONING_PROFILE = "d6290783-c04f-4868-b30a-27944d8ac3e3";
+				PROVISIONING_PROFILE_SPECIFIER = "Calm Money Prod";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1161,6 +1339,15 @@
 			buildConfigurations = (
 				3F0396751DF27FB000252187 /* Debug */,
 				3F0396761DF27FB000252187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FFED5CB1DFEFDA60034320B /* Build configuration list for PBXNativeTarget "CalmMoneySnapshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FFED5C91DFEFDA60034320B /* Debug */,
+				3FFED5CA1DFEFDA60034320B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
