@@ -1,10 +1,19 @@
 /* 
-  Currencies.strings
+  Localizable.strings
   Finance App for Travellers
 
-  Created by Oleg Kubrakov on 12/01/16.
-  Copyright © 2016 Oleg Kubrakov. All rights reserved.
+  Created by Oleg Kubrakov on 16/10/15.
+  Copyright © 2015 Oleg Kubrakov. All rights reserved.
 */
+"expenses" = "Expenses";
+"earnings" = "Earnings";
+"budget" = "Budget";
+"categories" = "Categories";
+"add" = "Add";
+"save" = "Save";
+
+
+/** CURRENCIES **/
 "AED_currency_name" = "UAE dirhams";
 "AFN_currency_name" = "Afghan afghanis";
 "ALL_currency_name" = "Albanian leke";
@@ -51,7 +60,7 @@
 "EGP_currency_name" = "Egyptian pounds";
 "ERN_currency_name" = "Eritrean nakfa";
 "ETB_currency_name" = "Ethiopian birr";
-"EUR_currency_name" = "2European Union euros";
+"EUR_currency_name" = "European Union euros";
 "FJD_currency_name" = "Fijian dollars";
 "FKP_currency_name" = "Falkland Islands pounds";
 "GBP_currency_name" = "British pounds sterling";
@@ -70,6 +79,7 @@
 "HUF_currency_name" = "Hungarian forint";
 "IDR_currency_name" = "Indonesia Rupiahs";
 "ILS_currency_name" = "Israeli shekalim hadash";
+"IMP_currency_name" = "Isle of Man pounds";
 "INR_currency_name" = "India Rupeess";
 "IQD_currency_name" = "Iraqi dinara";
 "IRR_currency_name" = "Iranian rials";

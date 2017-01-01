@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>CrabApp copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>3F03966C1DF27FB000252187</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F31624A1E18E14D00E4CD1A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

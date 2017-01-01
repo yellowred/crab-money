@@ -75,6 +75,11 @@ class ProfileTableViewController: UITableViewController {
 			let url = NSURL(string: str)
 			UIApplication.shared.openURL(url as! URL)
 			
+		} else if indexPath.section == 3 && indexPath.row == 0 {
+			
+			let debugViewController = DebugViewController(nibName: "DebugViewController", bundle: nil)
+			debugViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+			present(debugViewController, animated: true, completion: nil)
 		}
 	
 	}
@@ -82,8 +87,17 @@ class ProfileTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.section == 0 && indexPath.row == 0 && (Purchase().isPurchasedUnlimitedTransactions() || !Purchase().canMakePayments()) {
 			return 0.0
+		} else if indexPath.section == 3 && indexPath.row == 0 && !(Config.read(value: "debug") as! Bool) {
+			return 0.0
 		}
 		return super.tableView(tableView, heightForRowAt: indexPath)
 	}
-
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 3 && !(Config.read(value: "debug") as! Bool) {
+			return nil
+		}
+		return super.tableView(tableView, titleForHeaderInSection: section)
+	}
+	
 }

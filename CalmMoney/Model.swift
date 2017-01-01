@@ -293,6 +293,7 @@ class Model
 		} catch let fetchError as NSError {
 			print("getCurrenciesNotHandsOn error: \(fetchError.localizedDescription)")
 		}
+		
 		return fetchedResults
 	}
 	
