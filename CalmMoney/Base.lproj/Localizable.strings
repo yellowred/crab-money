@@ -1,0 +1,350 @@
+/*
+ Localizable.strings
+ Finance App for Travellers
+ 
+ Created by Oleg Kubrakov on 16/10/15.
+ Copyright © 2015 Oleg Kubrakov. All rights reserved.
+ */
+"expenses" = "Expenses";
+/*Translated from: Earnings*/
+"earnings" = "Earnings";
+/*Translated from: Budget*/
+"budget" = "Budget";
+/*Translated from: Categories*/
+"categories" = "Categories";
+/*Translated from: Add*/
+"add" = "Add";
+/*Translated from: Save*/
+"save" = "Save";
+/** CURRENCIES **/
+"AED_currency_name" = "UAE dirhams";
+/*Translated from: Afghan afghanis*/
+"AFN_currency_name" = "Afghan afghanis";
+/*Translated from: Albanian leke*/
+"ALL_currency_name" = "Albanian leke";
+/*Translated from: Armenian dram*/
+"AMD_currency_name" = "Armenian dram";
+/*Translated from: Netherlands Antillean guilders*/
+"ANG_currency_name" = "Netherlands Antillean guilders";
+/*Translated from: Angolan kwanza*/
+"AOA_currency_name" = "Angolan kwanza";
+/*Translated from: Argentine pesos*/
+"ARS_currency_name" = "Argentine pesos";
+/*Translated from: Australian dollars*/
+"AUD_currency_name" = "Australian dollars";
+/*Translated from: Aruban florin*/
+"AWG_currency_name" = "Aruban florin";
+/*Translated from: Azerbaijanian manat*/
+"AZN_currency_name" = "Azerbaijanian manat";
+/*Translated from: Bosnia and Herzegovina convertible marks*/
+"BAM_currency_name" = "Bosnia and Herzegovina convertible marks";
+/*Translated from: Barbadian dollars*/
+"BBD_currency_name" = "Barbadian dollars";
+/*Translated from: Bangladeshi taka*/
+"BDT_currency_name" = "Bangladeshi taka";
+/*Translated from: Bulgarian leva*/
+"BGN_currency_name" = "Bulgarian leva";
+/*Translated from: Bahraini dinara*/
+"BHD_currency_name" = "Bahraini dinara";
+/*Translated from: Burundi francs*/
+"BIF_currency_name" = "Burundi francs";
+/*Translated from: Bermudian dollars*/
+"BMD_currency_name" = "Bermudian dollars";
+/*Translated from: Brunei dollars*/
+"BND_currency_name" = "Brunei dollars";
+/*Translated from: Bolivian bolivianos*/
+"BOB_currency_name" = "Bolivian bolivianos";
+/*Translated from: Brasilien reais*/
+"BRL_currency_name" = "Brazilian real";
+/*Translated from: Bahamian dollars*/
+"BSD_currency_name" = "Bahamian dollars";
+/*Translated from: Bitcoins*/
+"BTC_currency_name" = "Bitcoins";
+/*Translated from: Bhutanese ngultrum*/
+"BTN_currency_name" = "Bhutanese ngultrum";
+/*Translated from: Botswanan pulas*/
+"BWP_currency_name" = "Botswanan pulas";
+/*Translated from: Belarusian ruble*/
+"BYR_currency_name" = "Belarusian ruble";
+/*Translated from: Belize dollars*/
+"BZD_currency_name" = "Belize dollars";
+/*Translated from: Canadian dollars*/
+"CAD_currency_name" = "Canadian dollars";
+/*Translated from: Congolese francs*/
+"CDF_currency_name" = "Congolese francs";
+/*Translated from: Switzerland Francs*/
+"CHF_currency_name" = "Switzerland Francs";
+/*Translated from: Unidades de fomento*/
+"CLF_currency_name" = "Chilean Unidad de Fomento";
+/*Translated from: Chilean pesos*/
+"CLP_currency_name" = "Chilean pesos";
+/*Translated from: Chinese offshore renminbi yuan*/
+"CNH_currency_name" = "Chinese offshore renminbi yuan";
+/*Translated from: Chinese renminbi yuan*/
+"CNY_currency_name" = "Chinese renminbi yuan";
+/*Translated from: Colombian pesos*/
+"COP_currency_name" = "Colombian pesos";
+/*Translated from: Costa Rican colones*/
+"CRC_currency_name" = "Costa Rican colones";
+/*Translated from: Cuban convertible pesos*/
+"CUC_currency_name" = "Cuban convertible pesos";
+/*Translated from: Cuban pesos*/
+"CUP_currency_name" = "Cuban pesos";
+/*Translated from: Cape Verdean escudos*/
+"CVE_currency_name" = "Cape Verdean escudos";
+/*Translated from: Czech korun*/
+"CZK_currency_name" = "Czech korun";
+/*Translated from: Djiboutian francs*/
+"DJF_currency_name" = "Djiboutian francs";
+/*Translated from: Danish kroner*/
+"DKK_currency_name" = "Danish kroner";
+/*Translated from: Dominican pesos*/
+"DOP_currency_name" = "Dominican pesos";
+/*Translated from: Algerian dinara*/
+"DZD_currency_name" = "Algerian dinara";
+/*Translated from: Egyptian pounds*/
+"EGP_currency_name" = "Egyptian pounds";
+/*Translated from: Eritrean nakfa*/
+"ERN_currency_name" = "Eritrean nakfa";
+/*Translated from: Ethiopian birr*/
+"ETB_currency_name" = "Ethiopian birr";
+/*Translated from: European Union euros*/
+"EUR_currency_name" = "European Union euros";
+/*Translated from: Fijian dollars*/
+"FJD_currency_name" = "Fijian dollars";
+/*Translated from: Falkland Islands pounds*/
+"FKP_currency_name" = "Falkland Islands pounds";
+/*Translated from: British pounds sterling*/
+"GBP_currency_name" = "British pounds sterling";
+/*Translated from: Georgian lari*/
+"GEL_currency_name" = "Georgian lari";
+/*Translated from: Guernsey Pound*/
+"GGP_currency_name" = "Guernsey Pound";
+/*Translated from: Ghana cedis*/
+"GHS_currency_name" = "Ghana cedis";
+/*Translated from: Gibraltar pounds*/
+"GIP_currency_name" = "Gibraltar pounds";
+/*Translated from: Gambian dalasi*/
+"GMD_currency_name" = "Gambian dalasi";
+/*Translated from: Guinea Francs*/
+"GNF_currency_name" = "Guinea Francs";
+/*Translated from: Guatemalan quetzales*/
+"GTQ_currency_name" = "Guatemalan quetzales";
+/*Translated from: Guyanese dollars*/
+"GYD_currency_name" = "Guyanese dollars";
+/*Translated from: Hong Kong dollars*/
+"HKD_currency_name" = "Hong Kong dollars";
+/*Translated from: Honduran lempiras*/
+"HNL_currency_name" = "Honduran lempiras";
+/*Translated from: Croatian kuna*/
+"HRK_currency_name" = "Croatian kuna";
+/*Translated from: Haitian gourdes*/
+"HTG_currency_name" = "Haitian gourdes";
+/*Translated from: Hungarian forint*/
+"HUF_currency_name" = "Hungarian forint";
+/*Translated from: Indonesia Rupiahs*/
+"IDR_currency_name" = "Indonesian Rupiahs";
+/*Translated from: Israeli shekalim hadash*/
+"ILS_currency_name" = "Israeli shekalim hadash";
+/*Translated from: Isle of Man pounds*/
+"IMP_currency_name" = "Isle of Man pounds";
+/*Translated from: India Rupeess*/
+"INR_currency_name" = "Indian Rupees";
+/*Translated from: Iraqi dinara*/
+"IQD_currency_name" = "Iraqi dinara";
+/*Translated from: Iranian rials*/
+"IRR_currency_name" = "Iranian rials";
+/*Translated from: Iceland Kronur*/
+"ISK_currency_name" = "Iceland Kronur";
+/*Translated from: Jamaican dollars*/
+"JMD_currency_name" = "Jamaican dollars";
+/*Translated from: Jordanian dinara*/
+"JOD_currency_name" = "Jordanian dinara";
+/*Translated from: Japanese yen*/
+"JPY_currency_name" = "Japanese yen";
+/*Translated from: Kenyan shillings*/
+"KES_currency_name" = "Kenyan shillings";
+/*Translated from: Kyrgyzstani soms*/
+"KGS_currency_name" = "Kyrgyzstani soms";
+/*Translated from: Cambodian riels*/
+"KHR_currency_name" = "Cambodian riels";
+/*Translated from: Comorian francs*/
+"KMF_currency_name" = "Comorian francs";
+/*Translated from: Chosun won*/
+"KPW_currency_name" = "Chosun won";
+/*Translated from: Korean won*/
+"KRW_currency_name" = "Korean won";
+/*Translated from: Kuwaiti dinara*/
+"KWD_currency_name" = "Kuwaiti dinara";
+/*Translated from: Cayman Islands dollars*/
+"KYD_currency_name" = "Cayman Islands dollars";
+/*Translated from: Kazakhstani tenge*/
+"KZT_currency_name" = "Kazakhstani tenge";
+/*Translated from: Lao kip*/
+"LAK_currency_name" = "Lao kip";
+/*Translated from: Lebanese pounds*/
+"LBP_currency_name" = "Lebanese pounds";
+/*Translated from: Sri Lankan rupees*/
+"LKR_currency_name" = "Sri Lankan rupees";
+/*Translated from: Liberian dollars*/
+"LRD_currency_name" = "Liberian dollars";
+/*Translated from: Lesotho maloti*/
+"LSL_currency_name" = "Lesotho maloti";
+/*Translated from: Litecoins*/
+"LTC_currency_name" = "Litecoins";
+/*Translated from: Libyan dinara*/
+"LYD_currency_name" = "Libyan dinara";
+/*Translated from: Moroccan dirhams*/
+"MAD_currency_name" = "Moroccan dirhams";
+/*Translated from: Moldovan lei*/
+"MDL_currency_name" = "Moldovan lei";
+/*Translated from: Malagasy ariary*/
+"MGA_currency_name" = "Malagasy ariary";
+/*Translated from: Macedonian denara*/
+"MKD_currency_name" = "Macedonian denara";
+/*Translated from: Burmese kyats*/
+"MMK_currency_name" = "Burmese kyats";
+/*Translated from: Mongolian tugrik*/
+"MNT_currency_name" = "Mongolian tugrik";
+/*Translated from: Patacas*/
+"MOP_currency_name" = "Patacas";
+/*Translated from: Mauritania ouguiyas*/
+"MRO_currency_name" = "Mauritania ouguiyas";
+/*Translated from: Mauritian rupees*/
+"MUR_currency_name" = "Mauritian rupees";
+/*Translated from: Maldivian rufiyaa*/
+"MVR_currency_name" = "Maldivian rufiyaa";
+/*Translated from: Malawian kwachas*/
+"MWK_currency_name" = "Malawian kwachas";
+/*Translated from: Mexican pesos*/
+"MXN_currency_name" = "Mexican pesos";
+/*Translated from: Mexican Unidades de Inversion*/
+"MXV_currency_name" = "Mexican Unidades de Inversion";
+/*Translated from: Malaysian ringgits*/
+"MYR_currency_name" = "Malaysian ringgits";
+/*Translated from: Mozambican meticais*/
+"MZN_currency_name" = "Mozambican meticais";
+/*Translated from: Namibian dollars*/
+"NAD_currency_name" = "Namibian dollars";
+/*Translated from: Nigerian nairas*/
+"NGN_currency_name" = "Nigerian nairas";
+/*Translated from: Gold Cordobas*/
+"NIO_currency_name" = "Gold Cordobas";
+/*Translated from: Norwegian kroner*/
+"NOK_currency_name" = "Norwegian kroner";
+/*Translated from: Nepalese rupees*/
+"NPR_currency_name" = "Nepalese rupees";
+/*Translated from: New Zealand dollars*/
+"NZD_currency_name" = "New Zealand dollars";
+/*Translated from: Omani rial*/
+"OMR_currency_name" = "Omani rial";
+/*Translated from: Panamanian balboa*/
+"PAB_currency_name" = "Panamanian balboa";
+/*Translated from: Peruvian nuevos soles*/
+"PEN_currency_name" = "Peruvian nuevos soles";
+/*Translated from: Papua New Guinean kina*/
+"PGK_currency_name" = "Papua New Guinean kina";
+/*Translated from: Filipino pisos*/
+"PHP_currency_name" = "Filipino pisos";
+/*Translated from: Pakistani rupees*/
+"PKR_currency_name" = "Pakistani rupees";
+/*Translated from: Polish zlotych*/
+"PLN_currency_name" = "Polish zlotych";
+/*Translated from: Paraguayan guaranies*/
+"PYG_currency_name" = "Paraguayan guaranies";
+/*Translated from: Qatari riyal*/
+"QAR_currency_name" = "Qatari riyal";
+/*Translated from: Romanian lei*/
+"RON_currency_name" = "Romanian lei";
+/*Translated from: Serbian dinara*/
+"RSD_currency_name" = "Serbian dinara";
+/*Translated from: Russian ruble*/
+"RUB_currency_name" = "Russian ruble";
+/*Translated from: Rwandan francs*/
+"RWF_currency_name" = "Rwandan francs";
+/*Translated from: Saudi riyals*/
+"SAR_currency_name" = "Saudi riyals";
+/*Translated from: Solomon Islands dollars*/
+"SBD_currency_name" = "Solomon Islands dollars";
+/*Translated from: Seychellois rupees*/
+"SCR_currency_name" = "Seychellois rupees";
+/*Translated from: Sudanese pounds*/
+"SDG_currency_name" = "Sudanese pounds";
+/*Translated from: Swedish kronor*/
+"SEK_currency_name" = "Swedish kronor";
+/*Translated from: Singapore dollars*/
+"SGD_currency_name" = "Singapore dollars";
+/*Translated from: Saint Helena pounds*/
+"SHP_currency_name" = "Saint Helena pounds";
+/*Translated from: Sierra Leonean leones*/
+"SLL_currency_name" = "Sierra Leonean leones";
+/*Translated from: Somali shillings*/
+"SOS_currency_name" = "Somali shillings";
+/*Translated from: Surinamese dollars*/
+"SRD_currency_name" = "Surinamese dollars";
+/*Translated from: Sao Tome and Principe dobras*/
+"STD_currency_name" = "Sao Tome and Principe dobras";
+/*Translated from: Salvadoran colones*/
+"SVC_currency_name" = "Salvadoran colones";
+/*Translated from: Syrian pounds*/
+"SYP_currency_name" = "Syrian pounds";
+/*Translated from: Swazi emalangeni*/
+"SZL_currency_name" = "Swazi emalangeni";
+/*Translated from: Thai baht*/
+"THB_currency_name" = "Thai baht";
+/*Translated from: Tajikistani somoni*/
+"TJS_currency_name" = "Tajikistani somoni";
+/*Translated from: Turkmenistan manat*/
+"TMT_currency_name" = "Turkmenistan manat";
+/*Translated from: Tunisian dinara*/
+"TND_currency_name" = "Tunisian dinara";
+/*Translated from: Tonga pa'anga*/
+"TOP_currency_name" = "Tonga pa'anga";
+/*Translated from: Turkish liras*/
+"TRY_currency_name" = "Turkish liras";
+/*Translated from: Trinidad and Tobago dollars*/
+"TTD_currency_name" = "Trinidad and Tobago dollars";
+/*Translated from: New Taiwan dollars*/
+"TWD_currency_name" = "New Taiwan dollars";
+/*Translated from: Tanzanian shillings*/
+"TZS_currency_name" = "Tanzanian shillings";
+/*Translated from: Ukrainian hryvni/hryven*/
+"UAH_currency_name" = "Ukrainian hryvni/hryven";
+/*Translated from: Ugandan shillings*/
+"UGX_currency_name" = "Ugandan shillings";
+/*Translated from: United States dollars*/
+"USD_currency_name" = "United States dollars";
+/*Translated from: pesos Uruguayos*/
+"UYU_currency_name" = "pesos Uruguayos";
+/*Translated from: Uzbekistani som*/
+"UZS_currency_name" = "Uzbekistani som";
+/*Translated from: Venezuelan bolivares fuertes*/
+"VEF_currency_name" = "Venezuelan bolivares fuertes";
+/*Translated from: Vietnamese dong*/
+"VND_currency_name" = "Vietnamese dong";
+/*Translated from: Vanuatu vatu*/
+"VUV_currency_name" = "Vanuatu vatu";
+/*Translated from: Samoan tala*/
+"WST_currency_name" = "Samoan tala";
+/*Translated from: Central African CFA francs*/
+"XAF_currency_name" = "Central African CFA francs";
+/*Translated from: Bitcoins*/
+"XBT_currency_name" = "Bitcoins";
+/*Translated from: East Caribbean dollars*/
+"XCD_currency_name" = "East Caribbean dollars";
+/*Translated from: IMF Special Drawing Rights*/
+"XDR_currency_name" = "IMF Special Drawing Rights";
+/*Translated from: Litecoins*/
+"XLT_currency_name" = "Litecoins";
+/*Translated from: West African CFA francs*/
+"XOF_currency_name" = "West African CFA francs";
+/*Translated from: Comptoirs Francais du Pacifique Francs*/
+"XPF_currency_name" = "Comptoirs Francais du Pacifique Francs";
+/*Translated from: Yemeni rial*/
+"YER_currency_name" = "Yemeni rial";
+/*Translated from: South African rand*/
+"ZAR_currency_name" = "South African rand";
+/*Translated from: Zambian kwacha*/
+"ZMW_currency_name" = "Zambian kwacha";
+/*Translated from: Zimbabwean dollars*/
+"ZWL_currency_name" = "Zimbabwean dollars";

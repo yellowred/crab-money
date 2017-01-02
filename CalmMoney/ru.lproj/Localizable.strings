@@ -1,3 +1,4 @@
+
 /*
   Localizable.strings
   Finance App for Travellers
@@ -6,341 +7,516 @@
   Copyright © 2015 Oleg Kubrakov. All rights reserved.
 */
 "expenses" = "Расходы";
+
 /*Translated from: Earnings*/
 "earnings" = "Заработок";
+
 /*Translated from: Budget*/
 "budget" = "Бюджет";
+
 /*Translated from: Categories*/
 "categories" = "Категории";
+
 /*Translated from: Add*/
 "add" = "Добавить";
+
 /*Translated from: Save*/
 "save" = "Сохранить";
-/** CURRENCIES **/
+
+/** CURRENCIES */
 "AED_currency_name" = "ОАЭ Дирхам";
+
 /*Translated from: Afghan afghanis*/
 "AFN_currency_name" = "Афганские афгани";
+
 /*Translated from: Albanian leke*/
 "ALL_currency_name" = "Албанский леков";
+
 /*Translated from: Armenian dram*/
 "AMD_currency_name" = "Армянский драм";
+
 /*Translated from: Netherlands Antillean guilders*/
 "ANG_currency_name" = "Нидерландский антильский гульден";
+
 /*Translated from: Angolan kwanza*/
 "AOA_currency_name" = "Ангольская Кванза";
+
 /*Translated from: Argentine pesos*/
 "ARS_currency_name" = "Аргентинское песо";
+
 /*Translated from: Australian dollars*/
 "AUD_currency_name" = "Австралийские доллары";
+
 /*Translated from: Aruban florin*/
 "AWG_currency_name" = "Флорин Арубы";
+
 /*Translated from: Azerbaijanian manat*/
 "AZN_currency_name" = "Азербайджанский манат";
+
 /*Translated from: Bosnia and Herzegovina convertible marks*/
 "BAM_currency_name" = "Конвертируемые марки Боснии и Герцеговины";
+
 /*Translated from: Barbadian dollars*/
 "BBD_currency_name" = "Барбадосские доллары";
+
 /*Translated from: Bangladeshi taka*/
 "BDT_currency_name" = "Бангладеш така";
+
 /*Translated from: Bulgarian leva*/
 "BGN_currency_name" = "Болгарский Лев";
+
 /*Translated from: Bahraini dinara*/
 "BHD_currency_name" = "Бахрейнская динара";
+
 /*Translated from: Burundi francs*/
 "BIF_currency_name" = "Франки Бурунди";
+
 /*Translated from: Bermudian dollars*/
 "BMD_currency_name" = "Бермудский доллар";
+
 /*Translated from: Brunei dollars*/
 "BND_currency_name" = "Брунейский доллар";
+
 /*Translated from: Bolivian bolivianos*/
 "BOB_currency_name" = "Боливийская боливиано";
+
 /*Translated from: Brasilien reais*/
 "BRL_currency_name" = "Бразильский реал";
+
 /*Translated from: Bahamian dollars*/
 "BSD_currency_name" = "Багамский доллар";
+
 /*Translated from: Bitcoins*/
 "BTC_currency_name" = "Биткоины";
+
 /*Translated from: Bhutanese ngultrum*/
 "BTN_currency_name" = "Бутанский нгултрум";
+
 /*Translated from: Botswanan pulas*/
 "BWP_currency_name" = "Ботсванская пула";
+
 /*Translated from: Belarusian ruble*/
 "BYR_currency_name" = "Белорусский рубль";
+
 /*Translated from: Belize dollars*/
 "BZD_currency_name" = "Белизский доллар";
+
 /*Translated from: Canadian dollars*/
 "CAD_currency_name" = "Канадские доллары";
+
 /*Translated from: Congolese francs*/
 "CDF_currency_name" = "Конголезские франки";
+
 /*Translated from: Switzerland Francs*/
 "CHF_currency_name" = "Швейцарский франк";
+
 /*Translated from: Unidades de fomento*/
 "CLF_currency_name" = "Чилийский Унидад de Фоменто";
+
 /*Translated from: Chilean pesos*/
 "CLP_currency_name" = "Чилийское песо";
+
 /*Translated from: Chinese offshore renminbi yuan*/
 "CNH_currency_name" = "Китайский оффшорный юань";
+
 /*Translated from: Chinese renminbi yuan*/
 "CNY_currency_name" = "Китайский юань";
+
 /*Translated from: Colombian pesos*/
 "COP_currency_name" = "Колумбийское песо";
+
 /*Translated from: Costa Rican colones*/
 "CRC_currency_name" = "Коста-риканский колон";
+
 /*Translated from: Cuban convertible pesos*/
 "CUC_currency_name" = "Кубинские конвертируемые песо";
+
 /*Translated from: Cuban pesos*/
 "CUP_currency_name" = "Кубинский песо";
+
 /*Translated from: Cape Verdean escudos*/
 "CVE_currency_name" = "Эскудо Кабо-Верде";
+
 /*Translated from: Czech korun*/
 "CZK_currency_name" = "Чешская крона";
+
 /*Translated from: Djiboutian francs*/
 "DJF_currency_name" = "Джибутийские франки";
+
 /*Translated from: Danish kroner*/
 "DKK_currency_name" = "Датская крона";
+
 /*Translated from: Dominican pesos*/
 "DOP_currency_name" = "Доминиканское песо";
+
 /*Translated from: Algerian dinara*/
 "DZD_currency_name" = "Алжирская динара";
+
 /*Translated from: Egyptian pounds*/
 "EGP_currency_name" = "Египетские фунты";
+
 /*Translated from: Eritrean nakfa*/
 "ERN_currency_name" = "Эритрейская накфа";
+
 /*Translated from: Ethiopian birr*/
 "ETB_currency_name" = "Эфиопский быр";
+
 /*Translated from: European Union euros*/
 "EUR_currency_name" = "Евро";
+
 /*Translated from: Fijian dollars*/
 "FJD_currency_name" = "Фиджийские доллары";
+
 /*Translated from: Falkland Islands pounds*/
 "FKP_currency_name" = "Фунты Фолклендских островов";
+
 /*Translated from: British pounds sterling*/
 "GBP_currency_name" = "Британские фунты стерлингов";
+
 /*Translated from: Georgian lari*/
 "GEL_currency_name" = "Грузинский лари";
+
 /*Translated from: Guernsey Pound*/
 "GGP_currency_name" = "Гернсийский фунт";
+
 /*Translated from: Ghana cedis*/
 "GHS_currency_name" = "Ганский седи";
+
 /*Translated from: Gibraltar pounds*/
 "GIP_currency_name" = "Гибралтарский фунт";
+
 /*Translated from: Gambian dalasi*/
 "GMD_currency_name" = "Гамбийский даласи";
+
 /*Translated from: Guinea Francs*/
 "GNF_currency_name" = "Гвинейский франк";
+
 /*Translated from: Guatemalan quetzales*/
 "GTQ_currency_name" = "Гватемальские кетцали";
+
 /*Translated from: Guyanese dollars*/
 "GYD_currency_name" = "Гайанские доллары";
+
 /*Translated from: Hong Kong dollars*/
 "HKD_currency_name" = "Гонконгские доллары";
+
 /*Translated from: Honduran lempiras*/
 "HNL_currency_name" = "Гондурасских лемпир";
+
 /*Translated from: Croatian kuna*/
 "HRK_currency_name" = "Хорватская куна";
+
 /*Translated from: Haitian gourdes*/
 "HTG_currency_name" = "Гаитянский гурд";
+
 /*Translated from: Hungarian forint*/
 "HUF_currency_name" = "Венгерский форинт";
+
 /*Translated from: Indonesia Rupiahs*/
 "IDR_currency_name" = "Индонезийские рупии";
+
 /*Translated from: Israeli shekalim hadash*/
 "ILS_currency_name" = "Новый израильский шекель";
+
 /*Translated from: Isle of Man pounds*/
 "IMP_currency_name" = "Фунты Острова Мэн";
+
 /*Translated from: India Rupeess*/
 "INR_currency_name" = "Индийские рупии";
+
 /*Translated from: Iraqi dinara*/
 "IQD_currency_name" = "Иракских динары";
+
 /*Translated from: Iranian rials*/
 "IRR_currency_name" = "Иранские риалы";
+
 /*Translated from: Iceland Kronur*/
 "ISK_currency_name" = "Исландская крона";
+
 /*Translated from: Jamaican dollars*/
 "JMD_currency_name" = "Ямайские доллары";
+
 /*Translated from: Jordanian dinara*/
 "JOD_currency_name" = "Иорданская динара";
+
 /*Translated from: Japanese yen*/
 "JPY_currency_name" = "Японская иена";
+
 /*Translated from: Kenyan shillings*/
 "KES_currency_name" = "Кенийские шиллинги";
+
 /*Translated from: Kyrgyzstani soms*/
 "KGS_currency_name" = "Киргизский сом";
+
 /*Translated from: Cambodian riels*/
 "KHR_currency_name" = "Камбоджийские риели";
+
 /*Translated from: Comorian francs*/
 "KMF_currency_name" = "Коморские франки";
+
 /*Translated from: Chosun won*/
 "KPW_currency_name" = "Чосон вон";
+
 /*Translated from: Korean won*/
 "KRW_currency_name" = "Корейский вон";
+
 /*Translated from: Kuwaiti dinara*/
 "KWD_currency_name" = "Кувейтская динара";
+
 /*Translated from: Cayman Islands dollars*/
 "KYD_currency_name" = "Доллары Каймановых островов";
+
 /*Translated from: Kazakhstani tenge*/
 "KZT_currency_name" = "Казахстанский тенге";
+
 /*Translated from: Lao kip*/
 "LAK_currency_name" = "Лаосский кип";
+
 /*Translated from: Lebanese pounds*/
 "LBP_currency_name" = "Ливанские фунты";
+
 /*Translated from: Sri Lankan rupees*/
 "LKR_currency_name" = "Шри-ланкийские рупии";
+
 /*Translated from: Liberian dollars*/
 "LRD_currency_name" = "Либерийские доллары";
+
 /*Translated from: Lesotho maloti*/
 "LSL_currency_name" = "Лесото малоти";
+
 /*Translated from: Litecoins*/
 "LTC_currency_name" = "Лайткоины";
+
 /*Translated from: Libyan dinara*/
 "LYD_currency_name" = "Ливийская динара";
+
 /*Translated from: Moroccan dirhams*/
 "MAD_currency_name" = "Марокканский дирхам";
+
 /*Translated from: Moldovan lei*/
 "MDL_currency_name" = "Молдавский лей";
+
 /*Translated from: Malagasy ariary*/
 "MGA_currency_name" = "Малагаси Ариари";
+
 /*Translated from: Macedonian denara*/
 "MKD_currency_name" = "Македонский денар";
+
 /*Translated from: Burmese kyats*/
 "MMK_currency_name" = "Мьянманский/Бирманский кьят";
+
 /*Translated from: Mongolian tugrik*/
 "MNT_currency_name" = "Монгольский тугрик";
+
 /*Translated from: Patacas*/
 "MOP_currency_name" = "Патака";
+
 /*Translated from: Mauritania ouguiyas*/
 "MRO_currency_name" = "Мавританская Угия";
+
 /*Translated from: Mauritian rupees*/
 "MUR_currency_name" = "Маврикийские рупии";
+
 /*Translated from: Maldivian rufiyaa*/
 "MVR_currency_name" = "Мальдивская руфия";
+
 /*Translated from: Malawian kwachas*/
 "MWK_currency_name" = "Малавийский Квач";
+
 /*Translated from: Mexican pesos*/
 "MXN_currency_name" = "Мексиканские песо";
+
 /*Translated from: Mexican Unidades de Inversion*/
 "MXV_currency_name" = "Мексиканская Универсальная валюта";
+
 /*Translated from: Malaysian ringgits*/
 "MYR_currency_name" = "Малайзийские ринггиты";
+
 /*Translated from: Mozambican meticais*/
 "MZN_currency_name" = "Мозамбикские метикалы";
+
 /*Translated from: Namibian dollars*/
 "NAD_currency_name" = "Намибийские доллары";
+
 /*Translated from: Nigerian nairas*/
 "NGN_currency_name" = "Нигерийская найра";
+
 /*Translated from: Gold Cordobas*/
 "NIO_currency_name" = "Кордоба Никарагуа";
+
 /*Translated from: Norwegian kroner*/
 "NOK_currency_name" = "Норвежская крона";
+
 /*Translated from: Nepalese rupees*/
 "NPR_currency_name" = "Непальские рупии";
+
 /*Translated from: New Zealand dollars*/
 "NZD_currency_name" = "Новозеландские доллары";
+
 /*Translated from: Omani rial*/
 "OMR_currency_name" = "Оманский риал";
+
 /*Translated from: Panamanian balboa*/
 "PAB_currency_name" = "Панамский бальбоа";
+
 /*Translated from: Peruvian nuevos soles*/
 "PEN_currency_name" = "Перуанский сол";
+
 /*Translated from: Papua New Guinean kina*/
 "PGK_currency_name" = "Кина Папуа-Новой Гвинеи";
+
 /*Translated from: Filipino pisos*/
 "PHP_currency_name" = "Филиппинские песо";
+
 /*Translated from: Pakistani rupees*/
 "PKR_currency_name" = "Пакистанские рупии";
+
 /*Translated from: Polish zlotych*/
 "PLN_currency_name" = "Польский злотый";
+
 /*Translated from: Paraguayan guaranies*/
 "PYG_currency_name" = "Парагвайские гуарани";
+
 /*Translated from: Qatari riyal*/
 "QAR_currency_name" = "Катарские риалы";
+
 /*Translated from: Romanian lei*/
 "RON_currency_name" = "Румынские леи";
+
 /*Translated from: Serbian dinara*/
 "RSD_currency_name" = "Сербские динары";
+
 /*Translated from: Russian ruble*/
 "RUB_currency_name" = "Российский рубль";
+
 /*Translated from: Rwandan francs*/
 "RWF_currency_name" = "Руандийские франки";
+
 /*Translated from: Saudi riyals*/
 "SAR_currency_name" = "Саудовские риалы";
+
 /*Translated from: Solomon Islands dollars*/
 "SBD_currency_name" = "Доллары Соломоновых островов";
+
 /*Translated from: Seychellois rupees*/
 "SCR_currency_name" = "Сейшельские рупии";
+
 /*Translated from: Sudanese pounds*/
 "SDG_currency_name" = "Суданские фунты";
+
 /*Translated from: Swedish kronor*/
 "SEK_currency_name" = "Шведские кроны";
+
 /*Translated from: Singapore dollars*/
 "SGD_currency_name" = "Сингапурские доллары";
+
 /*Translated from: Saint Helena pounds*/
 "SHP_currency_name" = "Святой Елены фунтов";
+
 /*Translated from: Sierra Leonean leones*/
 "SLL_currency_name" = "Сьерра-Леоне Леонес";
+
 /*Translated from: Somali shillings*/
 "SOS_currency_name" = "Сомалийские шиллинги";
+
 /*Translated from: Surinamese dollars*/
 "SRD_currency_name" = "Суринамские доллары";
+
 /*Translated from: Sao Tome and Principe dobras*/
 "STD_currency_name" = "Добра Сан-Томе и Принсипи";
+
 /*Translated from: Salvadoran colones*/
 "SVC_currency_name" = "Сальвадорский колон";
+
 /*Translated from: Syrian pounds*/
 "SYP_currency_name" = "Сирийские фунты";
+
 /*Translated from: Swazi emalangeni*/
 "SZL_currency_name" = "Свазилендские эмалангени";
+
 /*Translated from: Thai baht*/
 "THB_currency_name" = "Тайский бат";
+
 /*Translated from: Tajikistani somoni*/
 "TJS_currency_name" = "Таджикский сомони";
+
 /*Translated from: Turkmenistan manat*/
 "TMT_currency_name" = "Туркменский манат";
+
 /*Translated from: Tunisian dinara*/
 "TND_currency_name" = "Тунисские динары";
+
 /*Translated from: Tonga pa'anga*/
 "TOP_currency_name" = "Паанга Тонга";
+
 /*Translated from: Turkish liras*/
 "TRY_currency_name" = "Турецкие лиры";
+
 /*Translated from: Trinidad and Tobago dollars*/
 "TTD_currency_name" = "Доллары Тринидада и Тобаго";
+
 /*Translated from: New Taiwan dollars*/
 "TWD_currency_name" = "Новые тайваньские доллары";
+
 /*Translated from: Tanzanian shillings*/
 "TZS_currency_name" = "Танзанийские шиллинги";
+
 /*Translated from: Ukrainian hryvni/hryven*/
 "UAH_currency_name" = "Украинские гривны";
+
 /*Translated from: Ugandan shillings*/
 "UGX_currency_name" = "Угандийские шиллинги";
+
 /*Translated from: United States dollars*/
 "USD_currency_name" = "Доллары США";
+
 /*Translated from: pesos Uruguayos*/
 "UYU_currency_name" = "Уругвайское песо";
+
 /*Translated from: Uzbekistani som*/
 "UZS_currency_name" = "Узбекистанский сом";
+
 /*Translated from: Venezuelan bolivares fuertes*/
 "VEF_currency_name" = "Венесуэльский боливар";
+
 /*Translated from: Vietnamese dong*/
 "VND_currency_name" = "Вьетнамский донг";
+
 /*Translated from: Vanuatu vatu*/
 "VUV_currency_name" = "Вануату вату";
+
 /*Translated from: Samoan tala*/
 "WST_currency_name" = "Тала Самоа";
+
 /*Translated from: Central African CFA francs*/
 "XAF_currency_name" = "Центрально Африканские КФА франки";
+
 /*Translated from: Bitcoins*/
 "XBT_currency_name" = "Биткоины";
+
 /*Translated from: East Caribbean dollars*/
 "XCD_currency_name" = "Восточно Карибский доллар";
+
+/*Translated from: IMF Special Drawing Rights*/
+"XDR_currency_name" = "МВФ специальных прав заимствования";
+
 /*Translated from: Litecoins*/
 "XLT_currency_name" = "Litecoins";
+
 /*Translated from: West African CFA francs*/
 "XOF_currency_name" = "Франки КФА Западной Африки";
+
+/*Translated from: Comptoirs Francais du Pacifique Francs*/
+"XPF_currency_name" = "Торговые фирмы Francais дю Pacifique франков";
+
 /*Translated from: Yemeni rial*/
 "YER_currency_name" = "Йеменский риал";
+
 /*Translated from: South African rand*/
 "ZAR_currency_name" = "Южноафриканский рэнд";
+
 /*Translated from: Zambian kwacha*/
 "ZMW_currency_name" = "Замбийская квача";
+
 /*Translated from: Zimbabwean dollars*/
 "ZWL_currency_name" = "Зимбабвийские доллары";
