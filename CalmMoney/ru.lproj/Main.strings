@@ -1,18 +1,15 @@
 
-/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "0Pe-5P-1sF"; */
-"0Pe-5P-1sF.title" = "Настройки";
+/* Class = "UITableViewSection"; headerTitle = "Purchases"; ObjectID = "09G-kI-haH"; */
+"09G-kI-haH.headerTitle" = "Покупки";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "0Pe-5P-1sF"; */
+"0Pe-5P-1sF.title" = "Профиль";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "30c-lm-KYf"; */
 "30c-lm-KYf.text" = "Этикетка";
 
 /* Class = "UILabel"; text = "Category name"; ObjectID = "3Ah-j1-KfZ"; */
-"3Ah-j1-KfZ.text" = "Название категории";
-
-/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "3fm-G7-nUN"; */
-"3fm-G7-nUN.title" = "Назад";
-
-/* Class = "UITableViewSection"; headerTitle = "Earnings"; ObjectID = "3pR-a6-zDj"; */
-"3pR-a6-zDj.headerTitle" = "Доход";
+"3Ah-j1-KfZ.text" = "Имя категории";
 
 /* Class = "UIButton"; accessibilityLabel = "Previous"; ObjectID = "3sp-Zk-3MF"; */
 "3sp-Zk-3MF.accessibilityLabel" = "Предыдущий";
@@ -26,14 +23,20 @@
 /* Class = "UIView"; accessibilityLabel = "Amount"; ObjectID = "41b-cO-QN7"; */
 "41b-cO-QN7.accessibilityLabel" = "Сумма";
 
+/* Class = "UILabel"; text = "28,163"; ObjectID = "4N0-ql-xbN"; */
+"4N0-ql-xbN.text" = "28,163";
+
+/* Class = "UILabel"; text = "1250 AUD remains"; ObjectID = "5F8-ii-41x"; */
+"5F8-ii-41x.text" = "1250 AUD остается";
+
 /* Class = "UILabel"; text = "Transactions"; ObjectID = "5rK-ba-hdg"; */
 "5rK-ba-hdg.text" = "Транзакции";
 
 /* Class = "UIButton"; normalTitle = "9"; ObjectID = "852-ri-AW1"; */
 "852-ri-AW1.normalTitle" = "9";
 
-/* Class = "UILabel"; text = "Max transaction amount"; ObjectID = "9x3-wz-V3O"; */
-"9x3-wz-V3O.text" = "Макс размер транзакции";
+/* Class = "UILabel"; text = "Detail"; ObjectID = "9OZ-WK-f1F"; */
+"9OZ-WK-f1F.text" = "Детально";
 
 /* Class = "UIButton"; normalTitle = "1"; ObjectID = "AoL-Yo-ciG"; */
 "AoL-Yo-ciG.normalTitle" = "1";
@@ -41,32 +44,35 @@
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Ar3-ge-jIV"; */
 "Ar3-ge-jIV.title" = "Назад";
 
+/* Class = "UILabel"; text = "Facebook Page"; ObjectID = "Aud-o9-IKc"; */
+"Aud-o9-IKc.text" = "Страница Facebook";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "BOW-bt-QmB"; */
+"BOW-bt-QmB.text" = "Детально";
+
 /* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Cv2-G7-HeO"; */
 "Cv2-G7-HeO.title" = "Категории";
 
 /* Class = "UILabel"; text = "Tools"; ObjectID = "D3q-JZ-cQk"; */
 "D3q-JZ-cQk.text" = "Инструменты";
 
-/* Class = "UIButton"; normalTitle = "⌫"; ObjectID = "DF6-ad-Jgk"; */
-"DF6-ad-Jgk.normalTitle" = "⌫";
-
 /* Class = "UITableViewSection"; headerTitle = "Details"; ObjectID = "DKT-Q3-OLZ"; */
-"DKT-Q3-OLZ.headerTitle" = "Детали";
+"DKT-Q3-OLZ.headerTitle" = "Детально";
 
 /* Class = "UILabel"; text = "AUD"; ObjectID = "Dvr-a8-6Ag"; */
 "Dvr-a8-6Ag.text" = "AUD";
 
-/* Class = "UILabel"; text = "AUD12000"; ObjectID = "EF5-cY-1gf"; */
-"EF5-cY-1gf.text" = "AUD12000";
-
-/* Class = "UITableViewSection"; headerTitle = "Base settings"; ObjectID = "Fwe-8v-kGg"; */
-"Fwe-8v-kGg.headerTitle" = "Базовые параметры";
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Eqp-gb-OHW"; */
+"Eqp-gb-OHW.text" = "Детально";
 
 /* Class = "UIButton"; normalTitle = ">"; ObjectID = "GEw-zA-NSZ"; */
 "GEw-zA-NSZ.normalTitle" = "&gt;";
 
 /* Class = "UIBarButtonItem"; title = "All categories"; ObjectID = "GNh-A3-S0j"; */
 "GNh-A3-S0j.title" = "Все категории";
+
+/* Class = "UINavigationItem"; title = "Budget"; ObjectID = "Gen-7d-mY4"; */
+"Gen-7d-mY4.title" = "Бюджет";
 
 /* Class = "UILabel"; text = "50000"; ObjectID = "GjU-nR-Wyb"; */
 "GjU-nR-Wyb.text" = "50000";
@@ -75,16 +81,16 @@
 "GpO-jy-7vO.text" = "USD";
 
 /* Class = "UIButton"; normalTitle = "Earning"; ObjectID = "HKv-uN-3ND"; */
-"HKv-uN-3ND.normalTitle" = "Доход";
+"HKv-uN-3ND.normalTitle" = "Доходы";
 
 /* Class = "UITableViewSection"; footerTitle = "Tap to select another category for this transaction"; ObjectID = "Hft-4l-e9f"; */
-"Hft-4l-e9f.footerTitle" = "Тап для выбора другой категории";
+"Hft-4l-e9f.footerTitle" = "Нажмите, чтобы выбрать другую категорию для этой транзакции";
 
 /* Class = "UITableViewSection"; headerTitle = "Category"; ObjectID = "Hft-4l-e9f"; */
 "Hft-4l-e9f.headerTitle" = "Категория";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "HyR-0t-8hd"; */
-"HyR-0t-8hd.title" = "Наблюдения";
+"HyR-0t-8hd.title" = "Понимание";
 
 /* Class = "UIButton"; normalTitle = "2"; ObjectID = "Ibc-2H-AkF"; */
 "Ibc-2H-AkF.normalTitle" = "2";
@@ -93,46 +99,55 @@
 "Ifz-Yu-OHB.text" = "Категории";
 
 /* Class = "UIButton"; normalTitle = "Expense"; ObjectID = "Imk-u6-Ckj"; */
-"Imk-u6-Ckj.normalTitle" = "Расход";
+"Imk-u6-Ckj.normalTitle" = "Расходы";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "Jlb-z8-FyZ"; */
-"Jlb-z8-FyZ.title" = "Наблюдения";
-
-/* Class = "UILabel"; text = "Send feedback"; ObjectID = "KCt-HL-IxV"; */
-"KCt-HL-IxV.text" = "Отправить отзыв";
+"Jlb-z8-FyZ.title" = "Понимание";
 
 /* Class = "UILabel"; text = "USD"; ObjectID = "Ks6-qW-w7S"; */
 "Ks6-qW-w7S.text" = "USD";
 
 /* Class = "UIButton"; normalTitle = "Add another currency"; ObjectID = "LFk-xb-2Bf"; */
-"LFk-xb-2Bf.normalTitle" = "Добавить еще валюту";
+"LFk-xb-2Bf.normalTitle" = "Добавить другую валюту";
 
 /* Class = "UILabel"; text = "USD"; ObjectID = "LHs-Qw-AYn"; */
 "LHs-Qw-AYn.text" = "USD";
 
-/* Class = "UILabel"; text = "Expenses"; ObjectID = "MpU-Ix-SEX"; */
-"MpU-Ix-SEX.text" = "Расходы";
+/* Class = "UITableViewSection"; footerTitle = "Please set desirable amount for monthly spendings"; ObjectID = "Lrr-e3-9DF"; */
+"Lrr-e3-9DF.footerTitle" = "Пожалуйста, установите желаемую сумму ежемесячных расходов";
 
-/* Class = "UILabel"; text = "Daily average"; ObjectID = "NQH-Sa-Lar"; */
-"NQH-Sa-Lar.text" = "Среднее в день";
+/* Class = "UITableViewSection"; headerTitle = "Budget for expenses"; ObjectID = "Lrr-e3-9DF"; */
+"Lrr-e3-9DF.headerTitle" = "Бюджет расходов";
+
+/* Class = "UILabel"; text = "Projected"; ObjectID = "NK6-Ev-lcP"; */
+"NK6-Ev-lcP.text" = "По прогнозам";
+
+/* Class = "UILabel"; text = "Terms & Privacy"; ObjectID = "NXU-kD-ubL"; */
+"NXU-kD-ubL.text" = "Terms & Privacy";
+
+/* Class = "UILabel"; text = "Daily average"; ObjectID = "Nn0-oK-0XD"; */
+"Nn0-oK-0XD.text" = "Среднее в день";
 
 /* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
 "OLP-8p-Qoi.title" = "Добавить";
 
 /* Class = "UIBarButtonItem"; title = "Numpad"; ObjectID = "ONW-Eu-dND"; */
-"ONW-Eu-dND.title" = "Ввод суммы";
+"ONW-Eu-dND.title" = "Цифровая клавиатура";
 
 /* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
-"OVX-l5-VRT.headerTitle" = "Домашняя валюта";
+"OVX-l5-VRT.headerTitle" = "Главная валюта";
 
 /* Class = "UIView"; accessibilityLabel = "Currency"; ObjectID = "OlV-oz-1kd"; */
 "OlV-oz-1kd.accessibilityLabel" = "Валюта";
 
+/* Class = "UILabel"; text = "Earnings"; ObjectID = "OxE-YO-zpZ"; */
+"OxE-YO-zpZ.text" = "Заработок";
+
 /* Class = "UILabel"; text = "Transactions"; ObjectID = "PRr-jE-kcp"; */
 "PRr-jE-kcp.text" = "Транзакции";
 
-/* Class = "UILabel"; text = "Daily average"; ObjectID = "QlO-xQ-hlL"; */
-"QlO-xQ-hlL.text" = "День";
+/* Class = "UILabel"; text = "Expenses"; ObjectID = "Php-53-LyH"; */
+"Php-53-LyH.text" = "Расходы";
 
 /* Class = "UINavigationItem"; title = "Currency converter"; ObjectID = "R29-mF-N3M"; */
 "R29-mF-N3M.title" = "Конвертер валют";
@@ -146,23 +161,14 @@
 /* Class = "UITextField"; text = "1000"; ObjectID = "RFZ-iF-Jil"; */
 "RFZ-iF-Jil.text" = "1000";
 
-/* Class = "UILabel"; text = "THB"; ObjectID = "RXb-An-YXV"; */
-"RXb-An-YXV.text" = "THB";
-
 /* Class = "UIButton"; normalTitle = "<"; ObjectID = "SAV-aX-za1"; */
 "SAV-aX-za1.normalTitle" = "&lt;";
 
-/* Class = "UILabel"; text = "Projected this period"; ObjectID = "Seg-EE-oTk"; */
-"Seg-EE-oTk.text" = "Ожидаемое в конце";
+/* Class = "UILabel"; text = "Restore active subscriptions"; ObjectID = "THi-xs-VP5"; */
+"THi-xs-VP5.text" = "Восстановить активные подписки";
 
-/* Class = "UILabel"; text = "About"; ObjectID = "UUG-7f-yOn"; */
-"UUG-7f-yOn.text" = "О";
-
-/* Class = "UILabel"; text = "MTA"; ObjectID = "Uca-t6-8FY"; */
-"Uca-t6-8FY.text" = "MTA";
-
-/* Class = "UILabel"; text = "Category"; ObjectID = "XDa-9l-g9Y"; */
-"XDa-9l-g9Y.text" = "Категория";
+/* Class = "UITableViewSection"; headerTitle = "Budget"; ObjectID = "WXz-O0-vvD"; */
+"WXz-O0-vvD.headerTitle" = "Бюджет";
 
 /* Class = "UIButton"; normalTitle = "5"; ObjectID = "Xgj-LV-XCS"; */
 "Xgj-LV-XCS.normalTitle" = "5";
@@ -171,28 +177,37 @@
 "Y9u-wn-l1q.title" = "Добавление транзакции";
 
 /* Class = "UILabel"; text = "Very long category name"; ObjectID = "Zgu-am-kg5"; */
-"Zgu-am-kg5.text" = "Имя очень длинные категории";
+"Zgu-am-kg5.text" = "Очень длинное имя категории";
+
+/* Class = "UILabel"; text = "Expense category"; ObjectID = "Zki-kB-BvS"; */
+"Zki-kB-BvS.text" = "Категория расходов";
 
 /* Class = "UINavigationItem"; title = "Choose a currency"; ObjectID = "aBO-NV-rGm"; */
 "aBO-NV-rGm.title" = "Выберите валюту";
 
-/* Class = "UILabel"; text = "DAA"; ObjectID = "bwi-eO-VnP"; */
-"bwi-eO-VnP.text" = "ДАА";
+/* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "aDu-2d-nLf"; */
+"aDu-2d-nLf.title" = "Профиль";
 
 /* Class = "UINavigationItem"; title = "Edit transaction"; ObjectID = "d2n-bK-cvR"; */
-"d2n-bK-cvR.title" = "Редактирование транзакций";
+"d2n-bK-cvR.title" = "Редактировать транзакцию";
+
+/* Class = "UIButton"; normalTitle = "Buy PRO version"; ObjectID = "dCz-Rm-VDp"; */
+"dCz-Rm-VDp.normalTitle" = "Купить PRO версию";
 
 /* Class = "UITabBarItem"; title = "Converter"; ObjectID = "e42-NY-80F"; */
 "e42-NY-80F.title" = "Конвертер";
 
-/* Class = "UITableViewSection"; headerTitle = "Application"; ObjectID = "f0R-wH-eYb"; */
-"f0R-wH-eYb.headerTitle" = "Применение";
+/* Class = "UILabel"; text = "Detail"; ObjectID = "eHH-wf-kDi"; */
+"eHH-wf-kDi.text" = "Детально";
+
+/* Class = "UIButton"; normalTitle = "."; ObjectID = "fPe-M8-c7a"; */
+"fPe-M8-c7a.normalTitle" = ".";
+
+/* Class = "UILabel"; text = "Rate Calm Money"; ObjectID = "fcO-fp-soh"; */
+"fcO-fp-soh.text" = "Оставить отзыв";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "fow-F6-4yA"; */
 "fow-F6-4yA.text" = "Lorem ipsum dolor сидеть er elit пористость, consectetaur изучена adipisicing Пеку, sed eiusmod губ incididunt ut Лэбор et dolore magna aliqua. Ут эним ад миним veniam, quis nostrud работником ullamco laboris Ниси ут aliquip ex ea commodo consequat. DUIs aute dolor irure в reprehenderit в voluptate жители esse cillum dolore ЕС fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, Сюнт в culpa qui официа deserunt mollit Аним id est laborum. Nam liber te conscient фактор Тум poen legum odioque civiuda.";
-
-/* Class = "UILabel"; text = "AUD12000"; ObjectID = "g2K-dh-BW1"; */
-"g2K-dh-BW1.text" = "AUD12000";
 
 /* Class = "UITableViewSection"; headerTitle = "Calendar period"; ObjectID = "ger-Ng-VvM"; */
 "ger-Ng-VvM.headerTitle" = "Календарный период";
@@ -200,14 +215,26 @@
 /* Class = "UIButton"; normalTitle = "3"; ObjectID = "h7U-Y2-VQc"; */
 "h7U-Y2-VQc.normalTitle" = "3";
 
-/* Class = "UITableViewSection"; headerTitle = "Expenses"; ObjectID = "i4V-ZG-KTI"; */
-"i4V-ZG-KTI.headerTitle" = "Расходы";
+/* Class = "UILabel"; text = "AUD"; ObjectID = "hei-1F-yIJ"; */
+"hei-1F-yIJ.text" = "AUD";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "iym-fW-Czt"; */
 "iym-fW-Czt.text" = "Этикетка";
 
+/* Class = "UILabel"; text = "Detail"; ObjectID = "jkh-EB-IId"; */
+"jkh-EB-IId.text" = "Детально";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "jtE-c5-PMG"; */
+"jtE-c5-PMG.text" = "Детально";
+
 /* Class = "UILabel"; text = "150"; ObjectID = "klq-qx-0VM"; */
 "klq-qx-0VM.text" = "150";
+
+/* Class = "UITableViewSection"; headerTitle = "Debug"; ObjectID = "kun-3T-d9D"; */
+"kun-3T-d9D.headerTitle" = "Отладка";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "kyY-jE-hvz"; */
+"kyY-jE-hvz.text" = "Сегодня";
 
 /* Class = "UIButton"; normalTitle = "8"; ObjectID = "lY1-ql-QzA"; */
 "lY1-ql-QzA.normalTitle" = "8";
@@ -218,11 +245,8 @@
 /* Class = "UIButton"; normalTitle = "7"; ObjectID = "mvw-pT-1b3"; */
 "mvw-pT-1b3.normalTitle" = "7";
 
-/* Class = "UIView"; accessibilityLabel = "Currency"; ObjectID = "nba-X5-61p"; */
-"nba-X5-61p.accessibilityLabel" = "Валюта";
-
 /* Class = "UITabBarItem"; title = "Insights"; ObjectID = "nry-mf-cPR"; */
-"nry-mf-cPR.title" = "Оценка";
+"nry-mf-cPR.title" = "Понимание";
 
 /* Class = "UIButton"; normalTitle = "0"; ObjectID = "pv4-aH-Z7R"; */
 "pv4-aH-Z7R.normalTitle" = "0";
@@ -236,23 +260,20 @@
 /* Class = "UITableViewSection"; headerTitle = "Amount"; ObjectID = "rxa-0C-v2t"; */
 "rxa-0C-v2t.headerTitle" = "Сумма";
 
+/* Class = "UILabel"; text = "Max expense"; ObjectID = "sCu-4c-PJY"; */
+"sCu-4c-PJY.text" = "Максимальный";
+
 /* Class = "UILabel"; text = "17 Nov – 17 Dec, 16"; ObjectID = "sp3-UF-Rql"; */
 "sp3-UF-Rql.text" = "17 Ноя-17 дек, 16";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "tb5-ve-LJz"; */
+"tb5-ve-LJz.text" = "Поддержка";
 
 /* Class = "UIButton"; normalTitle = "4"; ObjectID = "tqc-Ca-Ga4"; */
 "tqc-Ca-Ga4.normalTitle" = "4";
 
-/* Class = "UILabel"; text = "Home currency"; ObjectID = "uk3-yn-N40"; */
-"uk3-yn-N40.text" = "Главная валюта";
-
-/* Class = "UILabel"; text = "PTP"; ObjectID = "vJE-Vt-1nN"; */
-"vJE-Vt-1nN.text" = "PTP";
-
-/* Class = "UILabel"; text = "Earnings"; ObjectID = "vOg-PD-oWd"; */
-"vOg-PD-oWd.text" = "Заработок";
-
-/* Class = "UINavigationItem"; title = "About"; ObjectID = "vla-lu-YpA"; */
-"vla-lu-YpA.title" = "О";
+/* Class = "UILabel"; text = "Check data consistency"; ObjectID = "v9Z-4Z-KlS"; */
+"v9Z-4Z-KlS.text" = "Проверка согласованности данных";
 
 /* Class = "UIButton"; accessibilityLabel = "Next"; ObjectID = "vnK-zw-uTk"; */
 "vnK-zw-uTk.accessibilityLabel" = "Следующая";
@@ -263,8 +284,8 @@
 /* Class = "UILabel"; text = "Category name"; ObjectID = "yM5-L0-jZ2"; */
 "yM5-L0-jZ2.text" = "Имя категории";
 
-/* Class = "UILabel"; text = "AUD12000"; ObjectID = "yRf-Q7-JGx"; */
-"yRf-Q7-JGx.text" = "AUD12000";
+/* Class = "UILabel"; text = "Daily median"; ObjectID = "yMK-iR-DeG"; */
+"yMK-iR-DeG.text" = "Медиана";
 
 /* Class = "UIButton"; normalTitle = "6"; ObjectID = "ysw-K6-qUH"; */
 "ysw-K6-qUH.normalTitle" = "6";

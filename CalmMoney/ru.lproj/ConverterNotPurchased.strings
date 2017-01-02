@@ -1,36 +1,36 @@
 
 /* Class = "UILabel"; text = "170 useful currencies"; ObjectID = "1nO-jE-Qk1"; */
-"1nO-jE-Qk1.text" = "170 useful currencies";
+"1nO-jE-Qk1.text" = "170 полезных валют";
 
 /* Class = "UILabel"; text = "1 Month Subscription"; ObjectID = "76v-Gr-Bgn"; */
-"76v-Gr-Bgn.text" = "1 Month Subscription";
+"76v-Gr-Bgn.text" = "Подписка на 1 месяц";
 
 /* Class = "UILabel"; text = "Update rates every 4 hours"; ObjectID = "8aO-dj-Qf0"; */
-"8aO-dj-Qf0.text" = "Update rates every 4 hours";
+"8aO-dj-Qf0.text" = "Обновление курсов каждые 4 часа";
 
 /* Class = "UILabel"; text = "100 руб."; ObjectID = "EAY-Ax-vnS"; */
 "EAY-Ax-vnS.text" = "100 руб.";
 
 /* Class = "UILabel"; text = "Multi currency instant conversion"; ObjectID = "HSl-jH-mer"; */
-"HSl-jH-mer.text" = "Multi currency instant conversion";
+"HSl-jH-mer.text" = "Мгновенное конвертирование сразу в несколько валют";
 
 /* Class = "UILabel"; text = "100 руб."; ObjectID = "RmK-if-AL3"; */
 "RmK-if-AL3.text" = "100 руб.";
 
 /* Class = "UILabel"; text = "Multi currency instant view conversion"; ObjectID = "cd1-WS-rEL"; */
-"cd1-WS-rEL.text" = "Multi currency instant view conversion";
+"cd1-WS-rEL.text" = "Мгновенное конвертирование сразу в несколько валют";
 
 /* Class = "UILabel"; text = "6 Months Subscription"; ObjectID = "eYF-MI-CbC"; */
-"eYF-MI-CbC.text" = "6 Months Subscription";
+"eYF-MI-CbC.text" = "Подписка на 6 месяцев";
 
 /* Class = "UILabel"; text = "Currency Converter"; ObjectID = "fVy-cy-szF"; */
-"fVy-cy-szF.text" = "Currency Converter";
+"fVy-cy-szF.text" = "Конвертер Валют";
 
 /* Class = "UILabel"; text = "3 Months Subscription"; ObjectID = "gBW-NQ-LTP"; */
-"gBW-NQ-LTP.text" = "3 Months Subscription";
+"gBW-NQ-LTP.text" = "Подписка на 3 месяца";
 
 /* Class = "UILabel"; text = "100 руб."; ObjectID = "sLQ-gG-oEt"; */
 "sLQ-gG-oEt.text" = "100 руб.";
 
 /* Class = "UILabel"; text = "Cross app currency conversion"; ObjectID = "xTe-Rq-yYo"; */
-"xTe-Rq-yYo.text" = "Cross app currency conversion";
+"xTe-Rq-yYo.text" = "Мультивалютность по всему приложению";

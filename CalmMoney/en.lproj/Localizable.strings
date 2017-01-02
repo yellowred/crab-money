@@ -16,6 +16,30 @@
 "add" = "Add";
 /*Translated from: Save*/
 "save" = "Save";
+
+/** Localized **/
+"Ok" = "Ok";
+"Category can not be removed" = "Category can not be removed";
+"You have transactions assigned to this category. Please remove them first." = "You have transactions assigned to this category. Please remove them first.";
+"N/A" = "N/A";
+"Please wait..." = "Please wait...";
+"Tap currency to add transaction" = "Tap currency to add transaction";
+"Last updated on " = "Last updated on ";
+"Connect to the internet to update currency rates." = "Connect to the internet to update currency rates.";
+"remains" = "remains";
+"Please set the budget" = "Please set the budget";
+"undefined" = "undefined";
+"Purchase failed. Please check your internet connection and try again." = "Purchase failed. Please check your internet connection and try again.";
+"Restore purchases" = "Restore purchases";
+"Can not restore. Please check the internet connection and try again." = "Can not restore. Please check the internet connection and try again.";
+"Succesful." = "Succesful.";
+" products have been restored." = " products have been restored.";
+"Nothing to restore. Please purchase a PRO version or Currency Converter." = "Nothing to restore. Please purchase a PRO version or Currency Converter.";
+"Enjoying Calm Money? Please rate us. It helps us to provide better updates." = "Enjoying Calm Money? Please rate us. It helps us to provide better updates.";
+"Rate us" = "Rate us";
+"Rate" = "Rate";
+
+
 /** CURRENCIES **/
 "AED_currency_name" = "UAE dirhams";
 /*Translated from: Afghan afghanis*/

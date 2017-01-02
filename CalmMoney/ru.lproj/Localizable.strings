@@ -9,7 +9,7 @@
 "expenses" = "Расходы";
 
 /*Translated from: Earnings*/
-"earnings" = "Заработок";
+"earnings" = "Доходы";
 
 /*Translated from: Budget*/
 "budget" = "Бюджет";
@@ -22,6 +22,30 @@
 
 /*Translated from: Save*/
 "save" = "Сохранить";
+
+
+/** Localized **/
+"Ok" = "Ok";
+"Category can not be removed" = "Категория не может быть удалена";
+"You have transactions assigned to this category. Please remove them first." = "У вас есть транзакции в этой категории. Пожалуйста сначала удалите их.";
+"N/A" = "Н/Д";
+"Please wait..." = "Пожалуйста ждите...";
+"Tap currency to add transaction" = "Нажмите валюту чтобы добавить транзакцию";
+"Last updated on " = "Последний раз обновлено ";
+"Connect to the internet to update currency rates." = "Пожалуйста подключитесь к интернету, чтобы обновить курсы валют.";
+"remains" = "осталось";
+"Please set the budget" = "Пожалуйста установите бюджет";
+"undefined" = "не определено";
+"Purchase failed. Please check your internet connection and try again." = "Покупка не удалась. Пожалуйста проверьте соединение с интернетом и повторите попытку.";
+"Restore purchases" = "Восстановить покупки";
+"Can not restore. Please check the internet connection and try again." = "Невозможно восстановить. Пожалуйста проверьте соединение с интернетом и повторите попытку.";
+"Succesful." = "Успешно.";
+" products have been restored." = " продуктов восстановлено.";
+"Nothing to restore. Please purchase a PRO version or Currency Converter." = "Восстанавливать нечего. Пожалуйста приобретите PRO версию или подписку на Конвертер Валют.";
+"Enjoying Calm Money? Please rate us. It helps us to provide better updates." = "Нравятся Спокойные Деньги? Напишите отзы о нас! Это поможет нам делать приложение лучше.";
+"Rate us" = "Напишите отзыв";
+"Rate" = "Отзыв";
+
 
 /** CURRENCIES */
 "AED_currency_name" = "ОАЭ Дирхам";

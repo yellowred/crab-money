@@ -110,7 +110,7 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 			}
 			else if results.restoredProducts.count > 0 {
 				print("Restore Success: \(results.restoredProducts)")
-				message = "Succesful.".localized + " \(results.restoredProducts.count) " + "products have been restored.".localized
+				message = "Succesful.".localized + " \(results.restoredProducts.count) " + " products have been restored.".localized
 			}
 			else {
 				print("Nothing to Restore")
