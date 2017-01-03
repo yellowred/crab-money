@@ -141,7 +141,7 @@
 "OlV-oz-1kd.accessibilityLabel" = "Валюта";
 
 /* Class = "UILabel"; text = "Earnings"; ObjectID = "OxE-YO-zpZ"; */
-"OxE-YO-zpZ.text" = "Заработок";
+"OxE-YO-zpZ.text" = "Доходы";
 
 /* Class = "UILabel"; text = "Transactions"; ObjectID = "PRr-jE-kcp"; */
 "PRr-jE-kcp.text" = "Транзакции";

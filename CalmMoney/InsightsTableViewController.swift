@@ -269,6 +269,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	
 	func getCurrencyList() -> [Currency] {
+		print("Currencies", app().model.getCurrenciesList().count)
 		return app().model.getCurrenciesList()
 	}
 	

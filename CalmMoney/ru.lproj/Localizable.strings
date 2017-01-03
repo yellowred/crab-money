@@ -135,7 +135,7 @@
 "CHF_currency_name" = "Швейцарский франк";
 
 /*Translated from: Unidades de fomento*/
-"CLF_currency_name" = "Чилийский Унидад de Фоменто";
+"CLF_currency_name" = "Чилийский Унидад де Фоменто";
 
 /*Translated from: Chilean pesos*/
 "CLP_currency_name" = "Чилийское песо";
@@ -257,6 +257,9 @@
 /*Translated from: Iceland Kronur*/
 "ISK_currency_name" = "Исландская крона";
 
+/*Translated from: Jersey Pound*/
+"JEP_currency_name" = "Джерсийский фунт";
+
 /*Translated from: Jamaican dollars*/
 "JMD_currency_name" = "Ямайские доллары";
 
@@ -310,6 +313,9 @@
 
 /*Translated from: Litecoins*/
 "LTC_currency_name" = "Лайткоины";
+
+/*Translated from: Lithuanian Litas*/
+"LTL_currency_name" = "Литовский лит";
 
 /*Translated from: Libyan dinara*/
 "LYD_currency_name" = "Ливийская динара";

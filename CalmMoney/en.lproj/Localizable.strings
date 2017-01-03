@@ -180,6 +180,8 @@
 "IRR_currency_name" = "Iranian rials";
 /*Translated from: Iceland Kronur*/
 "ISK_currency_name" = "Iceland Kronur";
+/*Translated from: Jersey Pound*/
+"JEP_currency_name" = "Jersey Pound";
 /*Translated from: Jamaican dollars*/
 "JMD_currency_name" = "Jamaican dollars";
 /*Translated from: Jordanian dinara*/
@@ -216,6 +218,8 @@
 "LSL_currency_name" = "Lesotho maloti";
 /*Translated from: Litecoins*/
 "LTC_currency_name" = "Litecoins";
+/*Translated from: Lithuanian Litas*/
+"LTL_currency_name" = "Lithuanian Litas";
 /*Translated from: Libyan dinara*/
 "LYD_currency_name" = "Libyan dinara";
 /*Translated from: Moroccan dirhams*/

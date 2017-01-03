@@ -102,7 +102,6 @@ class Model
 			
 			let stringRate = String(describing: currencyData.value(forKey: "rate")!)
 			let rate = NSDecimalNumber(string: stringRate, locale: Locale(identifier: "en_US"))
-			
 			let currency = createCurrency(
 				currencyData.value(forKey: "code") as! String,
 				rate: Float(rate),
