@@ -64,6 +64,9 @@ class Model
 			
 			saveStorage()
 			setEventHappen("prepopulateData")
+			setEventHappen("dataMassage1")
+		} else if !isEventHappen("dataMassage1") {
+			massageCurrenciesWithData(loadDataFromJson("currencies")!)
 		}
 	}
 	
@@ -88,12 +91,12 @@ class Model
 
 	
 	func populateCurrenciesWithData(_ data: [NSDictionary]) {
-		var flagPngData:Data? = nil
+		var flagPngData:NSData? = nil
 		for currencyData:NSDictionary in data
 		{
 			if currencyData.value(forKey: "flag") != nil
 			{
-				flagPngData = Data(base64Encoded: currencyData.value(forKey: "flag") as! String, options: [])
+				flagPngData = NSData(base64Encoded: currencyData.value(forKey: "flag") as! String, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
 			}
 			else
 			{
@@ -112,6 +115,52 @@ class Model
 				if (currency!.code == "USD" || currency!.code == "EUR") {
 					currency!.popularity = currency!.popularity + 1
 				}
+			}
+		}
+	}
+	
+	
+	func massageCurrenciesWithData(_ data: [NSDictionary]) {
+		var flagPngData:NSData? = nil
+		let addedCurrenciesCodes = NSMutableSet()
+		for currencyData:NSDictionary in data
+		{
+			if currencyData.value(forKey: "flag") != nil
+			{
+				flagPngData = NSData(base64Encoded: currencyData.value(forKey: "flag") as! String, options: [])
+			}
+			else
+			{
+				flagPngData = nil
+			}
+			
+			let stringRate = String(describing: currencyData.value(forKey: "rate")!)
+			let rate = NSDecimalNumber(string: stringRate, locale: Locale(identifier: "en_US"))
+			
+			var currency = getCurrencyByCode(currencyData.value(forKey: "code") as! String)
+			addedCurrenciesCodes.add(currencyData.value(forKey: "code") as! String)
+			if currency != nil {
+				currency?.rate = rate
+				if flagPngData != nil {
+					currency?.flag = flagPngData!
+				}
+			} else {
+				currency = createCurrency(
+					currencyData.value(forKey: "code") as! String,
+					rate: Float(rate),
+					flag: flagPngData
+				)
+				if currency != nil {
+					currency!.popularity = Float(currencyData.value(forKey: "is_popular") as! String)!
+					if (currency!.code == "USD" || currency!.code == "EUR") {
+						currency!.popularity = currency!.popularity + 1
+					}
+				}
+			}
+		}
+		for currency in getCurrenciesList() {
+			if !addedCurrenciesCodes.contains(currency.code) {
+				currency.popularity = -1
 			}
 		}
 	}
@@ -268,7 +317,7 @@ class Model
 	
 	// MARK: - Currency
 	
-	func createCurrency(_ code: String, rate: Float, flag: Data?) -> Currency?
+	func createCurrency(_ code: String, rate: Float, flag: NSData?) -> Currency?
 	{
 		let newCurrency = Currency(entity: createEntity("Currency"),
 			insertInto:context) as Currency
@@ -284,6 +333,7 @@ class Model
 	{
 		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
+		fetchRequest.predicate = NSPredicate(format: "popularity >= 0")
 		
 		//Execute Fetch request
 		var fetchedResults = Array<Currency>()
