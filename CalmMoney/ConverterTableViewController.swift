@@ -124,6 +124,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			
 			customView.tag = 232
 			self.view.addSubview(customView)
+			self.tableView.bounces = false
+			self.tableView.isScrollEnabled = false
 		}
 	}
 	
@@ -157,6 +159,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		self.currenciesStructure = app().model.getHandsOnCurrenciesStructure(self.providedAmount!)
 		self.view.viewWithTag(231)?.removeFromSuperview()
 		self.view.viewWithTag(232)?.removeFromSuperview()
+		self.tableView.bounces = true
+		self.tableView.isScrollEnabled = true
 		self.tableView.reloadData()
 	}
 	

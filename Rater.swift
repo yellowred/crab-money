@@ -57,7 +57,7 @@ public class Rater: NSObject {
 			self.openRatePage()
 			self.setAppRatingShown()
 		}))
-		rateAlert.addAction(UIAlertAction(title: "Not Now", style: .cancel, handler: { (action) -> Void in
+		rateAlert.addAction(UIAlertAction(title: "Not Now".localized, style: .cancel, handler: { (action) -> Void in
 			self.resetAppLaunches()
 		}))
 		
