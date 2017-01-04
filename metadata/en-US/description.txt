@@ -2,13 +2,13 @@ Calm Money is the minimalistic yet powerful tool that gives you control over you
 
 + Input spendings with ease on the go even in crowded and distracting areas.
 + Use home currency to summarize expenses in different currencies if you are a traveller or an expat.
-+ Currency Converter with 170 currencies (including Bitcoins).
++ Currency Converter with 160 currencies (including Bitcoins).
 + Simple calm non-distracting interface.
 
 Welcome to Calm Money. I hope this tool will bring you peace of mind about your personal finances. I think that most of the time we need as few as a comfortable way to input our expenses, an insight about how healthy our spending performance, how much more we can spend and some tool to answer the question "Can we afford this spending?".
 
 ❖ Input transactions
-Large buttons for swift input while in hustle in any of 170 currencies.
+Large buttons for swift input while in hustle in any of 160 currencies.
 In-App purchase for more that 30 transactions.
 
 ❖ Insights
@@ -18,3 +18,10 @@ Check insights to maintain peace of mind: budget, projected monthly total, daily
 ❖ Currency converter
 Available after In-App Subscription.
 Compare a price of a Macbook in Hong Kong to your home country price and also all those countries that you plan to visit, like Singapore, Thailand, Australia, etc. Instantly.
+
+Calm Money is free to download and use.
+You can buy Unlimited Transactions in-app purchase to be able to add more than 30 transactions.
+Currency Converter is available as in-app auto-renewable subscription for 1 month for $2.99, 3 months for $6.99, 6 months for $9.49. The subscription will be auto renewing until canceled by the user.
+Subscriptions will be charged to your credit card through your iTunes account. Your subscription will automatically renew unless cancelled at least 24 hours before the end of the current period. You will not be able to cancel a subscription during the active period. You can manage your subscriptions in the Account Settings after purchase.
+
+Our Terms of Use and Privacy Policy: http://calm-money.com/licence.html
