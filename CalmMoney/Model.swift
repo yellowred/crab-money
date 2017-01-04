@@ -64,8 +64,8 @@ class Model
 			
 			saveStorage()
 			setEventHappen("prepopulateData")
-			setEventHappen("dataMassage1")
-		} else if !isEventHappen("dataMassage1") {
+			setEventHappen("dataMassage3")
+		} else if !isEventHappen("dataMassage3") {
 			massageCurrenciesWithData(loadDataFromJson("currencies")!)
 		}
 	}
@@ -357,7 +357,7 @@ class Model
 		
 		let fetchRequest: NSFetchRequest<Currency> = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: false), NSSortDescriptor(key: "code", ascending: true)]
-		fetchRequest.predicate = NSPredicate(format: "in_converter <> 1")
+		fetchRequest.predicate = NSPredicate(format: "in_converter <> 1 && popularity >= 0")
 		
 		var fetchedResults = Array<Currency>()
 		do {
@@ -392,7 +392,7 @@ class Model
 	{
 		let fetchRequest: NSFetchRequest<Currency>  = NSFetchRequest(entityName: NSStringFromClass(Currency.classForCoder()))
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "code", ascending: true)]
-		fetchRequest.predicate = NSPredicate(format: "in_converter = 1")
+		fetchRequest.predicate = NSPredicate(format: "in_converter = 1 && popularity >= 0")
 		
 		var fetchedResults = Array<Currency>()
 		do {

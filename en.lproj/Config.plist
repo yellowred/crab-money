@@ -20,7 +20,7 @@
 	<key>rater-required-launches-before-rating</key>
 	<integer>30</integer>
 	<key>converter-free</key>
-	<false/>
+	<true/>
 	<key>transactions-max-free</key>
 	<integer>30</integer>
 </dict>

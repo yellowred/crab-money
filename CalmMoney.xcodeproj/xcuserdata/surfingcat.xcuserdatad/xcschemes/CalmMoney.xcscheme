@@ -32,26 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A9C91A31B3444E500DE580F"
-               BuildableName = "Calm Money.xctest"
-               BlueprintName = "CrabAppTests"
-               ReferencedContainer = "container:CalmMoney.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3FE2BDC31DF19CBF009E4321"
-               BuildableName = "CrabAppUITests.xctest"
-               BlueprintName = "CrabAppUITests"
-               ReferencedContainer = "container:CalmMoney.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "3F0396551DF27E5500252187"
                BuildableName = "CalmMoneyTests.xctest"
                BlueprintName = "CalmMoneyTests"

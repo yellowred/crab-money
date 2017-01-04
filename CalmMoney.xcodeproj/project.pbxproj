@@ -20,6 +20,7 @@
 		3F0396681DF27F5900252187 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		3F0396701DF27FB000252187 /* CalmMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */; };
 		3F1552011DF2E9E6008985B1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1552001DF2E9E6008985B1 /* StoreKit.framework */; };
+		3F2108BD1E1CC4FC008217DA /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2108BC1E1CC4FC008217DA /* ObjC.m */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F3162A31E18ECC900E4CD1A /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3162A11E18ECC900E4CD1A /* DebugViewController.swift */; };
 		3F3162A41E18ECC900E4CD1A /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3162A21E18ECC900E4CD1A /* DebugViewController.xib */; };
@@ -149,6 +150,8 @@
 		3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneyUITests.swift; sourceTree = "<group>"; };
 		3F0396711DF27FB000252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F1552001DF2E9E6008985B1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3F2108BB1E1CC4CA008217DA /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
+		3F2108BC1E1CC4FC008217DA /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
 		3F28688E1D8843B500ACBFF4 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		3F31629D1E18E14D00E4CD1A /* CrabApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CrabApp copy-Info.plist"; path = "/Users/surfingcat/Sites/CrabApp/xcode/CrabApp copy-Info.plist"; sourceTree = "<absolute>"; };
 		3F3162A11E18ECC900E4CD1A /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -486,6 +489,8 @@
 				9A9C918F1B3444E500DE580F /* Supporting Files */,
 				9AF9E1261B4B6F810076BE69 /* DataModel.xcdatamodeld */,
 				3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */,
+				3F2108BB1E1CC4CA008217DA /* ObjC.h */,
+				3F2108BC1E1CC4FC008217DA /* ObjC.m */,
 			);
 			path = CalmMoney;
 			sourceTree = "<group>";
@@ -940,6 +945,7 @@
 				3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */,
 				9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */,
 				9A0B11931B4E2D9400BC8BB1 /* Networking.swift in Sources */,
+				3F2108BD1E1CC4FC008217DA /* ObjC.m in Sources */,
 				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
@@ -1225,6 +1231,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1274,6 +1281,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1314,6 +1322,7 @@
 				PRODUCT_NAME = "Calm Money";
 				PROVISIONING_PROFILE = "67873f43-4709-4236-8bfb-a938e17eefd5";
 				PROVISIONING_PROFILE_SPECIFIER = "Calm Money dev";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1341,6 +1350,7 @@
 				PRODUCT_NAME = "Calm Money";
 				PROVISIONING_PROFILE = "d6290783-c04f-4868-b30a-27944d8ac3e3";
 				PROVISIONING_PROFILE_SPECIFIER = "Calm Money Prod";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CrabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

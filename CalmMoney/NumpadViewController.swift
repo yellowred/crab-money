@@ -100,6 +100,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			result in
 			switch result {
 			case .success( _):
+				
 				print("Successful purchase: \(Purchase().getUnlimitedTransactionsProductId()!)")
 				Purchase().setPurchasedUnlimitedTransactions()
 				self.hideStore()

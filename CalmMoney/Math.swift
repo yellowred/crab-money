@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Crashlytics
 
 class Math: NSObject {
 	var transactions: [Transaction]
@@ -33,7 +34,22 @@ class Math: NSObject {
 	
 	
 	lazy var expensesTotal:NSDecimalNumber = {
-		return self.expenses.reduce(0, {return self.getMoneyInCurrencyWithHistoryRate($1, currency:self.homeCurrency).amount.adding($0)}).abs()
+		var sum = NSDecimalNumber(value: 0)
+		for elem in self.expenses {
+			let money = self.getMoneyInCurrencyWithHistoryRate(elem, currency:self.homeCurrency)
+			do {
+				try ObjC.catchException {
+					sum = money.amount.adding(sum)
+				}
+			} catch let error {
+				Crashlytics.sharedInstance().setObjectValue(elem, forKey: "trn")
+				Crashlytics.sharedInstance().setObjectValue(money.amount, forKey: "trn_money")
+				Crashlytics.sharedInstance().setObjectValue(sum, forKey: "sum_number")
+				Crashlytics.sharedInstance().recordError(error)
+				sum = NSDecimalNumber(value: 0)
+			}
+		}
+		return sum.abs()
 	}()
 
 	lazy var expensesToday:NSDecimalNumber = {
