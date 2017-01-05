@@ -35,7 +35,10 @@ class CalmMoneySnapshots: XCTestCase {
 	func testSnapshots() {
 		
 		let app = XCUIApplication()
-		app.tabBars.buttons["Add"].tap()
+		let addTabButton = app.tabBars.buttons.element(boundBy: 1)
+		let insightsTabButton = app.tabBars.buttons.element(boundBy: 0)
+		let converterTabButton = app.tabBars.buttons.element(boundBy: 2)
+		addTabButton.tap()
 		
 		let button = app.buttons["1"]
 		let button6 = app.buttons["6"]
@@ -45,12 +48,10 @@ class CalmMoneySnapshots: XCTestCase {
 		let button2 = app.buttons["8"]
 		button2.tap()
 		
-		let expenseButton = app.buttons["Expense"]
+		let expenseButton = app.buttons.matching(identifier: "addExpense").element(boundBy: 0)
 		expenseButton.tap()
 		
-		let collectionViewsQuery2 = app.collectionViews
-		let restaurantStaticText = collectionViewsQuery2.staticTexts["Restaurant"]
-		restaurantStaticText.tap()
+		app.collectionViews.cells.element(boundBy: 3).tap()
 		
 		let button3 = app.buttons["5"]
 		button3.tap()
@@ -65,18 +66,16 @@ class CalmMoneySnapshots: XCTestCase {
 		
 		snapshot("02Categories")
 		
-		let collectionViewsQuery = collectionViewsQuery2
-		collectionViewsQuery.staticTexts["Utilities"].tap()
+		app.collectionViews.cells.element(boundBy: 4).tap()
 		button.tap()
 		button2.tap()
 		button4.tap()
 		button4.tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["House"].tap()
+		app.collectionViews.cells.element(boundBy: 5).tap()
 		
-		let app2 = app
-		app2.otherElements["Currency"].tap()
-		app2.tables.staticTexts["European Union euros"].tap()
+		app.otherElements.matching(identifier: "currencySelector").element(boundBy: 0).tap()
+		app.tables.cells.element(boundBy: 0).tap()
 		button3.tap()
 		
 		let button5 = app.buttons["6"]
@@ -84,59 +83,52 @@ class CalmMoneySnapshots: XCTestCase {
 		app.buttons["8"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["Travel"].tap()
+		app.collectionViews.cells.element(boundBy: 0).tap()
 		
 		app.buttons["3"].tap()
 		button5.tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["Groceries"].tap()
+		app.collectionViews.cells.element(boundBy: 1).tap()
 		
 		button6.tap()
 		app.buttons["5"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["Groceries"].tap()
+		app.collectionViews.cells.element(boundBy: 2).tap()
 		
-		app2.otherElements["Currency"].tap()
-		app2.tables.staticTexts["Hong Kong dollars"].tap()
+		app.otherElements.matching(identifier: "currencySelector").element(boundBy: 0).tap()
+		app.tables.cells.element(boundBy: 1).tap()
 		
 		app.buttons["2"].tap()
 		app.buttons["5"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["Restaurant"].tap()
+		app.collectionViews.cells.element(boundBy: 3).tap()
 
 		app.buttons["4"].tap()
 		app.buttons["1"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["Sport"].tap()
+		app.collectionViews.cells.element(boundBy: 4).tap()
 
 		app.buttons["1"].tap()
 		app.buttons["2"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		collectionViewsQuery.staticTexts["Groceries"].tap()
+		app.collectionViews.cells.element(boundBy: 5).tap()
 		
 		
-		let tabBarsQuery = app.tabBars
-		tabBarsQuery.buttons["Insights"].tap()
+		insightsTabButton.tap()
 		snapshot("03Insights")
 		
-		let tablesQuery = app.tables
-		tablesQuery.cells.containing(.staticText, identifier:"Earnings").element.tap()
-		tablesQuery.staticTexts["Transactions"].tap()
+		app.tables.cells.matching(identifier: "transactionsListCell").element(boundBy: 0).tap()
 		snapshot("04Transactions")
-		app.navigationBars["Calm_Money.TransactionsTableView"].buttons["Insights"].tap()
 		
-		snapshot("03.5Insights")
-		
-		tablesQuery.staticTexts["Transactions"].tap()
-		tablesQuery.staticTexts["-HK$410.00"].tap()
+		app.tables.cells.element(boundBy: 0).tap()
 		snapshot("05Edit")
 		
 		
-		
+		/*
 		tabBarsQuery.buttons["Converter"].tap()
 		
 		let tablesQuery2 = app.tables
@@ -156,7 +148,7 @@ class CalmMoneySnapshots: XCTestCase {
 		textField.typeText("13888")
 		tablesQuery.staticTexts["SGD"].tap()
 		snapshot("06Converter")
-		
+		*/
 	}
 	
 	/*
