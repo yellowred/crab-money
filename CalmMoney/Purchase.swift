@@ -110,6 +110,12 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 				message = "Can not restore. Please check the internet connection and try again.".localized
 			}
 			else if results.restoredProducts.count > 0 {
+				for product in results.restoredProducts {
+					Purchase().setPurchased(productId: product.productId)
+					if product.needsFinishTransaction {
+						SwiftyStoreKit.finishTransaction(product.transaction)
+					}
+				}
 				print("Restore Success: \(results.restoredProducts)")
 				message = "Succesful.".localized + " \(results.restoredProducts.count) " + " products have been restored.".localized
 			}

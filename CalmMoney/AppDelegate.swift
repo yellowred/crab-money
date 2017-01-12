@@ -28,9 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			for product in products {
 				if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
 					if product.needsFinishTransaction {
-						// Deliver content from server, then:
-						SwiftyStoreKit.finishTransaction(product.transaction)
 						Purchase().setPurchased(productId: product.productId)
+						SwiftyStoreKit.finishTransaction(product.transaction)
 					}
 					print("Observer: purchased: \(product)")
 				}
