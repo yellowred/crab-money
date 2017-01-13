@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "170 useful currencies"; ObjectID = "1nO-jE-Qk1"; */
-"1nO-jE-Qk1.text" = "160 useful currencies";
+"1nO-jE-Qk1.text" = "170 useful currencies";
 
 /* Class = "UILabel"; text = "1 Month Subscription"; ObjectID = "76v-Gr-Bgn"; */
 "76v-Gr-Bgn.text" = "1 Month Subscription";
@@ -10,6 +10,9 @@
 
 /* Class = "UILabel"; text = "100 руб."; ObjectID = "EAY-Ax-vnS"; */
 "EAY-Ax-vnS.text" = "100 руб.";
+
+/* Class = "UILabel"; text = "The subscription will be auto-renewed after the end of the period."; ObjectID = "FHd-Og-JSJ"; */
+"FHd-Og-JSJ.text" = "The subscription will be auto-renewed after the end of the period.";
 
 /* Class = "UILabel"; text = "Multi currency instant conversion"; ObjectID = "HSl-jH-mer"; */
 "HSl-jH-mer.text" = "Multi currency instant conversion";

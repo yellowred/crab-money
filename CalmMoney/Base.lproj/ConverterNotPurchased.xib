@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view tag="212" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eK-iG-dMn">
-                    <rect key="frame" x="115" y="345.5" width="90" height="100"/>
+                    <rect key="frame" x="115" y="362" width="90" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Months Subscription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBW-NQ-LTP">
                             <rect key="frame" x="5" y="5" width="80" height="45"/>
@@ -85,7 +85,7 @@
                     </constraints>
                 </view>
                 <view tag="211" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PnG-t8-B2j">
-                    <rect key="frame" x="10" y="345.5" width="90" height="100"/>
+                    <rect key="frame" x="10" y="362" width="90" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Month Subscription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76v-Gr-Bgn">
                             <rect key="frame" x="5" y="5" width="80" height="45"/>
@@ -122,7 +122,7 @@
                     </constraints>
                 </view>
                 <view tag="213" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdI-bh-Iwx">
-                    <rect key="frame" x="221" y="345.5" width="89" height="100"/>
+                    <rect key="frame" x="221" y="362" width="89" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" tag="223" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 руб." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sLQ-gG-oEt">
                             <rect key="frame" x="5" y="50" width="79" height="45"/>
@@ -163,6 +163,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The subscription will be auto-renewed after the end of the period." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHd-Og-JSJ">
+                    <rect key="frame" x="10" y="472" width="300" height="26"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -181,20 +187,23 @@
                 <constraint firstItem="2eK-iG-dMn" firstAttribute="top" secondItem="PnG-t8-B2j" secondAttribute="top" id="FTq-cH-m06"/>
                 <constraint firstItem="yPz-Vy-aBS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MWa-lA-HHB"/>
                 <constraint firstItem="wdI-bh-Iwx" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.28" id="Rw0-l6-OAA"/>
-                <constraint firstItem="PnG-t8-B2j" firstAttribute="top" secondItem="xTe-Rq-yYo" secondAttribute="bottom" constant="51" id="SZT-Ue-1e1"/>
+                <constraint firstAttribute="bottom" secondItem="FHd-Og-JSJ" secondAttribute="bottom" constant="70" id="V3k-A4-Jcq"/>
                 <constraint firstItem="fVy-cy-szF" firstAttribute="centerX" secondItem="cd1-WS-rEL" secondAttribute="centerX" id="YUN-PP-kgj"/>
                 <constraint firstItem="1nO-jE-Qk1" firstAttribute="trailing" secondItem="8aO-dj-Qf0" secondAttribute="trailing" id="abJ-hC-6lc"/>
                 <constraint firstItem="PnG-t8-B2j" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.28" id="gOm-ip-fR6"/>
+                <constraint firstItem="FHd-Og-JSJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="iIp-zS-AW5"/>
                 <constraint firstItem="xTe-Rq-yYo" firstAttribute="top" secondItem="8aO-dj-Qf0" secondAttribute="bottom" constant="8" id="md6-QF-bEa"/>
                 <constraint firstItem="yPz-Vy-aBS" firstAttribute="trailing" secondItem="cd1-WS-rEL" secondAttribute="trailing" id="ney-71-Skx"/>
                 <constraint firstItem="xTe-Rq-yYo" firstAttribute="leading" secondItem="8aO-dj-Qf0" secondAttribute="leading" id="nio-ZW-6TM"/>
+                <constraint firstItem="FHd-Og-JSJ" firstAttribute="top" secondItem="PnG-t8-B2j" secondAttribute="bottom" constant="10" id="qox-Ry-F63"/>
                 <constraint firstItem="1nO-jE-Qk1" firstAttribute="top" secondItem="cd1-WS-rEL" secondAttribute="bottom" constant="8" symbolic="YES" id="sVp-z2-TdD"/>
                 <constraint firstItem="cd1-WS-rEL" firstAttribute="top" secondItem="fVy-cy-szF" secondAttribute="bottom" constant="2" id="tRy-95-cDy"/>
+                <constraint firstAttribute="trailing" secondItem="FHd-Og-JSJ" secondAttribute="trailing" constant="10" id="tZb-m9-QkS"/>
                 <constraint firstItem="2eK-iG-dMn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vfG-Er-Bp2"/>
                 <constraint firstItem="yPz-Vy-aBS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="33" id="xSb-oC-qdL"/>
                 <constraint firstItem="fVy-cy-szF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xYg-mx-OxA"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="54.5"/>
+            <point key="canvasLocation" x="33" y="54"/>
         </view>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi currency instant conversion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSl-jH-mer">
             <rect key="frame" x="0.0" y="0.0" width="308" height="21"/>

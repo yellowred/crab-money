@@ -170,7 +170,6 @@
 		3F54DDDB1E1A974800C61537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InsightsEmptyView.xib; sourceTree = "<group>"; };
 		3F54DDDE1E1A974D00C61537 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InsightsEmptyView.strings; sourceTree = "<group>"; };
 		3F54DDE01E1A974F00C61537 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InsightsEmptyView.strings; sourceTree = "<group>"; };
-		3F54DDE21E1A97A800C61537 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConverterNotPurchased.strings; sourceTree = "<group>"; };
 		3F54DDE41E1A97AB00C61537 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ConverterNotPurchased.strings; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 		3FFB07561DFC3701004F4514 /* Alerter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		3FFB07581DFD29E7004F4514 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3FFBACA31D9BC54C005C7924 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		3FFE07DC1E2877F00058E5DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConverterNotPurchased.strings; sourceTree = "<group>"; };
 		3FFED5C21DFEFDA60034320B /* CalmMoneySnapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneySnapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFED5C41DFEFDA60034320B /* CalmMoneySnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneySnapshots.swift; sourceTree = "<group>"; };
 		3FFED5C61DFEFDA60034320B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1062,8 +1062,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FE2BDDB1DF1C3E2009E4321 /* Base */,
-				3F54DDE21E1A97A800C61537 /* en */,
 				3F54DDE41E1A97AB00C61537 /* ru */,
+				3FFE07DC1E2877F00058E5DD /* en */,
 			);
 			name = ConverterNotPurchased.xib;
 			sourceTree = "<group>";

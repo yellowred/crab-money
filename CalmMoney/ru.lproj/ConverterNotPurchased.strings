@@ -34,3 +34,7 @@
 
 /* Class = "UILabel"; text = "Cross app currency conversion"; ObjectID = "xTe-Rq-yYo"; */
 "xTe-Rq-yYo.text" = "Мультивалютность по всему приложению";
+
+/* Class = "UILabel"; text = "The subscription will be auto-renewed after the end of the period."; ObjectID = "FHd-Og-JSJ"; */
+"FHd-Og-JSJ.text" = "Подписка будет автоматически продлена после окончания периода.";
+
