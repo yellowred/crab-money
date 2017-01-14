@@ -22,6 +22,6 @@
 	<key>converter-free</key>
 	<false/>
 	<key>transactions-max-free</key>
-	<real>3000</real>
+	<integer>30</integer>
 </dict>
 </plist>
