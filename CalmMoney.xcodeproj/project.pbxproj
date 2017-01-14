@@ -33,6 +33,7 @@
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3F8A5F851E1D2952007D0389 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */; };
 		3F8A5F861E1D2985007D0389 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2108BC1E1CC4FC008217DA /* ObjC.m */; };
+		3F9601461E2A900500890A8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F9601481E2A900500890A8A /* InfoPlist.strings */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
 		3FE2BDCF1DF1B7E3009E4321 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */; };
@@ -172,6 +173,9 @@
 		3F54DDE01E1A974F00C61537 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InsightsEmptyView.strings; sourceTree = "<group>"; };
 		3F54DDE41E1A97AB00C61537 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ConverterNotPurchased.strings; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F9601471E2A900500890A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F9601491E2A900600890A8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F96014A1E2A900700890A8A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		3FD77B8E1E2A8BF300AE1232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				3FD77B8F1E2A8BF300AE1232 /* Info.plist */,
+				3F9601481E2A900500890A8A /* InfoPlist.strings */,
 				9A3F0FC11C4B5190009F0BA0 /* currencies.json */,
 				9A0BE4531BF45266002D6F5F /* categories.json */,
 				3F54DDCE1E1A8D4700C61537 /* Localizable.strings */,
@@ -729,6 +734,7 @@
 				9A0BE4511BF45266002D6F5F /* categories.json in Resources */,
 				3F54DDCC1E1A8D4700C61537 /* Localizable.strings in Resources */,
 				3FE2BDD71DF1C1D6009E4321 /* NumpadNotPurchased.xib in Resources */,
+				3F9601461E2A900500890A8A /* InfoPlist.strings in Resources */,
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
 				9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
@@ -1037,6 +1043,16 @@
 				3F54DDE01E1A974F00C61537 /* ru */,
 			);
 			name = InsightsEmptyView.xib;
+			sourceTree = "<group>";
+		};
+		3F9601481E2A900500890A8A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F9601471E2A900500890A8A /* Base */,
+				3F9601491E2A900600890A8A /* en */,
+				3F96014A1E2A900700890A8A /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		3FD77B8F1E2A8BF300AE1232 /* Info.plist */ = {

@@ -12,9 +12,7 @@ class ProfileTableViewController: UITableViewController {
 
 	var purchase = Purchase()
 	
-	@IBOutlet weak var appVersionLabel: UILabel!
-	
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -22,12 +20,6 @@ class ProfileTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		if let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-			if let nm = Bundle.main.infoDictionary?["CFBundleName"] as? String {
-				appVersionLabel.text = nm + " " + ver
-			}
-		}
-		
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,8 +93,17 @@ class ProfileTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 3 && !(Config.read(value: "debug") as! Bool) {
 			return nil
+		} else if section == 1 {
+			var appVersionText:String = ""
+			if let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+				if let nm = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
+					appVersionText = nm + " " + ver
+				}
+			}
+			return appVersionText
 		}
 		return super.tableView(tableView, titleForHeaderInSection: section)
 	}
+	
 	
 }
