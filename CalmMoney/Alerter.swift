@@ -38,4 +38,5 @@ public class Alerter: NSObject {
 		alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: nil))
 		return alert
 	}
+	
 }

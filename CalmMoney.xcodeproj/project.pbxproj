@@ -173,6 +173,7 @@
 		3F54DDE41E1A97AB00C61537 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ConverterNotPurchased.strings; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
+		3FD77B8E1E2A8BF300AE1232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		3FE2BDD51DF1BDD2009E4321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Config.plist; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		9A9A27421B3A6F1700526310 /* CurrencyAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAddTableViewCell.swift; sourceTree = "<group>"; };
 		9A9C918C1B3444E500DE580F /* Calm Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calm Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A9C91901B3444E500DE580F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A9C91911B3444E500DE580F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A9C91961B3444E500DE580F /* NumpadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadViewController.swift; sourceTree = "<group>"; };
 		9A9C91991B3444E500DE580F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 		9A9C918F1B3444E500DE580F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9A9C91901B3444E500DE580F /* Info.plist */,
+				3FD77B8F1E2A8BF300AE1232 /* Info.plist */,
 				9A3F0FC11C4B5190009F0BA0 /* currencies.json */,
 				9A0BE4531BF45266002D6F5F /* categories.json */,
 				3F54DDCE1E1A8D4700C61537 /* Localizable.strings */,
@@ -1037,6 +1037,14 @@
 				3F54DDE01E1A974F00C61537 /* ru */,
 			);
 			name = InsightsEmptyView.xib;
+			sourceTree = "<group>";
+		};
+		3FD77B8F1E2A8BF300AE1232 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FD77B8E1E2A8BF300AE1232 /* Base */,
+			);
+			name = Info.plist;
 			sourceTree = "<group>";
 		};
 		3FE2BDD61DF1BDD2009E4321 /* Config.plist */ = {

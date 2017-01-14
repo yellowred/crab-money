@@ -46,6 +46,10 @@
 "Rate us" = "Напишите отзыв";
 "Rate" = "Отзыв";
 "Not Now" = "Позже";
+"Add category" = "Добавить категорию";
+"Add" = "Добавить";
+"Cancel" = "Отменить";
+"Category name" = "Имя категории";
 
 /** CURRENCIES */
 "AED_currency_name" = "ОАЭ Дирхам";

@@ -12,6 +12,8 @@ class ProfileTableViewController: UITableViewController {
 
 	var purchase = Purchase()
 	
+	@IBOutlet weak var appVersionLabel: UILabel!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +22,12 @@ class ProfileTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		if let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+			if let nm = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+				appVersionLabel.text = nm + " " + ver
+			}
+		}
 		
-		purchase.dumpAllProducts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +87,6 @@ class ProfileTableViewController: UITableViewController {
 			debugViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
 			present(debugViewController, animated: true, completion: nil)
 		}
-	
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

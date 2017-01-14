@@ -164,43 +164,43 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 	}
 	
 	
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
-	@IBAction func createNewCategory(_ segue:UIStoryboardSegue) {
-		if let createNewCategoryController = segue.source as? CategoryAddViewController
-		{
-			print("New category: \(createNewCategoryController.categoryName)")
-			
-			if createNewCategoryController.categoryName != "" {
-				let newCategory = app().model.createCategory(createNewCategoryController.categoryName, isExpense: createNewCategoryController.isExpense.isOn, logo: nil)
-				app().model.saveStorage()
-				if newCategory.is_expense == delegate!.isExpense() {
-					if categories != nil {
-						categories!.append(newCategory)
-					} else {
-						categories = [newCategory]
-					}
-				}
-				
-				collectionView?.reloadData()
-			}
-		}
-	}
-	
 	
 	@IBAction func returnCategoryToDelegate(_ segue:UIStoryboardSegue) {
 		
 	}
+	
+	@IBAction func addCategory(_ sender: UIBarButtonItem) {
+		let alertController = UIAlertController(title: "Add category".localized, message: "", preferredStyle: .alert)
+		
+		let saveAction = UIAlertAction(title: "Add".localized, style: .default, handler: {
+			alert -> Void in
+			
+			let firstTextField = alertController.textFields![0] as UITextField
+			
+			print("New category: \(firstTextField.text)")
+			if let categoryName = firstTextField.text {
+				if categoryName != "" {
+					let newCategory = self.app().model.createCategory(categoryName, isExpense: self.delegate!.isExpense(), logo: nil)
+					self.app().model.saveStorage()
+					self.categories!.append(newCategory)
+					self.collectionView?.reloadData()
+				}
+			}
+			
+		})
+		
+		let cancelAction = UIAlertAction(title: "Cancel".localized, style: .default, handler: {
+			(action : UIAlertAction!) -> Void in
+			
+		})
+		
+		alertController.addTextField { (textField : UITextField!) -> Void in
+			textField.placeholder = "Category name".localized
+			textField.autocapitalizationType = .sentences
+		}
+		alertController.addAction(saveAction)
+		alertController.addAction(cancelAction)
+		self.present(alertController, animated: true, completion: nil)
+	}
+
 }
