@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  CalmMoney
+
+  Created by Oleg Kubrakov on 15/1/2017.
+  Copyright © 2017 Oleg Kubrakov. All rights reserved.
+*/
+"CFBundleDisplayName" = "Ruhiges Geld";
