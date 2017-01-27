@@ -95,7 +95,13 @@ class BudgetTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-		budget?.amount = NSDecimalNumber(string: budgetTextInput.text)
+		guard (budget != nil) else {
+			return
+		}
+		budget!.amount = NSDecimalNumber(string: budgetTextInput.text)
+		if (budget!.amount.isEqual(to: NSDecimalNumber.notANumber)) {
+			budget?.amount = NSDecimalNumber(value: 0)
+		}
     }
 
 }
