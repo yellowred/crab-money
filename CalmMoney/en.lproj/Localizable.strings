@@ -17,6 +17,9 @@
 /*Translated from: Save*/
 "save" = "Save";
 
+"Earnings" = "Earnings";
+"Expenses" = "Expenses";
+
 /** Localized **/
 "Ok" = "Ok";
 "Category can not be removed" = "Category can not be removed";

@@ -568,7 +568,9 @@ class Model
 	
 	func getTransactionsList() -> [Transaction]
 	{
-		return getObjectsList(Transaction.classForCoder()) as! [Transaction]
+		let res = getObjectsList(Transaction.classForCoder()) as! [Transaction]
+		healTransactions(res)
+		return res
 	}
 
 	
@@ -585,9 +587,19 @@ class Model
 			print("getObjectsList error: \(fetchError.localizedDescription)")
 		}
 		
-		return fetchedResults as! [Transaction]
+		let res = fetchedResults as! [Transaction]
+		healTransactions(res)
+		return res
 	}
 	
+	
+	func healTransactions(_ transactions: [Transaction]) {
+		for elem:Transaction in transactions {
+			if elem.amount.isEqual(to: NSDecimalNumber.notANumber) {
+				elem.amount = NSDecimalNumber(value: 0)
+			}
+		}
+	}
 	
 	func deleteTransaction(_ transaction:Transaction)
 	{

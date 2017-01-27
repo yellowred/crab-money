@@ -23,6 +23,9 @@
 /*Translated from: Save*/
 "save" = "Сохранить";
 
+"Earnings" = "Доходы";
+"Expenses" = "Расходы";
+
 
 /** Localized **/
 "Ok" = "Ok";
