@@ -23,6 +23,9 @@
 /*Translated from: Save*/
 "save" = "Speichern";
 
+"Earnings" = "Ergebnis";
+"Expenses" = "Aufwendungen";
+
 /** Localized */
 "Ok" = "Okay";
 

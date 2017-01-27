@@ -123,7 +123,7 @@
 "NK6-Ev-lcP.text" = "Projiziert";
 
 /* Class = "UILabel"; text = "Terms & Privacy"; ObjectID = "NXU-kD-ubL"; */
-"NXU-kD-ubL.text" = "&amp; Datenschutz AGB";
+"NXU-kD-ubL.text" = "Terms & Privacy";
 
 /* Class = "UILabel"; text = "Daily average"; ObjectID = "Nn0-oK-0XD"; */
 "Nn0-oK-0XD.text" = "Tagesdurchschnitt";
