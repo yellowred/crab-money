@@ -1,0 +1,6 @@
+framework module Pods_CalmMoneyTests {
+  umbrella header "Pods-CalmMoneyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

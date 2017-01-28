@@ -1,0 +1,297 @@
+
+/* Class = "UITableViewSection"; headerTitle = "Purchases"; ObjectID = "09G-kI-haH"; */
+"09G-kI-haH.headerTitle" = "Einkäufe";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "0Pe-5P-1sF"; */
+"0Pe-5P-1sF.title" = "Profil";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "30c-lm-KYf"; */
+"30c-lm-KYf.text" = "Label";
+
+/* Class = "UILabel"; text = "Category name"; ObjectID = "3Ah-j1-KfZ"; */
+"3Ah-j1-KfZ.text" = "Kategorienamen";
+
+/* Class = "UIButton"; accessibilityLabel = "Previous"; ObjectID = "3sp-Zk-3MF"; */
+"3sp-Zk-3MF.accessibilityLabel" = "Vorherigen";
+
+/* Class = "UITableViewSection"; headerTitle = "Date"; ObjectID = "3tT-fv-mmG"; */
+"3tT-fv-mmG.headerTitle" = "Datum";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "3tW-UV-qXX"; */
+"3tW-UV-qXX.title" = "Abbrechen";
+
+/* Class = "UIView"; accessibilityLabel = "Amount"; ObjectID = "41b-cO-QN7"; */
+"41b-cO-QN7.accessibilityLabel" = "Betrag";
+
+/* Class = "UILabel"; text = "28,163"; ObjectID = "4N0-ql-xbN"; */
+"4N0-ql-xbN.text" = "28.163";
+
+/* Class = "UILabel"; text = "1250 AUD remains"; ObjectID = "5F8-ii-41x"; */
+"5F8-ii-41x.text" = "1250 AUD bleibt";
+
+/* Class = "UILabel"; text = "Transactions"; ObjectID = "5rK-ba-hdg"; */
+"5rK-ba-hdg.text" = "Transaktionen";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "852-ri-AW1"; */
+"852-ri-AW1.normalTitle" = "9";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "9OZ-WK-f1F"; */
+"9OZ-WK-f1F.text" = "Detail";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "AoL-Yo-ciG"; */
+"AoL-Yo-ciG.normalTitle" = "1";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Ar3-ge-jIV"; */
+"Ar3-ge-jIV.title" = "Zurück";
+
+/* Class = "UILabel"; text = "Facebook Page"; ObjectID = "Aud-o9-IKc"; */
+"Aud-o9-IKc.text" = "Facebook-Seite";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "BOW-bt-QmB"; */
+"BOW-bt-QmB.text" = "Detail";
+
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Cv2-G7-HeO"; */
+"Cv2-G7-HeO.title" = "Kategorien";
+
+/* Class = "UILabel"; text = "Tools"; ObjectID = "D3q-JZ-cQk"; */
+"D3q-JZ-cQk.text" = "Werkzeuge";
+
+/* Class = "UITableViewSection"; headerTitle = "Details"; ObjectID = "DKT-Q3-OLZ"; */
+"DKT-Q3-OLZ.headerTitle" = "Details";
+
+/* Class = "UILabel"; text = "AUD"; ObjectID = "Dvr-a8-6Ag"; */
+"Dvr-a8-6Ag.text" = "AUD";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Eqp-gb-OHW"; */
+"Eqp-gb-OHW.text" = "Detail";
+
+/* Class = "UIButton"; normalTitle = ">"; ObjectID = "GEw-zA-NSZ"; */
+"GEw-zA-NSZ.normalTitle" = "&gt;";
+
+/* Class = "UIBarButtonItem"; title = "All categories"; ObjectID = "GNh-A3-S0j"; */
+"GNh-A3-S0j.title" = "Alle Kategorien";
+
+/* Class = "UINavigationItem"; title = "Budget"; ObjectID = "Gen-7d-mY4"; */
+"Gen-7d-mY4.title" = "Budget";
+
+/* Class = "UILabel"; text = "50000"; ObjectID = "GjU-nR-Wyb"; */
+"GjU-nR-Wyb.text" = "50000";
+
+/* Class = "UILabel"; text = "USD"; ObjectID = "GpO-jy-7vO"; */
+"GpO-jy-7vO.text" = "US-DOLLAR";
+
+/* Class = "UIButton"; normalTitle = "Earning"; ObjectID = "HKv-uN-3ND"; */
+"HKv-uN-3ND.normalTitle" = "Verdienen";
+
+/* Class = "UITableViewSection"; footerTitle = "Tap to select another category for this transaction"; ObjectID = "Hft-4l-e9f"; */
+"Hft-4l-e9f.footerTitle" = "Tippen Sie auf eine andere Kategorie für diese Buchung auswählen";
+
+/* Class = "UITableViewSection"; headerTitle = "Category"; ObjectID = "Hft-4l-e9f"; */
+"Hft-4l-e9f.headerTitle" = "Kategorie";
+
+/* Class = "UINavigationItem"; title = "Insights"; ObjectID = "HyR-0t-8hd"; */
+"HyR-0t-8hd.title" = "Einblicke";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "Ibc-2H-AkF"; */
+"Ibc-2H-AkF.normalTitle" = "2";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "Ifz-Yu-OHB"; */
+"Ifz-Yu-OHB.text" = "Kategorien";
+
+/* Class = "UIButton"; normalTitle = "Expense"; ObjectID = "Imk-u6-Ckj"; */
+"Imk-u6-Ckj.normalTitle" = "Kosten";
+
+/* Class = "UINavigationItem"; title = "Insights"; ObjectID = "Jlb-z8-FyZ"; */
+"Jlb-z8-FyZ.title" = "Einblicke";
+
+/* Class = "UILabel"; text = "USD"; ObjectID = "Ks6-qW-w7S"; */
+"Ks6-qW-w7S.text" = "US-DOLLAR";
+
+/* Class = "UIButton"; normalTitle = "Add another currency"; ObjectID = "LFk-xb-2Bf"; */
+"LFk-xb-2Bf.normalTitle" = "Hinzufügen einer anderen Währung";
+
+/* Class = "UILabel"; text = "USD"; ObjectID = "LHs-Qw-AYn"; */
+"LHs-Qw-AYn.text" = "US-DOLLAR";
+
+/* Class = "UITableViewSection"; footerTitle = "Please set desirable amount for monthly spendings"; ObjectID = "Lrr-e3-9DF"; */
+"Lrr-e3-9DF.footerTitle" = "Bitte legen Sie wünschenswert Betrag für die monatlichen Ausgaben";
+
+/* Class = "UITableViewSection"; headerTitle = "Budget for expenses"; ObjectID = "Lrr-e3-9DF"; */
+"Lrr-e3-9DF.headerTitle" = "Budget für Ausgaben";
+
+/* Class = "UILabel"; text = "Projected"; ObjectID = "NK6-Ev-lcP"; */
+"NK6-Ev-lcP.text" = "Projiziert";
+
+/* Class = "UILabel"; text = "Terms & Privacy"; ObjectID = "NXU-kD-ubL"; */
+"NXU-kD-ubL.text" = "Terms & Privacy";
+
+/* Class = "UILabel"; text = "Daily average"; ObjectID = "Nn0-oK-0XD"; */
+"Nn0-oK-0XD.text" = "Tagesdurchschnitt";
+
+/* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
+"OLP-8p-Qoi.title" = "Hinzufügen";
+
+/* Class = "UIBarButtonItem"; title = "Numpad"; ObjectID = "ONW-Eu-dND"; */
+"ONW-Eu-dND.title" = "Numpad";
+
+/* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
+"OVX-l5-VRT.headerTitle" = "Landeswährung";
+
+/* Class = "UIView"; accessibilityLabel = "Currency"; ObjectID = "OlV-oz-1kd"; */
+"OlV-oz-1kd.accessibilityLabel" = "Währung";
+
+/* Class = "UILabel"; text = "Earnings"; ObjectID = "OxE-YO-zpZ"; */
+"OxE-YO-zpZ.text" = "Ergebnis";
+
+/* Class = "UILabel"; text = "Transactions"; ObjectID = "PRr-jE-kcp"; */
+"PRr-jE-kcp.text" = "Transaktionen";
+
+/* Class = "UILabel"; text = "Expenses"; ObjectID = "Php-53-LyH"; */
+"Php-53-LyH.text" = "Aufwendungen";
+
+/* Class = "UINavigationItem"; title = "Currency converter"; ObjectID = "R29-mF-N3M"; */
+"R29-mF-N3M.title" = "Währungsrechner";
+
+/* Class = "UITableViewSection"; headerTitle = "Description"; ObjectID = "R6t-De-iK5"; */
+"R6t-De-iK5.headerTitle" = "Beschreibung";
+
+/* Class = "UITextField"; placeholder = "1000"; ObjectID = "RFZ-iF-Jil"; */
+"RFZ-iF-Jil.placeholder" = "1000";
+
+/* Class = "UITextField"; text = "1000"; ObjectID = "RFZ-iF-Jil"; */
+"RFZ-iF-Jil.text" = "1000";
+
+/* Class = "UIButton"; normalTitle = "<"; ObjectID = "SAV-aX-za1"; */
+"SAV-aX-za1.normalTitle" = "&lt;";
+
+/* Class = "UILabel"; text = "Restore active subscriptions"; ObjectID = "THi-xs-VP5"; */
+"THi-xs-VP5.text" = "Aktive Abonnements wiederherstellen";
+
+/* Class = "UITableViewSection"; headerTitle = "Budget"; ObjectID = "WXz-O0-vvD"; */
+"WXz-O0-vvD.headerTitle" = "Budget";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "Xgj-LV-XCS"; */
+"Xgj-LV-XCS.normalTitle" = "5";
+
+/* Class = "UINavigationItem"; title = "Add transaction"; ObjectID = "Y9u-wn-l1q"; */
+"Y9u-wn-l1q.title" = "Transaktion hinzufügen";
+
+/* Class = "UILabel"; text = "Very long category name"; ObjectID = "Zgu-am-kg5"; */
+"Zgu-am-kg5.text" = "Sehr lange Kategorienamen";
+
+/* Class = "UILabel"; text = "Expense category"; ObjectID = "Zki-kB-BvS"; */
+"Zki-kB-BvS.text" = "Ausgabenkategorie";
+
+/* Class = "UINavigationItem"; title = "Choose a currency"; ObjectID = "aBO-NV-rGm"; */
+"aBO-NV-rGm.title" = "Wählen Sie eine Währung";
+
+/* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "aDu-2d-nLf"; */
+"aDu-2d-nLf.title" = "Profil";
+
+/* Class = "UINavigationItem"; title = "Edit transaction"; ObjectID = "d2n-bK-cvR"; */
+"d2n-bK-cvR.title" = "Transaktion bearbeiten";
+
+/* Class = "UIButton"; normalTitle = "Buy PRO version"; ObjectID = "dCz-Rm-VDp"; */
+"dCz-Rm-VDp.normalTitle" = "PRO-Version kaufen";
+
+/* Class = "UITabBarItem"; title = "Converter"; ObjectID = "e42-NY-80F"; */
+"e42-NY-80F.title" = "Konverter";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "eHH-wf-kDi"; */
+"eHH-wf-kDi.text" = "Detail";
+
+/* Class = "UIButton"; normalTitle = "."; ObjectID = "fPe-M8-c7a"; */
+"fPe-M8-c7a.normalTitle" = ".";
+
+/* Class = "UILabel"; text = "Rate Calm Money"; ObjectID = "fcO-fp-soh"; */
+"fcO-fp-soh.text" = "Preis ruhig Geld";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "fow-F6-4yA"; */
+"fow-F6-4yA.text" = "Lorem Ipsum Dolor sit äh Elit Lamet, Consectetaur Cillium Adipisicing Chris, Sed Eiusmod Tempor Incididunt Ut Labore et Dolore Magna Aliqua. UT Enim Ad Minim Veniam, Quis Nostrud Übungsmanöver Ullamco Laboris nisi Ut Aliquip ex Ea Commodo Consequat. Duis Aute Irure Dolor im Reprehenderit in Voluptate Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. Excepteur Sint Occaecat Cupidatat nicht Proident, Sunt in Culpa Qui Officia Deserunt Mollit Anim Id est Laborum. Nam Liber Te bewussteren Tum Poen legnum Odioque Civiuda Faktor.";
+
+/* Class = "UITableViewSection"; headerTitle = "Calendar period"; ObjectID = "ger-Ng-VvM"; */
+"ger-Ng-VvM.headerTitle" = "Kalenderzeitraum";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "h7U-Y2-VQc"; */
+"h7U-Y2-VQc.normalTitle" = "3";
+
+/* Class = "UILabel"; text = "AUD"; ObjectID = "hei-1F-yIJ"; */
+"hei-1F-yIJ.text" = "AUD";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "iym-fW-Czt"; */
+"iym-fW-Czt.text" = "Label";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "jkh-EB-IId"; */
+"jkh-EB-IId.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "jtE-c5-PMG"; */
+"jtE-c5-PMG.text" = "Detail";
+
+/* Class = "UILabel"; text = "150"; ObjectID = "klq-qx-0VM"; */
+"klq-qx-0VM.text" = "150";
+
+/* Class = "UITableViewSection"; headerTitle = "Debug"; ObjectID = "kun-3T-d9D"; */
+"kun-3T-d9D.headerTitle" = "Debug";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "kyY-jE-hvz"; */
+"kyY-jE-hvz.text" = "Heute";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "lY1-ql-QzA"; */
+"lY1-ql-QzA.normalTitle" = "8";
+
+/* Class = "UILabel"; text = "17 Nov – 17 Dec, 16"; ObjectID = "mK8-8b-kHz"; */
+"mK8-8b-kHz.text" = "17 Nov-Dez, 16 17";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "mvw-pT-1b3"; */
+"mvw-pT-1b3.normalTitle" = "7";
+
+/* Class = "UITabBarItem"; title = "Insights"; ObjectID = "nry-mf-cPR"; */
+"nry-mf-cPR.title" = "Einblicke";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "pv4-aH-Z7R"; */
+"pv4-aH-Z7R.normalTitle" = "0";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "rZn-z1-Nxf"; */
+"rZn-z1-Nxf.title" = "Zurück";
+
+/* Class = "UITableViewSection"; footerTitle = "THB 1500 by the rate on 12 Dec, 15"; ObjectID = "rxa-0C-v2t"; */
+"rxa-0C-v2t.footerTitle" = "THB 1500 durch die Rate am 12. Dez., 15";
+
+/* Class = "UITableViewSection"; headerTitle = "Amount"; ObjectID = "rxa-0C-v2t"; */
+"rxa-0C-v2t.headerTitle" = "Betrag";
+
+/* Class = "UILabel"; text = "Max expense"; ObjectID = "sCu-4c-PJY"; */
+"sCu-4c-PJY.text" = "Max Kosten";
+
+/* Class = "UILabel"; text = "17 Nov – 17 Dec, 16"; ObjectID = "sp3-UF-Rql"; */
+"sp3-UF-Rql.text" = "17 Nov-Dez, 16 17";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "tb5-ve-LJz"; */
+"tb5-ve-LJz.text" = "Unterstützung";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "tqc-Ca-Ga4"; */
+"tqc-Ca-Ga4.normalTitle" = "4";
+
+/* Class = "UILabel"; text = "Check data consistency"; ObjectID = "v9Z-4Z-KlS"; */
+"v9Z-4Z-KlS.text" = "Überprüfen Sie die Konsistenz der Daten";
+
+/* Class = "UIButton"; accessibilityLabel = "Next"; ObjectID = "vnK-zw-uTk"; */
+"vnK-zw-uTk.accessibilityLabel" = "Nächste";
+
+/* Class = "UINavigationItem"; title = "Add category"; ObjectID = "wm6-Wp-EK9"; */
+"wm6-Wp-EK9.title" = "Kategorie hinzufügen";
+
+/* Class = "UILabel"; text = "Category name"; ObjectID = "yM5-L0-jZ2"; */
+"yM5-L0-jZ2.text" = "Kategorienamen";
+
+/* Class = "UILabel"; text = "Daily median"; ObjectID = "yMK-iR-DeG"; */
+"yMK-iR-DeG.text" = "Tägliche median";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "ysw-K6-qUH"; */
+"ysw-K6-qUH.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "AUD"; ObjectID = "zdF-Rp-r7H"; */
+"zdF-Rp-r7H.normalTitle" = "AUD";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "zzC-9F-Lmt"; */
+"zzC-9F-Lmt.title" = "Zurück";

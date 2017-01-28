@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Ouch, you have reached the limit of free transactions."; ObjectID = "ddI-dl-2bQ"; */
+"ddI-dl-2bQ.text" = "Autsch, haben Sie die kostenlose Transaktionen überschritten.";
+
+/* Class = "UIButton"; normalTitle = "Buy Now"; ObjectID = "k9r-Xs-DK8"; */
+"k9r-Xs-DK8.normalTitle" = "Jetzt kaufen";
+
+/* Class = "UILabel"; text = "Please purchase Unlimited transactions package to continue."; ObjectID = "pFf-AL-Ibj"; */
+"pFf-AL-Ibj.text" = "Bitte kaufen Sie unbegrenzte Transaktionen Paket weiter.";

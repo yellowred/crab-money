@@ -1,0 +1,6 @@
+framework module Pods_CalmMoneySnapshots {
+  umbrella header "Pods-CalmMoneySnapshots-umbrella.h"
+
+  export *
+  module * { export * }
+}
