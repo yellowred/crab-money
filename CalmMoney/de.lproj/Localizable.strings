@@ -78,7 +78,7 @@
 "Category name" = "Kategorienamen";
 
 /** CURRENCIES */
-"AED_currency_name" = "VAE-Dirham";
+"AED_currency_name" = "VAE Dirham";
 
 /*Translated from: Afghan afghanis*/
 "AFN_currency_name" = "Afghanischer Afghani";
@@ -120,7 +120,7 @@
 "BGN_currency_name" = "Bulgarische Lewa";
 
 /*Translated from: Bahraini dinara*/
-"BHD_currency_name" = "Bahrainische dinara";
+"BHD_currency_name" = "Bahrain-dinar";
 
 /*Translated from: Burundi francs*/
 "BIF_currency_name" = "Burundi-Franken";
