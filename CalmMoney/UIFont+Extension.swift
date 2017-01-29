@@ -9,4 +9,8 @@ extension UIFont {
 	static func medium(ofSize: CGFloat) -> UIFont {
 		return UIFont(name: "HelveticaNeue-Medium", size: ofSize)!
 	}
+	
+	static func regular(ofSize: CGFloat) -> UIFont {
+		return UIFont(name: "HelveticaNeue", size: ofSize)!
+	}
 }

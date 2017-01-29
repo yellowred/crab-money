@@ -37,15 +37,25 @@ extension Date {
 	
 	
 	func periodFormat() -> String {
-		let df = DateFormatter()
-		df.dateStyle = DateFormatter.Style.medium
-		return df.string(from: self)
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "LLLL YYYY"
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.string(from: self).capitalized
 	}
 	
 	
 	func periodShortFormat() -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "d MMMM"
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.string(from: self)
+	}
+	
+	
+	
+	func yearString() -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "YYYY"
 		dateFormatter.timeZone = TimeZone.current
 		return dateFormatter.string(from: self)
 	}

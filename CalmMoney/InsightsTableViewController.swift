@@ -40,7 +40,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	var underlayingView: UIView?
 	
-	var currentPeriod: Period?
+	var currentPeriod: PeriodMonth?
 	var transactions: [Transaction]?
 	
     override func viewDidLoad() {
@@ -76,7 +76,17 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 				self.underlayingView = nil
 			}
 
-			periodLabel.text = currentPeriod?.description
+			
+			let attributedString = NSMutableAttributedString(string: currentPeriod!.description, attributes: [NSFontAttributeName: UIFont.light(ofSize: 21)])
+			/*
+			attributedString.addAttributes(
+				[NSFontAttributeName: UIFont.regular(ofSize: 17)],
+				range: NSString(string:currentPeriod!.description).range(of: currentPeriod!.startDate.yearString())
+			)*/
+			periodLabel.attributedText = attributedString
+
+			
+			
 			if currentPeriod?.getNext() == nil {
 				nextPeriodButton.isEnabled = false
 			} else {
@@ -150,7 +160,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		//	recalc period as it may be affected if initial transaction was removed
 		if let initialTransaction = app().model.getIinitialTransaction() {
 			if currentPeriod?.initialDate != initialTransaction.date {
-				currentPeriod = Period(currentDate: Date(), length: PeriodLength.month, initialDate: initialTransaction.date)
+				currentPeriod = PeriodMonth(currentDate: Date(), initialDate: initialTransaction.date)
 			}
 		}
 		homeCurrency.text = app().model.getCurrentCurrency().code.uppercased()
@@ -162,12 +172,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	}
 	
 	@IBAction func changePeriod(_ sender: UIButton) {
-		if sender.tag == 21 && currentPeriod?.getPrev() != nil {
-			currentPeriod = currentPeriod?.getPrev()
-		} else if currentPeriod?.getNext() != nil {
-			currentPeriod = currentPeriod?.getNext()
-		}
-		showSummary()
+		
 	}
 	
 	@IBAction func periodSwipeRight(_ sender: UISwipeGestureRecognizer) {
@@ -184,7 +189,25 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 		showSummary()
 	}
 	
-	
+    @IBAction func periodChangePressed(_ sender: UIButton) {
+        sender.backgroundColor = UIColor(rgba: "#F4F4F4")
+    }
+    
+    @IBAction func periodChangeFinish(_ sender: UIButton) {
+        if sender.tag == 21 && currentPeriod?.getPrev() != nil {
+            currentPeriod = currentPeriod?.getPrev()
+        } else if currentPeriod?.getNext() != nil {
+            currentPeriod = currentPeriod?.getNext()
+        }
+        showSummary()
+        sender.backgroundColor = UIColor.clear
+    }
+    
+    @IBAction func periodChangeCancel(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.clear
+    }
+    
+    
 	@IBAction func saveBudget(_ segue:UIStoryboardSegue) {
 		if let budgetDetailTVC = segue.source as? BudgetTableViewController {
 			if let budget = budgetDetailTVC.budget {

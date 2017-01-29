@@ -28,8 +28,8 @@ class TransactionTableViewCell: UITableViewCell {
 			return
 		}
 		let amountString = NSString(string: string)
-		let firstAttributes = [NSFontAttributeName: UIFont.light(ofSize: 20)]
-		let secondAttributes = [NSFontAttributeName: UIFont.light(ofSize: 32)]
+		let firstAttributes = [NSFontAttributeName: UIFont.light(ofSize: 16)]
+		let secondAttributes = [NSFontAttributeName: UIFont.light(ofSize: 28)]
 		
 		attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
 			

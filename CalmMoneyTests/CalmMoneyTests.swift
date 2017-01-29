@@ -33,9 +33,9 @@ class CalmMoneyTests: XCTestCase {
 			Category(name: "Coffee", is_expense: false)
 		]
 		transactions = [
-			Transaction(amount: -3000, date: "2015-11-15 10:00:00", rate: 100, currency: currencies[0]),
-			Transaction(amount: -100, date: "2015-11-16 10:00:00", rate: 1, currency: currencies[2]),
-			Transaction(amount: -300, date: "2015-12-05 10:00:00", rate: 1.5, currency: currencies[1]),
+			Transaction(amount: -3000, date: "2015-11-01 10:00:00", rate: 100, currency: currencies[0]),
+			Transaction(amount: -100, date: "2015-11-30 10:00:00", rate: 1, currency: currencies[2]),
+			Transaction(amount: -300, date: "2015-12-01 10:00:00", rate: 1.5, currency: currencies[1]),
 			Transaction(amount: 3000, date: "2015-11-18 10:00:00", rate: 1.5, currency: currencies[2]),
 			Transaction(amount: 2000, date: "2015-11-18 11:00:00", rate: 2, currency: currencies[2]),
 		]
@@ -51,16 +51,15 @@ class CalmMoneyTests: XCTestCase {
 		super.tearDown()
 	}
 	
+	
 	func testMath() {
 		XCTAssertEqual(transactions.count, 5)
 		XCTAssertEqual(currencies.count, 3)
 		let math = Math(
 			transactions: transactions,
 			homeCurrency: currencies[2],
-			currentPeriod: Period(
-				startDate: Date().fromString("2015-11-15 10:00:00")!,
-				endDate: Date().fromString("2015-12-15 10:00:00")!,
-				length: PeriodLength.month,
+			currentPeriod: PeriodMonth(
+				currentDate: Date().fromString("2015-11-15 10:00:00")!,
 				initialDate: Date().fromString("2015-10-15 10:00:00")!
 			)
 		)
@@ -106,6 +105,33 @@ class CalmMoneyTests: XCTestCase {
 		Purchase().setPurchased(productId: "com.surfingcathk.calmmoney.currency_converter_1m")
 		XCTAssertTrue(Purchase().isPurchasedConverter())
 		
+	}
+	
+	
+	func testDate() {
+		XCTAssertNotNil(Date().fromString("2017-01-18 10:00:00"), "date string with hours, mins and secs will produce valida object")
+		XCTAssertNil(Date().fromString("2017-01-18"), "date string without hours will produce nil")
+		XCTAssertNotNil(Date().fromString("1950-01-18 10:00:00"), "date from the past is valid")
+		XCTAssertNotNil(Date().fromString("2050-01-18 10:00:00"), "date from the future is valid")
+		XCTAssertTrue(Date().fromString("2050-01-18 10:00:00")?.description.range(of: "2050-01-1") != nil)
+	}
+	
+	
+	func testPeriodMonth() {
+		var period = PeriodMonth(currentDate: Date().fromString("2017-01-18 10:00:00")!, initialDate: Date().fromString("2016-11-30 10:30:01")!)
+		XCTAssertEqual(31, period.getDaysCount())
+		XCTAssertEqual(28, period.getDaysPassed())
+		XCTAssertEqual("20170101", period.startDate.formatToHash())
+		XCTAssertEqual("20170201", period.endDate.formatToHash())
+		XCTAssertTrue(period.description.range(of: "Jan") != nil)
+		
+		period = PeriodMonth(currentDate: Date().fromString("2017-12-18 10:00:00")!, initialDate: Date().fromString("2017-12-30 10:30:01")!)
+		XCTAssertEqual(31, period.getDaysCount())
+		XCTAssertEqual(-305, period.getDaysPassed())
+		XCTAssertEqual("20171201", period.startDate.formatToHash())
+		XCTAssertEqual("20180101", period.endDate.formatToHash())
+		XCTAssertTrue(period.description.range(of: "De") != nil)
+
 	}
 	
 	func testPerformanceExample() {

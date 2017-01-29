@@ -12,9 +12,9 @@ import Crashlytics
 class Math: NSObject {
 	var transactions: [Transaction]
 	var homeCurrency: Currency
-	var currentPeriod: Period
+	var currentPeriod: PeriodMonth
 	
-	init(transactions: [Transaction], homeCurrency: Currency, currentPeriod: Period) {
+	init(transactions: [Transaction], homeCurrency: Currency, currentPeriod: PeriodMonth) {
 		self.transactions = transactions
 
 		self.homeCurrency = homeCurrency
@@ -61,7 +61,7 @@ class Math: NSObject {
 	}()
 	
 	lazy var expensesAvg:NSDecimalNumber = {
-		return self.expenses.count > 0 ? self.expensesTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysLeft() as Int)) : NSDecimalNumber(value: 0 as Int)
+		return self.expenses.count > 0 ? self.expensesTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysPassed() as Int)) : NSDecimalNumber(value: 0 as Int)
 	}()
 	
 	lazy var expensesMedian:NSDecimalNumber = {
@@ -111,7 +111,7 @@ class Math: NSObject {
 	
 	
 	lazy var earningsAvg:NSDecimalNumber = {
-		return self.earnings.count > 0 ? self.earningsTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysLeft() as Int)) : NSDecimalNumber(value: 0 as Int)
+		return self.earnings.count > 0 ? self.earningsTotal.dividing(by: NSDecimalNumber(value: self.currentPeriod.getDaysPassed() as Int)) : NSDecimalNumber(value: 0 as Int)
 	}()
 	
 	

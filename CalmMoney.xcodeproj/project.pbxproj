@@ -13,7 +13,7 @@
 		3F0396611DF27EBC00252187 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C04F21C3D742700B2C754 /* Currency.swift */; };
 		3F0396621DF27EC000252187 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDB0051C4F4E3E0053CEE5 /* Category.swift */; };
 		3F0396631DF27EE500252187 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDFF5C1C3D1CB900541A23 /* Math.swift */; };
-		3F0396641DF27EF200252187 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
+		3F0396641DF27EF200252187 /* PeriodFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* PeriodFloat.swift */; };
 		3F0396651DF27F1A00252187 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* Date+Extension.swift */; };
 		3F0396661DF27F3200252187 /* NSDecimalNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5392A1BCBD5E00025A604 /* NSDecimalNumber+Extension.swift */; };
 		3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
@@ -33,6 +33,8 @@
 		3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */; };
 		3F8A5F851E1D2952007D0389 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA926871BC3AC5C009D16B3 /* Crashlytics.framework */; };
 		3F8A5F861E1D2985007D0389 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2108BC1E1CC4FC008217DA /* ObjC.m */; };
+		3F94E6A41E3CC858005AFBE4 /* PeriodMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E6A31E3CC858005AFBE4 /* PeriodMonth.swift */; };
+		3F94E6A51E3CC85D005AFBE4 /* PeriodMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E6A31E3CC858005AFBE4 /* PeriodMonth.swift */; };
 		3F9601461E2A900500890A8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F9601481E2A900500890A8A /* InfoPlist.strings */; };
 		3FD5918F1C6B7A0800495C2C /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */; };
 		3FDEC0051DB8FC9B00A6A07D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC0041DB8FC9B00A6A07D /* UIFont+Extension.swift */; };
@@ -73,7 +75,7 @@
 		9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */; };
 		9A801E861B37D62600C409C1 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */; };
 		9A801E8E1B37DFAB00C409C1 /* ConverterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801E8D1B37DFAB00C409C1 /* ConverterTableViewController.swift */; };
-		9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* Period.swift */; };
+		9A827C8E1C1D2B9C0025FC5B /* PeriodFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C8D1C1D2B9C0025FC5B /* PeriodFloat.swift */; };
 		9A827C941C1D3EF50025FC5B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C931C1D3EF50025FC5B /* Date+Extension.swift */; };
 		9A827C9A1C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */; };
 		9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */; };
@@ -180,6 +182,7 @@
 		3F7AE6B51E2E12A500FCFB5D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = de; path = de.lproj/categories.json; sourceTree = "<group>"; };
 		3F7AE6B61E2E12A500FCFB5D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F7E50E91D96A0D100EA9911 /* CrabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrabApp-Bridging-Header.h"; path = "../CrabApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F94E6A31E3CC858005AFBE4 /* PeriodMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodMonth.swift; sourceTree = "<group>"; };
 		3F9601471E2A900500890A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F9601491E2A900600890A8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F96014A1E2A900700890A8A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -229,7 +232,7 @@
 		9A5DB9911C2A5F63007B85B8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9A801E851B37D62600C409C1 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		9A801E8D1B37DFAB00C409C1 /* ConverterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterTableViewController.swift; sourceTree = "<group>"; };
-		9A827C8D1C1D2B9C0025FC5B /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		9A827C8D1C1D2B9C0025FC5B /* PeriodFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodFloat.swift; sourceTree = "<group>"; };
 		9A827C931C1D3EF50025FC5B /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		9A827C951C1D41220025FC5B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9A827C991C1D708F0025FC5B /* InsightsCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsCategoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -553,7 +556,8 @@
 				9AEA34F91B79C4ED009C65FE /* Money.swift */,
 				9AF9E12B1B4B92DD0076BE69 /* Model.swift */,
 				9AA2E9C01B82240E00367068 /* Transaction.swift */,
-				9A827C8D1C1D2B9C0025FC5B /* Period.swift */,
+				9A827C8D1C1D2B9C0025FC5B /* PeriodFloat.swift */,
+				3F94E6A31E3CC858005AFBE4 /* PeriodMonth.swift */,
 				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
 				3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */,
 				3FE2BDDF1DF1CC20009E4321 /* Config.swift */,
@@ -918,6 +922,7 @@
 				3F0396601DF27EB700252187 /* Transaction.swift in Sources */,
 				3F4EDD841DF84C8100B216F4 /* Model.swift in Sources */,
 				3F0396591DF27E5500252187 /* CalmMoneyTests.swift in Sources */,
+				3F94E6A51E3CC85D005AFBE4 /* PeriodMonth.swift in Sources */,
 				3F8A5F861E1D2985007D0389 /* ObjC.m in Sources */,
 				3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */,
 				3F4EDD851DF84D0F00B216F4 /* Config.swift in Sources */,
@@ -926,7 +931,7 @@
 				3F0396621DF27EC000252187 /* Category.swift in Sources */,
 				3F0396681DF27F5900252187 /* Money.swift in Sources */,
 				3F0396651DF27F1A00252187 /* Date+Extension.swift in Sources */,
-				3F0396641DF27EF200252187 /* Period.swift in Sources */,
+				3F0396641DF27EF200252187 /* PeriodFloat.swift in Sources */,
 				3F0396631DF27EE500252187 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,6 +962,7 @@
 				9AC460BF1BD0AB5B00EEE4A7 /* SummaryView.swift in Sources */,
 				9A36FCDB1BD91AA000BD81C0 /* AllCurrenciesTableViewCell.swift in Sources */,
 				9A827C9F1C1DBE380025FC5B /* TransactionDetailTableViewController.swift in Sources */,
+				3F94E6A41E3CC858005AFBE4 /* PeriodMonth.swift in Sources */,
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
 				3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
@@ -987,7 +993,7 @@
 				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
-				9A827C8E1C1D2B9C0025FC5B /* Period.swift in Sources */,
+				9A827C8E1C1D2B9C0025FC5B /* PeriodFloat.swift in Sources */,
 				3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */,
 				3FFB07571DFC3701004F4514 /* Alerter.swift in Sources */,
 				9A827C9D1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift in Sources */,

@@ -22,7 +22,7 @@ class TransactionsTableViewController: UITableViewController {
 	fileprivate let kShowTransactionDetailSegue = "ShowTransactionDetail"
 	fileprivate let kTransactionCellHeight = 70
 	
-	var currentPeriod: Period?
+	var currentPeriod: PeriodMonth?
 	var transactionsViewDelegate: TransactionsViewDelegate?
 	
 	/*

@@ -13,7 +13,7 @@ enum PeriodLength: Int8 {
 	case variable = 1
 }
 
-class Period: CustomStringConvertible {
+class PeriodFloat: CustomStringConvertible {
 	
 	let startDate: Date
 	let endDate: Date
@@ -52,27 +52,27 @@ class Period: CustomStringConvertible {
 	}
 	
 	
-	func getNext() -> Period? {
+	func getNext() -> PeriodFloat? {
 		guard lengthType == PeriodLength.month else {
 			return nil
 		}
 		
 		//current date is later than the period
 		if Date().compare(endDate) == ComparisonResult.orderedDescending {
-			return Period(startDate: endDate.addingTimeInterval(1), endDate: endDate.sameDayNextMonth(), length: lengthType, initialDate: initialDate)
+			return PeriodFloat(startDate: endDate.addingTimeInterval(1), endDate: endDate.sameDayNextMonth(), length: lengthType, initialDate: initialDate)
 		} else {
 			return nil
 		}
 	}
 	
 	
-	func getPrev() -> Period? {
+	func getPrev() -> PeriodFloat? {
 		guard lengthType == PeriodLength.month else {
 			return nil
 		}
 		
 		if startDate.compare(initialDate) == ComparisonResult.orderedDescending {
-			return Period(startDate: startDate.sameDayPrevMonth(), endDate: startDate, length: lengthType, initialDate: initialDate)
+			return PeriodFloat(startDate: startDate.sameDayPrevMonth(), endDate: startDate, length: lengthType, initialDate: initialDate)
 		} else {
 			return nil
 		}

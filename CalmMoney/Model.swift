@@ -574,7 +574,7 @@ class Model
 	}
 
 	
-	func getTransactionsListForPeriod(_ period: Period) -> [Transaction]
+	func getTransactionsListForPeriod(_ period: PeriodMonth) -> [Transaction]
 	{
 		let fetchRequest: NSFetchRequest<Transaction> = NSFetchRequest(entityName: NSStringFromClass(Transaction.classForCoder()))
 		fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", period.startDate as CVarArg, period.endDate as CVarArg)

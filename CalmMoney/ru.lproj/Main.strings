@@ -90,7 +90,7 @@
 "Hft-4l-e9f.headerTitle" = "Категория";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "HyR-0t-8hd"; */
-"HyR-0t-8hd.title" = "Понимание";
+"HyR-0t-8hd.title" = "Статистика";
 
 /* Class = "UIButton"; normalTitle = "2"; ObjectID = "Ibc-2H-AkF"; */
 "Ibc-2H-AkF.normalTitle" = "2";
@@ -102,7 +102,7 @@
 "Imk-u6-Ckj.normalTitle" = "Расходы";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "Jlb-z8-FyZ"; */
-"Jlb-z8-FyZ.title" = "Понимание";
+"Jlb-z8-FyZ.title" = "Статистика";
 
 /* Class = "UILabel"; text = "USD"; ObjectID = "Ks6-qW-w7S"; */
 "Ks6-qW-w7S.text" = "USD";
@@ -120,13 +120,13 @@
 "Lrr-e3-9DF.headerTitle" = "Бюджет расходов";
 
 /* Class = "UILabel"; text = "Projected"; ObjectID = "NK6-Ev-lcP"; */
-"NK6-Ev-lcP.text" = "По прогнозам";
+"NK6-Ev-lcP.text" = "Прогноз";
 
 /* Class = "UILabel"; text = "Terms & Privacy"; ObjectID = "NXU-kD-ubL"; */
 "NXU-kD-ubL.text" = "Terms & Privacy";
 
 /* Class = "UILabel"; text = "Daily average"; ObjectID = "Nn0-oK-0XD"; */
-"Nn0-oK-0XD.text" = "Среднее в день";
+"Nn0-oK-0XD.text" = "Средний в день";
 
 /* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
 "OLP-8p-Qoi.title" = "Добавить";
@@ -246,7 +246,7 @@
 "mvw-pT-1b3.normalTitle" = "7";
 
 /* Class = "UITabBarItem"; title = "Insights"; ObjectID = "nry-mf-cPR"; */
-"nry-mf-cPR.title" = "Понимание";
+"nry-mf-cPR.title" = "Статистика";
 
 /* Class = "UIButton"; normalTitle = "0"; ObjectID = "pv4-aH-Z7R"; */
 "pv4-aH-Z7R.normalTitle" = "0";

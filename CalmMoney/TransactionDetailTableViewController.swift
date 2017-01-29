@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionDetailTableViewController: UITableViewController, CategorySelectDelegate, CurrencySelectDelegate {
+class TransactionDetailTableViewController: UITableViewController, CategorySelectDelegate, CurrencySelectDelegate, UITextFieldDelegate {
 
 	let kEditTransactionCategory = "EditTransactionCategory"
 	let kSelectCurrencyForTransactionEdit = "SelectCurrencyForTransactionEdit"
@@ -65,6 +65,9 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 			currencyButton.setTitle(currencyCode, for: UIControlState())
 			currencyButton.setTitle(currencyCode, for: UIControlState.selected)
 			currencyButton.setTitle(currencyCode, for: UIControlState.reserved)
+
+			amountValue.delegate = self
+
 		}
 
     }
@@ -113,5 +116,11 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 	
 	func getCurrencyList() -> [Currency] {
 		return app().model.getCurrenciesList()
+	}
+	
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
 	}
 }

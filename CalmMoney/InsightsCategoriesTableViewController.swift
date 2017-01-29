@@ -13,7 +13,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 	fileprivate let kInsightsCategoryCellIdentifier = "InsightsCategoryCell"
 	fileprivate let kShowCategoryTransactions = "ShowCategoryTransactions"
 	
-	var currentPeriod: Period?
+	var currentPeriod: PeriodMonth?
 	
 	var expenseCategories: [Category] = []
 	var earningCategories: [Category] = []

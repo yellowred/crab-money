@@ -18,7 +18,7 @@ extension NumberFormatter {
 	
 	
 	func formatterMoney(_ currency: Currency) -> NumberFormatter {
-		self.numberStyle = NumberFormatter.Style.currency
+//		self.numberStyle = NumberFormatter.Style.currency
 		let locale = Locale(
 			identifier: Locale.identifier(
 				fromComponents: [
@@ -28,6 +28,8 @@ extension NumberFormatter {
 			)
 		)
 		self.locale = locale
+		self.positiveFormat = "+¤#,##0.00"
+		self.negativeFormat = "-¤#,##0.00"
 		return self
 	}
 	
