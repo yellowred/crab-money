@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "170 useful currencies"; ObjectID = "1nO-jE-Qk1"; */
-"1nO-jE-Qk1.text" = "160 полезных валют";
+"1nO-jE-Qk1.text" = "160 отобранных валют";
 
 /* Class = "UILabel"; text = "1 Month Subscription"; ObjectID = "76v-Gr-Bgn"; */
 "76v-Gr-Bgn.text" = "Подписка на 1 месяц";
@@ -18,7 +18,7 @@
 "RmK-if-AL3.text" = "100 руб.";
 
 /* Class = "UILabel"; text = "Multi currency instant view conversion"; ObjectID = "cd1-WS-rEL"; */
-"cd1-WS-rEL.text" = "Мгновенное конвертирование сразу в несколько валют";
+"cd1-WS-rEL.text" = "Конвертирование одновременно в несколько валют";
 
 /* Class = "UILabel"; text = "6 Months Subscription"; ObjectID = "eYF-MI-CbC"; */
 "eYF-MI-CbC.text" = "Подписка на 6 месяцев";
@@ -33,7 +33,7 @@
 "sLQ-gG-oEt.text" = "100 руб.";
 
 /* Class = "UILabel"; text = "Cross app currency conversion"; ObjectID = "xTe-Rq-yYo"; */
-"xTe-Rq-yYo.text" = "Мультивалютность по всему приложению";
+"xTe-Rq-yYo.text" = "Полная поддержка мультивалютности в приложении";
 
 /* Class = "UILabel"; text = "The subscription will be auto-renewed after the end of the period."; ObjectID = "FHd-Og-JSJ"; */
 "FHd-Og-JSJ.text" = "Подписка будет автоматически продлена после окончания периода.";

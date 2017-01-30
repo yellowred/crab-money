@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>debug</key>
-	<false/>
+	<true/>
 	<key>products</key>
 	<dict>
 		<key>unlimited_transactions</key>
@@ -23,5 +23,7 @@
 	<false/>
 	<key>transactions-max-free</key>
 	<integer>30</integer>
+	<key>app_converter_max_free_shows</key>
+	<integer>20</integer>
 </dict>
 </plist>

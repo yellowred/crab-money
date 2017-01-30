@@ -60,8 +60,8 @@ class ProfileTableViewController: UITableViewController {
 			})
 			
 		} else if indexPath.section == 1 && indexPath.row == 2 {
-			
-			UIApplication.shared.openURL(URL(string: "https://www.facebook.com/calmmoneyapp/")!)
+			// https://www.facebook.com/calmmoneyapp/
+			UIApplication.shared.openURL(URL(string: "fb://profile/422289254825957")!)
 		
 		} else if indexPath.section == 1 && indexPath.row == 1 {
 			
@@ -69,7 +69,7 @@ class ProfileTableViewController: UITableViewController {
 		
 		} else if indexPath.section == 1 && indexPath.row == 0 {
 			
-			let str = "mailto:foo@example.com?cc=bar@example.com&subject=Greetings%20from%20Cupertino!&body=Wish%20you%20were%20here!"
+			let str = "mailto:surfingcathk@gmail.com?subject=Support%20Request"
 			let url = NSURL(string: str)
 			UIApplication.shared.openURL(url as! URL)
 			

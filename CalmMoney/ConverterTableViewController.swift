@@ -14,6 +14,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 
 	let kCurrencyConverterCellHeight:CGFloat = 80
 	let kCurrencyAddCellHeight:CGFloat = 60
+	let kConverterLaunchNumber:String = "app_converter_shown_number"
+	let kMaxFreeLaunchesConverter:String = "app_converter_max_free_shows"
 	
     @IBOutlet var handsOnCurrenciesTableView: UITableView!
 
@@ -41,7 +43,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ConverterTableViewController.dismissKeyboard))
 		view.addGestureRecognizer(tap)
-		
+		resetConverterLaunches()
 	}
 	
 	//Calls this function when the tap is recognized.
@@ -63,9 +65,10 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 
 	
 	func checkPurchase() {
-		if !Purchase().canUseConverter() {
+		if !canShowConverter() {
 			currenciesStructure = app().model.getHandsOnCurrenciesStructureFake(providedAmount!)
 			self.tableView.reloadData()
+			self.tableView.setContentOffset(CGPoint.zero, animated: false)
 			
 			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
 			if #available(iOS 10.0, *) {
@@ -126,6 +129,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			self.view.addSubview(customView)
 			self.tableView.bounces = false
 			self.tableView.isScrollEnabled = false
+		} else {
+			incrementConverterLaunches()
 		}
 	}
 	
@@ -164,6 +169,21 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		self.tableView.reloadData()
 	}
 	
+	func resetConverterLaunches() {
+		UserDefaults().set(0, forKey: kConverterLaunchNumber)
+	}
+	
+	func incrementConverterLaunches() {
+		var launches = UserDefaults().integer(forKey: kConverterLaunchNumber)
+		launches += 1
+		print("Converter launches: \(launches)")
+		UserDefaults().set(launches, forKey: kConverterLaunchNumber)
+	}
+	
+	func canShowConverter() -> Bool {
+		let maxFreeLaunches = Config.read(value: kMaxFreeLaunchesConverter) as! Int
+		return Purchase().canUseConverter() || UserDefaults().integer(forKey: kConverterLaunchNumber) <= maxFreeLaunches
+	}
 	
     func onContentSizeChange(_ notification: Notification) {
         tableView.reloadData()
@@ -241,6 +261,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		if section == 0 {
 			if let lastUpdateTime = app().model.getEventTime(Networking.sharedInstance.kEventUpdateAll) {
 				return "Last updated on ".localized + lastUpdateTime.formatWithTimeLong() + "."
+			} else if !Purchase().canUseConverter() {
+				return "Trial period.".localized
 			} else {
 				return "Connect to the internet to update currency rates.".localized
 			}

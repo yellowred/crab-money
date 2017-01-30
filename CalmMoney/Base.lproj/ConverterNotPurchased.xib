@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVy-cy-szF">
-                    <rect key="frame" x="16" y="131.5" width="289" height="65"/>
+                    <rect key="frame" x="16" y="132" width="289" height="65"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="z9R-pt-bYt"/>
                     </constraints>
@@ -25,25 +25,25 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currency-converter-process-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPz-Vy-aBS">
-                    <rect key="frame" x="33" y="52.5" width="254" height="80"/>
+                    <rect key="frame" x="33" y="53" width="254" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="15n-fA-UNc"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi currency instant view conversion" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-WS-rEL">
-                    <rect key="frame" x="33" y="198.5" width="254" height="18"/>
+                    <rect key="frame" x="33" y="199" width="254" height="18"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="170 useful currencies" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1nO-jE-Qk1">
-                    <rect key="frame" x="33" y="224.5" width="254" height="18"/>
+                    <rect key="frame" x="33" y="225" width="254" height="18"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update rates every 4 hours" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8aO-dj-Qf0">
-                    <rect key="frame" x="33" y="250.5" width="254" height="18"/>
+                    <rect key="frame" x="33" y="251" width="254" height="18"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -158,7 +158,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cross app currency conversion" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xTe-Rq-yYo">
-                    <rect key="frame" x="33" y="276.5" width="254" height="18"/>
+                    <rect key="frame" x="33" y="277" width="254" height="18"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

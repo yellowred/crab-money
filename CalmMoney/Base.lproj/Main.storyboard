@@ -761,7 +761,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="aDu-2d-nLf">
                             <connections>
                                 <action selector="shareButtonTapped:" destination="b2d-7q-Sqc" id="Evb-am-rHp"/>
-                                <segue destination="adM-nI-03E" kind="show" id="TdX-NA-MP0"/>
+                                <segue destination="yYf-H8-R21" kind="show" identifier="ShowProfile" id="NJp-RB-UlS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1607,7 +1607,7 @@
                             </tableViewSection>
                             <tableViewSection id="aN9-Kw-RrQ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="tb5-ve-LJz" style="IBUITableViewCellStyleDefault" id="6fa-A7-GFw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="tb5-ve-LJz" style="IBUITableViewCellStyleDefault" id="6fa-A7-GFw">
                                         <rect key="frame" x="0.0" y="115" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6fa-A7-GFw" id="7gt-bp-nxV">
@@ -1624,7 +1624,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="fcO-fp-soh" style="IBUITableViewCellStyleDefault" id="kj7-Vo-UJ5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="fcO-fp-soh" style="IBUITableViewCellStyleDefault" id="kj7-Vo-UJ5">
                                         <rect key="frame" x="0.0" y="159" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kj7-Vo-UJ5" id="LLC-zC-HbM">
@@ -1641,7 +1641,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Aud-o9-IKc" style="IBUITableViewCellStyleDefault" id="HOB-zg-s8z">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Aud-o9-IKc" style="IBUITableViewCellStyleDefault" id="HOB-zg-s8z">
                                         <rect key="frame" x="0.0" y="203" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOB-zg-s8z" id="6iq-BA-HtY">
@@ -1730,9 +1730,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="0Pe-5P-1sF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="zzC-9F-Lmt"/>
-                        <barButtonItem key="leftBarButtonItem" title="Numpad" id="ONW-Eu-dND">
+                        <barButtonItem key="leftBarButtonItem" title="Insights" style="plain" id="ONW-Eu-dND">
                             <connections>
-                                <segue destination="m4a-Lf-HXf" kind="unwind" unwindAction="unwindToMainViewController:" id="JWd-vt-lOZ"/>
+                                <segue destination="m4a-Lf-HXf" kind="unwind" unwindAction="unwindToViewController:" id="ASH-hs-c7e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1740,7 +1740,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bM9-mc-EWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="m4a-Lf-HXf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2882.608695652174" y="-1005.163043478261"/>
+            <point key="canvasLocation" x="870" y="-907"/>
         </scene>
         <!--Terms View Controller-->
         <scene sceneID="y14-bm-Jvu">
@@ -1774,23 +1774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svD-8p-UUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660.8695652173915" y="-1000.2717391304349"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pRN-E6-GVm">
-            <objects>
-                <navigationController id="adM-nI-03E" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BkS-UU-bxe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="yYf-H8-R21" kind="relationship" relationship="rootViewController" id="8Sd-8J-eHy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYD-RK-Uzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2183" y="-1005"/>
+            <point key="canvasLocation" x="1614" y="-907"/>
         </scene>
         <!--Insights-->
         <scene sceneID="msD-Kn-HA8">

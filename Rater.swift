@@ -31,7 +31,9 @@ public class Rater: NSObject {
 	}
 	
 	private func setup() {
-		NotificationCenter.default.addObserver(self, selector: #selector(Rater.appDidFinishLaunching(notification:)), name: NSNotification.Name.UIApplicationDidFinishLaunching, object: nil)
+		if (!hasShownAppRating()) {
+			NotificationCenter.default.addObserver(self, selector: #selector(Rater.appDidFinishLaunching(notification:)), name: NSNotification.Name.UIApplicationDidFinishLaunching, object: nil)
+		}
 	}
 	
 	func appDidFinishLaunching(notification: NSNotification) {
@@ -44,7 +46,7 @@ public class Rater: NSObject {
 	private func displayRatingPromptIfRequired() {
 		let launches = getAppLaunchCount()
 		print("launches=\(launches), required=\(requiredLaunchesBeforeRating)")
-		if launches >= requiredLaunchesBeforeRating {
+		if launches >= requiredLaunchesBeforeRating && !hasShownAppRating() {
 			rateTheApp()
 		}
 		incrementAppLaunches()
@@ -68,7 +70,8 @@ public class Rater: NSObject {
 	}
 	
 	func openRatePage() {
-		let url = NSURL(string: "itms-apps://itunes.apple.com/app/id\(Config.read(value: "appstore-id"))")
+		// https://itunes.apple.com/app/calm-money-finance-tracker/id1182713741
+		let url = NSURL(string: "itms-apps://itunes.apple.com/app/calm-money-finance-tracker/id\(Config.read(value: "appstore-id")!)")
 		UIApplication.shared.openURL(url! as URL)
 	}
 	

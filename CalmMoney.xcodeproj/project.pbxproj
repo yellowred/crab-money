@@ -548,20 +548,20 @@
 		9AEA34FE1B79C55E009C65FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FE2BDDD1DF1C596009E4321 /* Rater.swift */,
+				3FFB07561DFC3701004F4514 /* Alerter.swift */,
 				9A27C1481B8586220087ECDD /* Category.swift */,
-				9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */,
-				9AFB00811B576B100062C6AE /* Currency.swift */,
+				3FE2BDDF1DF1CC20009E4321 /* Config.swift */,
 				9AFB007F1B576B0F0062C6AE /* Country.swift */,
-				9AEA34F91B79C4ED009C65FE /* Money.swift */,
+				9AFB00811B576B100062C6AE /* Currency.swift */,
+				9A5CA8971B7862B000AE3BA3 /* HandsOnCurrency.swift */,
+				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
 				9AF9E12B1B4B92DD0076BE69 /* Model.swift */,
-				9AA2E9C01B82240E00367068 /* Transaction.swift */,
+				9AEA34F91B79C4ED009C65FE /* Money.swift */,
 				9A827C8D1C1D2B9C0025FC5B /* PeriodFloat.swift */,
 				3F94E6A31E3CC858005AFBE4 /* PeriodMonth.swift */,
-				9AEDFF5C1C3D1CB900541A23 /* Math.swift */,
 				3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */,
-				3FE2BDDF1DF1CC20009E4321 /* Config.swift */,
-				3FFB07561DFC3701004F4514 /* Alerter.swift */,
+				3FE2BDDD1DF1C596009E4321 /* Rater.swift */,
+				9AA2E9C01B82240E00367068 /* Transaction.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
