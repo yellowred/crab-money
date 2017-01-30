@@ -134,14 +134,30 @@ class CalmMoneySnapshots: XCTestCase {
 		let addAnotherCurrencyButton = app.buttons.matching(identifier: "addCurrencyToConverter").element(boundBy: 0)
 		addAnotherCurrencyButton.tap()
 		
-		app.tables.cells.containing(.staticText, identifier:"USD").element(boundBy: 0).tap()
-		addAnotherCurrencyButton.tap()
+		let usdButton = app.tables.cells.containing(.staticText, identifier:"USD").element(boundBy: 0)
+		if usdButton.exists {
+			usdButton.tap()
+			addAnotherCurrencyButton.tap()
+		}
+		
+		
 		app.tables.cells.containing(.staticText, identifier:"SGD").element(boundBy: 0).tap()
 		addAnotherCurrencyButton.tap()
-		app.tables.cells.containing(.staticText, identifier:"EUR").element(boundBy: 0).tap()
-		addAnotherCurrencyButton.tap()
-		app.tables.cells.element(boundBy: 0).tap()
-		addAnotherCurrencyButton.tap()
+		
+		let eurButton = app.tables.cells.containing(.staticText, identifier:"EUR").element(boundBy: 0)
+		if eurButton.exists {
+			eurButton.tap()
+			addAnotherCurrencyButton.tap()
+		}
+		
+		
+		let rubButton = app.tables.cells.containing(.staticText, identifier:"RUB").element(boundBy: 0)
+		if rubButton.exists {
+			rubButton.tap()
+			addAnotherCurrencyButton.tap()
+		}
+		
+		
 		app.tables.cells.element(boundBy: 1).tap()
 		
 		let textField = app.tables.cells.containing(.staticText, identifier:"EUR").children(matching: .textField).element

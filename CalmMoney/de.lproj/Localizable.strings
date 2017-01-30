@@ -6,10 +6,10 @@
   Created by Oleg Kubrakov on 16/10/15.
   Copyright © 2015 Oleg Kubrakov. All rights reserved.
 */
-"expenses" = "Aufwendungen";
+"expenses" = "Ausgaben";
 
 /*Translated from: Earnings*/
-"earnings" = "Ergebnis";
+"earnings" = "Ertrag";
 
 /*Translated from: Budget*/
 "budget" = "Budget";
@@ -23,8 +23,8 @@
 /*Translated from: Save*/
 "save" = "Speichern";
 
-"Earnings" = "Ergebnis";
-"Expenses" = "Aufwendungen";
+"Earnings" = "Ertrag";
+"Expenses" = "Ausgaben";
 
 /** Localized */
 "Ok" = "Okay";
@@ -41,27 +41,27 @@
 
 "Last updated on " = "Letzte Aktualisierung am ";
 
-"Connect to the internet to update currency rates." = "Verbinden Sie mit dem Internet, Währungskurse zu aktualisieren.";
+"Connect to the internet to update currency rates." = "Stehen Sie zum Internet in Verbindung, um Währungsraten zu aktualisieren.";
 
 "remains" = "bleibt";
 
-"Please set the budget" = "Bitte legen Sie das budget";
+"Please set the budget" = "Setzen Sie bitte das Budget";
 
 "undefined" = "nicht definiert";
 
-"Purchase failed. Please check your internet connection and try again." = "Kauf ist fehlgeschlagen. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.";
+"Purchase failed. Please check your internet connection and try again." = "Kauf hat gescheitert. Überprüfen Sie bitte Ihre Internetverbindung und versuchen Sie noch einmal.";
 
-"Restore purchases" = "Käufe wiederherstellen";
+"Restore purchases" = "Stellen Sie Käufe wieder her";
 
-"Can not restore. Please check the internet connection and try again." = "Können nicht wiederhergestellt werden. Bitte überprüfen Sie die Internetverbindung und versuchen Sie es erneut.";
+"Can not restore. Please check the internet connection and try again." = "Kann nicht wieder herstellen. Überprüfen Sie bitte die Internetverbindung und versuchen Sie noch einmal.";
 
 "Succesful." = "Erfolgreich.";
 
-" products have been restored." = " Produkte wurden restauriert.";
+" products have been restored." = " Produkte sind wieder hergestellt worden.";
 
-"Nothing to restore. Please purchase a PRO version or Currency Converter." = "Nichts wiederherstellen. Bitte kaufen Sie eine PRO-Version oder Währungsrechner.";
+"Nothing to restore. Please purchase a PRO version or Currency Converter." = "Nichts, um wieder herzustellen. Kaufen Sie bitte eine PRO Version oder Währungskonverter.";
 
-"Enjoying Calm Money? Please rate us. It helps us to provide better updates." = "Genießen Sie ruhige Geld? Bitte bewerten Sie uns. Es hilft uns, besser Updates zur Verfügung stellen.";
+"Enjoying Calm Money? Please rate us. It helps us to provide better updates." = "Ruhiges Geld genießend? Schätzen Sie uns bitte ab. Es hilft uns, bessere Aktualisierungen zur Verfügung zu stellen.";
 
 "Rate us" = "Bewerten Sie uns";
 
@@ -128,7 +128,7 @@
 "BIF_currency_name" = "Burundi-Franken";
 
 /*Translated from: Bermudian dollars*/
-"BMD_currency_name" = "Bermudian Dollar";
+"BMD_currency_name" = "Bermudische Dollars";
 
 /*Translated from: Brunei dollars*/
 "BND_currency_name" = "Brunei-Dollar";

@@ -99,7 +99,7 @@
 "Ifz-Yu-OHB.text" = "Kategorien";
 
 /* Class = "UIButton"; normalTitle = "Expense"; ObjectID = "Imk-u6-Ckj"; */
-"Imk-u6-Ckj.normalTitle" = "Kosten";
+"Imk-u6-Ckj.normalTitle" = "Ausgaben";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "Jlb-z8-FyZ"; */
 "Jlb-z8-FyZ.title" = "Erkenntnisse";
@@ -147,7 +147,7 @@
 "PRr-jE-kcp.text" = "Transaktionen";
 
 /* Class = "UILabel"; text = "Expenses"; ObjectID = "Php-53-LyH"; */
-"Php-53-LyH.text" = "Aufwendungen";
+"Php-53-LyH.text" = "Ausgaben";
 
 /* Class = "UINavigationItem"; title = "Currency converter"; ObjectID = "R29-mF-N3M"; */
 "R29-mF-N3M.title" = "Währungsrechner";
@@ -204,7 +204,7 @@
 "fPe-M8-c7a.normalTitle" = ".";
 
 /* Class = "UILabel"; text = "Rate Calm Money"; ObjectID = "fcO-fp-soh"; */
-"fcO-fp-soh.text" = "Preis ruhig Geld";
+"fcO-fp-soh.text" = "Preis Ruhiges Geld";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "fow-F6-4yA"; */
 "fow-F6-4yA.text" = "Lorem Ipsum Dolor sit äh Elit Lamet, Consectetaur Cillium Adipisicing Chris, Sed Eiusmod Tempor Incididunt Ut Labore et Dolore Magna Aliqua. UT Enim Ad Minim Veniam, Quis Nostrud Übungsmanöver Ullamco Laboris nisi Ut Aliquip ex Ea Commodo Consequat. Duis Aute Irure Dolor im Reprehenderit in Voluptate Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. Excepteur Sint Occaecat Cupidatat nicht Proident, Sunt in Culpa Qui Officia Deserunt Mollit Anim Id est Laborum. Nam Liber Te bewussteren Tum Poen legnum Odioque Civiuda Faktor.";
@@ -261,7 +261,7 @@
 "rxa-0C-v2t.headerTitle" = "Betrag";
 
 /* Class = "UILabel"; text = "Max expense"; ObjectID = "sCu-4c-PJY"; */
-"sCu-4c-PJY.text" = "Max Kosten";
+"sCu-4c-PJY.text" = "Max Ausgaben";
 
 /* Class = "UILabel"; text = "17 Nov – 17 Dec, 16"; ObjectID = "sp3-UF-Rql"; */
 "sp3-UF-Rql.text" = "17 Nov-Dez, 16 17";
