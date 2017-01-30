@@ -131,9 +131,6 @@
 /* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
 "OLP-8p-Qoi.title" = "Add";
 
-/* Class = "UIBarButtonItem"; title = "Numpad"; ObjectID = "ONW-Eu-dND"; */
-"ONW-Eu-dND.title" = "Numpad";
-
 /* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
 "OVX-l5-VRT.headerTitle" = "Home currency";
 

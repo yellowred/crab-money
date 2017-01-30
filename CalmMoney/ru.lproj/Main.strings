@@ -132,7 +132,7 @@
 "OLP-8p-Qoi.title" = "Добавить";
 
 /* Class = "UIBarButtonItem"; title = "Numpad"; ObjectID = "ONW-Eu-dND"; */
-"ONW-Eu-dND.title" = "Цифровая клавиатура";
+"ONW-Eu-dND.title" = "Статистика";
 
 /* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
 "OVX-l5-VRT.headerTitle" = "Главная валюта";

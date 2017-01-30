@@ -90,7 +90,7 @@
 "Hft-4l-e9f.headerTitle" = "Kategorie";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "HyR-0t-8hd"; */
-"HyR-0t-8hd.title" = "Einblicke";
+"HyR-0t-8hd.title" = "Erkenntnisse";
 
 /* Class = "UIButton"; normalTitle = "2"; ObjectID = "Ibc-2H-AkF"; */
 "Ibc-2H-AkF.normalTitle" = "2";
@@ -102,7 +102,7 @@
 "Imk-u6-Ckj.normalTitle" = "Kosten";
 
 /* Class = "UINavigationItem"; title = "Insights"; ObjectID = "Jlb-z8-FyZ"; */
-"Jlb-z8-FyZ.title" = "Einblicke";
+"Jlb-z8-FyZ.title" = "Erkenntnisse";
 
 /* Class = "UILabel"; text = "USD"; ObjectID = "Ks6-qW-w7S"; */
 "Ks6-qW-w7S.text" = "US-DOLLAR";
@@ -132,7 +132,7 @@
 "OLP-8p-Qoi.title" = "Hinzufügen";
 
 /* Class = "UIBarButtonItem"; title = "Numpad"; ObjectID = "ONW-Eu-dND"; */
-"ONW-Eu-dND.title" = "Numpad";
+"ONW-Eu-dND.title" = "Erkenntnisse";
 
 /* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
 "OVX-l5-VRT.headerTitle" = "Landeswährung";
@@ -246,7 +246,7 @@
 "mvw-pT-1b3.normalTitle" = "7";
 
 /* Class = "UITabBarItem"; title = "Insights"; ObjectID = "nry-mf-cPR"; */
-"nry-mf-cPR.title" = "Einblicke";
+"nry-mf-cPR.title" = "Erkenntnisse";
 
 /* Class = "UIButton"; normalTitle = "0"; ObjectID = "pv4-aH-Z7R"; */
 "pv4-aH-Z7R.normalTitle" = "0";
