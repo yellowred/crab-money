@@ -126,29 +126,30 @@ class CalmMoneySnapshots: XCTestCase {
 		
 		app.tables.cells.element(boundBy: 0).tap()
 		snapshot("05Edit")
+
 		
 		
-		/*
-		tabBarsQuery.buttons["Converter"].tap()
+		converterTabButton.tap()
 		
-		let tablesQuery2 = app.tables
-		let addAnotherCurrencyButton = tablesQuery2.buttons["Add another currency"]
+		let addAnotherCurrencyButton = app.buttons.matching(identifier: "addCurrencyToConverter").element(boundBy: 0)
 		addAnotherCurrencyButton.tap()
 		
-		tablesQuery2.staticTexts["Singapore dollars"].tap()
+		app.tables.cells.containing(.staticText, identifier:"USD").element(boundBy: 0).tap()
 		addAnotherCurrencyButton.tap()
-		tablesQuery2.staticTexts["Hong Kong dollars"].tap()
+		app.tables.cells.containing(.staticText, identifier:"SGD").element(boundBy: 0).tap()
 		addAnotherCurrencyButton.tap()
-		tablesQuery2.staticTexts["Australian dollars"].tap()
+		app.tables.cells.containing(.staticText, identifier:"EUR").element(boundBy: 0).tap()
 		addAnotherCurrencyButton.tap()
-		tablesQuery2.staticTexts["Thai baht"].tap()
+		app.tables.cells.element(boundBy: 0).tap()
+		addAnotherCurrencyButton.tap()
+		app.tables.cells.element(boundBy: 1).tap()
 		
-		let textField = tablesQuery2.cells.containing(.staticText, identifier:"HKD").children(matching: .textField).element
+		let textField = app.tables.cells.containing(.staticText, identifier:"EUR").children(matching: .textField).element
 		textField.tap()
-		textField.typeText("13888")
-		tablesQuery.staticTexts["SGD"].tap()
+		textField.typeText("138")
+		app.tables.staticTexts["SGD"].tap()
 		snapshot("06Converter")
-		*/
+		
 	}
 	
 	/*

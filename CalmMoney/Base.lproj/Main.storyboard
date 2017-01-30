@@ -1328,6 +1328,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-xb-2Bf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="addCurrencyToConverter"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="9Ag-1x-CZs"/>
                                                 <constraint firstAttribute="height" constant="50" id="h1C-Ib-cNd"/>
@@ -2015,7 +2016,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QbT-4Y-1V6"/>
-        <segue reference="rNd-md-E9a"/>
-        <segue reference="Y3u-vg-LQS"/>
+        <segue reference="1Q5-xo-Y9g"/>
+        <segue reference="B9e-dp-6nI"/>
     </inferredMetricsTieBreakers>
 </document>
