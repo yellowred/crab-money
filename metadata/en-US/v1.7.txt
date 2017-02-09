@@ -1,0 +1,6 @@
+• Your financial period, which is used to calculate insights, total, projected, etc., now is a calendar MONTH.
+• German localization.
+• Interface improvements and bug fixes.
+• Currency converter is available for trial use.
+
+If you find any bugs or you want a feature, please let me know via Facebook or email. All contacts are in Profile section of the app!

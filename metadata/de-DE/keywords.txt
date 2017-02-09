@@ -1,1 +1,1 @@
-family, budget, personal, manager, spend, bills, debt, savings, expenses, money, exchange, rates
+Ausgaben, Budget, Persönlicher, Betriebsleiter, gibt aus, schnäbelt sich, Schuld, Ersparnisse, Geld, Austausch, Raten
