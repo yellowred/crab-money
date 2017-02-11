@@ -131,9 +131,6 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	// MARK: - TouchPad
 	@IBAction func tapNumber(_ sender: UIButton)
 	{
-		#if DEBUG
-			println(#function)
-		#endif
         if sender.tag >= 1 && sender.tag <= 10 {
             amount!.appendSymbol(sender.tag < 10 ? String(sender.tag) : "0")
         } else if sender.tag == 11 {

@@ -84,14 +84,14 @@ class ProfileTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.section == 0 && indexPath.row == 0 && (Purchase().isPurchasedUnlimitedTransactions() || !Purchase().canMakePayments()) {
 			return 0.0
-		} else if indexPath.section == 3 && indexPath.row == 0 && !(Config.read(value: "debug") as! Bool) {
+		} else if indexPath.section == 3 && indexPath.row == 0 && !(app().debug) {
 			return 0.0
 		}
 		return super.tableView(tableView, heightForRowAt: indexPath)
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 3 && !(Config.read(value: "debug") as! Bool) {
+		if section == 3 && !(app().debug) {
 			return nil
 		} else if section == 1 {
 			var appVersionText:String = ""

@@ -17,12 +17,18 @@ import SwiftyStoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-	
+	var debug:Bool = false
 	
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		Fabric.with([Crashlytics.self()])
 		model.preloadData()
+		
+		let env = ProcessInfo.processInfo.environment
+		debug = false
+		if env["DEBUG"] != nil && env["DEBUG"] == "1"{
+			debug = true
+		}
 		
 		SwiftyStoreKit.completeTransactions(atomically: true) { products in
 			for product in products {
