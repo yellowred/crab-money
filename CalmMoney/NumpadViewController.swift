@@ -8,6 +8,8 @@
 
 import UIKit
 import Spring
+import Crashlytics
+
 
 enum NumpadSegues: String {
 	case SelectNumpadCurrency = "SelectNumpadCurrency"
@@ -73,6 +75,13 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 	
 	func checkPurchase() {
 		if !Purchase().canAddTransaction(to: app().model) {
+			
+			Answers.logContentView(withName: "Numpad Store",
+			                               contentType: "View",
+			                               contentId: "numpad-store",
+			                               customAttributes: [:])
+			
+			
 			var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
 			if #available(iOS 10.0, *) {
 				blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
@@ -89,6 +98,13 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 			buyButton.addTarget(self, action: #selector(tapPurchase), for: .touchUpInside)
 			customView.tag = 412
 			self.view.addSubview(customView)
+		} else {
+			
+			Answers.logContentView(withName: "Numpad Panel",
+			                               contentType: "View",
+			                               contentId: "numpad-panel",
+			                               customAttributes: [:])
+			
 		}
 	}
 	

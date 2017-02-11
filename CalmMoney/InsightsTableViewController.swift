@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//	import Crashlytics
+import Crashlytics
 
 enum InsightsSegues: String {
 	case ShowTransactions = "ShowTransactions"
@@ -71,6 +71,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	
 	func showSummary() {
 		if currentPeriod != nil {
+			
 			if self.underlayingView != nil {
 				self.view = self.underlayingView
 				self.underlayingView = nil
@@ -145,8 +146,18 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			}
 			budgetProgressBar.progressTintColor = UIColor.expense()
 			budgetProgressBar.trackTintColor = UIColor.earning()
-
+			
+			Answers.logContentView(withName: "Insights summary",
+			                               contentType: "View",
+			                               contentId: "insights-summary",
+			                               customAttributes: ["txnum": transactions?.count ?? 0])
+			
+			
 		} else {
+			Answers.logContentView(withName: "Insights not ready",
+			                               contentType: "View",
+			                               contentId: "insights-start",
+			                               customAttributes: [:])
 			periodLabel.text = "undefined".localized
 			let customView: UIView = Bundle.main.loadNibNamed("InsightsEmptyView", owner: self, options: nil)![0] as! UIView
 			if self.underlayingView == nil {

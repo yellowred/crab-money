@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Crashlytics
 
 class ConverterTableViewController: UITableViewController, CurrencySelectDelegate
 {
@@ -66,6 +66,13 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	
 	func checkPurchase() {
 		if !canShowConverter() {
+			
+			Answers.logContentView(withName: "Converter Store",
+			                               contentType: "View",
+			                               contentId: "converter-store",
+			                               customAttributes: [:])
+			
+			
 			currenciesStructure = app().model.getHandsOnCurrenciesStructureFake(providedAmount!)
 			self.tableView.reloadData()
 			self.tableView.setContentOffset(CGPoint.zero, animated: false)
@@ -130,6 +137,16 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			self.tableView.bounces = false
 			self.tableView.isScrollEnabled = false
 		} else {
+			
+			let curlst = currenciesStructure.map({
+				(elem:HandsOnCurrency) -> String in
+				return elem.amount.currency.code
+			}).joined(separator: ", ")
+			Answers.logContentView(withName: "Converter Panel",
+			                               contentType: "View",
+			                               contentId: "converter-panel",
+			                               customAttributes: ["curnum":currenciesStructure.count, "curlst": curlst])
+			print(currenciesStructure.count)
 			incrementConverterLaunches()
 		}
 	}
