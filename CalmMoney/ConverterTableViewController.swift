@@ -267,11 +267,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 0 {
-			return "Tap currency to add transaction".localized
-		} else {
-			return ""
-		}
+		return ""
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

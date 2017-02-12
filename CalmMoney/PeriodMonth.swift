@@ -87,7 +87,6 @@ class PeriodMonth: CustomStringConvertible {
 			let comp = (calendar as NSCalendar).components(NSCalendar.Unit.day, from: startDate, to: Date(), options: [])
 			return comp.day! + 1
 		}
-	}
-	
+	}	
 }
 

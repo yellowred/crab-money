@@ -20,6 +20,7 @@ extension NSDecimalNumber {
 		return NSDecimalNumber(string: NumberFormatter().formatterSimpleMoney().string(from: self))
 	}
 	
+	
 	func isPositive() -> Bool {
 		return self.compare(NSDecimalNumber.zero) == ComparisonResult.orderedDescending
 	}

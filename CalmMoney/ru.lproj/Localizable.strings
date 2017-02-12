@@ -33,7 +33,6 @@
 "You have transactions assigned to this category. Please remove them first." = "У вас есть транзакции в этой категории. Пожалуйста сначала удалите их.";
 "N/A" = "Н/Д";
 "Please wait..." = "Пожалуйста, ждите...";
-"Tap currency to add transaction" = "Нажмите валюту чтобы добавить транзакцию";
 "Last updated on " = "Последний раз обновлено ";
 "Connect to the internet to update currency rates." = "Пожалуйста, подключитесь к интернету, чтобы обновить курсы валют.";
 "remains" = "осталось";

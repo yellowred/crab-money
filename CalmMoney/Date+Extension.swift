@@ -92,10 +92,19 @@ extension Date {
 	
 	func fromString(_ dbDate: String) -> Date? {
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"//this your string date format
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 		dateFormatter.timeZone = TimeZone.current
 		return dateFormatter.date(from: dbDate)
 	}
+
+
+	func toString() -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+		dateFormatter.timeZone = TimeZone.current
+		return dateFormatter.string(from: self)
+	}
+
 	
 	func getDaysTo(_ date: Date) -> Int {
 		var calendar = Calendar.current

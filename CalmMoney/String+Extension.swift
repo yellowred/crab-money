@@ -16,6 +16,10 @@ extension String {
 }
 
 extension String: ParameterEncoding {
+	
+	// new line delimiter
+	static let kNewLine = "\n"
+	
 	public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
 		var request = try urlRequest.asURLRequest()
 		request.httpBody = data(using: .utf8, allowLossyConversion: false)

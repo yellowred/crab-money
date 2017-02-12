@@ -191,8 +191,8 @@
 /* Class = "UINavigationItem"; title = "Edit transaction"; ObjectID = "d2n-bK-cvR"; */
 "d2n-bK-cvR.title" = "Transaktion bearbeiten";
 
-/* Class = "UIButton"; normalTitle = "Buy PRO version"; ObjectID = "dCz-Rm-VDp"; */
-"dCz-Rm-VDp.normalTitle" = "PRO-Version kaufen";
+/* Class = "UIButton"; normalTitle = "Unlock unlimited transactions"; ObjectID = "dCz-Rm-VDp"; */
+"dCz-Rm-VDp.normalTitle" = "Unlimitierte Transaktionen freischalten";
 
 /* Class = "UITabBarItem"; title = "Converter"; ObjectID = "e42-NY-80F"; */
 "e42-NY-80F.title" = "Konverter";

@@ -52,6 +52,8 @@ class TransactionTableViewCell: UITableViewCell {
 				categoryText.append(noteForFinancial)
 			}
 			trnLabel.attributedText = categoryText
+		} else {
+			trnLabel.attributedText = NSMutableAttributedString(string: "undefined".localized)
 		}
 	}
 }
