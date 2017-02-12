@@ -47,6 +47,18 @@
 "Category name" = "Category name";
 "Trial period." = "Trial period.";
 
+// Export
+"Export to Excel" = "Export to Excel";
+"No transactions to export" = "No transactions to export";
+"Cancel" = "Cancel";
+"All transactions" = "All transactions";
+"Last 3 months" = "Last 3 months";
+"This month" = "This month";
+"Unable to export" = "Unable to export";
+"Unable to save transactions history to a file. Please, check free space in the device and try again." = "Unable to save transactions history to a file. Please, check free space in the device and try again.";
+"Transactions sheet" = "Transactions sheet";
+
+
 /** CURRENCIES **/
 "AED_currency_name" = "UAE dirhams";
 /*Translated from: Afghan afghanis*/

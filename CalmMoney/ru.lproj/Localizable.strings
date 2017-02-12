@@ -54,6 +54,17 @@
 "Category name" = "Имя категории";
 "Trial period." = "Пробная версия.";
 
+// Export
+"Export to Excel" = "Выгрузка в Excel";
+"No transactions to export" = "Нет транзакций для экспорта";
+"Cancel" = "Отмена";
+"All transactions" = "Все транзакции";
+"Last 3 months" = "Последние 3 месяца";
+"This month" = "Этот месяц";
+"Unable to export" = "Невозможно экспортировать";
+"Unable to save transactions history to a file. Please, check free space in the device and try again." = "Не удалось сохранить историю транзакций в файл. Пожалуйста, проверьте свободное место на устройстве и повторите попытку.";
+"Transactions sheet" = "Таблица транзакций";
+
 
 /** CURRENCIES */
 "AED_currency_name" = "ОАЭ Дирхам";

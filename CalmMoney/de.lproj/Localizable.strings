@@ -77,6 +77,18 @@
 
 "Trial period." = "Testzeitraum.";
 
+// Export
+"Export to Excel" = "Exportieren nach Excel";
+"0 transactions to export" = "Keine Transaktionen, um zu exportieren";
+"Cancel" = "Annullieren";
+"All transactions" = "Alle Transaktionen";
+"Last 3 months" = "Letzte 3 Monate";
+"This month" = "In diesem Monat";
+"Unable to export" = "Unfähig zu exportieren";
+"Unable to save transactions history to a file. Please, check free space in the device and try again." = "Unfähig, Transaktionsgeschichte zu einer Datei zu sparen. Überprüfen Sie bitte freien Raum im Gerät und versuchen Sie noch einmal.";
+"Transactions sheet" = "Transaktionsplatte";
+
+
 /** CURRENCIES */
 "AED_currency_name" = "VAE Dirham";
 

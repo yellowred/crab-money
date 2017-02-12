@@ -181,7 +181,7 @@ class ProfileTableViewController: UITableViewController, UIDocumentInteractionCo
 			self.present(self.activityViewController!, animated: true, completion: nil)
 			*/
 		} else {
-			self.present(Alerter().notify(title: "Unable to export".localized, message: "Unable to save transactions history in a file. Please, check your free space and try again.".localized), animated: true, completion: nil)
+			self.present(Alerter().notify(title: "Unable to export".localized, message: "Unable to save transactions history to a file. Please, check free space in the device and try again.".localized), animated: true, completion: nil)
 		}
 	}
 	

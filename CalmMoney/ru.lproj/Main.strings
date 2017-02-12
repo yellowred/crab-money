@@ -295,3 +295,9 @@
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "zzC-9F-Lmt"; */
 "zzC-9F-Lmt.title" = "Назад";
+
+/* Class = "UILabel"; text = "Export to Excel"; ObjectID = "YcQ-wo-dp2"; */
+"YcQ-wo-dp2.text" = "Выгрузка в Excel";
+
+/* Class = "UITableViewSection"; headerTitle = "Transactions history"; ObjectID = "mGf-5X-L8n"; */
+"mGf-5X-L8n.headerTitle" = "История транзакций";
