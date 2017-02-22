@@ -4,7 +4,7 @@
     },
     "title": {
     	"font": "Helvetica.otf",
-     	"color": "#ffffff"
+     	"color": "#333333"
     },
     "background": "./background.png",
     "padding": 60
