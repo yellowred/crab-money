@@ -72,3 +72,10 @@ if num?.x != 100 {
 } else {
     print("Ho")
 }
+
+let formatter = NumberFormatter()
+formatter.numberStyle = NumberFormatter.Style.decimal
+if let number = formatter.number(from: "42,000") {
+    print(number)
+}
+

@@ -13,7 +13,10 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
     @IBOutlet weak var valueInput: UITextField!
 	@IBOutlet weak var flag: UIImageView!
 	@IBOutlet weak var code: UILabel!
-    
+	
+	private weak var converter: ConverterTableViewController?
+	
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -43,5 +46,11 @@ class CurrencyTableViewCell: UITableViewCell, UITableViewDelegate {
 	func setCurrency(_ currency: Currency) {
 		self.code.text = currency.code.uppercased()
 		self.flag.image = currency.getFlag()
+	}
+	
+	
+	func setConvert(_ controller: ConverterTableViewController) {
+		converter = controller
+		(self.valueInput as! AmountTextField).converter = converter
 	}
 }

@@ -1,17 +1,11 @@
-//
-//  AmountTextField.swift
-//  Finance App for Travellers
-//
-//  Created by Oleg Kubrakov on 08/08/15.
-//  Copyright (c) 2015 Oleg Kubrakov. All rights reserved.
-//
-
 import UIKit
 
 class AmountTextField: UITextField, UITextFieldDelegate {
 
 	private var characterLimit: Int?
 	
+	var correspondingCurrency: HandsOnCurrency?
+	weak var converter: ConverterTableViewController?
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -54,8 +48,6 @@ class AmountTextField: UITextField, UITextFieldDelegate {
 	
     }
 	
-	var correspondingCurrency: HandsOnCurrency?
-	
 	
 	@IBInspectable var maxLength: Int {
 		get {
@@ -72,17 +64,29 @@ class AmountTextField: UITextField, UITextFieldDelegate {
 	
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
   
-		// 2
-		guard string.characters.count > 0 else {
-			return true
-		}
-		
-		// 3
 		let currentText = textField.text ?? ""
-		// 4
 		let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
-		// 5
-		return prospectiveText.characters.count <= maxLength
+		if ( prospectiveText.characters.count <= maxLength ) {
+			switch string {
+			case "0","1","2","3","4","5","6","7","8","9":
+				let currentNumber = NumberFormatter().formatterDollars().number(from: currentText)
+				let newNumber = NSDecimalNumber(decimal: currentNumber!.decimalValue).multiplying(by: 10).adding(NSDecimalNumber(string: string))
+				setAmount(value: newNumber)
+				converter?.amountChanged(sender: self)
+			default:
+				if string.characters.count == 0 && currentText.characters.count != 0 {
+					let currentNumber = NumberFormatter().formatterDollars().number(from: currentText)
+					let newNumber = NSDecimalNumber(decimal: currentNumber!.decimalValue).dividing(by: 10).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
+					setAmount(value: newNumber)
+					converter?.amountChanged(sender: self)
+				}
+			}
+		}
+		return false
 	}
 
+	public func setAmount(value: NSDecimalNumber) {
+		self.text = NumberFormatter().formatterDollars().string(from: value) ?? "0"
+		self.correspondingCurrency?.amount.setAmount(value)
+	}
 }

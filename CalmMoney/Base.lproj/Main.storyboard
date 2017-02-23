@@ -1299,9 +1299,6 @@
                                                     <exclude reference="y5l-NZ-Iab"/>
                                                 </mask>
                                             </variation>
-                                            <connections>
-                                                <action selector="amountChanged:" destination="obF-Gz-u71" eventType="editingChanged" id="f7k-Lj-DAs"/>
-                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>

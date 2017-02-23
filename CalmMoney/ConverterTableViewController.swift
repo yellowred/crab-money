@@ -202,6 +202,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		return Purchase().canUseConverter() || UserDefaults().integer(forKey: kConverterLaunchNumber) <= maxFreeLaunches
 	}
 	
+	
     func onContentSizeChange(_ notification: Notification) {
         tableView.reloadData()
     }
@@ -212,26 +213,21 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
         // Dispose of any resources that can be recreated.
     }
 	
+	func amountChanged(sender: AmountTextField) {
+        if sender.text!.isEmpty {
+            sender.text = "0"
+        }
+        if let handsOnCurrency:HandsOnCurrency = sender.correspondingCurrency {
+            providedAmount = handsOnCurrency.amount
+            
+            for handson in currenciesStructure {
+                if handsOnCurrency.amount.currency != handson.amount.currency {
+                    handson.setAmount(handsOnCurrency.amount.toCurrency(handson.amount.currency).amount)
+                }
+            }
+        }
+    }
 	
-	@IBAction func amountChanged(_ sender: UITextField) {
-		if let amountTextField = sender as? AmountTextField
-		{
-			if amountTextField.text!.isEmpty {
-				amountTextField.text = "0"
-			}
-			if let handsOnCurrency:HandsOnCurrency = amountTextField.correspondingCurrency {
-				handsOnCurrency.setAmount(NSDecimalNumber(string: amountTextField.text))
-				providedAmount = handsOnCurrency.amount
-				
-				for handson in currenciesStructure {
-					if handsOnCurrency.amount.currency != handson.amount.currency {
-						handson.setAmount(handsOnCurrency.amount.toCurrency(handson.amount.currency).amount)
-					}
-				}
-			}
-		}
-		
-	}
     
     // MARK: - Table view data source
 
@@ -256,6 +252,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 			let handsOnCurrency = currenciesStructure[(indexPath as NSIndexPath).row]
 			cell = tableView.dequeueReusableCell(withIdentifier: kCurrencyManagableCell, for: indexPath) as! CurrencyTableViewCell
 			(cell as! CurrencyTableViewCell).setHandsOnCurrency(handsOnCurrency)
+			(cell as! CurrencyTableViewCell).setConvert(self)
 			//setup structure
 			handsOnCurrency.textField = (cell as! CurrencyTableViewCell).valueInput
         } else {

@@ -152,16 +152,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalmMoney/ConverterTableViewController.swift"
-            timestampString = "508865498.918896"
+            timestampString = "509524883.554365"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "amountChanged(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
