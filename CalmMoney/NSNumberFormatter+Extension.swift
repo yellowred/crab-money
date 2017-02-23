@@ -17,21 +17,30 @@ extension NumberFormatter {
 	}
 	
 	
+	func formatterMoney2(_ currency: Currency) -> NumberFormatter {
+		self.currencySymbol = "X"
+		self.numberStyle = .currency
+		return self
+	}
+	
 	func formatterMoney(_ currency: Currency) -> NumberFormatter {
-//		self.numberStyle = NumberFormatter.Style.currency
+		//		self.numberStyle = NumberFormatter.Style.currency
 		let locale = Locale(
 			identifier: Locale.identifier(
 				fromComponents: [
 					NSLocale.Key.currencyCode.rawValue: currency.code,
-					NSLocale.Key.languageCode.rawValue: Bundle.main.preferredLocalizations.first!
+					NSLocale.Key.languageCode.rawValue: NSLocale.current.regionCode!
 				]
 			)
 		)
 		self.locale = locale
-		self.positiveFormat = "+¤#,##0.00"
-		self.negativeFormat = "-¤#,##0.00"
+		//self.positiveFormat = "+¤#" + NSLocale.current.decimalSeparator! + "##0.00"
+		//self.negativeFormat = "-¤#" + NSLocale.current.decimalSeparator! + "##0.00"
+		self.positiveFormat = "+¤ #,##0.##"
+		self.negativeFormat = "-¤ #,##0.##"
 		return self
 	}
+	
 	
 	func formatterDollars() -> NumberFormatter {
 		self.numberStyle = NumberFormatter.Style.decimal
