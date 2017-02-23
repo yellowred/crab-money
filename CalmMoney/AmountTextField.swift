@@ -69,13 +69,13 @@ class AmountTextField: UITextField, UITextFieldDelegate {
 		if ( prospectiveText.characters.count <= maxLength ) {
 			switch string {
 			case "0","1","2","3","4","5","6","7","8","9":
-				let currentNumber = NumberFormatter().formatterDollars().number(from: currentText)
+				let currentNumber = NumberFormatter().formatterConverter().number(from: currentText)
 				let newNumber = NSDecimalNumber(decimal: currentNumber!.decimalValue).multiplying(by: 10).adding(NSDecimalNumber(string: string))
 				setAmount(value: newNumber)
 				converter?.amountChanged(sender: self)
 			default:
 				if string.characters.count == 0 && currentText.characters.count != 0 {
-					let currentNumber = NumberFormatter().formatterDollars().number(from: currentText)
+					let currentNumber = NumberFormatter().formatterConverter().number(from: currentText)
 					let newNumber = NSDecimalNumber(decimal: currentNumber!.decimalValue).dividing(by: 10).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false))
 					setAmount(value: newNumber)
 					converter?.amountChanged(sender: self)
@@ -86,7 +86,7 @@ class AmountTextField: UITextField, UITextFieldDelegate {
 	}
 
 	public func setAmount(value: NSDecimalNumber) {
-		self.text = NumberFormatter().formatterDollars().string(from: value) ?? "0"
+		self.text = NumberFormatter().formatterConverter().string(from: value) ?? "0"
 		self.correspondingCurrency?.amount.setAmount(value)
 	}
 }

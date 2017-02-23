@@ -50,4 +50,12 @@ extension NumberFormatter {
 		return self
 	}
 	
+	func formatterConverter() -> NumberFormatter {
+		self.numberStyle = NumberFormatter.Style.decimal
+		self.roundingMode = NumberFormatter.RoundingMode.floor
+		self.maximumFractionDigits = 2
+		self.minimumFractionDigits = 0
+		return self
+	}
+	
 }
