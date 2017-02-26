@@ -34,7 +34,6 @@ class TransactionTableViewCell: UITableViewCell {
 		attributedString = NSMutableAttributedString(string: amountString as String, attributes: firstAttributes)
 		
 		let dollarsValue = NumberFormatter().formatterDollars().string(from: transaction.amount.abs())
-		print(string)
 		let range = amountString.range(of: dollarsValue!)
 			
 		attributedString.addAttributes(secondAttributes, range: range)

@@ -10,6 +10,7 @@ import UIKit
 
 protocol TransactionsViewDelegate {
 	func getTransactions() -> [Transaction]
+	func getCurrentPeriod() -> PeriodMonth
 }
 
 class TransactionsTableViewController: UITableViewController {
@@ -22,8 +23,9 @@ class TransactionsTableViewController: UITableViewController {
 	fileprivate let kShowTransactionDetailSegue = "ShowTransactionDetail"
 	fileprivate let kTransactionCellHeight = 70
 	
-	var currentPeriod: PeriodMonth?
 	var transactionsViewDelegate: TransactionsViewDelegate?
+	var dailyAmounts: [String:NSDecimalNumber]?
+	
 	
 	/*
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -41,6 +43,15 @@ class TransactionsTableViewController: UITableViewController {
 
 		transactions = transactionsViewDelegate!.getTransactions()
 		getTransactionsStructure()
+
+		tableView.register(UINib(nibName: "TransactionsListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "TransactionsListHeader")
+
+		let finmath = Math(
+			transactions: transactions,
+			homeCurrency: app().model.getCurrentCurrency(),
+			currentPeriod: transactionsViewDelegate!.getCurrentPeriod()
+		)
+		dailyAmounts = finmath.dailyAmounts(transactions)
 		
 		NotificationCenter.default.addObserver(self,
 			selector: #selector(TransactionsTableViewController.onModelDataChanged(_:)),
@@ -133,10 +144,6 @@ class TransactionsTableViewController: UITableViewController {
 		return CGFloat(kTransactionCellHeight)
 	}
 
-	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		let trn = transactionStructure[sortedSectionTitles[section]]!.first! as Transaction
-		return trn.date.transactionsSectionFormat()
-	}
 	
     /*
     // Override to support conditional editing of the table view.
@@ -176,6 +183,21 @@ class TransactionsTableViewController: UITableViewController {
 	{
 		let selectedTransaction:Transaction = transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row]
 		performSegue(withIdentifier: kShowTransactionDetailSegue, sender: selectedTransaction)
+	}
+	
+	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TransactionsListHeader") as! TransactionsListHeader
+		
+		let trn = transactionStructure[sortedSectionTitles[section]]!.first! as Transaction
+		headerView.customLabel.text = trn.date.transactionsSectionFormat()
+		headerView.amountLabel.text = transactionStructure[sortedSectionTitles[section]]!.count > 1 ? dailyAmounts?[trn.date.formatToHash()]?.formatToMoney() : ""
+		headerView.sectionNumber = section
+		headerView.backgroundColor = UIColor.lightGray
+		return headerView
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 50
 	}
 
     // MARK: - Navigation

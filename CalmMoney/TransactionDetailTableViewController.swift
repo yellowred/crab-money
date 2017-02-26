@@ -52,7 +52,7 @@ class TransactionDetailTableViewController: UITableViewController, CategorySelec
 			}
 			currencyUpd = transaction!.currency
 			categoryUpd = transaction!.category
-			amountValue.text = transaction!.amount.formatToMoney().stringValue
+			amountValue.text = transaction!.amount.stringValue
 			dateValue.calendar = Date().getCalendar()
 			dateValue.date = transaction!.date as Date
 			descriptionValue.text = transaction!.text

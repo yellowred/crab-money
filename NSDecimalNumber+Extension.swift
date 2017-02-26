@@ -16,8 +16,8 @@ extension NSDecimalNumber {
 		}
 	}
 
-	func formatToMoney() -> NSDecimalNumber {
-		return NSDecimalNumber(string: NumberFormatter().formatterSimpleMoney().string(from: self))
+	func formatToMoney() -> String {
+		return NumberFormatter().formatterSimpleMoney().string(from: self)!
 	}
 	
 	

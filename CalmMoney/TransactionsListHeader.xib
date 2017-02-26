@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TransactionsListHeader" customModule="Calm_Money" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-lJ-CVK" customClass="TransactionsListHeaderLabel" customModule="Calm_Money" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Qe4-BD-Wp2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCB-O2-Ovl" customClass="TransactionsListHeaderAmount" customModule="Calm_Money" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="71a-hC-vUN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jk7-lJ-CVK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="5Ob-KE-Bic"/>
+                <constraint firstItem="jk7-lJ-CVK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zml-R6-Rv2"/>
+                <constraint firstItem="gCB-O2-Ovl" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="dD3-sf-Q3E"/>
+                <constraint firstItem="gCB-O2-Ovl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="exC-K4-jIc"/>
+                <constraint firstAttribute="trailing" secondItem="gCB-O2-Ovl" secondAttribute="trailing" id="oBg-lg-0ko"/>
+                <constraint firstItem="jk7-lJ-CVK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pab-85-Nb9"/>
+            </constraints>
+            <connections>
+                <outlet property="amountLabel" destination="gCB-O2-Ovl" id="nua-k0-Ay0"/>
+                <outlet property="customLabel" destination="jk7-lJ-CVK" id="RmZ-9K-BJV"/>
+            </connections>
+            <point key="canvasLocation" x="-42" y="58"/>
+        </view>
+    </objects>
+</document>

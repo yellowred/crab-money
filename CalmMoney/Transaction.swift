@@ -44,20 +44,7 @@ import CoreData
 			self.rate = newValue.rate
 		}
 	}
-	
-	
-	override func setValue(_ value: Any?, forKey key: String) {
-		if key == "amount" {
-			setAmountWithMoney(value: value as! NSDecimalNumber)
-		} else {
-			super.setValue(value, forKey: key)
-		}
-	}
 
-	
-	func setAmountWithMoney(value: NSDecimalNumber) {
-		self.amount = value.formatToMoney()
-	}
 	
 	func getMoney() -> Money {
 		return Money(amount: self.amount, currency: self.currency)

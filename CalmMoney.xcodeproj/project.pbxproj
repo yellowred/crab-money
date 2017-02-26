@@ -19,6 +19,10 @@
 		3F0396671DF27F5500252187 /* NSNumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A91B41B1BCCB8E000964B36 /* NSNumberFormatter+Extension.swift */; };
 		3F0396681DF27F5900252187 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA34F91B79C4ED009C65FE /* Money.swift */; };
 		3F0396701DF27FB000252187 /* CalmMoneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */; };
+		3F0DA9871E632AA50008F081 /* TransactionsListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0DA9861E632AA50008F081 /* TransactionsListHeader.xib */; };
+		3F0DA9891E632C690008F081 /* TransactionsListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0DA9881E632C690008F081 /* TransactionsListHeader.swift */; };
+		3F0DA98D1E632F800008F081 /* TransactionsListHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0DA98C1E632F800008F081 /* TransactionsListHeaderLabel.swift */; };
+		3F0DA98F1E6336EC0008F081 /* TransactionsListHeaderAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0DA98E1E6336EC0008F081 /* TransactionsListHeaderAmount.swift */; };
 		3F1552011DF2E9E6008985B1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1552001DF2E9E6008985B1 /* StoreKit.framework */; };
 		3F2108BD1E1CC4FC008217DA /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2108BC1E1CC4FC008217DA /* ObjC.m */; };
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
@@ -155,6 +159,10 @@
 		3F03966D1DF27FB000252187 /* CalmMoneyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmMoneyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F03966F1DF27FB000252187 /* CalmMoneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmMoneyUITests.swift; sourceTree = "<group>"; };
 		3F0396711DF27FB000252187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F0DA9861E632AA50008F081 /* TransactionsListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionsListHeader.xib; sourceTree = "<group>"; };
+		3F0DA9881E632C690008F081 /* TransactionsListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListHeader.swift; sourceTree = "<group>"; };
+		3F0DA98C1E632F800008F081 /* TransactionsListHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListHeaderLabel.swift; sourceTree = "<group>"; };
+		3F0DA98E1E6336EC0008F081 /* TransactionsListHeaderAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListHeaderAmount.swift; sourceTree = "<group>"; };
 		3F1552001DF2E9E6008985B1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3F2108BB1E1CC4CA008217DA /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
 		3F2108BC1E1CC4FC008217DA /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
@@ -431,8 +439,12 @@
 				9A827C9C1C1D71E00025FC5B /* InsightsCategoryTableViewCell.swift */,
 				9AFE7CAB1B82E78C00B7159B /* TransactionTableViewCell.swift */,
 				9AFE7CA91B82DF2B00B7159B /* TransactionsTableViewController.swift */,
+				3F0DA9861E632AA50008F081 /* TransactionsListHeader.xib */,
 				9A827C9E1C1DBE380025FC5B /* TransactionDetailTableViewController.swift */,
 				3FD5918E1C6B7A0800495C2C /* BudgetTableViewController.swift */,
+				3F0DA9881E632C690008F081 /* TransactionsListHeader.swift */,
+				3F0DA98C1E632F800008F081 /* TransactionsListHeaderLabel.swift */,
+				3F0DA98E1E6336EC0008F081 /* TransactionsListHeaderAmount.swift */,
 			);
 			name = Insights;
 			sourceTree = "<group>";
@@ -753,6 +765,7 @@
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
 				9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
+				3F0DA9871E632AA50008F081 /* TransactionsListHeader.xib in Resources */,
 				3F3162A41E18ECC900E4CD1A /* DebugViewController.xib in Resources */,
 				3FE2BDDA1DF1C3E2009E4321 /* ConverterNotPurchased.xib in Resources */,
 				9A36FCE61BD9E52300BD81C0 /* AllCurrenciesSearchCell.xib in Resources */,
@@ -968,6 +981,7 @@
 				3F94E6A41E3CC858005AFBE4 /* PeriodMonth.swift in Sources */,
 				9A04DA111B5CF5A3005230C0 /* AllCurrenciesTableViewController.swift in Sources */,
 				3FFBACA41D9BC54C005C7924 /* ProfileTableViewController.swift in Sources */,
+				3F0DA98D1E632F800008F081 /* TransactionsListHeaderLabel.swift in Sources */,
 				9AF9E12C1B4B92DD0076BE69 /* Model.swift in Sources */,
 				3FFB07551DFB093C004F4514 /* TermsViewController.swift in Sources */,
 				9AA2E9C11B82240E00367068 /* Transaction.swift in Sources */,
@@ -994,6 +1008,7 @@
 				3F8E84EB1E4F71E5004A8D2D /* Exporter.swift in Sources */,
 				3F3F150B1DF5979600CFAF34 /* Dictionary+Extension.swift in Sources */,
 				9AFB00821B576B100062C6AE /* Currency.swift in Sources */,
+				3F0DA98F1E6336EC0008F081 /* TransactionsListHeaderAmount.swift in Sources */,
 				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
@@ -1017,6 +1032,7 @@
 				9ACC025C1B5162EC00F93A4C /* CountriesTableViewController.swift in Sources */,
 				9AC460C81BD0B5B800EEE4A7 /* String+Extension.swift in Sources */,
 				9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */,
+				3F0DA9891E632C690008F081 /* TransactionsListHeader.swift in Sources */,
 				9A27C1491B8586220087ECDD /* Category.swift in Sources */,
 				9A827C941C1D3EF50025FC5B /* Date+Extension.swift in Sources */,
 			);

@@ -66,6 +66,10 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		return finmath!.getTransactionsForCategoryAndPeriod(self.currentCategory!)
 	}
 	
+	func getCurrentPeriod() -> PeriodMonth {
+		return currentPeriod!
+	}
+	
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,7 +107,8 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 			category = expenseCategories[(indexPath as NSIndexPath).row]
 		}
 		cell.categoryName.text = category.name
-		cell.categoryAmount.text = finmath!.getCategoryAmountForPeriod(category).formatToMoney().stringValue
+		cell.categoryAmount.text = finmath!.getCategoryAmountForPeriod(category).formatToMoney()
+		// cell.categoryAmount.text = NumberFormatter().formatterMoney(app().model.getCurrentCurrency()).string(from: finmath!.getCategoryAmountForPeriod(category))
 		return cell
     }
 	

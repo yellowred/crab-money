@@ -318,6 +318,11 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 	}
 	
 	
+	func getCurrentPeriod() -> PeriodMonth {
+		return currentPeriod!
+	}
+	
+	
 	// MARK: - State Restoration
 	override func encodeRestorableState(with coder: NSCoder) {
 		coder.encode(self.tabBarController!.selectedIndex, forKey: "TabBarCurrentTab")

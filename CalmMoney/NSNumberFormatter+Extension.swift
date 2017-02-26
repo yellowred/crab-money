@@ -10,7 +10,7 @@ import Foundation
 extension NumberFormatter {
 
 	func formatterSimpleMoney() -> NumberFormatter {
-		self.numberStyle = NumberFormatter.Style.none
+		self.numberStyle = NumberFormatter.Style.decimal
 		self.maximumFractionDigits = 2
 		self.minimumFractionDigits = 2
 		return self
