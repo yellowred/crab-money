@@ -34,7 +34,7 @@ class Transaction: NSObject {
 	
 	
 	func setAmountWithMoney(_ value: NSDecimalNumber) {
-		self.amount = value.formatToMoney()
+		self.amount = value
 	}
 	
 	func getMoney() -> Money {
