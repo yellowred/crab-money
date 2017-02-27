@@ -31,6 +31,8 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		"com.surfingcathk.calmmoney.currency_converter_6m": 223
 	]
 	
+	var activeField: UITextField?
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,60 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ConverterTableViewController.dismissKeyboard))
 		view.addGestureRecognizer(tap)
 		resetConverterLaunches()
+		registerForKeyboardNotifications()
 	}
+	
+	
+	func registerForKeyboardNotifications()
+	{
+		//Adding notifies on keyboard appearing
+		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+	}
+	
+	
+	func unregisterFromKeyboardNotifications()
+	{
+		//Removing notifies on keyboard appearing
+		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+	}
+	
+	func keyboardWasShown(notification: NSNotification)
+	{
+		//Need to calculate keyboard exact size due to Apple suggestions
+		let info : NSDictionary = notification.userInfo! as NSDictionary
+		let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+		let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+		
+		self.tableView.contentInset = contentInsets
+		self.tableView.scrollIndicatorInsets = contentInsets
+		
+		var aRect : CGRect = self.view.frame
+		aRect.size.height -= keyboardSize!.height
+		if activeField != nil
+		{
+			if (!aRect.contains(activeField!.frame.origin))
+			{
+				tableView.scrollRectToVisible(activeField!.frame, animated: true)
+			}
+		}
+		
+		
+	}
+	
+	
+	func keyboardWillBeHidden(notification: NSNotification)
+	{
+		//Once keyboard disappears, restore original positions
+		let info : NSDictionary = notification.userInfo! as NSDictionary
+		let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+		let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+		tableView.contentInset = contentInsets
+		tableView.scrollIndicatorInsets = contentInsets
+		self.view.endEditing(true)
+	}
+
 	
 	//Calls this function when the tap is recognized.
 	func dismissKeyboard() {
@@ -266,6 +321,7 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return ""
 	}
+	
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == 0 {

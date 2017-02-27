@@ -89,4 +89,15 @@ class AmountTextField: UITextField, UITextFieldDelegate {
 		self.text = NumberFormatter().formatterConverter().string(from: value) ?? "0"
 		self.correspondingCurrency?.amount.setAmount(value)
 	}
+	
+	
+	func textFieldDidBeginEditing(_ textField: UITextField)
+	{
+		converter?.activeField = textField
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField)
+	{
+		converter?.activeField = nil
+	}
 }

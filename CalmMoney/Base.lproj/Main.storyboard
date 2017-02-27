@@ -1288,7 +1288,7 @@
                                                 <constraint firstAttribute="width" constant="155" id="y5l-NZ-Iab"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="32"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                     <integer key="value" value="10"/>
@@ -2033,8 +2033,8 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1Q5-xo-Y9g"/>
         <segue reference="yNu-ba-KDj"/>
         <segue reference="Y3u-vg-LQS"/>
-        <segue reference="ruK-he-aZT"/>
     </inferredMetricsTieBreakers>
 </document>
