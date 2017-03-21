@@ -61,13 +61,19 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
 			selector: #selector(InsightsTableViewController.onModelDataChanged(_:)),
 			name: NSNotification.Name(rawValue: app().model.kNotificationDataChanged),
 			object: nil)
+		
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		CategoryEditView.show()
+	}
 	
 	/*
 	@IBAction func crashButtonTapped(sender: AnyObject) {
 		Crashlytics.sharedInstance().crash()
 	}
 	*/
+	
 	
 	func showSummary() {
 		if currentPeriod != nil {

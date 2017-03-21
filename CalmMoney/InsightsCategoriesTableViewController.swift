@@ -49,6 +49,8 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		
 		earningCategories = finmath!.earningCategories
 		expenseCategories = finmath!.expenseCategories
+		
+		earningCategories = app().model.getCategoriesList(false)
 		tableView.reloadData()
 	}
 
@@ -141,18 +143,94 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+	
+	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let delete = UITableViewRowAction(style: .destructive, title: "Delete".localized) { (action, indexPath) in
+			
+			var category: Category
+			if indexPath.section == 0 && self.earningCategories.count > 0 {
+				category = self.earningCategories[indexPath.row]
+			} else {
+				category = self.expenseCategories[indexPath.row]
+			}
+			
+			if category.getTransactions().count > 0 {
+				self.present(Alerter().notify(title: "Category can not be removed".localized, message: "You have transactions assigned to this category. Please remove them first.".localized), animated: true, completion: nil)
+			} else {
+				if indexPath.section == 0 && self.earningCategories.count > 0 {
+					self.earningCategories.remove(at: indexPath.row)
+				} else {
+					self.expenseCategories.remove(at: indexPath.row)
+				}
+				if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+					tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+				}else{
+					tableView.deleteRows(at: [indexPath], with: .automatic)
+				}
+				self.app().model.deleteCategory(category)
+			}
+		}
+		
+		let edit = UITableViewRowAction(style: .normal, title: "Edit".localized) { (action, indexPath) in
+			// share item at indexPath
+			
+			var category: Category
+			if indexPath.section == 0 && self.earningCategories.count > 0 {
+				category = self.earningCategories[indexPath.row]
+			} else {
+				category = self.expenseCategories[indexPath.row]
+			}
+		
+			let alertController = UIAlertController(title: "Edit category".localized, message: "", preferredStyle: .alert)
+			
+			let saveAction = UIAlertAction(title: "Save".localized, style: .default, handler: {
+				alert -> Void in
+				
+				let firstTextField = alertController.textFields![0] as UITextField
+				
+				if let categoryName = firstTextField.text {
+					if categoryName != "" {
+						category.name = categoryName
+						self.app().model.saveStorage()
+					}
+				}
+				
+			})
+			
+			let cancelAction = UIAlertAction(title: "Cancel".localized, style: .default, handler: {
+				(action : UIAlertAction!) -> Void in
+				
+			})
+			
+			alertController.addTextField { (textField : UITextField!) -> Void in
+				textField.placeholder = "Category name".localized
+				textField.autocapitalizationType = .sentences
+				textField.text = category.name
+			}
+			let colorSelectView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+			
+			let redColor = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
+			redColor.backgroundColor = UIColor.red
+			
+			let greenColor = UIView(frame: CGRect(x: 40, y: 0, width: 40, height: 30))
+			redColor.backgroundColor = UIColor.green
+			
+			colorSelectView.addSubview(redColor)
+			colorSelectView.addSubview(greenColor)
+			
+			alertController.view.addSubview(colorSelectView)
+			alertController.addAction(saveAction)
+			alertController.addAction(cancelAction)
+			self.present(alertController, animated: true, completion: nil)
 
+				
+		}
+		edit.backgroundColor = UIColor(red:0.20, green:0.80, blue:0.00, alpha:1.0)
+		
+		return [delete, edit]
+	}
+	
+	
     /*
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
