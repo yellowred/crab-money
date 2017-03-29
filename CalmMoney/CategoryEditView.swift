@@ -73,13 +73,10 @@ class CategoryEditView: UIView {
 		categoryNameTextField.textAlignment = .center
 		categoryNameTextField.center = CGPoint(x: contentView.frame.width / 2, y: 66)
 		categoryNameTextField.delegate = CategoryNameTextFieldController()
-		titleView.addSubview(categoryNameTextField)
-		titleView.bringSubview(toFront: categoryNameTextField)
+		contentView.addSubview(categoryNameTextField)
+		contentView.bringSubview(toFront: categoryNameTextField)
 		
 		
-		
-		
-		/*
 		let layout = StepCollectionFlowLayout()
 		layout.scrollDirection = .horizontal
 		layout.minimumInteritemSpacing = 10
@@ -96,7 +93,7 @@ class CategoryEditView: UIView {
 		let inset = (collectionView.frame.width - 75) / 2
 		collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
 		contentView.addSubview(collectionView)
-		*/
+
 		
 		// done button
 		let doneButton = UIButton(type: .system)
