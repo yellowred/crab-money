@@ -60,14 +60,26 @@ class CategoryEditView: UIView {
 		titleView.addSubview(dateTitleLabel)
 		
 		let categoryNameTextField = UITextField(frame: CGRect(x: 0, y: 44, width: 200, height: 44))
-		categoryNameTextField.font = UIFont.systemFont(ofSize: 15)
-		categoryNameTextField.textColor = UIColor.darkGray
-		categoryNameTextField.textAlignment = .center
+		categoryNameTextField.placeholder = "Enter text here"
 		categoryNameTextField.text = "Sport"
+		categoryNameTextField.font = UIFont.systemFont(ofSize: 15)
+		categoryNameTextField.borderStyle = UITextBorderStyle.roundedRect
+		categoryNameTextField.autocorrectionType = UITextAutocorrectionType.no
+		categoryNameTextField.keyboardType = UIKeyboardType.default
+		categoryNameTextField.returnKeyType = UIReturnKeyType.done
+		categoryNameTextField.clearButtonMode = UITextFieldViewMode.whileEditing;
+		categoryNameTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+
+		categoryNameTextField.textAlignment = .center
 		categoryNameTextField.center = CGPoint(x: contentView.frame.width / 2, y: 66)
+		categoryNameTextField.delegate = CategoryNameTextFieldController()
 		titleView.addSubview(categoryNameTextField)
+		titleView.bringSubview(toFront: categoryNameTextField)
 		
 		
+		
+		
+		/*
 		let layout = StepCollectionFlowLayout()
 		layout.scrollDirection = .horizontal
 		layout.minimumInteritemSpacing = 10
@@ -84,7 +96,7 @@ class CategoryEditView: UIView {
 		let inset = (collectionView.frame.width - 75) / 2
 		collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
 		contentView.addSubview(collectionView)
-		
+		*/
 		
 		// done button
 		let doneButton = UIButton(type: .system)
@@ -180,3 +192,42 @@ extension CategoryEditView: UICollectionViewDataSource, UICollectionViewDelegate
 		}
 	}
 }
+
+class CategoryNameTextFieldController: UIViewController, UITextFieldDelegate {
+	// MARK:- ---> Textfield Delegates
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		print("TextField did begin editing method called")
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		print("TextField did end editing method called")
+	}
+	
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+		print("TextField should begin editing method called")
+		return true;
+	}
+	
+	func textFieldShouldClear(_ textField: UITextField) -> Bool {
+		print("TextField should clear method called")
+		return true;
+	}
+	
+	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+		print("TextField should snd editing method called")
+		return true;
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		print("While entering the characters this method gets called")
+		return true;
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		print("TextField should return method called")
+		textField.resignFirstResponder();
+		return true;
+	}
+	// MARK: Textfield Delegates <---
+}
+

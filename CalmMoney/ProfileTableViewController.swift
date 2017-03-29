@@ -81,7 +81,7 @@ class ProfileTableViewController: UITableViewController, UIDocumentInteractionCo
 			
 			let str = "mailto:surfingcathk@gmail.com?subject=Support%20Request"
 			let url = NSURL(string: str)
-			UIApplication.shared.openURL(url as! URL)
+			UIApplication.shared.openURL(url! as URL)
 			
 		} else if indexPath.section == kDebugOpsSectionId && indexPath.row == 0 {
 			

@@ -40,25 +40,18 @@ class CalmMoneySnapshots: XCTestCase {
 		let converterTabButton = app.tabBars.buttons.element(boundBy: 2)
 		addTabButton.tap()
 		
-		let button = app.buttons["1"]
-		let button6 = app.buttons["6"]
-		button.tap()
 		app.buttons["2"].tap()
-		
-		let button2 = app.buttons["8"]
-		button2.tap()
+		app.buttons["4"].tap()
+		app.buttons["3"].tap()
 		
 		let expenseButton = app.buttons.matching(identifier: "addExpense").element(boundBy: 0)
 		expenseButton.tap()
 		
-		app.collectionViews.cells.element(boundBy: 3).tap()
+		app.collectionViews.cells.element(boundBy: 2).tap()
 		
-		let button3 = app.buttons["5"]
-		button3.tap()
-		button2.tap()
-		
-		let button4 = app.buttons["0"]
-		button4.tap()
+		app.buttons["7"].tap()
+		app.buttons["5"].tap()
+		app.buttons["2"].tap()
 		
 		snapshot("01NumPad")
 		
@@ -67,34 +60,36 @@ class CalmMoneySnapshots: XCTestCase {
 		snapshot("02Categories")
 		
 		app.collectionViews.cells.element(boundBy: 4).tap()
-		button.tap()
-		button2.tap()
-		button4.tap()
-		button4.tap()
+		app.buttons["2"].tap() // silent
+		app.buttons["2"].tap()
+		app.buttons["5"].tap()
+		app.buttons["0"].tap()
+		app.buttons["0"].tap()
 		expenseButton.tap()
 		app.collectionViews.cells.element(boundBy: 5).tap()
 		
 		app.otherElements.matching(identifier: "currencySelector").element(boundBy: 0).tap()
 		app.tables.cells.element(boundBy: 0).tap()
-		button3.tap()
 		
-		let button5 = app.buttons["6"]
-		button5.tap()
+		app.buttons["6"].tap()
 		app.buttons["8"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
 		app.collectionViews.cells.element(boundBy: 0).tap()
 		
 		app.buttons["3"].tap()
-		button5.tap()
+		app.buttons["5"].tap() // silent
+		app.buttons["0"].tap()
+		app.buttons["0"].tap()
 		expenseButton.tap()
 		app.collectionViews.cells.element(boundBy: 1).tap()
 		
-		button6.tap()
+		app.buttons["6"].tap()
 		app.buttons["5"].tap()
+		app.buttons["2"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		app.collectionViews.cells.element(boundBy: 2).tap()
+		app.collectionViews.cells.element(boundBy: 3).tap()
 		
 		app.otherElements.matching(identifier: "currencySelector").element(boundBy: 0).tap()
 		app.tables.cells.element(boundBy: 1).tap()
@@ -115,7 +110,7 @@ class CalmMoneySnapshots: XCTestCase {
 		app.buttons["2"].tap()
 		app.buttons["0"].tap()
 		expenseButton.tap()
-		app.collectionViews.cells.element(boundBy: 5).tap()
+		app.collectionViews.cells.element(boundBy: 6).tap()
 		
 		
 		insightsTabButton.tap()

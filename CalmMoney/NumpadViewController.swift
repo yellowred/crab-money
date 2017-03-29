@@ -308,7 +308,7 @@ class NumpadViewController: UIViewController, UIGestureRecognizerDelegate, Categ
 		inputConfirmation?.addSubview(label)
 				
 		// Circle
-		let circlePath = UIBezierPath(arcCenter: CGPoint(x: 100,y: 100), radius: CGFloat(50), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+		let circlePath = UIBezierPath(arcCenter: CGPoint(x: 100,y: 100), radius: CGFloat(50), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
 		
 		let shapeLayer = CAShapeLayer()
 		shapeLayer.path = circlePath.cgPath

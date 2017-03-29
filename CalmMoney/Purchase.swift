@@ -153,7 +153,7 @@ public class Purchase: NSObject, SKProductsRequestDelegate {
 				print("Invalid product identifier: \(invalidProductId)")
 			}
 			else {
-				print("Error: \(result.error)")
+				print("Error: \(String(describing: result.error))")
 			}
 		}
 	}

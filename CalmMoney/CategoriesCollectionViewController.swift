@@ -177,7 +177,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 			
 			let firstTextField = alertController.textFields![0] as UITextField
 			
-			print("New category: \(firstTextField.text)")
+			print("New category: \(String(describing: firstTextField.text))")
 			if let categoryName = firstTextField.text {
 				if categoryName != "" {
 					let newCategory = self.app().model.createCategory(categoryName, isExpense: self.delegate!.isExpense(), logo: nil)

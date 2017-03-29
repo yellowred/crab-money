@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.2.0)
+  - Alamofire (4.4.0)
   - Spring (1.0.3)
-  - SwiftyStoreKit (0.6.1)
+  - SwiftyStoreKit (0.8.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -19,9 +19,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  SwiftyStoreKit: 956408606f43ec3df3386b56e65615bb19bee85e
+  SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
 
 PODFILE CHECKSUM: e179e2ac269b5e4ffe2c8fed30200ff22bcc04a2
 

@@ -24,7 +24,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 		UIGraphicsBeginImageContext(buttonFrame.size)
 		
 		let sz:CGFloat = min(buttonFrame.size.width, buttonFrame.size.height)
-		let path:UIBezierPath = UIBezierPath.init(arcCenter: CGPoint(x: buttonFrame.size.width/2, y: buttonFrame.size.height/2), radius: sz/2 - 2, startAngle: 0, endAngle: CGFloat(M_PI) * 2, clockwise: true)
+		let path:UIBezierPath = UIBezierPath.init(arcCenter: CGPoint(x: buttonFrame.size.width/2, y: buttonFrame.size.height/2), radius: sz/2 - 2, startAngle: 0, endAngle: CGFloat(Double.pi) * 2, clockwise: true)
 		path.move(to: CGPoint(x: CGFloat(margin), y: CGFloat(margin)))
 		path.addLine(to: CGPoint(x: sz - margin, y: sz-margin))
 		path.move(to: CGPoint(x: margin, y: sz-margin))
@@ -45,7 +45,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 	
 	func startQuivering() {
 		let quiverAnim:CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation")
-		let startAngle:Float = (-2) * Float(M_PI)/180.0
+		let startAngle:Float = (-2) * Float(Double.pi)/180.0
 		let stopAngle:Float = -startAngle
 		let timeOffset:Float = Float((arc4random() % 100) / 100) - 0.50
 		

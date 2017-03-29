@@ -28,6 +28,10 @@
 		3F28688F1D8843B500ACBFF4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28688E1D8843B500ACBFF4 /* Backend.swift */; };
 		3F3162A31E18ECC900E4CD1A /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3162A11E18ECC900E4CD1A /* DebugViewController.swift */; };
 		3F3162A41E18ECC900E4CD1A /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3162A21E18ECC900E4CD1A /* DebugViewController.xib */; };
+		3F3A25FC1E810D74004EFEC7 /* CategoryDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3A25FB1E810D74004EFEC7 /* CategoryDetail.xib */; };
+		3F3A25FE1E8110DF004EFEC7 /* StepCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A25FD1E8110DF004EFEC7 /* StepCollectionFlowLayout.swift */; };
+		3F3A26001E811205004EFEC7 /* CategoryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A25FF1E811205004EFEC7 /* CategoryEditView.swift */; };
+		3F3A26021E81145F004EFEC7 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A26011E81145F004EFEC7 /* ColorCollectionViewCell.swift */; };
 		3F3F150B1DF5979600CFAF34 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */; };
 		3F4EDD811DF849D100B216F4 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2BDCE1DF1B7E3009E4321 /* Purchase.swift */; };
 		3F4EDD841DF84C8100B216F4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4EDD831DF84C8100B216F4 /* Model.swift */; };
@@ -170,6 +174,10 @@
 		3F31629D1E18E14D00E4CD1A /* CrabApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CrabApp copy-Info.plist"; path = "/Users/surfingcat/Sites/CrabApp/xcode/CrabApp copy-Info.plist"; sourceTree = "<absolute>"; };
 		3F3162A11E18ECC900E4CD1A /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		3F3162A21E18ECC900E4CD1A /* DebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugViewController.xib; sourceTree = "<group>"; };
+		3F3A25FB1E810D74004EFEC7 /* CategoryDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryDetail.xib; sourceTree = "<group>"; };
+		3F3A25FD1E8110DF004EFEC7 /* StepCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		3F3A25FF1E811205004EFEC7 /* CategoryEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryEditView.swift; sourceTree = "<group>"; };
+		3F3A26011E81145F004EFEC7 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F3F150A1DF5979600CFAF34 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		3F4EDD831DF84C8100B216F4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3F54DDCD1E1A8D4700C61537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -415,6 +423,10 @@
 				9A27C1461B85859A0087ECDD /* CategoriesCollectionViewController.swift */,
 				9A27C14A1B8592270087ECDD /* CategoryCollectionViewCell.swift */,
 				9A4B72101BF07F7400E19042 /* CategoryAddViewController.swift */,
+				3F3A25FB1E810D74004EFEC7 /* CategoryDetail.xib */,
+				3F3A25FD1E8110DF004EFEC7 /* StepCollectionFlowLayout.swift */,
+				3F3A25FF1E811205004EFEC7 /* CategoryEditView.swift */,
+				3F3A26011E81145F004EFEC7 /* ColorCollectionViewCell.swift */,
 			);
 			name = CategorySelect;
 			sourceTree = "<group>";
@@ -674,7 +686,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Oleg Kubrakov";
 				TargetAttributes = {
 					3F0396551DF27E5500252187 = {
@@ -764,6 +776,7 @@
 				3F9601461E2A900500890A8A /* InfoPlist.strings in Resources */,
 				9AD308331BC4DB4D00962DE1 /* TransactionsSummaryView.xib in Resources */,
 				9A3F0FC21C4B5190009F0BA0 /* currencies.json in Resources */,
+				3F3A25FC1E810D74004EFEC7 /* CategoryDetail.xib in Resources */,
 				9A9C919A1B3444E500DE580F /* Main.storyboard in Resources */,
 				3F0DA9871E632AA50008F081 /* TransactionsListHeader.xib in Resources */,
 				3F3162A41E18ECC900E4CD1A /* DebugViewController.xib in Resources */,
@@ -989,6 +1002,7 @@
 				3F2108BD1E1CC4FC008217DA /* ObjC.m in Sources */,
 				9AF9E1281B4B6F810076BE69 /* DataModel.xcdatamodeld in Sources */,
 				9A9A27431B3A6F1700526310 /* CurrencyAddTableViewCell.swift in Sources */,
+				3F3A26001E811205004EFEC7 /* CategoryEditView.swift in Sources */,
 				9AFE7CAA1B82DF2B00B7159B /* TransactionsTableViewController.swift in Sources */,
 				9A27C14B1B8592270087ECDD /* CategoryCollectionViewCell.swift in Sources */,
 				9A3C57941C537972001CB79D /* CurrencyView.swift in Sources */,
@@ -1012,6 +1026,7 @@
 				9A3C57921C51F3AC001CB79D /* NSLayoutConstraint+Extension.swift in Sources */,
 				9ABCE1871C4C9AE700B64BC7 /* TabBarController.swift in Sources */,
 				9A9C91971B3444E500DE580F /* NumpadViewController.swift in Sources */,
+				3F3A26021E81145F004EFEC7 /* ColorCollectionViewCell.swift in Sources */,
 				9A827C8E1C1D2B9C0025FC5B /* PeriodFloat.swift in Sources */,
 				3F892D081C5F910700D0DB54 /* UIViewController+Extension.swift in Sources */,
 				3FFB07571DFC3701004F4514 /* Alerter.swift in Sources */,
@@ -1034,6 +1049,7 @@
 				9A5DB9921C2A5F63007B85B8 /* UIColor+Extension.swift in Sources */,
 				3F0DA9891E632C690008F081 /* TransactionsListHeader.swift in Sources */,
 				9A27C1491B8586220087ECDD /* Category.swift in Sources */,
+				3F3A25FE1E8110DF004EFEC7 /* StepCollectionFlowLayout.swift in Sources */,
 				9A827C941C1D3EF50025FC5B /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1160,6 +1176,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B5B539191076B61FC22AEF37 /* Pods-CalmMoneyTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1186,6 +1203,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1915CD61FEFFC716FBF7DD75 /* Pods-CalmMoneyTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1248,6 +1266,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA95DFD31E7C58013E65A271 /* Pods-CalmMoneySnapshots.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -1271,6 +1290,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58A336D8805E1B3B1B5A6292 /* Pods-CalmMoneySnapshots.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -1383,6 +1403,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7CD2044D09203E70A7019907 /* Pods-CrabApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1411,6 +1432,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A52882C9FC7A80D4B1A6C54 /* Pods-CrabApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
