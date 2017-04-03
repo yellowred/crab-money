@@ -42,7 +42,7 @@ class TransactionTableViewCell: UITableViewCell {
 		if let category = transaction.category {
 			let categoryText = NSMutableAttributedString(string: category.name)
 			if transaction.text.length > 0 {
-				let noteForFinancialString = transaction.text
+				let noteForFinancialString = transaction.text.replacingOccurrences(of: "\n", with: " ", options: .regularExpression)
 				let substringIndex = noteForFinancialString.index(noteForFinancialString.startIndex, offsetBy: noteForFinancialString.characters.count <= 32 ? noteForFinancialString.characters.count : 32)
 				
 				let noteForFinancial = NSMutableAttributedString(string: "\n" +	noteForFinancialString.substring(to: substringIndex), attributes: [

@@ -79,3 +79,7 @@ if let number = formatter.number(from: "42,000") {
     print(number)
 }
 
+let string = "\n\nBLA\nblub"
+let trimmed = string.replacingOccurrences(of: "\\s*", with: "", options: .regularExpression)
+
+

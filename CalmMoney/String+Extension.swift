@@ -13,6 +13,14 @@ extension String {
 	var localized: String {
 		return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
 	}
+	
+	func floatValue() -> Float? {
+		guard let doubleValue = Double(self) else {
+			return nil
+		}
+		
+		return Float(doubleValue)
+	}
 }
 
 extension String: ParameterEncoding {

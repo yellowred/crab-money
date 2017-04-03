@@ -136,7 +136,17 @@ class TransactionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: kTransactionCellIdentifier, for: indexPath) as! TransactionTableViewCell
-		cell.setTransaction(transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row])
+		let tx = transactionStructure[sortedSectionTitles[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row]
+		cell.setTransaction(tx)
+		if let color = tx.category?.getColor() {
+//			let bgView = UIView(frame: CGRect(x: 0, y:0, width: 5, height: kTransactionCellHeight + 2))
+//			bgView.backgroundColor = color
+			
+			let bgView = UIView(frame: CGRect(x: 12, y:kTransactionCellHeight / 2 + 1 - 5, width: 10, height: 10))
+			bgView.layer.cornerRadius = 5
+			bgView.backgroundColor = color
+			cell.addSubview(bgView)
+		}
 		return cell
 	}
 

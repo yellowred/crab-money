@@ -65,7 +65,7 @@ class InsightsTableViewController: UITableViewController, CurrencySelectDelegate
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
-		CategoryEditView.show()
+		
 	}
 	
 	/*

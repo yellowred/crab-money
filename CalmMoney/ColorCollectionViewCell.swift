@@ -34,9 +34,9 @@ class ColorCollectionViewCell: UICollectionViewCell {
 		contentView.addSubview(numberLabel)
 		*/
 		contentView.backgroundColor = .white
-		contentView.layer.cornerRadius = 3
+		contentView.layer.cornerRadius = 25
 		contentView.layer.masksToBounds = true
-		contentView.layer.borderWidth = 1
+		contentView.layer.borderWidth = 0
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -45,8 +45,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
 	
 	override var isSelected: Bool {
 		didSet {
-			contentView.backgroundColor = isSelected == true ? highlightColor : .white
-			contentView.layer.borderWidth = isSelected == true ? 0 : 1
+			contentView.layer.borderWidth = isSelected == true ? 5 : 0
 		}
 	}
 	
@@ -54,7 +53,9 @@ class ColorCollectionViewCell: UICollectionViewCell {
 		self.highlightColor = highlightColor
 		self.darkColor = darkColor
 
-		contentView.layer.borderColor = darkColor.withAlphaComponent(0.2).cgColor
+		contentView.layer.borderColor = UIColor.darkGray.cgColor
+		contentView.backgroundColor = UIColor.lightGray
+		contentView.layer.borderWidth = 0
 		contentView.backgroundColor = highlightColor
 	}
 

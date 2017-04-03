@@ -121,6 +121,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 		cell.categoryTitle.autoresizingMask = UIViewAutoresizing.flexibleHeight
 		cell.categoryTitle.layer.masksToBounds = true
 		cell.categoryTitle.layer.cornerRadius = (collectionView.bounds.width - 20 - 10 * 2) / 6
+		cell.categoryTitle.backgroundColor = categories![(indexPath as NSIndexPath).row].getColor() ?? UIColor.lightGray
 		//cell.contentView.superview?.clipsToBounds = false
 		cell.deleteButton?.addTarget(self, action: #selector(CategoriesCollectionViewController.deleteCell(_:)), for: UIControlEvents.touchUpInside)
 
@@ -170,6 +171,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 	}
 	
 	@IBAction func addCategory(_ sender: UIBarButtonItem) {
+		/*
 		let alertController = UIAlertController(title: "Add category".localized, message: "", preferredStyle: .alert)
 		
 		let saveAction = UIAlertAction(title: "Add".localized, style: .default, handler: {
@@ -201,6 +203,46 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 		alertController.addAction(saveAction)
 		alertController.addAction(cancelAction)
 		self.present(alertController, animated: true, completion: nil)
+		*/
+		category = self.app().model.createCategory("", isExpense: self.delegate!.isExpense(), logo: nil)
+		let categoryEditDialog = CategoryEditView.show(delegate: self)
 	}
 
+}
+
+
+extension CategoriesCollectionViewController: CategoryEditProtocol {
+	
+	func saveCategory(name: String?, color: UIColor?) {
+		guard category != nil else {
+			return
+		}
+		if color != nil {
+			category?.logo = String(describing: color).data(using: .utf8) as NSData?
+			/*
+			(lldb) po color?.cgColor.components
+			▿ Optional<Array<CGFloat>>
+			▿ some : 4 elements
+			- 0 : 0.95686274766922
+			- 1 : 0.658823549747467
+			- 2 : 0.545098066329956
+			- 3 : 1.0
+			*/
+		}
+		
+		if (name != nil && (name?.length)! > 0) {
+			category?.name = name!
+			app().model.saveStorage()
+			self.categories!.append(category!)
+			self.collectionView?.reloadData()
+			category = nil
+		} else {
+			app().model.deleteCategory(category!)
+		}
+	}
+	
+	
+	func getCategory() -> Category {
+		return category!
+	}
 }
