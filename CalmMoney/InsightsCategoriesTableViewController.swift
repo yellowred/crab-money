@@ -31,18 +31,9 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 			selector: #selector(InsightsCategoriesTableViewController.onModelDataChanged(_:)),
 			name: NSNotification.Name(rawValue: app().model.kNotificationDataChanged),
 			object: nil)
+		self.navigationItem.rightBarButtonItem = self.editButtonItem
 	}
 	
-    @IBAction func tapEdit(_ sender: UIBarButtonItem) {
-		if tableView.isEditing {
-			sender.title = "Edit".localized
-			tableView.setEditing(false, animated: true)
-		} else {
-			tableView.setEditing(true, animated: true)
-			sender.title = "Done".localized
-		}
-		
-    }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		tableView.reloadData()
@@ -85,8 +76,8 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		return currentPeriod!
 	}
 	
+	
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
 		/*
@@ -104,6 +95,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		})
     }
 
+	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if (section == 0 && earningCategories.count > 0) {
 			return earningCategories.count
@@ -112,6 +104,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		}
     }
 
+	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: kInsightsCategoryCellIdentifier, for: indexPath) as! InsightsCategoryTableViewCell
 		
@@ -122,18 +115,13 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 			category = expenseCategories[(indexPath as NSIndexPath).row]
 		}
 		if let color = category.getColor(), !self.tableView.isEditing {
-//			let bgView = UIView(frame: CGRect(x: 0, y:0, width: 5, height: kCategoryCellHeight + 2))
-//			bgView.backgroundColor = color
-			
 			let bgView = UIView(frame: CGRect(x: 12, y:12, width: 20, height: 20))
 			bgView.layer.cornerRadius = 10
-			bgView.backgroundColor = color
-			
+			bgView.backgroundColor = color			
 			cell.addSubview(bgView)
 		}
 		cell.categoryName.text = category.name
 		cell.categoryAmount.text = finmath!.getCategoryAmountForPeriod(category).formatToMoney()
-		// cell.categoryAmount.text = NumberFormatter().formatterMoney(app().model.getCurrentCurrency()).string(from: finmath!.getCategoryAmountForPeriod(category))
 		return cell
     }
 	
@@ -146,6 +134,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		}
 	}
 
+	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if (indexPath as NSIndexPath).section == 0 && earningCategories.count > 0 {
 			self.currentCategory = earningCategories[(indexPath as NSIndexPath).row]
@@ -154,6 +143,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		}
 		performSegue(withIdentifier: kShowCategoryTransactions, sender: nil)
 	}
+	
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return CGFloat(kCategoryCellHeight)
@@ -174,13 +164,6 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		}
 	}
 	
-	/*	
-	override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-		if (self.tableView.isEditing) {
-			return UITableViewCellEditingStyle.delete
-		}
-		return .none
-	}
 	
 
 	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -195,7 +178,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		
 		return [delete, edit]
 	}
-	*/
+	
 	
 	func showEditCateory(indexPath: IndexPath) {
 		if indexPath.section == 0 && self.earningCategories.count > 0 {
@@ -251,6 +234,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 			//					category.logo = NSData(color)
 		}
 		self.app().model.saveStorage()
+		self.tableView.reloadData()
 	}
 	
 	func getCategory() -> Category {

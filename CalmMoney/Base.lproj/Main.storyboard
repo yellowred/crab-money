@@ -19,21 +19,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="InsightsCategoryCell" editingAccessoryType="detailButton" rowHeight="44" id="gFH-up-Yc3" customClass="InsightsCategoryTableViewCell" customModule="Calm_Money" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InsightsCategoryCell" rowHeight="44" id="gFH-up-Yc3" customClass="InsightsCategoryTableViewCell" customModule="Calm_Money" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFH-up-Yc3" id="K2n-St-Fma">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tools" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3q-JZ-cQk">
-                                            <rect key="frame" x="50" y="0.0" width="256" height="43"/>
+                                            <rect key="frame" x="50" y="0.0" width="230.5" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klq-qx-0VM">
-                                            <rect key="frame" x="44" y="0.0" width="256" height="43"/>
+                                            <rect key="frame" x="44.5" y="0.0" width="230.5" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -45,9 +45,9 @@
                                         <constraint firstItem="klq-qx-0VM" firstAttribute="height" secondItem="K2n-St-Fma" secondAttribute="height" id="7OJ-73-nsA"/>
                                         <constraint firstItem="D3q-JZ-cQk" firstAttribute="leading" secondItem="K2n-St-Fma" secondAttribute="leading" constant="50" id="TZS-Oc-xt7"/>
                                         <constraint firstItem="D3q-JZ-cQk" firstAttribute="width" secondItem="K2n-St-Fma" secondAttribute="width" multiplier="0.8" id="VDv-tF-161"/>
+                                        <constraint firstAttribute="trailing" secondItem="klq-qx-0VM" secondAttribute="trailing" constant="12" id="a0m-iz-ubP"/>
                                         <constraint firstItem="D3q-JZ-cQk" firstAttribute="height" secondItem="K2n-St-Fma" secondAttribute="height" id="aoI-qI-kV5"/>
                                         <constraint firstItem="klq-qx-0VM" firstAttribute="top" secondItem="K2n-St-Fma" secondAttribute="top" id="lMK-Nk-yjl"/>
-                                        <constraint firstAttribute="trailing" secondItem="klq-qx-0VM" secondAttribute="trailing" constant="20" id="yfY-qd-wJx"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,13 +62,7 @@
                             <outlet property="delegate" destination="iMc-e9-vdI" id="QRT-K4-2hW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="bDG-b4-22E">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="EMS-9U-K0j">
-                            <connections>
-                                <action selector="tapEdit:" destination="iMc-e9-vdI" id="0JV-1I-iIn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Categories" id="bDG-b4-22E"/>
                     <connections>
                         <segue destination="11i-mH-L7W" kind="show" identifier="ShowCategoryTransactions" id="yNu-ba-KDj"/>
                     </connections>

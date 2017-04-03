@@ -18,7 +18,7 @@ class CategoryEditView: UIView {
 	
 	private var contentView: UIView!
 	internal var categoryNameTextField: UITextField!
-	private var colorSelect: UICollectionView!
+	internal var colorSelect: UICollectionView!
 	internal var currentColor: UIColor?
 	var editCategoryDelegate: CategoryEditProtocol!
 	
@@ -248,7 +248,7 @@ extension CategoryEditView: UICollectionViewDataSource, UICollectionViewDelegate
 				}
 				
 				// update selected date
-				let date = colors[indexPath.item]
+				currentColor = colors[indexPath.item]
 			}
 		}
 	}
