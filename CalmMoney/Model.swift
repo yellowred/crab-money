@@ -167,10 +167,14 @@ class Model
 	
 	
 	func populateCategoriesWithData(_ data: [NSDictionary]) {
+		var category: Category?
 		for category:NSDictionary in data
 		{
 			let type = category.value(forKey: "type") as! String
-			let _ = createCategory(category.value(forKey: "name") as! String, isExpense: type == "expense", logo: nil)
+			category = createCategory(category.value(forKey: "name") as! String, isExpense: type == "expense", logo: nil)
+			if let colorIndex: Int = category.value(forKey: "color") {
+				category?.logo = String(describing: ColorEditView.color[colorIndex]).data(using: .utf8) as NSData?
+			}
 		}
 	}
 	

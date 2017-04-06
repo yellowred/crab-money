@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 let kAppLaunchNumber = "rater_app_launch_number"
 let kAppFirstLaunchDate = "rater_app_first_launch_date"
@@ -47,7 +48,11 @@ public class Rater: NSObject {
 		let launches = getAppLaunchCount()
 		print("launches=\(launches), required=\(requiredLaunchesBeforeRating)")
 		if launches >= requiredLaunchesBeforeRating && !hasShownAppRating() {
-			rateTheApp()
+			if #available(iOS 10.3, *) {
+				SKStoreReviewController.requestReview()
+			} else {
+				rateTheApp()
+			}
 		}
 		incrementAppLaunches()
 	}

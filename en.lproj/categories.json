@@ -1,15 +1,15 @@
 [
- {"name": "Groceries", "type": "expense"},
- {"name": "Restaurant", "type": "expense"},
- {"name": "Transport", "type": "expense"},
- {"name": "Utilities", "type": "expense"},
- {"name": "House", "type": "expense"},
- {"name": "Health", "type": "expense"},
- {"name": "Presents", "type": "expense"},
- {"name": "Tea", "type": "expense"},
- {"name": "Sport", "type": "expense"},
- {"name": "Travel", "type": "expense"},
+ {"name": "Groceries", "type": "expense", "color": 1},
+ {"name": "Restaurant", "type": "expense", "color": 2},
+ {"name": "Transport", "type": "expense", "color": 3},
+ {"name": "Utilities", "type": "expense", "color": 4},
+ {"name": "House", "type": "expense", "color": 5},
+ {"name": "Health", "type": "expense", "color": 6},
+ {"name": "Presents", "type": "expense", "color": 7},
+ {"name": "Tea", "type": "expense", "color": 8},
+ {"name": "Sport", "type": "expense", "color": 9},
+ {"name": "Travel", "type": "expense", "color": 10},
  
- {"name": "Salary", "type": "earning"},
- {"name": "Sales", "type": "earning"}
+ {"name": "Salary", "type": "earning", "color": 11},
+ {"name": "Sales", "type": "earning", "color": 12}
 ]
