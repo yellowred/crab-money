@@ -123,6 +123,7 @@ class CategoryEditView: UIView {
 			
 			if let colorIndex = colors.index(where: { String(describing: $0) == String(describing: color) }) {
 				let indexPath = IndexPath(row: colorIndex, section: 0)
+				// до 5 индекса не скроллирует
 				colorSelect.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
 					self.colorSelect.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
