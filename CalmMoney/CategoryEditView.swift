@@ -9,17 +9,13 @@
 import UIKit
 
 class CategoryEditView: UIView {
-
-	let colors: [UIColor] = [
-			#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1), #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1), #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1), #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1), #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1)
-		]
 	
 	let contentHeight: CGFloat = 220
 	
 	private var contentView: UIView!
-	internal var categoryNameTextField: UITextField!
-	internal var colorSelect: UICollectionView!
-	internal var currentColor: UIColor?
+	var categoryNameTextField: UITextField!
+	var colorSelect: UICollectionView!
+	var currentColor: UIColor?
 	var editCategoryDelegate: CategoryEditProtocol!
 	
 	
@@ -38,11 +34,12 @@ class CategoryEditView: UIView {
 		let screenSize = UIScreen.main.bounds.size
 		self.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
 		
-		// content view
-		self.contentView = UIView(frame: CGRect(x: 0,
-		                                        y: self.frame.height,
-		                                        width: self.frame.width,
-		                                        height: self.contentHeight))
+		self.contentView = UIView(frame: CGRect(
+											x: 0,
+											y: self.frame.height,
+											width: self.frame.width,
+											height: self.contentHeight
+										))
 		
 		contentView.layer.shadowColor = UIColor(white: 0, alpha: 0.3).cgColor
 		contentView.layer.shadowOffset = CGSize(width: 0, height: -2.0)
@@ -53,14 +50,14 @@ class CategoryEditView: UIView {
 		addSubview(contentView)
 		
 		
-		let dateTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-		dateTitleLabel.font = UIFont.medium(ofSize: 18)
-		dateTitleLabel.textColor = UIColor.darkGray
-		dateTitleLabel.textAlignment = .center
-		dateTitleLabel.text = "Edit category".localized
-		dateTitleLabel.sizeToFit()
-		dateTitleLabel.center = CGPoint(x: contentView.frame.width / 2, y: 25)
-		contentView.addSubview(dateTitleLabel)
+		let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+		titleLabel.font = UIFont.medium(ofSize: 18)
+		titleLabel.textColor = UIColor.darkGray
+		titleLabel.textAlignment = .center
+		titleLabel.text = "Edit category".localized
+		titleLabel.sizeToFit()
+		titleLabel.center = CGPoint(x: contentView.frame.width / 2, y: 25)
+		contentView.addSubview(titleLabel)
 		
 		categoryNameTextField = UITextField(frame: CGRect(x: 0, y: 60, width: contentView.frame.width - 20, height: 40))
 		categoryNameTextField.placeholder = "Enter category name".localized
@@ -122,7 +119,7 @@ class CategoryEditView: UIView {
 		
 		if let color = editCategoryDelegate.getCategory().getColor() {
 			
-			if let colorIndex = colors.index(where: { String(describing: $0) == String(describing: color) }) {
+			if let colorIndex = Category.friendlyColors.index(where: { String(describing: $0) == String(describing: color) }) {
 				let indexPath = IndexPath(row: colorIndex, section: 0)
 				// до 5 индекса не скроллирует
 				colorSelect.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
@@ -206,13 +203,13 @@ extension CategoryEditView: UICollectionViewDataSource, UICollectionViewDelegate
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return colors.count
+		return Category.friendlyColors.count
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as! ColorCollectionViewCell
 		
-		let color = colors[indexPath.item]
+		let color = Category.friendlyColors[indexPath.item]
 		cell.populateItem(highlightColor: color, darkColor: color)
 		
 		return cell
@@ -225,8 +222,7 @@ extension CategoryEditView: UICollectionViewDataSource, UICollectionViewDelegate
 			collectionView.setContentOffset(offset, animated: true)
 		}
 		
-		currentColor = colors[indexPath.item]
-		print("Selected color at \(indexPath)")
+		currentColor = Category.friendlyColors[indexPath.item]
 	}
 	
 	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -252,49 +248,18 @@ extension CategoryEditView: UICollectionViewDataSource, UICollectionViewDelegate
 				}
 				
 				// update selected date
-				currentColor = colors[indexPath.item]
+				currentColor = Category.friendlyColors[indexPath.item]
 			}
 		}
 	}
 }
 
 extension CategoryEditView: UITextFieldDelegate {
-	// MARK:- ---> Textfield Delegates
-	func textFieldDidBeginEditing(_ textField: UITextField) {
-		print("TextField did begin editing method called")
-	}
-	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		print("TextField did end editing method called")
-	}
-	
-	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-		print("TextField should begin editing method called")
-		return true;
-	}
-	
-	func textFieldShouldClear(_ textField: UITextField) -> Bool {
-		print("TextField should clear method called")
-		return true;
-	}
-	
-	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-		print("TextField should snd editing method called")
-		return true;
-	}
-	
-	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-		print("While entering the characters this method gets called")
-		return true;
-	}
-	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		print("TextField should return method called")
 		textField.resignFirstResponder();
 		self.endEditing(true)
 		return false;
 	}
-	// MARK: Textfield Delegates <---
 }
 
 protocol CategoryEditProtocol {

@@ -46,6 +46,9 @@
 "Cancel" = "Cancel";
 "Category name" = "Category name";
 "Trial period." = "Trial period.";
+"Edit category" = "Edit category";
+"Enter category name" = "Enter category name";
+"Done" = "Done";
 
 // Export
 "Export to Excel" = "Export to Excel";

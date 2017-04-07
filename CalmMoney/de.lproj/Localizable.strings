@@ -76,6 +76,9 @@
 "Category name" = "Kategorienamen";
 
 "Trial period." = "Testzeitraum.";
+"Edit category" = "Kategorie bearbeiten";
+"Enter category name" = "Ein Kategorienamen eingeben";
+"Done" = "Erledigt";
 
 // Export
 "Export to Excel" = "Exportieren nach Excel";

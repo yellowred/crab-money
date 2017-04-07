@@ -205,7 +205,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UIGestureR
 		self.present(alertController, animated: true, completion: nil)
 		*/
 		category = self.app().model.createCategory("", isExpense: self.delegate!.isExpense(), logo: nil)
-		let categoryEditDialog = CategoryEditView.show(delegate: self)
+		_ = CategoryEditView.show(delegate: self)
 	}
 
 }

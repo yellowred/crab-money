@@ -53,6 +53,9 @@
 "Cancel" = "Отменить";
 "Category name" = "Имя категории";
 "Trial period." = "Пробная версия.";
+"Edit category" = "Редактирование категории";
+"Enter category name" = "Введите имя категории";
+"Done" = "Готово";
 
 // Export
 "Export to Excel" = "Выгрузка в Excel";

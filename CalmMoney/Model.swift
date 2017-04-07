@@ -16,7 +16,7 @@ extension NSManagedObject
 {
 	func dumpProperties() {
 		for (key, _) in entity.propertiesByName {
-			print("\"\(key)\": \(value(forKey: key))")
+			print("\"\(key)\": \(String(describing: value(forKey: key)))")
 		}
 	}
 }
@@ -167,13 +167,14 @@ class Model
 	
 	
 	func populateCategoriesWithData(_ data: [NSDictionary]) {
-		var category: Category?
+		var categoryObject: Category?
 		for category:NSDictionary in data
 		{
 			let type = category.value(forKey: "type") as! String
-			category = createCategory(category.value(forKey: "name") as! String, isExpense: type == "expense", logo: nil)
-			if let colorIndex: Int = category.value(forKey: "color") {
-				category?.logo = String(describing: ColorEditView.color[colorIndex]).data(using: .utf8) as NSData?
+			categoryObject = createCategory(category.value(forKey: "name") as! String, isExpense: type == "expense", logo: nil)
+			if let colorIndex: Int = category.value(forKey: "color") as? Int {
+				categoryObject?.logo = String(describing: Category.friendlyColors[colorIndex]).data(using: .utf8) as NSData?
+				self.saveStorage()
 			}
 		}
 	}
