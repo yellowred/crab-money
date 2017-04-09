@@ -3,8 +3,8 @@
 # A list of devices you want to take the screenshots from
 devices([
   "iPhone 6 - iOS 9.3",
-  "iPhone 6 Plus",
-  "iPad Pro (12.9 inch)"
+#  "iPhone 6 Plus",
+#  "iPad Pro (12.9 inch)"
 #   "iPhone 5",
 #   "iPad Pro (12.9 inch)",
 #   "iPad Pro (9.7 inch)",
@@ -13,8 +13,8 @@ devices([
 
 languages([
   "en-US",
-  "ru-RU",
-  "de-DE",
+#  "ru-RU",
+#  "de-DE",
 #  "it-IT",
 #  ["pt", "pt_BR"] # Portuguese with Brazilian locale
 ])

@@ -27,13 +27,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tools" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3q-JZ-cQk">
-                                            <rect key="frame" x="50" y="0.0" width="230.5" height="43"/>
+                                            <rect key="frame" x="50" y="0.0" width="229.5" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klq-qx-0VM">
-                                            <rect key="frame" x="44.5" y="0.0" width="230.5" height="43"/>
+                                            <rect key="frame" x="45.5" y="0.0" width="229.5" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -252,7 +252,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="XDa-9l-g9Y">
-                                            <rect key="frame" x="58" y="13" width="201" height="19"/>
+                                            <rect key="frame" x="58" y="13" width="201.5" height="19"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Category">
                                                     <attributes>
@@ -265,7 +265,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iym-fW-Czt">
-                                            <rect key="frame" x="56.5" y="11" width="230.5" height="22"/>
+                                            <rect key="frame" x="57.5" y="11" width="229.5" height="22"/>
                                             <accessibility key="accessibilityConfiguration" identifier="money"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -769,7 +769,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="budgetInfoLabel" destination="5F8-ii-41x" id="aJr-Ga-8e1"/>
+                        <outlet property="budgetInfoLabel" destination="5F8-ii-41x" id="c6q-TX-729"/>
                         <outlet property="budgetProgressBar" destination="sbc-ue-ze6" id="zYj-G0-xH4"/>
                         <outlet property="earningsAverage" destination="eHH-wf-kDi" id="GHl-YR-RzH"/>
                         <outlet property="earningsTitle" destination="OxE-YO-zpZ" id="S6m-zp-HOr"/>
@@ -2035,8 +2035,8 @@
         <image name="icon_prev" width="11" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QbT-4Y-1V6"/>
         <segue reference="rNd-md-E9a"/>
-        <segue reference="yNu-ba-KDj"/>
         <segue reference="Y3u-vg-LQS"/>
     </inferredMetricsTieBreakers>
 </document>

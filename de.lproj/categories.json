@@ -1,15 +1,15 @@
 [
- {"name": "Lebensmittel", "type": "expense"},
- {"name": "Gaststätte", "type": "expense"},
- {"name": "Transport", "type": "expense"},
- {"name": "Dienstprogramme", "type": "expense"},
- {"name": "Haus", "type": "expense"},
- {"name": "Gesundheit", "type": "expense"},
- {"name": "Geschenke", "type": "expense"},
- {"name": "Tee", "type": "expense"},
- {"name": "Sport", "type": "expense"},
- {"name": "Reise", "type": "expense"},
+ {"name": "Lebensmittel", "type": "expense", "color": 1},
+ {"name": "Gaststätte", "type": "expense", "color": 2},
+ {"name": "Transport", "type": "expense", "color": 3},
+ {"name": "Dienstprogramme", "type": "expense", "color": 4},
+ {"name": "Haus", "type": "expense", "color": 5},
+ {"name": "Gesundheit", "type": "expense", "color": 6},
+ {"name": "Geschenke", "type": "expense", "color": 7},
+ {"name": "Tee", "type": "expense", "color": 8},
+ {"name": "Sport", "type": "expense", "color": 9},
+ {"name": "Reise", "type": "expense", "color": 10},
  
- {"name": "Gehalt", "type": "earning"},
- {"name": "Der Umsatz", "type": "earning"}
+ {"name": "Gehalt", "type": "earning", "color": 11},
+ {"name": "Der Umsatz", "type": "earning", "color": 12}
 ]

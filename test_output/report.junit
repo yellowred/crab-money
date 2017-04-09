@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='CalmMoneyUITests.xctest' tests='10' failures='3'>
+  <testsuite name='CalmMoneySnapshots.CalmMoneySnapshots' tests='1' failures='1'>
+    <testcase classname='CalmMoneySnapshots.CalmMoneySnapshots' name='testSnapshots'>
+      <failure message='com.surfingcathk.calmmoney.master crashed in Calm_Money.Model.getCurrencyByCurrentLocale () -&gt; Swift.String'>&lt;unknown&gt;:0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name='CalmMoneyTests.CalmMoneyTests' tests='6' failures='0'>
+    <testcase classname='CalmMoneyTests.CalmMoneyTests' name='testDate' time='0.008'/>
+    <testcase classname='CalmMoneyTests.CalmMoneyTests' name='testMath' time='0.007'/>
+    <testcase classname='CalmMoneyTests.CalmMoneyTests' name='testMoney' time='0.004'/>
+    <testcase classname='CalmMoneyTests.CalmMoneyTests' name='testPerformanceExample' time='0.272'/>
+    <testcase classname='CalmMoneyTests.CalmMoneyTests' name='testPeriodMonth' time='0.003'/>
+    <testcase classname='CalmMoneyTests.CalmMoneyTests' name='testPurchase' time='0.003'/>
+  </testsuite>
+  <testsuite name='CalmMoneyUITests.CrabAppUITests' tests='3' failures='2'>
+    <testcase classname='CalmMoneyUITests.CrabAppUITests' name='testAddTransactions'>
+      <failure message='Multiple matches found for &quot;Utilities&quot; StaticText.'>CalmMoneyUITests.swift:43</failure>
+    </testcase>
+    <testcase classname='CalmMoneyUITests.CrabAppUITests' name='testConverter' time='19.422'/>
+    <testcase classname='CalmMoneyUITests.CrabAppUITests' name='testDeleteTransactions'>
+      <failure message='No matches found for Table'>CalmMoneyUITests.swift:66</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

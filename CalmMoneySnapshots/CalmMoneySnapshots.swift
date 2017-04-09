@@ -39,6 +39,7 @@ class CalmMoneySnapshots: XCTestCase {
 		let insightsTabButton = app.tabBars.buttons.element(boundBy: 0)
 		let converterTabButton = app.tabBars.buttons.element(boundBy: 2)
 		addTabButton.tap()
+		/*
 		
 		app.buttons["2"].tap()
 		app.buttons["4"].tap()
@@ -54,19 +55,23 @@ class CalmMoneySnapshots: XCTestCase {
 		app.buttons["2"].tap()
 		
 		snapshot("01NumPad")
-		
 		expenseButton.tap()
 		
 		snapshot("02Categories")
-		
+
 		app.collectionViews.cells.element(boundBy: 4).tap()
+		
+		
 		app.buttons["2"].tap() // silent
 		app.buttons["2"].tap()
 		app.buttons["5"].tap()
 		app.buttons["0"].tap()
 		app.buttons["0"].tap()
+		
 		expenseButton.tap()
+		
 		app.collectionViews.cells.element(boundBy: 5).tap()
+		
 		
 		app.otherElements.matching(identifier: "currencySelector").element(boundBy: 0).tap()
 		app.tables.cells.element(boundBy: 0).tap()
@@ -76,6 +81,7 @@ class CalmMoneySnapshots: XCTestCase {
 		app.buttons["0"].tap()
 		expenseButton.tap()
 		app.collectionViews.cells.element(boundBy: 0).tap()
+	
 		
 		app.buttons["3"].tap()
 		app.buttons["5"].tap() // silent
@@ -119,11 +125,12 @@ class CalmMoneySnapshots: XCTestCase {
 		app.tables.cells.matching(identifier: "transactionsListCell").element(boundBy: 0).tap()
 		snapshot("04Transactions")
 		
+		
 		app.tables.cells.element(boundBy: 0).tap()
 		snapshot("05Edit")
 
 		
-		
+
 		converterTabButton.tap()
 		
 		let addAnotherCurrencyButton = app.buttons.matching(identifier: "addCurrencyToConverter").element(boundBy: 0)
@@ -160,7 +167,7 @@ class CalmMoneySnapshots: XCTestCase {
 		textField.typeText("138")
 		app.tables.staticTexts["SGD"].tap()
 		snapshot("06Converter")
-		
+		*/
 	}
 	
 	/*

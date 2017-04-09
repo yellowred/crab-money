@@ -122,6 +122,8 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		}
 		cell.categoryName.text = category.name
 		cell.categoryAmount.text = finmath!.getCategoryAmountForPeriod(category).formatToMoney()
+		
+//		print("Cell: \(indexPath), color: \(String(describing: category.getColor()))")
 		return cell
     }
 	
@@ -148,14 +150,6 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return CGFloat(kCategoryCellHeight)
 	}
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
 	
 	
 	func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -179,6 +173,14 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		return [delete, edit]
 	}
 	
+	
+	override func setEditing(_ editing: Bool, animated: Bool) {
+		super.setEditing(editing, animated: animated)
+		if (!editing) {
+			print("Editing: \(editing)")
+			self.tableView.reloadData()
+		}
+	}
 	
 	func showEditCateory(indexPath: IndexPath) {
 		if indexPath.section == 0 && self.earningCategories.count > 0 {
@@ -235,6 +237,7 @@ class InsightsCategoriesTableViewController: UITableViewController, Transactions
 		}
 		self.app().model.saveStorage()
 		self.tableView.reloadData()
+		// tableView.reloadRows(at: [indexPath], with: .top)
 	}
 	
 	func getCategory() -> Category {

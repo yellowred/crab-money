@@ -68,7 +68,7 @@ class CrabAppUITests: XCTestCase {
 		tablesQuery.cells.element(boundBy: 0).swipeLeft()
 		let beforeCellsCount = tablesQuery.cells.count
 		tablesQuery.buttons["Delete"].tap()
-		XCTAssertEqual(tablesQuery.cells.count + 1, beforeCellsCount, "before=\(beforeCellsCount), after=\(tablesQuery.cells.count)")
+		XCTAssertEqual(tablesQuery.cells.count.advanced(by: 1), beforeCellsCount, "before=\(beforeCellsCount), after=\(tablesQuery.cells.count)")
 		
 	}
 	
@@ -84,7 +84,7 @@ class CrabAppUITests: XCTestCase {
 		
 		tablesQuery.buttons["Add another currency"].tap()
 		tablesQuery.cells.element(boundBy: 0).tap()
-		XCTAssertEqual(tablesQuery.cells.count, beforeCellsCount + 1, "before=\(beforeCellsCount), after=\(tablesQuery.cells.count)")
+		XCTAssertEqual(tablesQuery.cells.count, beforeCellsCount.advanced(by: 1), "before=\(beforeCellsCount), after=\(tablesQuery.cells.count)")
 
 		let textField = tablesQuery.cells.containing(.staticText, identifier:"EUR").children(matching: .textField).element
 		textField.tap()

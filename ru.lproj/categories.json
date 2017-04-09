@@ -1,14 +1,14 @@
 [
-	{"name": "Еда", "type": "expense"},
-	{"name": "Ресторан", "type": "expense"},
-	{"name": "Транспорт", "type": "expense"},
-	{"name": "Коммунальные платежи", "type": "expense"},
-	{"name": "Дом", "type": "expense"},
-	{"name": "Здоровье", "type": "expense"},
-	{"name": "Подарки", "type": "expense"},
-	{"name": "Чай", "type": "expense"},
-	{"name": "Спорт", "type": "expense"},
+	{"name": "Еда", "type": "expense", "color": 1},
+	{"name": "Ресторан", "type": "expense", "color": 2},
+	{"name": "Транспорт", "type": "expense", "color": 3},
+	{"name": "Коммунальные платежи", "type": "expense", "color": 4},
+	{"name": "Дом", "type": "expense", "color": 5},
+	{"name": "Здоровье", "type": "expense", "color": 6},
+	{"name": "Подарки", "type": "expense", "color": 7},
+	{"name": "Чай", "type": "expense", "color": 8},
+	{"name": "Спорт", "type": "expense", "color": 9},
 
-	{"name": "Зарплата", "type": "earning"},
-	{"name": "Продажи", "type": "earning"}
+	{"name": "Зарплата", "type": "earning", "color": 10},
+	{"name": "Продажи", "type": "earning", "color": 11}
 ]
