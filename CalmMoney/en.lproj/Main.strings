@@ -8,9 +8,6 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "30c-lm-KYf"; */
 "30c-lm-KYf.text" = "Label";
 
-/* Class = "UILabel"; text = "Category name"; ObjectID = "3Ah-j1-KfZ"; */
-"3Ah-j1-KfZ.text" = "Category name";
-
 /* Class = "UIButton"; accessibilityLabel = "Previous"; ObjectID = "3sp-Zk-3MF"; */
 "3sp-Zk-3MF.accessibilityLabel" = "Previous";
 
@@ -67,9 +64,6 @@
 
 /* Class = "UIButton"; normalTitle = ">"; ObjectID = "GEw-zA-NSZ"; */
 "GEw-zA-NSZ.normalTitle" = ">";
-
-/* Class = "UIBarButtonItem"; title = "All categories"; ObjectID = "GNh-A3-S0j"; */
-"GNh-A3-S0j.title" = "All categories";
 
 /* Class = "UINavigationItem"; title = "Budget"; ObjectID = "Gen-7d-mY4"; */
 "Gen-7d-mY4.title" = "Budget";
@@ -131,6 +125,9 @@
 /* Class = "UITabBarItem"; title = "Add"; ObjectID = "OLP-8p-Qoi"; */
 "OLP-8p-Qoi.title" = "Add";
 
+/* Class = "UIBarButtonItem"; title = "Insights"; ObjectID = "ONW-Eu-dND"; */
+"ONW-Eu-dND.title" = "Insights";
+
 /* Class = "UITableViewSection"; headerTitle = "Home currency"; ObjectID = "OVX-l5-VRT"; */
 "OVX-l5-VRT.headerTitle" = "Home currency";
 
@@ -173,17 +170,20 @@
 /* Class = "UINavigationItem"; title = "Add transaction"; ObjectID = "Y9u-wn-l1q"; */
 "Y9u-wn-l1q.title" = "Add transaction";
 
+/* Class = "UILabel"; text = "Export to Excel"; ObjectID = "YcQ-wo-dp2"; */
+"YcQ-wo-dp2.text" = "Export to Excel";
+
 /* Class = "UILabel"; text = "Very long category name"; ObjectID = "Zgu-am-kg5"; */
 "Zgu-am-kg5.text" = "Very long category name";
-
-/* Class = "UILabel"; text = "Expense category"; ObjectID = "Zki-kB-BvS"; */
-"Zki-kB-BvS.text" = "Expense category";
 
 /* Class = "UINavigationItem"; title = "Choose a currency"; ObjectID = "aBO-NV-rGm"; */
 "aBO-NV-rGm.title" = "Choose a currency";
 
 /* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "aDu-2d-nLf"; */
 "aDu-2d-nLf.title" = "Profile";
+
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "bDG-b4-22E"; */
+"bDG-b4-22E.title" = "Categories";
 
 /* Class = "UINavigationItem"; title = "Edit transaction"; ObjectID = "d2n-bK-cvR"; */
 "d2n-bK-cvR.title" = "Edit transaction";
@@ -205,9 +205,6 @@
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "fow-F6-4yA"; */
 "fow-F6-4yA.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
-
-/* Class = "UITableViewSection"; headerTitle = "Calendar period"; ObjectID = "ger-Ng-VvM"; */
-"ger-Ng-VvM.headerTitle" = "Calendar period";
 
 /* Class = "UIButton"; normalTitle = "3"; ObjectID = "h7U-Y2-VQc"; */
 "h7U-Y2-VQc.normalTitle" = "3";
@@ -236,8 +233,8 @@
 /* Class = "UIButton"; normalTitle = "8"; ObjectID = "lY1-ql-QzA"; */
 "lY1-ql-QzA.normalTitle" = "8";
 
-/* Class = "UILabel"; text = "17 Nov – 17 Dec, 16"; ObjectID = "mK8-8b-kHz"; */
-"mK8-8b-kHz.text" = "17 Nov – 17 Dec, 16";
+/* Class = "UITableViewSection"; headerTitle = "Transactions history"; ObjectID = "mGf-5X-L8n"; */
+"mGf-5X-L8n.headerTitle" = "Transactions history";
 
 /* Class = "UIButton"; normalTitle = "7"; ObjectID = "mvw-pT-1b3"; */
 "mvw-pT-1b3.normalTitle" = "7";
@@ -275,9 +272,6 @@
 /* Class = "UIButton"; accessibilityLabel = "Next"; ObjectID = "vnK-zw-uTk"; */
 "vnK-zw-uTk.accessibilityLabel" = "Next";
 
-/* Class = "UINavigationItem"; title = "Add category"; ObjectID = "wm6-Wp-EK9"; */
-"wm6-Wp-EK9.title" = "Add category";
-
 /* Class = "UILabel"; text = "Category name"; ObjectID = "yM5-L0-jZ2"; */
 "yM5-L0-jZ2.text" = "Category name";
 
@@ -292,9 +286,3 @@
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "zzC-9F-Lmt"; */
 "zzC-9F-Lmt.title" = "Back";
-
-/* Class = "UILabel"; text = "Export to Excel"; ObjectID = "YcQ-wo-dp2"; */
-"YcQ-wo-dp2.text" = "Export to Excel";
-
-/* Class = "UITableViewSection"; headerTitle = "Transactions history"; ObjectID = "mGf-5X-L8n"; */
-"mGf-5X-L8n.headerTitle" = "Transactions history";

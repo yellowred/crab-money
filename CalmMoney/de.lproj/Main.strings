@@ -185,6 +185,9 @@
 /* Class = "UINavigationItem"; title = "Choose a currency"; ObjectID = "aBO-NV-rGm"; */
 "aBO-NV-rGm.title" = "Wählen Sie eine Währung";
 
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "bDG-b4-22E"; */
+"bDG-b4-22E.title" = "Kategorien";
+
 /* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "aDu-2d-nLf"; */
 "aDu-2d-nLf.title" = "Profil";
 
