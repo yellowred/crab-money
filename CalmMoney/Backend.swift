@@ -34,13 +34,13 @@ class Backend {
 	
 	
 	func updateRates(model: Model, completionHandler: ((Array<Any>) -> Void)?) {
-		if Purchase().isPurchasedConverter() {
-			let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
+		let lastUpdateTime = self.app().model.getEventTime(Backend.kEventUpdateAll)
+		if (Purchase().isPurchasedConverter() || lastUpdateTime == nil) {
 			if (lastUpdateTime == nil || lastUpdateTime!.getHoursTo(Date()) > Backend.kEventUpdateAllMinHours)
 			{
 				print("*** Backend: updateRates")
-				print(Backend.API_URL + "currencies")
-				Alamofire.request(Backend.API_URL + "currencies").responseJSON() {
+				print(Backend.API_URL + "currencies?filter[fields][code]=true&filter[fields][rate]=true")
+				Alamofire.request(Backend.API_URL + "currencies?filter[fields][code]=true&filter[fields][rate]=true").responseJSON() {
 					response in
 					var array:Array<NSDictionary> = []
 					if (response.result.isSuccess) {

@@ -154,6 +154,8 @@
 "ERN_currency_name" = "Eritrean nakfa";
 /*Translated from: Ethiopian birr*/
 "ETB_currency_name" = "Ethiopian birr";
+/*Translated from: Ethereum*/
+"ETH_currency_name" = "Ethereum";
 /*Translated from: European Union euros*/
 "EUR_currency_name" = "European Union euros";
 /*Translated from: Fijian dollars*/

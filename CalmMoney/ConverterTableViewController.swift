@@ -327,8 +327,6 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
 		if section == 0 {
 			if let lastUpdateTime = app().model.getEventTime(Networking.sharedInstance.kEventUpdateAll) {
 				return "Last updated on ".localized + lastUpdateTime.formatWithTimeLong() + "."
-			} else if !Purchase().canUseConverter() {
-				return "Trial period.".localized
 			} else {
 				return "Connect to the internet to update currency rates.".localized
 			}

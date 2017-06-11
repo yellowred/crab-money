@@ -230,6 +230,9 @@
 /*Translated from: Ethiopian birr*/
 "ETB_currency_name" = "Äthiopische birr";
 
+/*Translated from: Ethereum*/
+"ETH_currency_name" = "Ethereum";
+
 /*Translated from: European Union euros*/
 "EUR_currency_name" = "Europäischen Union Euro";
 
