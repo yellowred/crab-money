@@ -313,9 +313,33 @@ class ConverterTableViewController: UITableViewController, CurrencySelectDelegat
         } else {
             let cellIdentifier = kCurrencyAddCell
             cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CurrencyAddTableViewCell
+			cell.backgroundColor = UIColor.clear
+//			cell.separatorInset = UIEdgeInsets(top: 0, left: tableView.bounds.size.width, bottom: 0, right: 0)
+			let addCurrencyButton = (cell as! CurrencyAddTableViewCell).addCurrency!
+			addCurrencyButton.setBackgroundImage(self.imageWithColorToButton(colorButton: UIColor.addAnotherCurrency()), for: .normal)
+			addCurrencyButton.setBackgroundImage(self.imageWithColorToButton(colorButton: UIColor.addAnotherCurrency()), for: UIControlState.highlighted)
+//			addCurrencyButton.setTitleColor(UIColor.white, for: .normal)
+			addCurrencyButton.layer.borderColor = UIColor.addAnotherCurrency().cgColor
+			addCurrencyButton.layer.borderWidth = 1.0
+			addCurrencyButton.layer.cornerRadius = cell.bounds.height/2*0.8
+			addCurrencyButton.layer.masksToBounds = true
         }
         return cell
     }
+	
+	
+	func imageWithColorToButton(colorButton: UIColor) -> UIImage
+	{
+		let rect: CGRect = CGRect.init(x: 0, y: 0, width: 1, height: 1)
+		UIGraphicsBeginImageContext(rect.size)
+		let context: CGContext = UIGraphicsGetCurrentContext()!
+		context.setFillColor(colorButton.cgColor)
+		context.fill(rect)
+		let imageReturn: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+		UIGraphicsEndImageContext()
+		
+		return imageReturn
+	}
 	
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
