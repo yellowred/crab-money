@@ -1,0 +1,1 @@
+This software is provided "as is" for informational purposes, free to use and without any responsibility from the author.
